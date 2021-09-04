@@ -1,6 +1,8 @@
 ---
 title: "使用 Github Actions 自动化部署 Hugo 博客"
 date: 2021-09-04T15:47:24+08:00
+tags: ["教程", "Hugo", "Github Actions"]
+categories: ["技术分享"]
 draft: false
 ---
 
