@@ -4,6 +4,7 @@ title: Qiming 的博客
 theme: PaperMod
 
 params:
+  ShowReadingTime: true
   ShowCodeCopyButtons: true
 
 menu:
