@@ -4,6 +4,20 @@ title: Qiming 的博客
 theme: PaperMod
 
 params:
+  homeInfoParams:
+    Title: Qiming 的博客
+    Content: HFUTer
+
+  socialIcons:
+    - name: "Github"
+      url: "https://github.com/xqm32"
+    - name: "Stackoverflow"
+      url: "https://stackoverflow.com/users/16325470"
+    - name: "Telegram"
+      url: "https://t.me/xqm32"
+    - name: "Steam"
+      url: "https://steamcommunity.com/id/xqm32"
+
   ShowReadingTime: true
   ShowCodeCopyButtons: true
 
