@@ -4,6 +4,9 @@ title: Qiming 的博客
 theme: PaperMod
 
 params:
+  ShowReadingTime: true
+  ShowCodeCopyButtons: true
+
   homeInfoParams:
     Title: Qiming 的博客
     Content: HFUTer
@@ -17,9 +20,6 @@ params:
       url: "https://t.me/xqm32"
     - name: "Steam"
       url: "https://steamcommunity.com/id/xqm32"
-
-  ShowReadingTime: true
-  ShowCodeCopyButtons: true
 
 menu:
   main:
