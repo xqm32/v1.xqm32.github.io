@@ -71,6 +71,18 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>C 语言实现字符串切片</h2>
+</header>
+<section class=entry-content>
+<p>搬运一篇笔者在知乎发的文章：C 语言实现字符串切片
+基于 Python 的切片的格式实现的 C 语言字符串切片：
+#include &lt;ctype.h>#include &lt;stdio.h>#include &lt;stdlib.h>#include &lt;string.h> typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\n' && !feof(stream) && --size > 0; ++i, *++dest = fgetc(stream)) ; *dest = '\0'; return i; } // 读取一行字符串。 size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin &lt; 0 ?...</p>
+</section>
+<footer class=entry-footer>September 4, 2021&nbsp;·&nbsp;2 min</footer>
+<a class=entry-link aria-label="post link to C 语言实现字符串切片" href=http://xqm32.github.io/posts/slicing-string-in-c-language/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>使用 Github Actions 自动化部署 Hugo 博客</h2>
 </header>
 <section class=entry-content>
