@@ -5,4 +5,4 @@
 其次，我们需要在电脑上安装 Git 和 Hugo（注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误），请参考 此文档 进行安装。
 之后，我们将使用 Hugo 在本地创建网站，名称建议使用 username.github.io（其中 username 是你的 Github ID），具体的方法请参照 此文档。
 Github Actions 在完成准备工作后，我们需要在本地创建网站的文件夹中建立 .github/workflows/gh-pages.yml 文件，在其中填入（此代码参考 Hugo 文档中 Host on GitHub 一项）：
-name: github pages on: push: branches: - main # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20.</description></item><item><title>分类</title><link>http://xqm32.github.io/categories/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://xqm32.github.io/categories/</guid><description/></item><item><title>标签</title><link>http://xqm32.github.io/tags/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://xqm32.github.io/tags/</guid><description/></item></channel></rss>
+name: github pages on: push: branches: - main # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20.</description></item></channel></rss>
