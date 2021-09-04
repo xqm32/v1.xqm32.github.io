@@ -3,6 +3,9 @@ languageCode: zh-cn
 title: Qiming 的博客
 theme: PaperMod
 
+params:
+  ShowCodeCopyButtons: true
+
 menu:
   main:
     - identifier: categories
