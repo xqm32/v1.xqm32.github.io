@@ -14,7 +14,7 @@ draft: false
 
 首先，我们需要创建可以用于部署 Hugo 博客的 Github 仓库，具体的操作可以参考 [GitHub Pages 文档](https://docs.github.com/en/pages) 。
 
-其次，我们需要在电脑上安装 Git 和 Hugo**（注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误）**，请参考 [此文档](https://gohugo.io/getting-started/installing/) 进行安装。
+其次，我们需要在电脑上安装 Git 和 Hugo（**注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误**），请参考 [此文档](https://gohugo.io/getting-started/installing/) 进行安装。
 
 之后，我们将使用 Hugo 在本地创建网站，名称建议使用 `username.github.io`（其中 `username` 是你的 Github ID），具体的方法请参照 [此文档](https://gohugo.io/getting-started/quick-start/)。
 
