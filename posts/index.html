@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=zh dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -6,7 +6,7 @@
 <title>Posts | Qiming 的博客</title>
 <meta name=keywords content>
 <meta name=description content="Posts - Qiming 的博客">
-<meta name=author content>
+<meta name=author content="Qiming Xu">
 <link rel=canonical href=http://xqm32.github.io/posts/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.00d5d4fc479b1575183ee8d86b4fb372ba9d9b1904e96fa8e4c40ff7debe2b94.css integrity="sha256-ANXU/EebFXUYPujYa0+zcrqdmxkE6W+o5MQP996+K5Q=" rel="preload stylesheet" as=style>
 <link rel=icon href=http://xqm32.github.io/favicon.ico>
@@ -16,15 +16,15 @@
 <link rel=mask-icon href=http://xqm32.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.88.0">
+<meta name=generator content="Hugo 0.88.1">
 <link rel=alternate type=application/rss+xml href=http://xqm32.github.io/posts/index.xml>
 <meta property="og:title" content="Posts">
-<meta property="og:description" content>
+<meta property="og:description" content="Qiming 的博客">
 <meta property="og:type" content="website">
 <meta property="og:url" content="http://xqm32.github.io/posts/">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Posts">
-<meta name=twitter:description content>
+<meta name=twitter:description content="Qiming 的博客">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://xqm32.github.io/posts/"}]}</script>
 </head>
 <body class=list id=top>
@@ -79,7 +79,7 @@
 基于 Python 的切片的格式实现的 C 语言字符串切片：
 #include &lt;ctype.h>#include &lt;stdio.h>#include &lt;stdlib.h>#include &lt;string.h> typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\n' && !feof(stream) && --size > 0; ++i, *++dest = fgetc(stream)) ; *dest = '\0'; return i; } // 读取一行字符串。 size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin &lt; 0 ?...</p>
 </section>
-<footer class=entry-footer>September 4, 2021&nbsp;·&nbsp;2 min</footer>
+<footer class=entry-footer>2021-09-04 16:33:50&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</footer>
 <a class=entry-link aria-label="post link to C 语言实现字符串切片" href=http://xqm32.github.io/posts/slicing-string-in-c-language/></a>
 </article>
 <article class=post-entry>
@@ -94,7 +94,7 @@
 Github Actions 在完成准备工作后，我们需要在本地创建网站的文件夹中建立 .github/workflows/gh-pages.yml 文件，在其中填入（此代码参考 Hugo 文档中 Host on GitHub 一项）：
 name: github pages on: push: branches: - main # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20....</p>
 </section>
-<footer class=entry-footer>September 4, 2021&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer>2021-09-04 15:47:24&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Qiming Xu</footer>
 <a class=entry-link aria-label="post link to 使用 Github Actions 自动化部署 Hugo 博客" href=http://xqm32.github.io/posts/deploy-hugo-via-github-actions/></a>
 </article>
 </main>
