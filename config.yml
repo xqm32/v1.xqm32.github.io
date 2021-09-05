@@ -4,9 +4,19 @@ languageCode: zh-cn
 title: Qiming 的博客
 theme: PaperMod
 
+enableGitinfo: true
+
 params:
+  env: production
+  description: "Qiming 的博客"
+  author: "Qiming Xu"
+
+  DateFormat: "2006-01-02 15:04:05"
+  defalutTheme: auto
+
   ShowReadingTime: true
   ShowCodeCopyButtons: true
+  showtoc: ture
 
   homeInfoParams:
     Title: Qiming 的博客
