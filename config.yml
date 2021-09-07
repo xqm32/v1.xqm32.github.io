@@ -20,7 +20,12 @@ params:
 
   homeInfoParams:
     Title: Qiming 的博客
-    Content: HFUTer
+    Content: >
+      - 学生，[HFUTer](https://www.hfut.edu.cn) 🏫
+
+      - 分享技术、分享生活 😀
+
+      - 👇 我的 Github，给我一个 ⭐ 吧
 
   socialIcons:
     - name: "Github"
