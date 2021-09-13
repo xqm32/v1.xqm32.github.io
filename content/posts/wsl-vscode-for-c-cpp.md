@@ -20,7 +20,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
 ## 更新至 WSL 2
 
-**注意：**若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
+**注意**：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
 
 - 对于 x64 系统：**版本 1903** 或更高版本，采用 **内部版本 18362** 或更高版本。
 - 对于 ARM64 系统：**版本 2004** 或更高版本，采用 **内部版本 19041** 或更高版本。
@@ -59,7 +59,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 sudo apt-get install gcc g++
 ```
 
-**注意：**在安装之前，可能需要进行包的更新，可使用如下命令更新：
+**注意**：在安装之前，可能需要进行包的更新，可使用如下命令更新：
 
 ```bash
 sudo apt-get update
