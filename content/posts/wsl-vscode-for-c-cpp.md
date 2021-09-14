@@ -42,7 +42,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 ## 安装并配置 Linux 发行版
 
-打开 **Microsoft Store**，安装一个 Linux 发行版，并打开此发行版，后按找提示进行操作即可。
+打开 **Microsoft Store**，安装一个 Linux 发行版，并打开此发行版，后按照提示进行操作即可。
 
 **对于 Linux 的相关操作，请自行搜索。**
 
