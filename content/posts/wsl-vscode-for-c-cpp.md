@@ -44,6 +44,8 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 打开 **Microsoft Store**，安装一个 Linux 发行版，并打开此发行版，后按找提示进行操作即可。
 
+**对于 Linux 的相关操作，请自行搜索。**
+
 ## 更改 WSL 的镜像源
 
 使用默认的源下载软件是较为缓慢的，因而我们需要更换更快速的镜像。在国内，我们常用的是 [清华大学](https://www.tsinghua.edu.cn/) 和 [中国科学技术大学](https://www.ustc.edu.cn/) 的镜像。请确认 WSL 的发行版，根据需求选择要使用的镜像：
@@ -81,3 +83,45 @@ sudo apt-get upgrade
 对于 C/C++，我们可以在拓展中搜索 C++，以安装其有关拓展（包含了语法高亮、调试等功能）。
 
 更多的 WSL 与 VS Code 共同使用的小技巧的注意事项，请参考 [开始使用 WSL VS Code](https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode)
+
+## 使用 WSL 和 VS Code 编写 Hello world! 程序
+
+首先，需要进入存放源代码的文件夹，请读者自行建立，或在 Home 文件夹直接进行。
+
+运行如下命令，创建 `main.c` 源文件（提示：在 Linux 下键入命令时，请善用 `Tab` 键自动补全）：
+
+```bash
+touch main.c
+```
+
+在 VS Code 中，点击左下角**打开远程窗口**按钮，选择 `New WSL Window` 即可连接至 WSL。打开存放 `main.c` 的文件夹，使用 VS Code 编辑 `main.c` 文件，填入如下内容：
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello world!\n");
+}
+```
+
+按下 `ctrl` + <code>`</code> 打开命令行终端，输入以下命令编译此程序：
+
+```bash
+gcc main.c
+```
+
+此时，输入 `ls` 命令，我们可以看到当前目录下已经生成了一个名为 `a.out` 的可执行文件。
+
+我们执行这个程序（**注意**：`./` 是不可缺少的，具体原因请自行搜索，这里不再赘述）：
+
+```bash
+./a.out
+```
+
+可以看到输出：
+
+```bash
+Hello world!
+```
+
+更多 Linux 常用命令请自行于网络上搜索。
