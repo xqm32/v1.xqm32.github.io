@@ -3,11 +3,11 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>文章 | Qiming 的博客</title>
+<title>HFUT | Qiming 的博客</title>
 <meta name=keywords content>
-<meta name=description content="文章 - Qiming 的博客">
+<meta name=description content="Qiming 的博客">
 <meta name=author content="Qiming Xu">
-<link rel=canonical href=http://xqm32.github.io/posts/>
+<link rel=canonical href=http://xqm32.github.io/tags/hfut/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.00d5d4fc479b1575183ee8d86b4fb372ba9d9b1904e96fa8e4c40ff7debe2b94.css integrity="sha256-ANXU/EebFXUYPujYa0+zcrqdmxkE6W+o5MQP996+K5Q=" rel="preload stylesheet" as=style>
 <link rel=icon href=http://xqm32.github.io/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=http://xqm32.github.io/favicon-16x16.png>
@@ -17,15 +17,14 @@
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.89.2">
-<link rel=alternate type=application/rss+xml href=http://xqm32.github.io/posts/index.xml>
-<meta property="og:title" content="文章">
+<link rel=alternate type=application/rss+xml href=http://xqm32.github.io/tags/hfut/index.xml>
+<meta property="og:title" content="HFUT">
 <meta property="og:description" content="Qiming 的博客">
 <meta property="og:type" content="website">
-<meta property="og:url" content="http://xqm32.github.io/posts/">
+<meta property="og:url" content="http://xqm32.github.io/tags/hfut/">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="文章">
+<meta name=twitter:title content="HFUT">
 <meta name=twitter:description content="Qiming 的博客">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"http://xqm32.github.io/posts/"}]}</script>
 </head>
 <body class=list id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -45,7 +44,7 @@
 <ul id=menu>
 <li>
 <a href=http://xqm32.github.io/posts/ title=文章>
-<span class=active>文章</span>
+<span>文章</span>
 </a>
 </li>
 <li>
@@ -73,9 +72,9 @@
 </header>
 <main class=main>
 <header class=page-header>
-<h1>文章</h1>
+<h1>HFUT</h1>
 </header>
-<article class=post-entry>
+<article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Java 课程知识点总结</h2>
 </header>
@@ -98,47 +97,6 @@ Java 与 C++ 的比较：
 </section>
 <footer class=entry-footer>2021-11-14 17:34:20&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;Qiming Xu</footer>
 <a class=entry-link aria-label="post link to Java 课程知识点总结" href=http://xqm32.github.io/posts/java-course-knowledge-points/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>使用 WSL 和 VS Code 配置 C/C++ 开发环境</h2>
-</header>
-<section class=entry-content>
-<p>本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。
-启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。
-更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
-对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。 启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：...</p>
-</section>
-<footer class=entry-footer>2021-09-13 19:03:23&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</footer>
-<a class=entry-link aria-label="post link to 使用 WSL 和 VS Code 配置 C/C++ 开发环境" href=http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>C 语言实现字符串切片</h2>
-</header>
-<section class=entry-content>
-<p>搬运一篇笔者在知乎发的文章：C 语言实现字符串切片
-基于 Python 的切片的格式实现的 C 语言字符串切片：
-#include &lt;ctype.h>#include &lt;stdio.h>#include &lt;stdlib.h>#include &lt;string.h> typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\n' && !feof(stream) && --size > 0; ++i, *++dest = fgetc(stream)) ; *dest = '\0'; return i; } // 读取一行字符串。 size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin &lt; 0 ?...</p>
-</section>
-<footer class=entry-footer>2021-09-04 16:33:50&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</footer>
-<a class=entry-link aria-label="post link to C 语言实现字符串切片" href=http://xqm32.github.io/posts/slicing-string-in-c-language/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>使用 Github Actions 自动化部署 Hugo 博客</h2>
-</header>
-<section class=entry-content>
-<p>笔者一直想有个属于自己的博客，通过在网上不断搜索，笔者发现使用 Hugo 部署至 Github Pages 上是一个不错的选择。但是，这样的部署也有一个缺陷：需要手动生成部署文件，再上传至 Github，这是十分麻烦的。因此笔者又在网上搜索文档、文章，后来了解到，可以使用 Github Actions 进行自动化部署，我们只需要将网站源码推送至 Github 便可以自动化地生成博客网站。不过，虽然在操作上是方便了许多，但如何配置这样的自动化部署似乎依旧是一个复杂的问题。于是笔者继续在网上搜索文档和文章，但大部分都没有给出较为「官方」的解决方案，也很少有参考资料可供加深了解，故而笔者转向寻求 Hugo 文档 的帮助，最终做到了使用 Github Actions 自动化部署 Hugo 博客。
-准备工作 首先，我们需要创建可以用于部署 Hugo 博客的 Github 仓库，具体的操作可以参考 GitHub Pages 文档 。
-其次，我们需要在电脑上安装 Git 和 Hugo（注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误），请参考 此文档 进行安装。
-之后，我们将使用 Hugo 在本地创建网站，名称建议使用 username.github.io（其中 username 是你的 Github ID），具体的方法请参照 此文档。
-Github Actions 在完成准备工作后，我们需要在本地创建网站的文件夹中建立 .github/workflows/gh-pages.yml 文件，在其中填入（此代码参考 Hugo 文档中 Host on GitHub 一项）：
-name: github pages on: push: branches: - main # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20....</p>
-</section>
-<footer class=entry-footer>2021-09-04 15:47:24&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Qiming Xu</footer>
-<a class=entry-link aria-label="post link to 使用 Github Actions 自动化部署 Hugo 博客" href=http://xqm32.github.io/posts/deploy-hugo-via-github-actions/></a>
 </article>
 </main>
 <footer class=footer>

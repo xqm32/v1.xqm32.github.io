@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>技术分享 on Qiming 的博客</title><link>http://xqm32.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</link><description>Recent content in 技术分享 on Qiming 的博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 13 Sep 2021 19:03:23 +0800</lastBuildDate><atom:link href="http://xqm32.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</link><pubDate>Mon, 13 Sep 2021 19:03:23 +0800</pubDate><guid>http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</guid><description>本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>技术分享 on Qiming 的博客</title><link>http://xqm32.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</link><description>Recent content in 技术分享 on Qiming 的博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 14 Nov 2021 17:34:20 +0800</lastBuildDate><atom:link href="http://xqm32.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml"/><item><title>Java 课程知识点总结</title><link>http://xqm32.github.io/posts/java-course-knowledge-points/</link><pubDate>Sun, 14 Nov 2021 17:34:20 +0800</pubDate><guid>http://xqm32.github.io/posts/java-course-knowledge-points/</guid><description>注意：本文章是合肥工业大学《Java 语言程序设计》课程的知识点总结，笔者不保证内容的准确性，请谨慎参考。
+Java 课程知识点 概述 Java 发展历史：
+① 1990 年代初由 Sun 公司开发，最初被命名为 Oak，用于家用电器；
+② 1995 年，Sun 改造了 Oak，以 Java 的名称正式发布，广泛应用于互联网。
+J2ME、J2SE、J2EE：
+J2ME：Java 2 Platform, Micro Edition，应用于嵌入式（embedded）及移动设备（mobile device）；
+J2SE：Java 2 Platform, Standard Edition，应用于桌面（desktop）及服务器（server）环境；
+J2EE：Java 2 Platform, Enterprise Edition，应用于分布式计算（distributed computing）及网络服务（web services），是 J2SE 的拓展。
+Java 语言的特点：
+开放、简单、健壮、安全、面向网络、完全的面向对象编程（OOP）、跨平台（WORA）；
+WORA：Write One, Run Anywhere
+Java 与 C++ 的比较：
+① Java 无指针；
+② Java 无结构体和联合体；
+③ Java 无运算符重载；</description></item><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</link><pubDate>Mon, 13 Sep 2021 19:03:23 +0800</pubDate><guid>http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</guid><description>本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。
 启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。
 更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
