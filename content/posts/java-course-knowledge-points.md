@@ -6,7 +6,9 @@ categories: ["技术分享"]
 draft: false
 ---
 
-**注意：本文是合肥工业大学《Java 语言程序设计》课程的知识点总结，笔者不保证内容的准确性，请谨慎参考，若文中有问题请[提 Issue](https://github.com/xqm32/xqm32.github.io/issues/new)。**
+**注意：本文是合肥工业大学软件工程专业《Java 语言程序设计》课程的知识点总结，基于课程老师给出的知识点总结，笔者不保证内容的准确性，请谨慎参考。**
+
+**若文中存在任何问题或有任何疑问请前往 [Issue](https://github.com/xqm32/xqm32.github.io/issues/new) 页面。**
 
 # Java 课程知识点
 
@@ -59,6 +61,8 @@ draft: false
 6. `Java` 源代码（`.java` 文件）由编译器（`javac`）编译为字节码（`.class` 文件）再由解释器（`java`）执行。
 
 7. 一份 `Java` 源代码可以包含多个类的定义，但仅能有一个 `public` 修饰的类，且文件名须与此类一致。
+
+   > A class may be declared with the modifier `public`, in which case that class is visible to all classes everywhere. If a class has no modifier (the default, also known as *package-private*), it is visible only within its own package (packages are named groups of related classes — you will learn about them in a later lesson.)
 
 8. `Java` 的编译器：`javac`，解释器：`java`。
 
@@ -137,6 +141,8 @@ draft: false
     | no modifier | Y     | Y       | N        | N     |
     | `private`   | Y     | N       | N        | N     |
 
+    （* 没有修饰符表示包内私有（package-private））
+
 25. [继承](https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html)：
 
     ① 除了没有父类的 `Object` 类，每一个类都**有且只有一个**父类（单重继承）；
@@ -157,13 +163,15 @@ draft: false
 
     [`this` 关键字](https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html)：用于区分自身属性和外部参数；
 
-    [`super` 关键字](https://docs.oracle.com/javase/tutorial/java/IandI/super.html)：用于重写时区分父类与子类的参数。
+    [`super` 关键字](https://docs.oracle.com/javase/tutorial/java/IandI/super.html)：用于重写时区分父类与子类的参数或调用父类的构造方法。
 
 28. [方法重写的原则](https://docs.oracle.com/javase/tutorial/java/IandI/override.html)：
 
     要满足[里氏替换原则](https://zh.wikipedia.org/wiki/里氏替换原则)，因而有 ① 访问权限不应比父类更严格；② 抛出的异常不应比父类更多。
 
-29. [多态](https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html)：运行时多态、编译时多态。
+29. [多态（polymorphism）](https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html)：运行时多态、编译时多态。
+
+    > The Java virtual machine (JVM) calls the appropriate method for the object that is referred to in each variable. It does not call the method that is defined by the variable's type. This behavior is referred to as *virtual method invocation* and demonstrates an aspect of the important polymorphism features in the Java language.
 
 30. 运行时多态的两个前提：① 上溯造型；② 方法重写。
 
@@ -178,10 +186,10 @@ draft: false
 ## [抽象](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html)
 
 32. [抽象（`abstract` 关键字）](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html)，可以修饰类和方法，也可修饰接口，但那是不必要的（unnecessary）。
-33. 抽象类：`abstract` 关键字修饰的类，不能实例化。
-34. 抽象方法：`abstract` 关键字修饰的方法，没有实现。
+33. 抽象类：`abstract` 关键字修饰的类，**不能实例化**（* 但不代表不能有一个抽象类型的变量）。
+34. 抽象方法：`abstract` 关键字修饰的方法，**没有实现**。
 35. 抽象类中有**任意数量**的抽象方法和**任意数量**的非抽象方法。
-36. 非抽象方法可以调用抽象方法（只有 `abstract` 关键字修饰的类拥有抽象方法）。
+36. 非抽象方法可以调用抽象方法（只有 `abstract` 关键字修饰的类拥有抽象方法）（* 由于实例必然是一个非抽象类，调用的抽象方法将一定被实现）。
 37. 非抽象子类应当实现继承的抽象父类的所有抽象方法和抽象父类的未实现的接口（只有 `abstract` 关键字修饰的类拥有抽象方法）。
 38. 抽象类存在的必要性：通过抽象方法规定子类必须完成的方法（动作）。
 
@@ -191,17 +199,19 @@ draft: false
 
     实现（`implements` 关键字）。
 
-40. 接口中的常量无需修饰，默认为 `public static final`；方法亦无需修饰，默认为 `public abstract`。
+40. 接口中的常量**无需修饰**，默认为 `public static final`；方法亦无需修饰，默认为 `public abstract`。
 
-41. 一个类可以实现多个接口，接口也可以实现接口。
+41. 一个类可以实现**多个**接口，接口也可以实现接口。
 
-42. 非抽象类应当实现接口的所有方法（\* 实际上 `default` 关键字修饰的无需实现）。
+42. 非抽象类应当实现接口的**所有方法**（* 可以理解为抽象只存在于抽象中，实际上 `default` 关键字修饰的无需实现）。
 
 ## [内部类](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)
 
-**注意**：内部类（inner class）不是静态嵌套类（static nested class）
+**注意**：内部类（inner class）**不是**静态嵌套类（static nested class）
 
-① 内部类不能有 `static` 修饰的成员（属性、方法）。
+① 内部类不能有 `static` 修饰的成员（属性、方法）（* 存疑，编译时无问题，但 Java Tutorial 明确说明）。
+
+> As with instance methods and variables, an inner class is associated with an instance of its enclosing class and has direct access to that object's methods and fields. Also, because an inner class is associated with an instance, it cannot define any static members itself.
 
 ② 内部类可以访问外部类的所有成员。
 
@@ -274,8 +284,11 @@ draft: false
     ④ [`Writer` 抽象类](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html)：以字符（character）为单位进行输出。
 
 55. 能够用字节流、字符流编写文件的拷贝程序。
+
 56. [`File` 类](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/File.html)：`File::File(String pathname)`。
+
 57. [`InputStreamReader` 类](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStreamReader.html)、[`OutputStreamWriter` 类](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStreamWriter.html)。
+
 58. [`BufferedReader` 类](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedReader.html)、[`BufferedWriter` 类](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html)。
 
 ## [多线程](https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html)
@@ -295,8 +308,11 @@ draft: false
 
 ## [网络编程](https://docs.oracle.com/javase/tutorial/networking/index.html)
 
-64. [`URL` 类](https://docs.oracle.com/javase/tutorial/networking/urls/index.html)，[`URL` 类读写](https://docs.oracle.com/javase/tutorial/networking/urls/readingWriting.html)。
-65. [`Socket` 类通信](https://docs.oracle.com/javase/tutorial/networking/sockets/definition.html)。
+64. [`URL` 类](https://docs.oracle.com/javase/tutorial/networking/urls/index.html)，[`URL` 类的 `API`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html)：
+
+    [`URL::openStream` 方法](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html#openStream())：返回一个字节输入流（`InputStream`）。
+
+65. [`Socket` 类通信](https://docs.oracle.com/javase/tutorial/networking/sockets/definition.html)，[`Socket` 类的 `API`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/Socket.html)，[`ServerSocket` 类的 `API`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/ServerSocket.html)。
 
 ## [GUI 编程](https://docs.oracle.com/javase/tutorial/uiswing/index.html)
 
@@ -309,5 +325,25 @@ draft: false
     `Panel`、`Applet` 容器的默认布局为 `FlowLayout`。
 
 68. 容器的常用方法 `add()`、`setLayout()`、`setSize()`。
+
 69. `AWT` 事件监听模型，参考 PPT。
+
 70. `Button` 的消息响应：可以参考 Java Tutorial 中的[例子](https://docs.oracle.com/javase/tutorial/uiswing/components/button.html)。
+
+## 知识点之外
+
+以下是除了课程老师给的知识点参考之外的知识点
+
+71. [Lambda 表达式](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)：
+
+    > A functional interface is any interface that contains only one [abstract method](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html). (A functional interface may contain one or more [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html) or [static methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html#static).) Because a functional interface contains only one abstract method, you can omit the name of that method when you implement it.
+
+    语法：`() -> {}`（* 亦可使用简写）；
+
+72. [`InputStream` 字节输入流](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html)、[`OutputStream` 字节输出流](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)的一些方法：
+
+    `InputStream::readAllBytes()`：读取所有的字节，返回一个字节数组；
+
+    `OutputStream::write(byte [])`：写入字节数组。
+
+73. `IOException` 是非运行时异常，必须被捕获。
