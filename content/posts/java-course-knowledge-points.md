@@ -82,7 +82,9 @@ draft: false
 
 12. `Java` 的数据类型：
 
-    [`Java` 的原始数据类型](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)（`byte`、`short`、`int`、`long`、`float`、`double`、`boolean`、`char`）、[`Java` 的数组](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html)、[`Java` 的类](https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html)、[`Java` 的接口](https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html)、[`Java` 的枚举类型](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)、[`Java` 的枚举类型](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)、[`Java` 的枚举类型](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)、[`Java` 的枚举类型](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)。
+    [`Java` 的原始数据类型](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)（`byte`、`short`、`int`、`long`、`float`、`double`、`boolean`、`char`）、[`Java` 的数组](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html)、[`Java` 的类](https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html)、[`Java` 的接口](https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html)、[`Java` 的枚举类型](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)；
+
+    `Java` 的原始数据类型使用值传递，`Java` 的复杂数据类型使用地址传递（* 笔者的理解是因为内存的占用，值传递和地址传递占用的内存大致相同）。
 
 13. `Java` 中的 `char` 类型使用 `2` 字节的 `Unicode` 编码。
 
@@ -92,9 +94,12 @@ draft: false
 
     `String` 的典型方法：`equals()`、`indexOf()`。
 
-16. `Java` 中的类型转换，遵循[里氏替换原则](https://zh.wikipedia.org/wiki/里氏替换原则)，精度损失视为错误。
+16. `Java` 中的类型转换：遵循[里氏替换原则](https://zh.wikipedia.org/wiki/里氏替换原则)，精度损失视为错误。
+
 17. [`Java` 中的数组](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html)，拥有内置的（built-in）`length` 属性。
+
 18. [`Java` 控制流中的分支语句](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html)：`break`、`continue` 可以控制带有标号的控制语句。
+
 19. 参考 PPT 中生成随机数数组的例题（\* 也可参考 Java Tutorial 中的例子）。
 
 ## [面向对象编程](https://docs.oracle.com/javase/tutorial/java/concepts/index.html)
@@ -120,6 +125,8 @@ draft: false
     ⑤ 若未定义构造方法，编译器将默认提供一个无参的构造方法。
 
     **注意**：构造方法不是成员。
+
+    > A subclass inherits all the *members* (fields, methods, and nested classes) from its superclass. **Constructors are not members**, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.
 
 24. [访问控制](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html)：
 
