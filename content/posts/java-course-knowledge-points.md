@@ -285,6 +285,10 @@ draft: false
 
 55. 能够用字节流、字符流编写文件的拷贝程序。
 
+    字节流：`InputStream::read()` 到达文件的终止位时将会返回 `-1`。
+
+    > If no byte is available because the end of the stream has been reached, the value `-1` is returned.
+
 56. [`File` 类](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/File.html)：`File::File(String pathname)`。
 
 57. [`InputStreamReader` 类](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStreamReader.html)、[`OutputStreamWriter` 类](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStreamWriter.html)。
