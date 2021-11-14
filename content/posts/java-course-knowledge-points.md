@@ -10,8 +10,6 @@ draft: false
 
 **若文中存在任何问题或有任何疑问请前往 [Issue](https://github.com/xqm32/xqm32.github.io/issues/new) 页面。**
 
-# Java 课程知识点
-
 ## [概述](https://docs.oracle.com/javase/tutorial/getStarted/intro/index.html)
 
 1. `Java` 发展历史：
