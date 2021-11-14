@@ -99,13 +99,13 @@ draft: false
 
 ## [面向对象编程](https://docs.oracle.com/javase/tutorial/java/concepts/index.html)
 
-20. 面向对象编程（OOP）的三大特征：**继承**、**封装**、**多态**
+20. 面向对象编程（OOP）的三大特征：**继承**、**封装**、**多态**。
 
-21. [类的声明](https://docs.oracle.com/javase/tutorial/java/javaOO/classdecl.html)、[成员变量的声明](https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html)、[方法的定义](https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html)
+21. [类的声明](https://docs.oracle.com/javase/tutorial/java/javaOO/classdecl.html)、[成员变量的声明](https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html)、[方法的定义](https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html)。
 
-22. [静态成员（类变量、类方法）](https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html)
+22. [静态成员（类变量、类方法）](https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html)：
 
-    不被推荐（discouraged）但正确的类方法的调用：`instanceName.methodName(args)`
+    不被推荐（discouraged）但正确的类方法的调用：`instanceName.methodName(args)`。
 
 23. [构造方法](https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html)：
 
@@ -132,13 +132,13 @@ draft: false
 
     **注意**：① 构造方法不是成员，故而不被子类继承，但可以被子类调用；② 嵌套类（nested class）可以访问其外部类的所有私有成员，因而子类可以通过其间接访问父类的成员。
 
-26. 重载（Overload）与[重写（Override）](https://docs.oracle.com/javase/tutorial/java/IandI/override.html)
+26. 重载（Overload）与[重写（Override）](https://docs.oracle.com/javase/tutorial/java/IandI/override.html)：
 
-    重载：重载的方法具有**相同**的方法名，**不同**的**参数数量、类型或顺序**
+    重载：重载的方法具有**相同**的方法名，**不同**的**参数数量、类型或顺序**；
 
     重写：重写的方法具有**相同**的**方法名**、**参数的数量、类型**和顺序与相同或为其子类的**返回类型**。
 
-27. 关键字 `this` 和 `super`
+27. 关键字 `this` 和 `super`：
 
     [`this` 关键字](https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html)：用于区分自身属性和外部参数；
 
@@ -150,7 +150,7 @@ draft: false
 
 29. [多态](https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html)：运行时多态、编译时多态。
 
-30. 运行时多态的两个前提：① 上溯造型；② 方法重写
+30. 运行时多态的两个前提：① 上溯造型；② 方法重写。
 
 31. `final` 关键字：
 
@@ -158,7 +158,7 @@ draft: false
 
     修饰方法：不可被**重写**；
 
-    修饰类：不可被**继承**；
+    修饰类：不可被**继承**。
 
 ## [抽象](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html)
 
