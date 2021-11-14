@@ -6,7 +6,7 @@ categories: ["技术分享"]
 draft: false
 ---
 
-**注意：本文章是合肥工业大学《Java 语言程序设计》课程的知识点总结，笔者不保证内容的准确性，请谨慎参考。**
+**注意：本文是合肥工业大学《Java 语言程序设计》课程的知识点总结，笔者不保证内容的准确性，请谨慎参考，若文中有问题请[提 Issue](https://github.com/xqm32/xqm32.github.io/issues/new)。**
 
 # Java 课程知识点
 
