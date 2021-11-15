@@ -18,7 +18,7 @@ draft: false
 
    ② 1995 年，`Sun` 改造了 `Oak`，以 `Java` 的名称正式发布，广泛应用于互联网。
 
-2. `J2ME`、`J2SE`、`J2EE`：
+2. [`J2ME`、`J2SE`、`J2EE`](https://www.oracle.com/topics/technologies/newtojava/programming-center.html#Get_Started)：
 
    `J2ME`：**J**ava **2** Platform, **M**icro **E**dition，应用于嵌入式（embedded）及移动设备（mobile device）；
 
