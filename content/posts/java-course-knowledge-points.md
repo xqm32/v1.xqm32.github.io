@@ -48,7 +48,9 @@ draft: false
 
    ⑦ `Java` 有 **`GC`（Garbage Collection，垃圾回收）**；
 
-5. `JVM`、`JRE`、`JDK` 的区别与联系：
+5. [`JVM`、`JRE`、`JDK` 的区别与联系](https://www.oracle.com/cn/java/technologies/documentation/whitepapers-jsp.html)：
+
+   ![java-se-platform](java-se-platform.webp)
 
    `JVM`：**J**ava **V**irtual **M**achine（`Java` 虚拟机），是执行 `Java` 字节码的虚拟机，能够执行编译后 `Java` 语言编写的程序；
 
@@ -349,3 +351,9 @@ draft: false
     `OutputStream::write(byte [])`：写入字节数组。
 
 73. `IOException` 是非运行时异常，必须被捕获。
+
+## 参考资料
+
+1. [Java SE 参考资料 — 白皮书](https://www.oracle.com/cn/java/technologies/documentation/whitepapers-jsp.html)；
+2. [Java SE 17 & JDK 17 API Specification](https://docs.oracle.com/en/java/javase/17/docs/api/index.html)；
+3. [The Java Tutorials](https://docs.oracle.com/javase/tutorial/index.html)。
