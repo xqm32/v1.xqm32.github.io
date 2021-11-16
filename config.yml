@@ -6,6 +6,11 @@ theme: PaperMod
 
 enableGitinfo: true
 
+frontmatter:
+  date:
+    - :git
+    - :default
+
 params:
   env: production
   description: "Qiming 的博客"
