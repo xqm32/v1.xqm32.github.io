@@ -15,7 +15,7 @@
 <link rel=mask-icon href=http://xqm32.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.89.2">
+<meta name=generator content="Hugo 0.89.3">
 <link rel=alternate type=application/rss+xml href=http://xqm32.github.io/index.xml>
 <link rel=alternate type=application/json href=http://xqm32.github.io/index.json>
 <meta property="og:title" content="Qiming 的博客">
@@ -120,7 +120,7 @@ Java 与 C++ 的比较：
 ② Java 无结构体和联合体；
 ③ Java 无运算符重载；...</p>
 </section>
-<footer class=entry-footer>2021-11-14 17:34:20&nbsp;·&nbsp;4 分钟&nbsp;·&nbsp;Qiming Xu</footer>
+<footer class=entry-footer>2021-11-15 13:15:31&nbsp;·&nbsp;4 分钟&nbsp;·&nbsp;Qiming Xu</footer>
 <a class=entry-link aria-label="post link to Java 课程知识点总结" href=http://xqm32.github.io/posts/java-course-knowledge-points/></a>
 </article>
 <article class=post-entry>
@@ -134,20 +134,8 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
 对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。 启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：...</p>
 </section>
-<footer class=entry-footer>2021-09-13 19:03:23&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</footer>
+<footer class=entry-footer>2021-09-14 18:46:17&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</footer>
 <a class=entry-link aria-label="post link to 使用 WSL 和 VS Code 配置 C/C++ 开发环境" href=http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>C 语言实现字符串切片</h2>
-</header>
-<section class=entry-content>
-<p>搬运一篇笔者在知乎发的文章：C 语言实现字符串切片
-基于 Python 的切片的格式实现的 C 语言字符串切片：
-#include &lt;ctype.h>#include &lt;stdio.h>#include &lt;stdlib.h>#include &lt;string.h> typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\n' && !feof(stream) && --size > 0; ++i, *++dest = fgetc(stream)) ; *dest = '\0'; return i; } // 读取一行字符串。 size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin &lt; 0 ?...</p>
-</section>
-<footer class=entry-footer>2021-09-04 16:33:50&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</footer>
-<a class=entry-link aria-label="post link to C 语言实现字符串切片" href=http://xqm32.github.io/posts/slicing-string-in-c-language/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -161,8 +149,20 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 Github Actions 在完成准备工作后，我们需要在本地创建网站的文件夹中建立 .github/workflows/gh-pages.yml 文件，在其中填入（此代码参考 Hugo 文档中 Host on GitHub 一项）：
 name: github pages on: push: branches: - main # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20....</p>
 </section>
-<footer class=entry-footer>2021-09-04 15:47:24&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Qiming Xu</footer>
+<footer class=entry-footer>2021-09-04 19:47:57&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Qiming Xu</footer>
 <a class=entry-link aria-label="post link to 使用 Github Actions 自动化部署 Hugo 博客" href=http://xqm32.github.io/posts/deploy-hugo-via-github-actions/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>C 语言实现字符串切片</h2>
+</header>
+<section class=entry-content>
+<p>搬运一篇笔者在知乎发的文章：C 语言实现字符串切片
+基于 Python 的切片的格式实现的 C 语言字符串切片：
+#include &lt;ctype.h>#include &lt;stdio.h>#include &lt;stdlib.h>#include &lt;string.h> typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\n' && !feof(stream) && --size > 0; ++i, *++dest = fgetc(stream)) ; *dest = '\0'; return i; } // 读取一行字符串。 size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin &lt; 0 ?...</p>
+</section>
+<footer class=entry-footer>2021-09-04 16:35:51&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</footer>
+<a class=entry-link aria-label="post link to C 语言实现字符串切片" href=http://xqm32.github.io/posts/slicing-string-in-c-language/></a>
 </article>
 </main>
 <footer class=footer>

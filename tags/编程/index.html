@@ -16,7 +16,7 @@
 <link rel=mask-icon href=http://xqm32.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.89.2">
+<meta name=generator content="Hugo 0.89.3">
 <link rel=alternate type=application/rss+xml href=http://xqm32.github.io/tags/%E7%BC%96%E7%A8%8B/index.xml>
 <meta property="og:title" content="编程">
 <meta property="og:description" content="Qiming 的博客">
@@ -83,7 +83,7 @@
 基于 Python 的切片的格式实现的 C 语言字符串切片：
 #include &lt;ctype.h>#include &lt;stdio.h>#include &lt;stdlib.h>#include &lt;string.h> typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\n' && !feof(stream) && --size > 0; ++i, *++dest = fgetc(stream)) ; *dest = '\0'; return i; } // 读取一行字符串。 size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin &lt; 0 ?...</p>
 </section>
-<footer class=entry-footer>2021-09-04 16:33:50&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</footer>
+<footer class=entry-footer>2021-09-04 16:35:51&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</footer>
 <a class=entry-link aria-label="post link to C 语言实现字符串切片" href=http://xqm32.github.io/posts/slicing-string-in-c-language/></a>
 </article>
 </main>
