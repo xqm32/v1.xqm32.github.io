@@ -26,13 +26,13 @@ params:
   homeInfoParams:
     Title: Qiming 的博客
     Content: >
-      - 软件工程二年级在读，[HFUTer](https://www.hfut.edu.cn) 🏫
+      - 🏫 软件工程二年级在读，[HFUTer](https://www.hfut.edu.cn);
 
-      - 分享技术、分享生活 😀
+      - ❓ 关于我：[点击这里](/about);
 
-      - 关于我：[点击这里](/about) ❓
+      - 📋 一些笔记：[点击这里](/notes);
 
-      - 👇 我的 Github，喜欢请 ⭐ 一下吧
+      - 👇 这是我的 Github，喜欢请 ⭐ 一下吧!
 
   socialIcons:
     - name: "Github"
