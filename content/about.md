@@ -1,10 +1,6 @@
 ---
-title: "关于"
+title: "关于我"
 draft: false
 ---
 
-# 朋友们
-
-[RedContritio](https://redcontritio.github.io/)
-
-[YKgsmUDq](http://ykgsmudq.com/)
+# [朋友们](/friends)

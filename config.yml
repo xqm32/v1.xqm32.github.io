@@ -46,6 +46,14 @@ params:
 
 menu:
   main:
+    - identifier: about
+      name: 关于我
+      url: /about/
+      weight: -20
+    - identifier: friends
+      name: 朋友们
+      url: /friends/
+      weight: -10
     - identifier: posts
       name: 文章
       url: /posts/
