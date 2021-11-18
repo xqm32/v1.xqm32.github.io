@@ -26,11 +26,7 @@ params:
   homeInfoParams:
     Title: Qiming 的博客
     Content: >
-      - 🏫 软件工程二年级在读，[HFUTer](https://www.hfut.edu.cn)
-
-      - ❓ 关于我：[点击这里](/about)
-
-      - 📋 一些笔记：[点击这里](/notes)
+      - 🏫 软件工程二年级在读，就读于[某不知名高校](https://www.hfut.edu.cn)
 
       - 👇 这是我的 Github，喜欢请 ⭐ 一下吧
 
@@ -58,22 +54,26 @@ menu:
       name: 文章
       url: /posts/
       weight: 10
+    - identifier: notes
+      name: 笔记
+      url: /notes/
+      weight: 20
     - identifier: categories
       name: 分类
       url: /categories/
-      weight: 20
+      weight: 30
     - identifier: tags
       name: 标签
       url: /tags/
-      weight: 30
+      weight: 40
     - identifier: archives
       name: 归档
       url: /archives/
-      weight: 40
+      weight: 50
     - identifier: search
       name: 搜索
       url: /search/
-      weight: 50
+      weight: 60
 
 outputs:
   home:
