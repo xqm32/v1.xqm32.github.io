@@ -6,10 +6,18 @@ theme: PaperMod
 
 enableGitinfo: true
 
+# 日期以 Git 日期显示
 frontmatter:
   date:
     - :git
     - :default
+
+# 使得 Markdown 中可以嵌入 HTML
+# 参见：https://gohugo.io/getting-started/configuration-markup#goldmark
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 params:
   env: production
