@@ -7,7 +7,7 @@ draft: false
 
 # `npm` 镜像设置
 
-参见此知乎文章 [聊聊 NPM 镜像那些险象环生的坑](https://zhuanlan.zhihu.com/p/147005226)。
+参见此知乎文章[聊聊 NPM 镜像那些险象环生的坑](https://zhuanlan.zhihu.com/p/147005226)。
 
 # 《编程通解》
 
