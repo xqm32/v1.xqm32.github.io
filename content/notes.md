@@ -5,9 +5,13 @@ draft: false
 
 此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。
 
+# `npm` 镜像设置
+
+参见此知乎文章 (聊聊 NPM 镜像那些险象环生的坑)[https://zhuanlan.zhihu.com/p/147005226]。
+
 # 《编程通解》
 
-<font color=pink>可爱的莱子酱</font>写的[《编程通解》](https://redcontritio.github.io/tags/%E7%BC%96%E7%A8%8B%E9%80%9A%E8%A7%A3-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3-%E5%B0%8F%E8%AF%B4/)
+可爱的<font color=pink>莱子酱</font>写的[《编程通解》](https://redcontritio.github.io/tags/%E7%BC%96%E7%A8%8B%E9%80%9A%E8%A7%A3-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3-%E5%B0%8F%E8%AF%B4/)。
 
 # Hugo 中嵌入 HTML 的方法
 
