@@ -5,9 +5,17 @@ draft: false
 
 此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。
 
+# WSL 中 C/C++ 调试报错的解决方案
+
+```shell
+mkdir -p /build/报错路径（如 glibc-XXXXXX）
+wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz）
+sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
+```
+
 # `npm` 镜像设置
 
-参见此知乎文章[聊聊 NPM 镜像那些险象环生的坑](https://zhuanlan.zhihu.com/p/147005226)。
+[腾讯解君愁](https://mirrors.tencent.com/help/npm.html)。
 
 # 《编程通解》
 
