@@ -5,23 +5,23 @@ draft: false
 
 此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。
 
-# WSL 中 C/C++ 调试报错的解决方案
+# 错误修复
 
-```shell
+## WSL 中 C/C++ 调试报错的解决方案
+
+```bash
 mkdir -p /build/报错路径（如 glibc-XXXXXX）
 wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz）
 sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
 ```
 
-# `npm` 镜像设置
+# 配置技巧
+
+## `npm` 镜像设置
 
 [腾讯解君愁](https://mirrors.tencent.com/help/npm.html)。
 
-# 《编程通解》
-
-可爱的<font color=pink>莱子酱</font>写的[《编程通解》](https://redcontritio.github.io/tags/%E7%BC%96%E7%A8%8B%E9%80%9A%E8%A7%A3-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3-%E5%B0%8F%E8%AF%B4/)。（咕咕咕）
-
-# Hugo 中嵌入 HTML 的方法
+## Hugo 中嵌入 HTML 的方法
 
 于 `config.yml` 中加入以下配置：
 
@@ -38,7 +38,9 @@ markup:
 >
 > By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.
 
-# 无名杀
+# 游戏
+
+## 无名杀
 
 [无名杀](https://github.com/libccy/noname)的一种少错误的安装方法：
 
@@ -48,6 +50,12 @@ markup:
 4. 将最新源代码（即资源文件）解压，应当会出现 `./noname-master` 文件夹，将文件夹中的全部内容移动至**游戏目录**下 `./resources/app` 文件夹，即可启动游戏。
 5. 下载[「在线更新」拓展](https://mp.weixin.qq.com/s/L-yCzP0JTOajMbRC3kAq_Q)并在游戏中导入，进行更新即可。
 
-# 备份
+# 其他
+
+## 《编程通解》
+
+可爱的<font color=pink>莱子酱</font>写的[《编程通解》](https://redcontritio.github.io/tags/%E7%BC%96%E7%A8%8B%E9%80%9A%E8%A7%A3-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3-%E5%B0%8F%E8%AF%B4/)。（咕咕咕）
+
+## 备份
 
 前往[备份](/backup)页面以查看。
