@@ -6,6 +6,8 @@ categories: ["技术分享"]
 draft: false
 ---
 
+<font color=red>此文章已经过时，请参考微软给出的更新的教程 [<font color=red>安装 WSL</font>](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)</font>
+
 本教程基于 [在 Windows 10 上安装 WSL](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10) 和 [开始使用 WSL VS Code](https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode) 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。
 
 ## 启用 WSL（适用于 Linux 的 Windows 子系统）
