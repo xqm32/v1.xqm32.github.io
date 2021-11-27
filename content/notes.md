@@ -35,12 +35,12 @@ markup:
 参考 `Hugo` 文档 [Goldmark](https://gohugo.io/getting-started/configuration-markup#goldmark) 一栏。
 
 > **unsafe**
-> 
+>
 > By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.
 
 # 软件
 
-由于 [Typora](typora.io) 收费且收费较贵，不得以寻找其替代品，目前感觉 [MarkText](https://marktext.app/) 比较不错。
+由于 [Typora](https://typora.io) 收费且收费较贵，不得不寻找其替代品，目前感觉 [MarkText](https://marktext.app/) 比较不错。
 
 # 游戏
 
