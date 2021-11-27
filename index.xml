@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Qiming 的博客</title><link>http://xqm32.github.io/</link><description>Recent content on Qiming 的博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Nov 2021 14:23:09 +0800</lastBuildDate><atom:link href="http://xqm32.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>备份</title><link>http://xqm32.github.io/backup/</link><pubDate>Sat, 27 Nov 2021 20:48:15 +0800</pubDate><guid>http://xqm32.github.io/backup/</guid><description>一些“备份”，更类似于收藏夹。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Qiming 的博客</title><link>http://xqm32.github.io/</link><description>Recent content on Qiming 的博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Nov 2021 14:23:09 +0800</lastBuildDate><atom:link href="http://xqm32.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>笔记</title><link>http://xqm32.github.io/notes/</link><pubDate>Sat, 27 Nov 2021 20:50:16 +0800</pubDate><guid>http://xqm32.github.io/notes/</guid><description>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。
+错误修复 WSL 中 C/C++ 调试报错的解决方案 mkdir -p /build/报错路径（如 glibc-XXXXXX） wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz） sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/ 配置技巧 npm 镜像设置 腾讯解君愁。
+Hugo 中嵌入 HTML 的方法 于 config.yml 中加入以下配置：
+markup: goldmark: renderer: unsafe: true 参考 Hugo 文档 Goldmark 一栏。
+unsafe
+By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.</description></item><item><title>备份</title><link>http://xqm32.github.io/backup/</link><pubDate>Sat, 27 Nov 2021 20:48:15 +0800</pubDate><guid>http://xqm32.github.io/backup/</guid><description>一些“备份”，更类似于收藏夹。
 软件 7-Zip
 Everything
 Sumatra PDF
@@ -14,12 +19,7 @@ Minecraft
 The Java™ Tutorials
 Java SE 17 &amp;amp; JDK 17
 Java SE 参考资料
-JavaScript | MDN</description></item><item><title>笔记</title><link>http://xqm32.github.io/notes/</link><pubDate>Sat, 27 Nov 2021 17:17:27 +0800</pubDate><guid>http://xqm32.github.io/notes/</guid><description>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。
-错误修复 WSL 中 C/C++ 调试报错的解决方案 mkdir -p /build/报错路径（如 glibc-XXXXXX） wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz） sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/ 配置技巧 npm 镜像设置 腾讯解君愁。
-Hugo 中嵌入 HTML 的方法 于 config.yml 中加入以下配置：
-markup: goldmark: renderer: unsafe: true 参考 Hugo 文档 Goldmark 一栏。
-unsafe
-By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.</description></item><item><title>朋友们</title><link>http://xqm32.github.io/friends/</link><pubDate>Sat, 27 Nov 2021 16:35:53 +0800</pubDate><guid>http://xqm32.github.io/friends/</guid><description>朋友们 👦 可爱的 RedContritio 酱
+JavaScript | MDN</description></item><item><title>朋友们</title><link>http://xqm32.github.io/friends/</link><pubDate>Sat, 27 Nov 2021 16:35:53 +0800</pubDate><guid>http://xqm32.github.io/friends/</guid><description>朋友们 👦 可爱的 RedContritio 酱
 🐂 神犇 YKgsmUDq</description></item><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</link><pubDate>Fri, 26 Nov 2021 14:23:09 +0800</pubDate><guid>http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</guid><description>此文章已经过时，请参考微软给出的更新的教程 安装 WSL
 本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。
 启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：
