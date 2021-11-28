@@ -3,7 +3,7 @@ title: "WSL - VS Code 开发流配置"
 date: 2021-11-28T19:15:16+08:00
 tags: []
 categories: []
-draft: true
+draft: false
 ---
 
 此前笔者已经写过一篇配置 `WSL - VS Code` 开发流配置相关的文章，然而微软给出了[更加方便地配置方法](https://docs.microsoft.com/zh-cn/windows/wsl/install)，所以这里也给出配置的优化。
