@@ -35,12 +35,34 @@ markup:
 参考 `Hugo` 文档 [Goldmark](https://gohugo.io/getting-started/configuration-markup#goldmark) 一栏。
 
 > **unsafe**
->
+> 
 > By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.
 
 ## Hugo PaperMod 主题安装、更新方法
 
 参考其教程即可 [Hugo PaperMod](https://github.com/adityatelange/hugo-PaperMod/wiki/Installation)。
+
+## WSL 2 配置代理
+
+若使用 `bash`，则在 `.bashrc` 中添加：
+
+```bash
+export windowsHostIP=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+
+proxy() {
+    export ALL_PROXY="http://$windowsHostIP:端口"
+    export all_proxy="http://$windowsHostIP:端口"
+}
+
+unproxy() {
+    unset ALL_PROXY
+    unset all_proxy
+}
+```
+
+即可。
+
+参考 [WSL2 网络代理设置](https://syz913.github.io/2021/03/20/wsl2/) 和 [Ubuntu「一键」设置代理](https://blog.skk.moe/post/enable-proxy-on-ubuntu/)。
 
 # 软件
 
