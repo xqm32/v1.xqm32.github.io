@@ -52,21 +52,35 @@ export windowsHostIP=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 proxy() {
     export ALL_PROXY="http://$windowsHostIP:端口"
     export all_proxy="http://$windowsHostIP:端口"
+    export http_proxy="http://$windowsHostIP:10809"
+    export https_proxy="http://$windowsHostIP:10809"
 }
 
 unproxy() {
     unset ALL_PROXY
-    unset all_proxy
+    unset all_prox
+    unset http_proxy
+    unset https_proxyy
 }
 ```
 
 即可。
 
+虽然看起来没有必要，但是只有设置了 `http_proxy` 和 `https_proxy` 才能对 `wget` 生效，笔者感觉十分奇怪。
+
 参考 [WSL2 网络代理设置](https://syz913.github.io/2021/03/20/wsl2/) 和 [Ubuntu「一键」设置代理](https://blog.skk.moe/post/enable-proxy-on-ubuntu/)。
 
 # 软件
 
+## Markdown 编辑器
+
 由于 [Typora](https://typora.io) 收费且收费较贵，不得不寻找其替代品，目前感觉 [MarkText](https://marktext.app/) 比较不错。
+
+## Windows 工具
+
+由于我的键盘的 `ctrl` 键坏了，需要将 `CapsLock` 键映射到 `ctrl` 上，于是发现了这个好用的小工具：[Microsoft PowerToys](https://github.com/microsoft/PowerToys)。
+
+它还有一些其他好用的功能，比如双击 `ctrl` 键可以快速的找到你的鼠标在哪儿。
 
 # 游戏
 
