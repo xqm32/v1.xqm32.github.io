@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Qiming 的博客</title><link>http://xqm32.github.io/</link><description>Recent content on Qiming 的博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 28 Nov 2021 19:43:09 +0800</lastBuildDate><atom:link href="http://xqm32.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>笔记</title><link>http://xqm32.github.io/notes/</link><pubDate>Mon, 29 Nov 2021 20:45:20 +0800</pubDate><guid>http://xqm32.github.io/notes/</guid><description>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。
-错误修复 WSL 中 C/C++ 调试报错的解决方案 mkdir -p /build/报错路径（如 glibc-XXXXXX） wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz） sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/ 配置技巧 npm 镜像设置 腾讯解君愁。
-Hugo 中嵌入 HTML 的方法 于 config.yml 中加入以下配置：
-markup: goldmark: renderer: unsafe: true 参考 Hugo 文档 Goldmark 一栏。
-unsafe
-By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.</description></item><item><title>WSL - VS Code 开发流配置</title><link>http://xqm32.github.io/posts/wsl-vscode/</link><pubDate>Sun, 28 Nov 2021 19:43:09 +0800</pubDate><guid>http://xqm32.github.io/posts/wsl-vscode/</guid><description>此前笔者已经写过一篇配置 WSL - VS Code 开发流配置相关的文章，然而微软给出了更加方便地配置方法，所以这里也给出配置的优化。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Qiming 的博客</title><link>http://xqm32.github.io/</link><description>Recent content on Qiming 的博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 30 Nov 2021 11:15:52 +0800</lastBuildDate><atom:link href="http://xqm32.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>WSL - VS Code 开发流配置</title><link>http://xqm32.github.io/posts/wsl-vscode/</link><pubDate>Tue, 30 Nov 2021 11:15:52 +0800</pubDate><guid>http://xqm32.github.io/posts/wsl-vscode/</guid><description>此前笔者已经写过一篇配置 WSL - VS Code 开发流配置相关的文章，然而微软给出了更加方便地配置方法，所以这里也给出配置的优化。
 安装 WSL 由于微软的优化，现在我们只需要在 Powershell 中输入：
 wsl --install 即可完成 Windows Subsystem for Linux 的安装，此命令会附加安装一个 Ubuntu 发行版，因而亦不需要在 Microsoft Store 中再次下载。
 更换 WSL 的镜像源 国内访问 Ubuntu 的默认软件源速度较慢，因而我们需要更换一个镜像源以加快软件源的访问速度。这里以 USTC 的镜像源为例，只需在 WSL 终端中输入：
 sudo sed -i &amp;#39;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&amp;#39; /etc/apt/sources.list 即可完成换源。
 更新软件包 在 WSL 终端中输入：
-sudo apt update sudo apt upgrade 即可更新。</description></item><item><title>备份</title><link>http://xqm32.github.io/backup/</link><pubDate>Sat, 27 Nov 2021 20:48:15 +0800</pubDate><guid>http://xqm32.github.io/backup/</guid><description>一些“备份”，更类似于收藏夹。
+sudo apt update sudo apt upgrade 即可更新。
+其他 余下的步骤可以参考笔者之前的文章。</description></item><item><title>笔记</title><link>http://xqm32.github.io/notes/</link><pubDate>Mon, 29 Nov 2021 20:45:20 +0800</pubDate><guid>http://xqm32.github.io/notes/</guid><description>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。
+错误修复 WSL 中 C/C++ 调试报错的解决方案 mkdir -p /build/报错路径（如 glibc-XXXXXX） wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz） sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/ 配置技巧 npm 镜像设置 腾讯解君愁。
+Hugo 中嵌入 HTML 的方法 于 config.yml 中加入以下配置：
+markup: goldmark: renderer: unsafe: true 参考 Hugo 文档 Goldmark 一栏。
+unsafe
+By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.</description></item><item><title>备份</title><link>http://xqm32.github.io/backup/</link><pubDate>Sat, 27 Nov 2021 20:48:15 +0800</pubDate><guid>http://xqm32.github.io/backup/</guid><description>一些“备份”，更类似于收藏夹。
 软件 7-Zip
 Everything
 Sumatra PDF
