@@ -38,3 +38,7 @@ sudo apt upgrade
 ```
 
 即可更新。
+
+# 其他
+
+余下的步骤可以参考笔者[之前的文章](/posts/wsl-vscode-for-c-cpp/#在-wsl-上安装-cc-的编译器)。
