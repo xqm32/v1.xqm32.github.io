@@ -5,6 +5,7 @@ title: Qiming 的博客
 theme: PaperMod
 
 enableGitinfo: true
+enableEmoji: true
 
 # 日期以 Git 日期显示
 frontmatter:
