@@ -1,7 +1,7 @@
 baseURL: http://xqm32.github.io/
 defaultContentLanguage: zh
 languageCode: zh-cn
-title: Qiming 的博客
+title: Qiming's Blog
 theme: PaperMod
 
 enableGitinfo: true
@@ -22,7 +22,7 @@ markup:
 
 params:
   env: production
-  description: "Qiming 的博客"
+  description: "Qiming's Blog"
   author: "Qiming Xu"
 
   DateFormat: "2006-01-02 15:04:05"
@@ -33,7 +33,7 @@ params:
   showtoc: ture
 
   homeInfoParams:
-    Title: Qiming 的博客
+    Title: Qiming's Blog
     Content: >
       - 🏫 软件工程二年级在读，就读于[某不知名高校](https://www.hfut.edu.cn)
 
