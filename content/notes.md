@@ -52,7 +52,7 @@ export windowsHostIP=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 proxy() {
     export ALL_PROXY="http://$windowsHostIP:端口"
     export all_proxy="http://$windowsHostIP:端口"
-    export http_proxy="http://$windowsHostIP:10809"
+    export http_proxy="http://$windowsHostIP:10809"
     export https_proxy="http://$windowsHostIP:10809"
 }
 
