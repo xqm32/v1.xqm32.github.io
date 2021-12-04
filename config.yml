@@ -40,7 +40,7 @@ params:
       - 👇 这是我的 Github，喜欢请 ⭐ 一下吧
 
   socialIcons:
-    - name: "Github"
+    - name: "GitHub"
       url: "https://github.com/xqm32"
     - name: "Stackoverflow"
       url: "https://stackoverflow.com/users/16325470"
