@@ -68,6 +68,10 @@ unproxy() {
 
 参考 [WSL2 网络代理设置](https://syz913.github.io/2021/03/20/wsl2/) 和 [Ubuntu「一键」设置代理](https://blog.skk.moe/post/enable-proxy-on-ubuntu/)。
 
+<!-- ## 教育网 IPv6 加速 Steam 下载的方法
+
+将下载地区设置为 US - Los Angeles。 -->
+
 # 软件
 
 ## Markdown 编辑器
