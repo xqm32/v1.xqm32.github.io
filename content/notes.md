@@ -113,4 +113,5 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 <!-- # TODO
 
 - Telegram 找一些有趣的 Channel 
-- Telegram 寻找英文搜索引擎 -->
+- Telegram 寻找英文搜索引擎 
+- 理解 Git 的变基 -->
