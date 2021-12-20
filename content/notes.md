@@ -35,7 +35,7 @@ markup:
 参考 `Hugo` 文档 [Goldmark](https://gohugo.io/getting-started/configuration-markup#goldmark) 一栏。
 
 > **unsafe**
-> 
+>
 > By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.
 
 ## Hugo PaperMod 主题安装、更新方法
@@ -112,6 +112,7 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 
 <!-- # TODO
 
-- Telegram 找一些有趣的 Channel 
-- Telegram 寻找英文搜索引擎 
-- 理解 Git 的变基 -->
+- Telegram 找一些有趣的 Channel
+- Telegram 寻找英文搜索引擎
+- 理解 Git 的变基
+- 学 Rust！！！ -->
