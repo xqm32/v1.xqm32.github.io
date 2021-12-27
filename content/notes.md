@@ -113,11 +113,3 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 ## 备份
 
 前往[备份](/backup)页面以查看。
-
-<!-- # TODO
-
-- Telegram 找一些有趣的 Channel
-- Telegram 寻找英文搜索引擎
-- 理解 Git 的变基
-- 学 Rust！！！
-- 学 Typescript -->
