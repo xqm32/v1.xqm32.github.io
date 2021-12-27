@@ -35,7 +35,7 @@ markup:
 参考 `Hugo` 文档 [Goldmark](https://gohugo.io/getting-started/configuration-markup#goldmark) 一栏。
 
 > **unsafe**
->
+> 
 > By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.
 
 ## Hugo PaperMod 主题安装、更新方法
@@ -86,11 +86,31 @@ unproxy() {
 
 ## 流程图、UML 画图工具
 
-[draw.io](https://draw.io)
+[Draw.io](https://draw.io)。
 
 ## WSL 安装 Rust
 
 Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/tools/install)。
+
+# 开发
+
+## GitHub 贡献
+
+添加功能或者修复错误时，应创建新的分支而非从 main/master 直接推送。
+
+> **Contributing to GitHub**
+> 
+> Contributing to Cataclysm: Dark Days Ahead is easy — simply fork the repository here on GitHub, make your changes, and then send us a pull request.
+> 
+> There are a couple of guidelines we suggest sticking to:
+> 
+> Add this repository as an upstream remote.
+> 
+> Keep your master branch clean. This means you can easily pull changes made to this repository into yours.
+> 
+> Create a new branch for each new feature or set of related bug fixes.
+> 
+> **Never merge from your local branches into your master branch. Only update that by pulling from upstream/master.**
 
 # 游戏
 
