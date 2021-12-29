@@ -8,4 +8,4 @@ draft: false
 - [ ] 理解 Git 的变基
 - [ ] 学 Rust！！！
 - [ ] 学 Typescript
-- [ ] 学 Lua -->
+- [ ] 学 Lua
