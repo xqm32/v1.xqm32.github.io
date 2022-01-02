@@ -9,3 +9,4 @@ draft: false
 - [ ] 学 Rust！！！
 - [ ] 学 Typescript
 - [ ] 学 Lua
+- [ ] 机器学习
