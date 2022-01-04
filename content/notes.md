@@ -5,17 +5,7 @@ draft: false
 
 此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。
 
-# 错误修复
-
-## WSL 中 C/C++ 调试报错的解决方案
-
-```bash
-mkdir -p /build/报错路径（如 glibc-XXXXXX）
-wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz）
-sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
-```
-
-# 配置技巧
+# 配置
 
 ## `npm` 镜像设置
 
@@ -41,6 +31,8 @@ markup:
 ## Hugo PaperMod 主题安装、更新方法
 
 参考其教程即可 [Hugo PaperMod](https://github.com/adityatelange/hugo-PaperMod/wiki/Installation)。
+
+# WSL
 
 ## WSL 2 配置代理
 
@@ -68,17 +60,19 @@ unproxy() {
 
 参考 [WSL2 网络代理设置](https://syz913.github.io/2021/03/20/wsl2/) 和 [Ubuntu「一键」设置代理](https://blog.skk.moe/post/enable-proxy-on-ubuntu/)。
 
-<!-- ## 教育网 IPv6 加速 Steam 下载的方法
-
-将下载地区设置为 US - Los Angeles。 -->
-
-# WSL
-
 ## WSL 与加速器产生冲突
 
 **注意**：此方法可能有副作用。
 
 WSL 与加速器的冲突可以参考此文章解决 [关于使用 WSL2 出现“参考的对象类型不支持尝试的操作”的解决方法。](https://zhuanlan.zhihu.com/p/151392411)
+
+## WSL 中 C/C++ 调试报错的解决方案
+
+```bash
+mkdir -p /build/报错路径（如 glibc-XXXXXX）
+wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz）
+sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
+```
 
 # 软件
 
@@ -95,10 +89,6 @@ WSL 与加速器的冲突可以参考此文章解决 [关于使用 WSL2 出现�
 ## 流程图、UML 画图工具
 
 [Draw.io](https://draw.io)。
-
-## WSL 安装 Rust
-
-Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/tools/install)。
 
 # 开发
 
@@ -120,6 +110,10 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 >
 > **Never merge from your local branches into your master branch. Only update that by pulling from upstream/master.**
 
+## WSL 安装 Rust
+
+Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/tools/install)。
+
 # 游戏
 
 ## 无名杀
@@ -131,6 +125,10 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 3. 解压游戏客户端至当前文件夹，应当会出现 `./Windows_Yuri_Fix/noname` 或 `./noname` 文件夹，后面我们以 `./noname` 文件夹为**游戏目录**；
 4. 将最新源代码（即资源文件）解压，应当会出现 `./noname-master` 文件夹，将文件夹中的全部内容移动至**游戏目录**下 `./resources/app` 文件夹，即可启动游戏。
 5. 下载[「在线更新」拓展](https://mp.weixin.qq.com/s/L-yCzP0JTOajMbRC3kAq_Q)并在游戏中导入，进行更新即可。
+
+<!-- ## 教育网 IPv6 加速 Steam 下载的方法
+
+将下载地区设置为 US - Los Angeles。 -->
 
 # 其他
 
