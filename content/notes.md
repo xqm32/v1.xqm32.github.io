@@ -143,4 +143,5 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 <!--
 # 记录
 2022.1.5 今天水了一个 commit，开心。
+2022.1.6 今天又水了一个 commit，但是作业很多，不开心。
 -->
