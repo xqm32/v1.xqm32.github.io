@@ -145,4 +145,5 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 2022.1.5 今天水了一个 commit，开心。
 2022.1.6 今天又水了一个 commit，但是作业很多，不开心。
 2022.1.7 今天只能水 commit, Sad.
+2022.1.8 今天作业太多，只能水 commit.
 -->
