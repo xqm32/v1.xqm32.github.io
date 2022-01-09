@@ -21,6 +21,8 @@ markup:
       unsafe: true
 
 params:
+  comments: true
+
   env: production
   description: "Qiming's Blog"
   author: "Qiming Xu"
