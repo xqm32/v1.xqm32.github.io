@@ -25,12 +25,32 @@ markup:
 参考 `Hugo` 文档 [Goldmark](https://gohugo.io/getting-started/configuration-markup#goldmark) 一栏。
 
 > **unsafe**
->
+> 
 > By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.
 
 ## Hugo PaperMod 主题安装、更新方法
 
 参考其教程即可 [Hugo PaperMod](https://github.com/adityatelange/hugo-PaperMod/wiki/Installation)。
+
+## Hugo PaperMod 本地查看静态页面异常
+
+打开 `public/index.html`，查看控制台报错。
+
+> Access to CSS stylesheet at 'file:///PATH/TO/FILE.css' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, chrome-extension, edge, https, chrome-untrusted.
+
+跨源请求不支持 `file` 协议，所以将：
+
+```html
+<link crossorigin="anonymous" href="/assets/css/FILE.css" rel="preload stylesheet" as="style">
+```
+
+修改为：
+
+```html
+<link crossorigin="anonymous" href="http://DOMAIN.YOUR.SITE/assets/css/FILE.css" rel="preload stylesheet" as="style">
+```
+
+即可。
 
 # WSL
 
@@ -97,17 +117,17 @@ sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
 添加功能或者修复错误时，应创建新的分支而非从 main/master 直接推送。
 
 > **Contributing to GitHub**
->
+> 
 > Contributing to Cataclysm: Dark Days Ahead is easy — simply fork the repository here on GitHub, make your changes, and then send us a pull request.
->
+> 
 > There are a couple of guidelines we suggest sticking to:
->
+> 
 > Add this repository as an upstream remote.
->
+> 
 > Keep your master branch clean. This means you can easily pull changes made to this repository into yours.
->
+> 
 > Create a new branch for each new feature or set of related bug fixes.
->
+> 
 > **Never merge from your local branches into your master branch. Only update that by pulling from upstream/master.**
 
 ## WSL 安装 Rust
