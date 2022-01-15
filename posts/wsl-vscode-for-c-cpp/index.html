@@ -12,14 +12,14 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
  对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。  启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：">
 <meta name=author content="Qiming Xu">
-<link rel=canonical href=http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/>
+<link rel=canonical href=https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=http://xqm32.github.io/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=http://xqm32.github.io/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=http://xqm32.github.io/favicon-32x32.png>
-<link rel=apple-touch-icon href=http://xqm32.github.io/apple-touch-icon.png>
-<link rel=mask-icon href=http://xqm32.github.io/safari-pinned-tab.svg>
+<link rel=icon href=https://xqm32.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://xqm32.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://xqm32.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://xqm32.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://xqm32.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.92.0">
@@ -34,7 +34,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
  对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。  启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-09-13T19:03:23+08:00">
 <meta property="article:modified_time" content="2021-11-26T14:23:09+08:00">
 <meta name=twitter:card content="summary">
@@ -45,15 +45,15 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。
 更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
  对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。  启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"http://xqm32.github.io/posts/"},{"@type":"ListItem","position":2,"name":"使用 WSL 和 VS Code 配置 C/C++ 开发环境","item":"http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"使用 WSL 和 VS Code 配置 C/C++ 开发环境","name":"使用 WSL 和 VS Code 配置 C\/C\u002b\u002b 开发环境","description":"此文章已经过时，请参考微软给出的更新的教程 安装 WSL\n本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。\n启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：\ndism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。\n更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：\n 对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。  启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：","keywords":["教程","WSL","VS Code"],"articleBody":"此文章已经过时，请参考微软给出的更新的教程 安装 WSL\n本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。\n启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：\ndism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。\n更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：\n 对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。  启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：\ndism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 重新启动 计算机，以完成 WSL 安装并更新到 WSL 2。\nWSL 2 的后续步骤 请参考 后续步骤 来完成，后转 安装并配置 Linux 发行版。\n安装并配置 Linux 发行版 打开 Microsoft Store，安装一个 Linux 发行版，并打开此发行版，后按照提示进行操作即可。\n对于 Linux 的相关操作，请自行搜索。\n更改 WSL 的镜像源 使用默认的源下载软件是较为缓慢的，因而我们需要更换更快速的镜像。在国内，我们常用的是 清华大学 和 中国科学技术大学 的镜像。请确认 WSL 的发行版，根据需求选择要使用的镜像：\n 清华大学开源软件镜像站 USTC Open Source Software Mirror  在 WSL 上安装 C/C++ 的编译器 以 Ubuntu 为例，使用如下命令安装：\nsudo apt-get install gcc g++ 注意：在安装之前，可能需要进行包的更新，可使用如下命令更新：\nsudo apt-get update sudo apt-get upgrade 对于其他 Linux 发行版，请自行在网络上搜索安装与更新的命令，这里不再赘述。\n将 WSL 与 VS Code 一并使用 以下内容参考 开始使用 WSL VS Code，笔者不确保内容的准确性。如有疑问请参考原文。\n安装并配置 VS Code 访问 VS Code 安装页 选择适合的安装程序。\n打开 VS Code，点击拓展并搜索 「WSL」，安装 WSL 远程拓展包，即可完成操作。在中文环境下，我们还可以安装 VS Code 推荐的中文语言包，以方便阅读。\n对于 C/C++，我们可以在拓展中搜索 C++，以安装其有关拓展（包含了语法高亮、调试等功能）。\n更多的 WSL 与 VS Code 共同使用的小技巧的注意事项，请参考 开始使用 WSL VS Code\n使用 WSL 和 VS Code 编写 Hello world! 程序 注意：以下仅为简单的、单文件的 C 语言编写的源文件的编译方法，笔者不保证（实际上是几乎不能）适用于生产环境。若要了解一种生产环境下的 C 语言编译方法，请参考 CMake。\n首先，需要进入存放源代码的文件夹，请读者自行建立，或在 Home 文件夹直接进行。\n运行如下命令，创建 main.c 源文件（提示：在 Linux 下键入命令时，请善用 Tab 键自动补全）：\ntouch main.c 在 VS Code 中，点击左下角打开远程窗口按钮，选择 New WSL Window 即可连接至 WSL。打开存放 main.c 的文件夹，使用 VS Code 编辑 main.c 文件，填入如下内容：\n#include  int main() { printf(\"Hello world!\\n\"); } 按下 ctrl + ` 打开命令行终端，输入以下命令编译此程序：\ngcc main.c 此时，输入 ls 命令，我们可以看到当前目录下已经生成了一个名为 a.out 的可执行文件。\n我们执行这个程序（注意：./ 是不可缺少的，具体原因请自行搜索，这里不再赘述）：\n./a.out 可以看到输出：\nHello world! 若要重新编译源文件，请使用 rm 命令，删除 a.out 文件，并再次执行编译命令。\n若要了解其他 gcc 命令的使用方法，请执行命令 man gcc 或 gcc --help。更多 Linux 常用命令请自行于网络上搜索。\n","wordCount":"286","inLanguage":"zh","datePublished":"2021-09-13T19:03:23+08:00","dateModified":"2021-11-26T14:23:09+08:00","author":{"@type":"Person","name":"Qiming Xu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://xqm32.github.io/posts/wsl-vscode-for-c-cpp/"},"publisher":{"@type":"Organization","name":"Qiming's Blog","logo":{"@type":"ImageObject","url":"http://xqm32.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://xqm32.github.io/posts/"},{"@type":"ListItem","position":2,"name":"使用 WSL 和 VS Code 配置 C/C++ 开发环境","item":"https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"使用 WSL 和 VS Code 配置 C/C++ 开发环境","name":"使用 WSL 和 VS Code 配置 C\/C\u002b\u002b 开发环境","description":"此文章已经过时，请参考微软给出的更新的教程 安装 WSL\n本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。\n启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：\ndism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。\n更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：\n 对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。  启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：","keywords":["教程","WSL","VS Code"],"articleBody":"此文章已经过时，请参考微软给出的更新的教程 安装 WSL\n本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。\n启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：\ndism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。\n更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：\n 对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。  启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：\ndism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 重新启动 计算机，以完成 WSL 安装并更新到 WSL 2。\nWSL 2 的后续步骤 请参考 后续步骤 来完成，后转 安装并配置 Linux 发行版。\n安装并配置 Linux 发行版 打开 Microsoft Store，安装一个 Linux 发行版，并打开此发行版，后按照提示进行操作即可。\n对于 Linux 的相关操作，请自行搜索。\n更改 WSL 的镜像源 使用默认的源下载软件是较为缓慢的，因而我们需要更换更快速的镜像。在国内，我们常用的是 清华大学 和 中国科学技术大学 的镜像。请确认 WSL 的发行版，根据需求选择要使用的镜像：\n 清华大学开源软件镜像站 USTC Open Source Software Mirror  在 WSL 上安装 C/C++ 的编译器 以 Ubuntu 为例，使用如下命令安装：\nsudo apt-get install gcc g++ 注意：在安装之前，可能需要进行包的更新，可使用如下命令更新：\nsudo apt-get update sudo apt-get upgrade 对于其他 Linux 发行版，请自行在网络上搜索安装与更新的命令，这里不再赘述。\n将 WSL 与 VS Code 一并使用 以下内容参考 开始使用 WSL VS Code，笔者不确保内容的准确性。如有疑问请参考原文。\n安装并配置 VS Code 访问 VS Code 安装页 选择适合的安装程序。\n打开 VS Code，点击拓展并搜索 「WSL」，安装 WSL 远程拓展包，即可完成操作。在中文环境下，我们还可以安装 VS Code 推荐的中文语言包，以方便阅读。\n对于 C/C++，我们可以在拓展中搜索 C++，以安装其有关拓展（包含了语法高亮、调试等功能）。\n更多的 WSL 与 VS Code 共同使用的小技巧的注意事项，请参考 开始使用 WSL VS Code\n使用 WSL 和 VS Code 编写 Hello world! 程序 注意：以下仅为简单的、单文件的 C 语言编写的源文件的编译方法，笔者不保证（实际上是几乎不能）适用于生产环境。若要了解一种生产环境下的 C 语言编译方法，请参考 CMake。\n首先，需要进入存放源代码的文件夹，请读者自行建立，或在 Home 文件夹直接进行。\n运行如下命令，创建 main.c 源文件（提示：在 Linux 下键入命令时，请善用 Tab 键自动补全）：\ntouch main.c 在 VS Code 中，点击左下角打开远程窗口按钮，选择 New WSL Window 即可连接至 WSL。打开存放 main.c 的文件夹，使用 VS Code 编辑 main.c 文件，填入如下内容：\n#include  int main() { printf(\"Hello world!\\n\"); } 按下 ctrl + ` 打开命令行终端，输入以下命令编译此程序：\ngcc main.c 此时，输入 ls 命令，我们可以看到当前目录下已经生成了一个名为 a.out 的可执行文件。\n我们执行这个程序（注意：./ 是不可缺少的，具体原因请自行搜索，这里不再赘述）：\n./a.out 可以看到输出：\nHello world! 若要重新编译源文件，请使用 rm 命令，删除 a.out 文件，并再次执行编译命令。\n若要了解其他 gcc 命令的使用方法，请执行命令 man gcc 或 gcc --help。更多 Linux 常用命令请自行于网络上搜索。\n","wordCount":"286","inLanguage":"zh","datePublished":"2021-09-13T19:03:23+08:00","dateModified":"2021-11-26T14:23:09+08:00","author":{"@type":"Person","name":"Qiming Xu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/"},"publisher":{"@type":"Organization","name":"Qiming's Blog","logo":{"@type":"ImageObject","url":"https://xqm32.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=http://xqm32.github.io/ accesskey=h title="Qiming's Blog (Alt + H)">Qiming's Blog</a>
+<a href=https://xqm32.github.io/ accesskey=h title="Qiming's Blog (Alt + H)">Qiming's Blog</a>
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
@@ -61,42 +61,42 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 </div>
 <ul id=menu>
 <li>
-<a href=http://xqm32.github.io/about/ title=关于我>
+<a href=https://xqm32.github.io/about/ title=关于我>
 <span>关于我</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/friends/ title=朋友们>
+<a href=https://xqm32.github.io/friends/ title=朋友们>
 <span>朋友们</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/posts/ title=文章>
+<a href=https://xqm32.github.io/posts/ title=文章>
 <span>文章</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/notes/ title=笔记>
+<a href=https://xqm32.github.io/notes/ title=笔记>
 <span>笔记</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/categories/ title=分类>
+<a href=https://xqm32.github.io/categories/ title=分类>
 <span>分类</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/tags/ title=标签>
+<a href=https://xqm32.github.io/tags/ title=标签>
 <span>标签</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/archives/ title=归档>
+<a href=https://xqm32.github.io/archives/ title=归档>
 <span>归档</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/search/ title="搜索 (Alt + /)" accesskey=/>
+<a href=https://xqm32.github.io/search/ title="搜索 (Alt + /)" accesskey=/>
 <span>搜索</span>
 </a>
 </li>
@@ -209,9 +209,9 @@ sudo apt-get upgrade
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
-<li><a href=http://xqm32.github.io/tags/%E6%95%99%E7%A8%8B/>教程</a></li>
-<li><a href=http://xqm32.github.io/tags/wsl/>WSL</a></li>
-<li><a href=http://xqm32.github.io/tags/vs-code/>VS Code</a></li>
+<li><a href=https://xqm32.github.io/tags/%E6%95%99%E7%A8%8B/>教程</a></li>
+<li><a href=https://xqm32.github.io/tags/wsl/>WSL</a></li>
+<li><a href=https://xqm32.github.io/tags/vs-code/>VS Code</a></li>
 </ul>
 </footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css>
 <script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js></script>
@@ -220,7 +220,7 @@ sudo apt-get upgrade
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=http://xqm32.github.io/>Qiming's Blog</a></span>
+<span>&copy; 2022 <a href=https://xqm32.github.io/>Qiming's Blog</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

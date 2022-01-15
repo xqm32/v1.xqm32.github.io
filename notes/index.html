@@ -15,14 +15,14 @@ By default, Goldmark does not render raw HTMLs and potentially dangerous links. 
 Hugo PaperMod 本地查看静态页面异常 打开 public/index.html，查看控制台报错。
  Access to CSS stylesheet at &lsquo;file:///PATH/TO/FILE.">
 <meta name=author content="Qiming Xu">
-<link rel=canonical href=http://xqm32.github.io/notes/>
+<link rel=canonical href=https://xqm32.github.io/notes/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=http://xqm32.github.io/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=http://xqm32.github.io/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=http://xqm32.github.io/favicon-32x32.png>
-<link rel=apple-touch-icon href=http://xqm32.github.io/apple-touch-icon.png>
-<link rel=mask-icon href=http://xqm32.github.io/safari-pinned-tab.svg>
+<link rel=icon href=https://xqm32.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://xqm32.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://xqm32.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://xqm32.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://xqm32.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.92.0">
@@ -40,7 +40,7 @@ By default, Goldmark does not render raw HTMLs and potentially dangerous links. 
 Hugo PaperMod 本地查看静态页面异常 打开 public/index.html，查看控制台报错。
  Access to CSS stylesheet at &lsquo;file:///PATH/TO/FILE.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://xqm32.github.io/notes/"><meta property="article:section" content>
+<meta property="og:url" content="https://xqm32.github.io/notes/"><meta property="article:section" content>
 <meta property="article:modified_time" content="2022-01-15T00:46:48+08:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="笔记">
@@ -53,15 +53,15 @@ By default, Goldmark does not render raw HTMLs and potentially dangerous links. 
  Hugo PaperMod 主题安装、更新方法 参考其教程即可 Hugo PaperMod。
 Hugo PaperMod 本地查看静态页面异常 打开 public/index.html，查看控制台报错。
  Access to CSS stylesheet at &lsquo;file:///PATH/TO/FILE.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"笔记","item":"http://xqm32.github.io/notes/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"笔记","name":"笔记","description":"此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。\n配置 npm 镜像设置 腾讯解君愁。\nHugo 中嵌入 HTML 的方法 于 config.yml 中加入以下配置：\nmarkup: goldmark: renderer: unsafe: true 参考 Hugo 文档 Goldmark 一栏。\n unsafe\nBy default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.\n Hugo PaperMod 主题安装、更新方法 参考其教程即可 Hugo PaperMod。\nHugo PaperMod 本地查看静态页面异常 打开 public/index.html，查看控制台报错。\n Access to CSS stylesheet at \u0026lsquo;file:///PATH/TO/FILE.","keywords":[],"articleBody":"此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。\n配置 npm 镜像设置 腾讯解君愁。\nHugo 中嵌入 HTML 的方法 于 config.yml 中加入以下配置：\nmarkup: goldmark: renderer: unsafe: true 参考 Hugo 文档 Goldmark 一栏。\n unsafe\nBy default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.\n Hugo PaperMod 主题安装、更新方法 参考其教程即可 Hugo PaperMod。\nHugo PaperMod 本地查看静态页面异常 打开 public/index.html，查看控制台报错。\n Access to CSS stylesheet at ‘file:///PATH/TO/FILE.css’ from origin ‘null’ has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, chrome-extension, edge, https, chrome-untrusted.\n 跨源请求不支持 file 协议，所以将：\nlink crossorigin=\"anonymous\" href=\"/assets/css/FILE.css\" rel=\"preload stylesheet\" as=\"style\" 修改为：\nlink crossorigin=\"anonymous\" href=\"http://DOMAIN.YOUR.SITE/assets/css/FILE.css\" rel=\"preload stylesheet\" as=\"style\" 即可。\nWSL WSL 2 配置代理 若使用 bash，则在 .bashrc 中添加：\nexport windowsHostIP=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'` proxy() { export ALL_PROXY=\"http://$windowsHostIP:端口\" export all_proxy=\"http://$windowsHostIP:端口\" export http_proxy=\"http://$windowsHostIP:10809\" export https_proxy=\"http://$windowsHostIP:10809\" } unproxy() { unset ALL_PROXY unset all_prox unset http_proxy unset https_proxyy } 虽然看起来没有必要，但是只有设置了 http_proxy 和 https_proxy 才能对 wget 生效，笔者感觉十分奇怪。\n参考 WSL2 网络代理设置 和 Ubuntu「一键」设置代理。\nWSL 与加速器产生冲突 注意：此方法可能有副作用。\nWSL 与加速器的冲突可以参考此文章解决 关于使用 WSL2 出现“参考的对象类型不支持尝试的操作”的解决方法。\nWSL 中 C/C++ 调试报错的解决方案 mkdir -p /build/报错路径（如 glibc-XXXXXX） wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz） sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/ 软件 Markdown 编辑器 由于 Typora 收费且收费较贵，不得不寻找其替代品，目前感觉 MarkText 比较不错。\nWindows 工具 由于我的键盘的 ctrl 键坏了，需要将 CapsLock 键映射到 ctrl 上，于是发现了这个好用的小工具：Microsoft PowerToys。\n它还有一些其他好用的功能，比如双击 ctrl 键可以快速的找到你的鼠标在哪儿。\n流程图、UML 画图工具 Draw.io。\n开发 GitHub 贡献 添加功能或者修复错误时，应创建新的分支而非从 main/master 直接推送。\n Contributing to GitHub\nContributing to Cataclysm: Dark Days Ahead is easy — simply fork the repository here on GitHub, make your changes, and then send us a pull request.\nThere are a couple of guidelines we suggest sticking to:\nAdd this repository as an upstream remote.\nKeep your master branch clean. This means you can easily pull changes made to this repository into yours.\nCreate a new branch for each new feature or set of related bug fixes.\nNever merge from your local branches into your master branch. Only update that by pulling from upstream/master.\n WSL 安装 Rust Rust 官方给出了安装工具 安装 Rust。\n游戏 无名杀 无名杀的一种少错误的安装方法：\n 下载https://github.com/libccy/noname/releases/download/SSS/Windows_Yuri_Fix.zip； 下载最新源代码； 解压游戏客户端至当前文件夹，应当会出现 ./Windows_Yuri_Fix/noname 或 ./noname 文件夹，后面我们以 ./noname 文件夹为游戏目录； 将最新源代码（即资源文件）解压，应当会出现 ./noname-master 文件夹，将文件夹中的全部内容移动至游戏目录下 ./resources/app 文件夹，即可启动游戏。 下载「在线更新」拓展并在游戏中导入，进行更新即可。  其他 《编程通解》 可爱的莱子酱写的《编程通解》。（咕咕咕）\n备份 前往备份页面以查看。\n","wordCount":"337","inLanguage":"zh","datePublished":"0001-01-01T00:00:00Z","dateModified":"2022-01-15T00:46:48+08:00","author":{"@type":"Person","name":"Qiming Xu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://xqm32.github.io/notes/"},"publisher":{"@type":"Organization","name":"Qiming's Blog","logo":{"@type":"ImageObject","url":"http://xqm32.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"笔记","item":"https://xqm32.github.io/notes/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"笔记","name":"笔记","description":"此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。\n配置 npm 镜像设置 腾讯解君愁。\nHugo 中嵌入 HTML 的方法 于 config.yml 中加入以下配置：\nmarkup: goldmark: renderer: unsafe: true 参考 Hugo 文档 Goldmark 一栏。\n unsafe\nBy default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.\n Hugo PaperMod 主题安装、更新方法 参考其教程即可 Hugo PaperMod。\nHugo PaperMod 本地查看静态页面异常 打开 public/index.html，查看控制台报错。\n Access to CSS stylesheet at \u0026lsquo;file:///PATH/TO/FILE.","keywords":[],"articleBody":"此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。\n配置 npm 镜像设置 腾讯解君愁。\nHugo 中嵌入 HTML 的方法 于 config.yml 中加入以下配置：\nmarkup: goldmark: renderer: unsafe: true 参考 Hugo 文档 Goldmark 一栏。\n unsafe\nBy default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.\n Hugo PaperMod 主题安装、更新方法 参考其教程即可 Hugo PaperMod。\nHugo PaperMod 本地查看静态页面异常 打开 public/index.html，查看控制台报错。\n Access to CSS stylesheet at ‘file:///PATH/TO/FILE.css’ from origin ‘null’ has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, chrome-extension, edge, https, chrome-untrusted.\n 跨源请求不支持 file 协议，所以将：\nlink crossorigin=\"anonymous\" href=\"/assets/css/FILE.css\" rel=\"preload stylesheet\" as=\"style\" 修改为：\nlink crossorigin=\"anonymous\" href=\"http://DOMAIN.YOUR.SITE/assets/css/FILE.css\" rel=\"preload stylesheet\" as=\"style\" 即可。\nWSL WSL 2 配置代理 若使用 bash，则在 .bashrc 中添加：\nexport windowsHostIP=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'` proxy() { export ALL_PROXY=\"http://$windowsHostIP:端口\" export all_proxy=\"http://$windowsHostIP:端口\" export http_proxy=\"http://$windowsHostIP:10809\" export https_proxy=\"http://$windowsHostIP:10809\" } unproxy() { unset ALL_PROXY unset all_prox unset http_proxy unset https_proxyy } 虽然看起来没有必要，但是只有设置了 http_proxy 和 https_proxy 才能对 wget 生效，笔者感觉十分奇怪。\n参考 WSL2 网络代理设置 和 Ubuntu「一键」设置代理。\nWSL 与加速器产生冲突 注意：此方法可能有副作用。\nWSL 与加速器的冲突可以参考此文章解决 关于使用 WSL2 出现“参考的对象类型不支持尝试的操作”的解决方法。\nWSL 中 C/C++ 调试报错的解决方案 mkdir -p /build/报错路径（如 glibc-XXXXXX） wget http://ftp.gnu.org/gnu/glibc/需要的 glibc 如（glibc-X.XX.tar.gz） sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/ 软件 Markdown 编辑器 由于 Typora 收费且收费较贵，不得不寻找其替代品，目前感觉 MarkText 比较不错。\nWindows 工具 由于我的键盘的 ctrl 键坏了，需要将 CapsLock 键映射到 ctrl 上，于是发现了这个好用的小工具：Microsoft PowerToys。\n它还有一些其他好用的功能，比如双击 ctrl 键可以快速的找到你的鼠标在哪儿。\n流程图、UML 画图工具 Draw.io。\n开发 GitHub 贡献 添加功能或者修复错误时，应创建新的分支而非从 main/master 直接推送。\n Contributing to GitHub\nContributing to Cataclysm: Dark Days Ahead is easy — simply fork the repository here on GitHub, make your changes, and then send us a pull request.\nThere are a couple of guidelines we suggest sticking to:\nAdd this repository as an upstream remote.\nKeep your master branch clean. This means you can easily pull changes made to this repository into yours.\nCreate a new branch for each new feature or set of related bug fixes.\nNever merge from your local branches into your master branch. Only update that by pulling from upstream/master.\n WSL 安装 Rust Rust 官方给出了安装工具 安装 Rust。\n游戏 无名杀 无名杀的一种少错误的安装方法：\n 下载https://github.com/libccy/noname/releases/download/SSS/Windows_Yuri_Fix.zip； 下载最新源代码； 解压游戏客户端至当前文件夹，应当会出现 ./Windows_Yuri_Fix/noname 或 ./noname 文件夹，后面我们以 ./noname 文件夹为游戏目录； 将最新源代码（即资源文件）解压，应当会出现 ./noname-master 文件夹，将文件夹中的全部内容移动至游戏目录下 ./resources/app 文件夹，即可启动游戏。 下载「在线更新」拓展并在游戏中导入，进行更新即可。  其他 《编程通解》 可爱的莱子酱写的《编程通解》。（咕咕咕）\n备份 前往备份页面以查看。\n","wordCount":"337","inLanguage":"zh","datePublished":"0001-01-01T00:00:00Z","dateModified":"2022-01-15T00:46:48+08:00","author":{"@type":"Person","name":"Qiming Xu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xqm32.github.io/notes/"},"publisher":{"@type":"Organization","name":"Qiming's Blog","logo":{"@type":"ImageObject","url":"https://xqm32.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=http://xqm32.github.io/ accesskey=h title="Qiming's Blog (Alt + H)">Qiming's Blog</a>
+<a href=https://xqm32.github.io/ accesskey=h title="Qiming's Blog (Alt + H)">Qiming's Blog</a>
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
@@ -69,42 +69,42 @@ Hugo PaperMod 本地查看静态页面异常 打开 public/index.html，查看�
 </div>
 <ul id=menu>
 <li>
-<a href=http://xqm32.github.io/about/ title=关于我>
+<a href=https://xqm32.github.io/about/ title=关于我>
 <span>关于我</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/friends/ title=朋友们>
+<a href=https://xqm32.github.io/friends/ title=朋友们>
 <span>朋友们</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/posts/ title=文章>
+<a href=https://xqm32.github.io/posts/ title=文章>
 <span>文章</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/notes/ title=笔记>
+<a href=https://xqm32.github.io/notes/ title=笔记>
 <span class=active>笔记</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/categories/ title=分类>
+<a href=https://xqm32.github.io/categories/ title=分类>
 <span>分类</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/tags/ title=标签>
+<a href=https://xqm32.github.io/tags/ title=标签>
 <span>标签</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/archives/ title=归档>
+<a href=https://xqm32.github.io/archives/ title=归档>
 <span>归档</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/search/ title="搜索 (Alt + /)" accesskey=/>
+<a href=https://xqm32.github.io/search/ title="搜索 (Alt + /)" accesskey=/>
 <span>搜索</span>
 </a>
 </li>
@@ -279,7 +279,7 @@ sudo tar xf glibc-X.XX.tar.gz --directory<span style=color:#f92672>=</span>/buil
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=http://xqm32.github.io/>Qiming's Blog</a></span>
+<span>&copy; 2022 <a href=https://xqm32.github.io/>Qiming's Blog</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

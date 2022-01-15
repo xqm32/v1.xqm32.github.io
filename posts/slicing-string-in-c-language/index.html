@@ -9,14 +9,14 @@
 基于 Python 的切片的格式实现的 C 语言字符串切片：
 #include <ctype.h>#include <stdio.h>#include <stdlib.h>#include <string.h> typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\n' && !feof(stream) && --size > 0; ++i, *++dest = fgetc(stream)) ; *dest = '\0'; return i; } // 读取一行字符串。  size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin < 0 ?">
 <meta name=author content="Qiming Xu">
-<link rel=canonical href=http://xqm32.github.io/posts/slicing-string-in-c-language/>
+<link rel=canonical href=https://xqm32.github.io/posts/slicing-string-in-c-language/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=http://xqm32.github.io/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=http://xqm32.github.io/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=http://xqm32.github.io/favicon-32x32.png>
-<link rel=apple-touch-icon href=http://xqm32.github.io/apple-touch-icon.png>
-<link rel=mask-icon href=http://xqm32.github.io/safari-pinned-tab.svg>
+<link rel=icon href=https://xqm32.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://xqm32.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://xqm32.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://xqm32.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://xqm32.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.92.0">
@@ -28,7 +28,7 @@
 基于 Python 的切片的格式实现的 C 语言字符串切片：
 #include <ctype.h>#include <stdio.h>#include <stdlib.h>#include <string.h> typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\n' && !feof(stream) && --size > 0; ++i, *++dest = fgetc(stream)) ; *dest = '\0'; return i; } // 读取一行字符串。  size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin < 0 ?">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://xqm32.github.io/posts/slicing-string-in-c-language/"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://xqm32.github.io/posts/slicing-string-in-c-language/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-09-04T16:33:50+08:00">
 <meta property="article:modified_time" content="2021-09-04T16:35:51+08:00">
 <meta name=twitter:card content="summary">
@@ -36,15 +36,15 @@
 <meta name=twitter:description content="搬运一篇笔者在知乎发的文章：C 语言实现字符串切片
 基于 Python 的切片的格式实现的 C 语言字符串切片：
 #include <ctype.h>#include <stdio.h>#include <stdlib.h>#include <string.h> typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\n' && !feof(stream) && --size > 0; ++i, *++dest = fgetc(stream)) ; *dest = '\0'; return i; } // 读取一行字符串。  size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin < 0 ?">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"http://xqm32.github.io/posts/"},{"@type":"ListItem","position":2,"name":"C 语言实现字符串切片","item":"http://xqm32.github.io/posts/slicing-string-in-c-language/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"C 语言实现字符串切片","name":"C 语言实现字符串切片","description":"搬运一篇笔者在知乎发的文章：C 语言实现字符串切片\n基于 Python 的切片的格式实现的 C 语言字符串切片：\n#include \u0026lt;ctype.h\u0026gt;#include \u0026lt;stdio.h\u0026gt;#include \u0026lt;stdlib.h\u0026gt;#include \u0026lt;string.h\u0026gt; typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != \u0026#39;\\n\u0026#39; \u0026amp;\u0026amp; !feof(stream) \u0026amp;\u0026amp; --size \u0026gt; 0; ++i, *++dest = fgetc(stream)) ; *dest = \u0026#39;\\0\u0026#39;; return i; } // 读取一行字符串。  size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin \u0026lt; 0 ?","keywords":["编程"],"articleBody":"搬运一篇笔者在知乎发的文章：C 语言实现字符串切片\n基于 Python 的切片的格式实现的 C 语言字符串切片：\n#include #include #include #include  typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\\n' \u0026\u0026 !feof(stream) \u0026\u0026 --size  0; ++i, *++dest = fgetc(stream)) ; *dest = '\\0'; return i; } // 读取一行字符串。  size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin  0 ? strlen(from) : 0; end += end  0 ? 0 : strlen(from); interval = interval ? interval : 1; for (i = 0; from[begin] != '\\0' \u0026\u0026 begin  end; ++i, begin += interval) to[i] = from[begin]; to[i] = '\\0'; return i; } // 切片函数。  char* StrSize(char* from, SizeType* m, SizeType* n, SizeType* o) { *m = atoll(from); from = strchr(from, ':'); if (!from) return from; *n = atoll(++from); from = strchr(from, ':'); if (!from) return from; *o = atoll(++from); return from; } // 字符串解析成数字，由 \":\" 分隔。  size_t strslice(char* format, char* from, char* to) { SizeType m = 0, n = 0, o = 0; StrSize(format, \u0026m, \u0026n, \u0026o); // printf(\"%lld, %lld, %lld\\n\", m, n, o);  return slice(from, to, m, n, o); } // 用字符串作为切片的格式的切片函数。  int main(int argc, char* argv[]) { char* String = malloc(128); char* Format = malloc(128); char* Save = malloc(128); for (;;) { memset(String, 0, 128); memset(Format, 0, 128); memset(Save, 0, 128); fgetln(stdin, String, 128); fgetln(stdin, Format, 128); strslice(Format, String, Save); printf(\"%s\\n\", Save); } } 测试：\nHello world :: Hello world Hello world 1 ello world Hello world -1 d Hello world 1: ello world Hello world -1: d Hello world :1 H Hello world :-1 Hello worl Hello world ::1 Hello world Hello world ::2 Hlowrd Hello world 1:-1 ello worl Hello world 2:1 [无输出] Hello world -2:-1 l Hello world -1:-2 [无输出] ","wordCount":"302","inLanguage":"zh","datePublished":"2021-09-04T16:33:50+08:00","dateModified":"2021-09-04T16:35:51+08:00","author":{"@type":"Person","name":"Qiming Xu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://xqm32.github.io/posts/slicing-string-in-c-language/"},"publisher":{"@type":"Organization","name":"Qiming's Blog","logo":{"@type":"ImageObject","url":"http://xqm32.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://xqm32.github.io/posts/"},{"@type":"ListItem","position":2,"name":"C 语言实现字符串切片","item":"https://xqm32.github.io/posts/slicing-string-in-c-language/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"C 语言实现字符串切片","name":"C 语言实现字符串切片","description":"搬运一篇笔者在知乎发的文章：C 语言实现字符串切片\n基于 Python 的切片的格式实现的 C 语言字符串切片：\n#include \u0026lt;ctype.h\u0026gt;#include \u0026lt;stdio.h\u0026gt;#include \u0026lt;stdlib.h\u0026gt;#include \u0026lt;string.h\u0026gt; typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != \u0026#39;\\n\u0026#39; \u0026amp;\u0026amp; !feof(stream) \u0026amp;\u0026amp; --size \u0026gt; 0; ++i, *++dest = fgetc(stream)) ; *dest = \u0026#39;\\0\u0026#39;; return i; } // 读取一行字符串。  size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin \u0026lt; 0 ?","keywords":["编程"],"articleBody":"搬运一篇笔者在知乎发的文章：C 语言实现字符串切片\n基于 Python 的切片的格式实现的 C 语言字符串切片：\n#include #include #include #include  typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != '\\n' \u0026\u0026 !feof(stream) \u0026\u0026 --size  0; ++i, *++dest = fgetc(stream)) ; *dest = '\\0'; return i; } // 读取一行字符串。  size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin  0 ? strlen(from) : 0; end += end  0 ? 0 : strlen(from); interval = interval ? interval : 1; for (i = 0; from[begin] != '\\0' \u0026\u0026 begin  end; ++i, begin += interval) to[i] = from[begin]; to[i] = '\\0'; return i; } // 切片函数。  char* StrSize(char* from, SizeType* m, SizeType* n, SizeType* o) { *m = atoll(from); from = strchr(from, ':'); if (!from) return from; *n = atoll(++from); from = strchr(from, ':'); if (!from) return from; *o = atoll(++from); return from; } // 字符串解析成数字，由 \":\" 分隔。  size_t strslice(char* format, char* from, char* to) { SizeType m = 0, n = 0, o = 0; StrSize(format, \u0026m, \u0026n, \u0026o); // printf(\"%lld, %lld, %lld\\n\", m, n, o);  return slice(from, to, m, n, o); } // 用字符串作为切片的格式的切片函数。  int main(int argc, char* argv[]) { char* String = malloc(128); char* Format = malloc(128); char* Save = malloc(128); for (;;) { memset(String, 0, 128); memset(Format, 0, 128); memset(Save, 0, 128); fgetln(stdin, String, 128); fgetln(stdin, Format, 128); strslice(Format, String, Save); printf(\"%s\\n\", Save); } } 测试：\nHello world :: Hello world Hello world 1 ello world Hello world -1 d Hello world 1: ello world Hello world -1: d Hello world :1 H Hello world :-1 Hello worl Hello world ::1 Hello world Hello world ::2 Hlowrd Hello world 1:-1 ello worl Hello world 2:1 [无输出] Hello world -2:-1 l Hello world -1:-2 [无输出] ","wordCount":"302","inLanguage":"zh","datePublished":"2021-09-04T16:33:50+08:00","dateModified":"2021-09-04T16:35:51+08:00","author":{"@type":"Person","name":"Qiming Xu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xqm32.github.io/posts/slicing-string-in-c-language/"},"publisher":{"@type":"Organization","name":"Qiming's Blog","logo":{"@type":"ImageObject","url":"https://xqm32.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=http://xqm32.github.io/ accesskey=h title="Qiming's Blog (Alt + H)">Qiming's Blog</a>
+<a href=https://xqm32.github.io/ accesskey=h title="Qiming's Blog (Alt + H)">Qiming's Blog</a>
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
@@ -52,42 +52,42 @@
 </div>
 <ul id=menu>
 <li>
-<a href=http://xqm32.github.io/about/ title=关于我>
+<a href=https://xqm32.github.io/about/ title=关于我>
 <span>关于我</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/friends/ title=朋友们>
+<a href=https://xqm32.github.io/friends/ title=朋友们>
 <span>朋友们</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/posts/ title=文章>
+<a href=https://xqm32.github.io/posts/ title=文章>
 <span>文章</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/notes/ title=笔记>
+<a href=https://xqm32.github.io/notes/ title=笔记>
 <span>笔记</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/categories/ title=分类>
+<a href=https://xqm32.github.io/categories/ title=分类>
 <span>分类</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/tags/ title=标签>
+<a href=https://xqm32.github.io/tags/ title=标签>
 <span>标签</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/archives/ title=归档>
+<a href=https://xqm32.github.io/archives/ title=归档>
 <span>归档</span>
 </a>
 </li>
 <li>
-<a href=http://xqm32.github.io/search/ title="搜索 (Alt + /)" accesskey=/>
+<a href=https://xqm32.github.io/search/ title="搜索 (Alt + /)" accesskey=/>
 <span>搜索</span>
 </a>
 </li>
@@ -235,7 +235,7 @@ Hello world
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
-<li><a href=http://xqm32.github.io/tags/%E7%BC%96%E7%A8%8B/>编程</a></li>
+<li><a href=https://xqm32.github.io/tags/%E7%BC%96%E7%A8%8B/>编程</a></li>
 </ul>
 </footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css>
 <script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js></script>
@@ -244,7 +244,7 @@ Hello world
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=http://xqm32.github.io/>Qiming's Blog</a></span>
+<span>&copy; 2022 <a href=https://xqm32.github.io/>Qiming's Blog</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
