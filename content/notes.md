@@ -171,4 +171,5 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 2022.1.13 Water + 寄 + 感恩 String 老师。
 2022.1.14 今天没有水，但是 GitHub 上没有 commit 记录，很奇怪。
 2022.1.15 还是很奇怪，CellDetection 这个 repo 没有记录。
+2022.1.16 复习！复习！复习！
 -->
