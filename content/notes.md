@@ -66,6 +66,14 @@ markup:
 
 参见[一文让你了解如何为 Git 设置代理](https://ericclose.github.io/git-proxy-config.html)
 
+## 我的 Git 配置
+
+```bash
+git config --global user.name "xqm32"
+git config --global user.email "458173774@qq.com"
+git config --global http.https://github.com.proxy http://127.0.0.1:10809
+```
+
 # WSL
 
 ## WSL 2 配置代理
@@ -189,4 +197,5 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 2022.1.17 复习！复习！复习！
 2022.1.18 考完大物啦~
 2022.1.19 复习概率。
+2022.1.21 到家了
 -->
