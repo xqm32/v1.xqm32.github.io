@@ -3,10 +3,8 @@ title: "TODO"
 draft: false
 ---
 
-- [ ] Telegram 找一些有趣的 Channel
-- [ ] Telegram 寻找英文搜索引擎
-- [ ] 理解 Git 的变基
-- [ ] 学 Rust！！！
-- [ ] 学 Typescript
-- [ ] 学 Lua
-- [ ] 机器学习
+- [ ] Git 的变基
+- [ ] CloudFlare CDN 加速
+- [ ] PDF.js 索引
+- [ ] GitHub Pages 做 Wiki
+- [ ] GitHub Actions 自动更新
