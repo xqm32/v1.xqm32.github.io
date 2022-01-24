@@ -199,4 +199,5 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 2022.1.19 复习概率。
 2022.1.21 到家了。
 2022.1.22 Water.
+2022.1.24 Water.
 -->
