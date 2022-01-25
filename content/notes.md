@@ -64,7 +64,9 @@ markup:
 
 ## Git 配置代理
 
-参见[一文让你了解如何为 Git 设置代理](https://ericclose.github.io/git-proxy-config.html)
+参见[一文让你了解如何为 Git 设置代理](https://ericclose.github.io/git-proxy-config.html)。
+
+[Set Up Git](https://docs.github.com/en/get-started/quickstart/set-up-git).
 
 ## 我的 Git 配置
 
