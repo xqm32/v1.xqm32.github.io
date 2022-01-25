@@ -76,6 +76,10 @@ git config --global user.email "458173774@qq.com"
 git config --global http.https://github.com.proxy http://127.0.0.1:10809
 ```
 
+## Git-MediaWiki
+
+参见[Installing and configuring Git-Mediawiki](http://members.wolfram.com/meng/pages/computing/installing_and_configuring/installing_and_configuring_git-mediawiki/)。
+
 ## WinGet
 
 可以使用 WinGet 进行软件包的安装，如：
