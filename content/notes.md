@@ -76,6 +76,16 @@ git config --global user.email "458173774@qq.com"
 git config --global http.https://github.com.proxy http://127.0.0.1:10809
 ```
 
+## WinGet
+
+可以使用 WinGet 进行软件包的安装，如：
+
+```bash
+winget install --id Git.Git -e --source winget
+```
+
+参见[Git Downloads](https://git-scm.com/download/win)
+
 # WSL
 
 ## WSL 2 配置代理
