@@ -12,6 +12,8 @@ def a(b):
     return base64.b64encode(g.encode('UTF-8')).decode()
 ```
 
+<script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.2/base64.min.js"></script>
+
 <script>
 function ent() {
     content = document.getElementById("content").value
@@ -22,8 +24,9 @@ function ent() {
         M = md5.charCodeAt(i%32);
         R.push(C+M)
     }
+    R = '.'+R.join('.')
     console.log(R)
-    document.getElementById("result").innerHTML = R
+    document.getElementById("result").innerHTML = `<a href='https://vpn.zcst.edu.cn/webvpn/LjE1OC4xNjkuMTY0LjE2OC4yMTM=/${Base64.encode(R)}/'>GO</a>`
 }
 </script>
 
