@@ -13,6 +13,9 @@ def a(b):
 ```
 
 <script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.2/base64.min.js"></script>
+<script type="module"src="https://cdn.jsdelivr.net/npm/url-js@2.0.0-u/dist/url.min.js">
+    import URLJS from 'url-js';
+</script>
 
 <script>
 function ent(content) {
@@ -28,14 +31,16 @@ function ent(content) {
 }
 
 function getURL() {
-    content = document.getElementById("content").value
-    it = content.split('://')
-    scheme = it[0]
-    host = it[1]
-    document.getElementById("result").innerHTML = `<a href='https://vpn.zcst.edu.cn/webvpn/${ent(scheme)}/${ent(host)}/'>${content}</a>`
+    url = document.getElementById("url").value
+    protocol = URLJS.parseUrl(url, "protocol")
+    protocol = protocol.substring(0, protocol.length-1)
+    hostname = URLJS.parseUrl(url, "hostname")
+    pathname = URLJS.parseUrl(url, "pathname")
+    search = URLJS.parseUrl(url, "search")
+    document.getElementById("result").innerHTML = `<a href='https://vpn.zcst.edu.cn/webvpn/${ent(protocol)}/${ent(hostname)}${pathname}${search}'>${url}</a>`
 }
 </script>
 
-<button onClick="getURL()">加密：</button> <input id="content"/>
+<button onClick="getURL()">加密：</button> <input id="url"/>
 
 <span>结果：</span> <span id="result"></span>
