@@ -32,15 +32,34 @@ function ent(content) {
 
 function getURL() {
     url = document.getElementById("url").value
+
+    switch(url) {
+        case "bing":
+            url = "https://www.bing.com"
+            break
+        case "baidu":
+            url = "https://www.baidu.com"
+            break
+        case "cnki":
+            url = "https://www.cnki.net"
+    }
+
     protocol = URLJS.parseUrl(url, "protocol")
-    protocol = protocol.substring(0, protocol.length-1)
+    protocol = protocol ? protocol.substring(0, protocol.length-1) : "https"
     hostname = URLJS.parseUrl(url, "hostname")
+    hostname = hostname ? hostname : "www.bing.com" 
     pathname = URLJS.parseUrl(url, "pathname")
+    pathname = pathname ? pathname : "/"
     search = URLJS.parseUrl(url, "search")
-    document.getElementById("result").innerHTML = `<a href='https://vpn.zcst.edu.cn/webvpn/${ent(protocol)}/${ent(hostname)}${pathname}${search}'>${url}</a>`
+    search = search ? search : ""
+    document.getElementById("result").innerHTML = `<a href='https://vpn.zcst.edu.cn/webvpn/${ent(protocol)}/${ent(hostname)}${pathname}${search}'>${url?url:"Search"}</a>`
+}
+
+function clearResult() {
+    document.getElementById("result").innerHTML = ""
 }
 </script>
 
 <button onClick="getURL()">加密：</button> <input id="url"/>
-
-<span>结果：</span> <span id="result"></span>
+<br/>
+<button onClick="clearResult()">结果：</button> <span id="result"></span>
