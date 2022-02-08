@@ -90,6 +90,10 @@ winget install --id Git.Git -e --source winget
 
 参见[Git Downloads](https://git-scm.com/download/win)
 
+## NVM 配置问题
+
+参见[Permissions (Exit 1, Exit 5, Access Denied, Exit 145)](https://github.com/coreybutler/nvm-windows/wiki/Common-Issues#permissions-exit-1-exit-5-access-denied-exit-145)。
+
 # WSL
 
 ## WSL 2 配置代理
