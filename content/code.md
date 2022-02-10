@@ -95,12 +95,16 @@ function clearResult() {
           words = words.filter(
             (w) => w[i] != word[i] && w.search(word[i]) != -1
           );
+          gy += word[i];
           break;
         case "g":
           words = words.filter((w) => w[i] == word[i]);
+          gy += word[i];
           break;
       }
     }
+
+    console.log(`All the Y&G words is ${gy}.`)
 
     for (i = 0; i < len; ++i) {
       if (state[i] == "w") {
