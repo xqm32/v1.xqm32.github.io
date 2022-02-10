@@ -79,7 +79,7 @@ def a(b):
   function clearResult() {
     document.getElementById("result").innerHTML = "";
   }
-  
+
   // Wordle
   words = [];
   len = 0;
@@ -88,12 +88,15 @@ def a(b):
   async function fetchIt() {
     await fetch("/des.txt").then((r) =>
       r.text().then((t) => {
-        words = t.split("\r\n");
+        words = t.split("\n");
       })
     );
     len = words[0].length;
     document.getElementById("tips").innerHTML = "Fetching words.";
-    setTimeout('document.getElementById("tips").innerHTML = "Words fetched"', 1000)
+    setTimeout(
+      'document.getElementById("tips").innerHTML = "Words fetched"',
+      1000
+    );
   }
 
   function wordle() {
