@@ -11,9 +11,12 @@ draft: false
 
 状态按照颜色 w(white), y(yellow), g(green) 进行填写
 
-<button onClick="fetchIt()">单词：</button> <input id="word"/> <span id="tips"></span>
+<hr/>
+<span>提示：</span> <span id="tips"></span>
 <br/>
-<button onClick="">状态：</button> <input id="state"/>
+<button onClick="fetchIt()">单词：</button> <input id="word"/>
+<br/>
+<span>状态：</span> <input id="state"/>
 <br/>
 <button onClick="wordle()">剩余：</button> <span id="rest"></span>
 
@@ -30,9 +33,9 @@ draft: false
         })
     );
     len = words[0].length;
-    document.getElementById("tips").innerHTML = "Fetching words.";
+    document.getElementById("tips").innerHTML = "拉取单词中";
     setTimeout(
-        'document.getElementById("tips").innerHTML = "Words fetched"',
+        'document.getElementById("tips").innerHTML = "单词拉取完毕"',
         1000
     );
     }
