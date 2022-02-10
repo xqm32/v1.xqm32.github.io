@@ -124,12 +124,16 @@ def a(b):
     for (i = 0; i < len; ++i) {
       if (state[i] == "w") {
         words = words.filter((w) => {
-          j = 0;
-          k = 0;
+          wordCount = 0;
+          YandGCount = 0;
           wordArray = Array.from(w);
-          wordArray.forEach((a) => (j += a == word[i] ? 1 : 0));
-          YandG.forEach((a) => (k += a == word[i] ? 1 : 0));
-          return w.search(word[i]) == -1 && j <= k;
+          wordArray.forEach((alpha) => (wordCount += alpha == word[i] ? 1 : 0));
+          YandG.forEach((alpha) => (YandGCount += alpha == word[i] ? 1 : 0));
+          console.log(`word: ${wordCount}, YandG: ${YandGCount}`);
+          return (
+            w.search(word[i]) == -1 ||
+            (wordCount != 0 && wordCount <= YandGCount)
+          );
         });
       }
     }
