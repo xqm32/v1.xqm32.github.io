@@ -24,6 +24,7 @@ draft: false
 
 <script>
   // Wordle
+  // Fix Bug: apple | yygwy | double 'p'
   historyWords = [];
   nowWords = -1;
 
