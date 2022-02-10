@@ -74,21 +74,22 @@ function clearResult() {
   fetchIt();
 
   async function fetchIt() {
-    console.log("Refetch words.");
+    console.log("Fetch words.");
     await fetch("/des.txt").then((r) =>
       r.text().then((t) => {
         words = t.split("\r\n");
       })
     );
+    document.getElementById("rest").innerHTML = "Fetch words";
   }
 
   function wordle() {
-    console.log(words);
     word = document.getElementById("word").value;
     state = document.getElementById("state").value;
     gy = "";
+    len = words[0].length;
 
-    for (i = 0; i < words[0].length; ++i) {
+    for (i = 0; i < len; ++i) {
       switch (state[i]) {
         case "y":
           words = words.filter(
@@ -101,7 +102,7 @@ function clearResult() {
       }
     }
 
-    for (i = 0; i < words[0].length; ++i) {
+    for (i = 0; i < len; ++i) {
       if (state[i] == "w") {
         words = words.filter((w) => {
           wl = w.matchAll(word[i]);
@@ -115,7 +116,7 @@ function clearResult() {
         });
       }
     }
-    if (words.length == 0) document.getElementById("rest").innerHTML = "没了";
+    if (words.length == 0) document.getElementById("rest").innerHTML = "There's nothing";
     else document.getElementById("rest").innerHTML = words;
   }
 </script>
