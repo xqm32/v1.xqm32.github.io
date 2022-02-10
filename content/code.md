@@ -68,3 +68,60 @@ function clearResult() {
 <button onClick="getURL()">加密：</button> <input id="url"/>
 <br/>
 <button onClick="clearResult()">结果：</button> <span id="result"></span>
+
+<script>
+  words = [];
+  fetchIt();
+
+  async function fetchIt() {
+    console.log("Refetch words.");
+    await fetch("/des.txt").then((r) =>
+      r.text().then((t) => {
+        words = t.split("\r\n");
+      })
+    );
+  }
+
+  function wordle() {
+    console.log(words);
+    word = document.getElementById("word").value;
+    state = document.getElementById("state").value;
+    gy = "";
+
+    for (i = 0; i < words[0].length; ++i) {
+      switch (state[i]) {
+        case "y":
+          words = words.filter(
+            (w) => w[i] != word[i] && w.search(word[i]) != -1
+          );
+          break;
+        case "g":
+          words = words.filter((w) => w[i] == word[i]);
+          break;
+      }
+    }
+
+    for (i = 0; i < words[0].length; ++i) {
+      if (state[i] == "w") {
+        words = words.filter((w) => {
+          wl = w.matchAll(word[i]);
+          wl = wl ? [...wl] : [];
+          gyl = gy.matchAll(word[i]);
+          gyl = gyl ? [...gyl] : [];
+          return (
+            w.search(word[i]) == -1 ||
+            (gyl.length != 0 && wl.length <= gyl.length)
+          );
+        });
+      }
+    }
+    if (words.length == 0) document.getElementById("rest").innerHTML = "没了";
+    else document.getElementById("rest").innerHTML = words;
+  }
+</script>
+
+<button onClick="fetchIt()">单词：</button> <input id="word"/>
+<br/>
+<button onClick="">状态：</button> <input id="state"/>
+<br/>
+<button onClick="wordle()">剩余：</button> <span id="rest"></span>
