@@ -93,6 +93,7 @@ def a(b):
     );
     len = words[0].length;
     document.getElementById("tips").innerHTML = "Fetching words.";
+    setTimeout('document.getElementById("tips").innerHTML = "Words fetched"', 1000)
   }
 
   function wordle() {
