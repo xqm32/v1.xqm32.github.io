@@ -5,11 +5,10 @@
 <meta name=robots content="index, follow">
 <title>Wordle | Qiming's Blog</title>
 <meta name=keywords content>
-<meta name=description content="使用说明 点击单词：拉取所有单词
+<meta name=description content="使用说明 点击拉取：拉取所有单词
 点击剩余：计算剩余单词
 状态按照颜色 w(white), y(yellow), g(green) 进行填写
-单词：   状态：  剩余： 
- // Wordle words = []; len = 0; fetchIt(); async function fetchIt() { await fetch(&#34;/des.txt&#34;).then((r) = r.text().then((t) = { words = t.split(&#34;\n&#34;); }) ); len = words[0].length; document.getElementById(&#34;tips&#34;).innerHTML = &#34;Fetching words.&#34;; setTimeout( 'document.getElementById(&#34;tips&#34;).innerHTML = &#34;Words fetched&#34;', 1000 ); } function wordle() { word = document.getElementById(&#34;word&#34;).value; state = document.getElementById(&#34;state&#34;).value; YandG = []; for (i = 0; i w[i] !">
+ 提示：   拉取 | 撤销 | 重做 @   单词：  状态：  剩余：   // Wordle historyWords = []; nowWords = -1; words = []; len = 0; fetchIt(); setInterval(()={ document.getElementById(&#34;nowWords&#34;).innerHTML = nowWords }, 1000) async function fetchIt() { await fetch(&#34;/des.txt&#34;).then((r) = r.text().then((t) = { words = t.split(&#34;\n&#34;); }) ); len = words[0].length; historyWords.push(words); nowWords = 0 document.">
 <meta name=author content="Qiming Xu">
 <link rel=canonical href=https://xqm32.github.io/wordle/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
@@ -26,23 +25,21 @@
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript><meta property="og:title" content="Wordle">
-<meta property="og:description" content="使用说明 点击单词：拉取所有单词
+<meta property="og:description" content="使用说明 点击拉取：拉取所有单词
 点击剩余：计算剩余单词
 状态按照颜色 w(white), y(yellow), g(green) 进行填写
-单词：   状态：  剩余： 
- // Wordle words = []; len = 0; fetchIt(); async function fetchIt() { await fetch(&#34;/des.txt&#34;).then((r) = r.text().then((t) = { words = t.split(&#34;\n&#34;); }) ); len = words[0].length; document.getElementById(&#34;tips&#34;).innerHTML = &#34;Fetching words.&#34;; setTimeout( 'document.getElementById(&#34;tips&#34;).innerHTML = &#34;Words fetched&#34;', 1000 ); } function wordle() { word = document.getElementById(&#34;word&#34;).value; state = document.getElementById(&#34;state&#34;).value; YandG = []; for (i = 0; i w[i] !">
+ 提示：   拉取 | 撤销 | 重做 @   单词：  状态：  剩余：   // Wordle historyWords = []; nowWords = -1; words = []; len = 0; fetchIt(); setInterval(()={ document.getElementById(&#34;nowWords&#34;).innerHTML = nowWords }, 1000) async function fetchIt() { await fetch(&#34;/des.txt&#34;).then((r) = r.text().then((t) = { words = t.split(&#34;\n&#34;); }) ); len = words[0].length; historyWords.push(words); nowWords = 0 document.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://xqm32.github.io/wordle/"><meta property="article:section" content>
-<meta property="article:modified_time" content="2022-02-10T21:08:29+08:00">
+<meta property="article:modified_time" content="2022-02-10T23:02:10+08:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Wordle">
-<meta name=twitter:description content="使用说明 点击单词：拉取所有单词
+<meta name=twitter:description content="使用说明 点击拉取：拉取所有单词
 点击剩余：计算剩余单词
 状态按照颜色 w(white), y(yellow), g(green) 进行填写
-单词：   状态：  剩余： 
- // Wordle words = []; len = 0; fetchIt(); async function fetchIt() { await fetch(&#34;/des.txt&#34;).then((r) = r.text().then((t) = { words = t.split(&#34;\n&#34;); }) ); len = words[0].length; document.getElementById(&#34;tips&#34;).innerHTML = &#34;Fetching words.&#34;; setTimeout( 'document.getElementById(&#34;tips&#34;).innerHTML = &#34;Words fetched&#34;', 1000 ); } function wordle() { word = document.getElementById(&#34;word&#34;).value; state = document.getElementById(&#34;state&#34;).value; YandG = []; for (i = 0; i w[i] !">
+ 提示：   拉取 | 撤销 | 重做 @   单词：  状态：  剩余：   // Wordle historyWords = []; nowWords = -1; words = []; len = 0; fetchIt(); setInterval(()={ document.getElementById(&#34;nowWords&#34;).innerHTML = nowWords }, 1000) async function fetchIt() { await fetch(&#34;/des.txt&#34;).then((r) = r.text().then((t) = { words = t.split(&#34;\n&#34;); }) ); len = words[0].length; historyWords.push(words); nowWords = 0 document.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Wordle","item":"https://xqm32.github.io/wordle/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Wordle","name":"Wordle","description":"使用说明 点击单词：拉取所有单词\n点击剩余：计算剩余单词\n状态按照颜色 w(white), y(yellow), g(green) 进行填写\n单词：   状态：  剩余： \n // Wordle words = []; len = 0; fetchIt(); async function fetchIt() { await fetch(\"/des.txt\").then((r) = r.text().then((t) = { words = t.split(\"\\n\"); }) ); len = words[0].length; document.getElementById(\"tips\").innerHTML = \"Fetching words.\"; setTimeout( 'document.getElementById(\"tips\").innerHTML = \"Words fetched\"', 1000 ); } function wordle() { word = document.getElementById(\"word\").value; state = document.getElementById(\"state\").value; YandG = []; for (i = 0; i w[i] !","keywords":[],"articleBody":"使用说明 点击单词：拉取所有单词\n点击剩余：计算剩余单词\n状态按照颜色 w(white), y(yellow), g(green) 进行填写\n单词：   状态：  剩余： \n // Wordle words = []; len = 0; fetchIt(); async function fetchIt() { await fetch(\"/des.txt\").then((r) = r.text().then((t) = { words = t.split(\"\\n\"); }) ); len = words[0].length; document.getElementById(\"tips\").innerHTML = \"Fetching words.\"; setTimeout( 'document.getElementById(\"tips\").innerHTML = \"Words fetched\"', 1000 ); } function wordle() { word = document.getElementById(\"word\").value; state = document.getElementById(\"state\").value; YandG = []; for (i = 0; i w[i] != word[i] \u0026\u0026 w.search(word[i]) != -1 ); YandG.push(word[i]); break; case \"g\": // 存在且匹配 words = words.filter((w) = w[i] == word[i]); YandG.push(word[i]); break; } } for (i = 0; i { wordCount = 0; YandGCount = 0; wordArray = Array.from(w); wordArray.forEach((alpha) = (wordCount += alpha == word[i] ? 1 : 0)); YandG.forEach((alpha) = (YandGCount += alpha == word[i] ? 1 : 0)); console.log(`word: ${wordCount}, YandG: ${YandGCount}`); return ( w.search(word[i]) == -1 || (wordCount != 0 \u0026\u0026 wordCount ","wordCount":"144","inLanguage":"zh","datePublished":"0001-01-01T00:00:00Z","dateModified":"2022-02-10T21:08:29+08:00","author":{"@type":"Person","name":"Qiming Xu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xqm32.github.io/wordle/"},"publisher":{"@type":"Organization","name":"Qiming's Blog","logo":{"@type":"ImageObject","url":"https://xqm32.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Wordle","name":"Wordle","description":"使用说明 点击拉取：拉取所有单词\n点击剩余：计算剩余单词\n状态按照颜色 w(white), y(yellow), g(green) 进行填写\n 提示：   拉取 | 撤销 | 重做 @   单词：  状态：  剩余：   // Wordle historyWords = []; nowWords = -1; words = []; len = 0; fetchIt(); setInterval(()={ document.getElementById(\"nowWords\").innerHTML = nowWords }, 1000) async function fetchIt() { await fetch(\"/des.txt\").then((r) = r.text().then((t) = { words = t.split(\"\\n\"); }) ); len = words[0].length; historyWords.push(words); nowWords = 0 document.","keywords":[],"articleBody":"使用说明 点击拉取：拉取所有单词\n点击剩余：计算剩余单词\n状态按照颜色 w(white), y(yellow), g(green) 进行填写\n 提示：   拉取 | 撤销 | 重做 @   单词：  状态：  剩余：   // Wordle historyWords = []; nowWords = -1; words = []; len = 0; fetchIt(); setInterval(()={ document.getElementById(\"nowWords\").innerHTML = nowWords }, 1000) async function fetchIt() { await fetch(\"/des.txt\").then((r) = r.text().then((t) = { words = t.split(\"\\n\"); }) ); len = words[0].length; historyWords.push(words); nowWords = 0 document.getElementById(\"word\").value = \"\" document.getElementById(\"state\").value = \"\" document.getElementById(\"rest\").innerHTML = \"\" document.getElementById(\"tips\").innerHTML = \"拉取单词中\"; setTimeout( 'document.getElementById(\"tips\").innerHTML = \"单词拉取完毕\"', 1000 ); } function undo() { words = historyWords[--nowWords]; document.getElementById(\"rest\").innerHTML = words } function redo() { words = historyWords[++nowWords]; document.getElementById(\"rest\").innerHTML = words } function wordle() { word = document.getElementById(\"word\").value; state = document.getElementById(\"state\").value; YandG = []; for (i = 0; i w[i] != word[i] \u0026\u0026 w.search(word[i]) != -1 ); YandG.push(word[i]); break; case \"g\": // 存在且匹配 words = words.filter((w) = w[i] == word[i]); YandG.push(word[i]); break; } } for (i = 0; i { wordCount = 0; YandGCount = 0; wordArray = Array.from(w); wordArray.forEach((alpha) = (wordCount += alpha == word[i] ? 1 : 0)); YandG.forEach((alpha) = (YandGCount += alpha == word[i] ? 1 : 0)); return ( w.search(word[i]) == -1 || (wordCount != 0 \u0026\u0026 wordCount ","wordCount":"190","inLanguage":"zh","datePublished":"0001-01-01T00:00:00Z","dateModified":"2022-02-10T23:02:10+08:00","author":{"@type":"Person","name":"Qiming Xu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xqm32.github.io/wordle/"},"publisher":{"@type":"Organization","name":"Qiming's Blog","logo":{"@type":"ImageObject","url":"https://xqm32.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -105,7 +102,7 @@
 <h1 class=post-title>
 Wordle
 </h1>
-<div class=post-meta><span title="2022-02-10 21:08:29 +0800 +0800">2022-02-10 21:08:29</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Qiming Xu
+<div class=post-meta><span title="2022-02-10 23:02:10 +0800 +0800">2022-02-10 23:02:10</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Qiming Xu
 </div>
 </header> <div class=toc>
 <details>
@@ -121,15 +118,20 @@ Wordle
 </details>
 </div>
 <div class=post-content><h1 id=使用说明>使用说明<a hidden class=anchor aria-hidden=true href=#使用说明>#</a></h1>
-<p>点击单词：拉取所有单词</p>
+<p>点击拉取：拉取所有单词</p>
 <p>点击剩余：计算剩余单词</p>
 <p>状态按照颜色 w(white), y(yellow), g(green) 进行填写</p>
-<p><button onclick=fetchIt()>单词：</button> <input id=word> <span id=tips></span>
+<hr>
+<span>提示：</span> <span id=tips></span>
 <br>
-<button>状态：</button> <input id=state>
+<button onclick=fetchIt()>拉取</button> | <button onclick=undo()>撤销</button> | <button onclick=redo()>重做</button> @ <span id=nowWords></span>
 <br>
-<button onclick=wordle()>剩余：</button> <span id=rest></span></p>
-<script>words=[],len=0,fetchIt();async function fetchIt(){await fetch("/des.txt").then(a=>a.text().then(a=>{words=a.split("\n")})),len=words[0].length,document.getElementById("tips").innerHTML="Fetching words.",setTimeout('document.getElementById("tips").innerHTML = "Words fetched"',1e3)}function wordle(){word=document.getElementById("word").value,state=document.getElementById("state").value,YandG=[];for(i=0;i<len;++i)switch(state[i]){case"y":words=words.filter(a=>a[i]!=word[i]&&a.search(word[i])!=-1),YandG.push(word[i]);break;case"g":words=words.filter(a=>a[i]==word[i]),YandG.push(word[i]);break}for(i=0;i<len;++i)state[i]=="w"&&(words=words.filter(a=>(wordCount=0,YandGCount=0,wordArray=Array.from(a),wordArray.forEach(a=>wordCount+=a==word[i]?1:0),YandG.forEach(a=>YandGCount+=a==word[i]?1:0),console.log(`word: ${wordCount}, YandG: ${YandGCount}`),a.search(word[i])==-1||wordCount!=0&&wordCount<=YandGCount)));words.length==0?document.getElementById("rest").innerHTML="There's nothing":document.getElementById("rest").innerHTML=words}</script>
+<span>单词：</span> <input id=word>
+<br>
+<span>状态：</span> <input id=state>
+<br>
+<button onclick=wordle()>剩余：</button> <span id=rest></span>
+<script>historyWords=[],nowWords=-1,words=[],len=0,fetchIt(),setInterval(()=>{document.getElementById("nowWords").innerHTML=nowWords},1e3);async function fetchIt(){await fetch("/des.txt").then(a=>a.text().then(a=>{words=a.split("\n")})),len=words[0].length,historyWords.push(words),nowWords=0,document.getElementById("word").value="",document.getElementById("state").value="",document.getElementById("rest").innerHTML="",document.getElementById("tips").innerHTML="拉取单词中",setTimeout('document.getElementById("tips").innerHTML = "单词拉取完毕"',1e3)}function undo(){words=historyWords[--nowWords],document.getElementById("rest").innerHTML=words}function redo(){words=historyWords[++nowWords],document.getElementById("rest").innerHTML=words}function wordle(){word=document.getElementById("word").value,state=document.getElementById("state").value,YandG=[];for(i=0;i<len;++i)switch(state[i]){case"y":words=words.filter(a=>a[i]!=word[i]&&a.search(word[i])!=-1),YandG.push(word[i]);break;case"g":words=words.filter(a=>a[i]==word[i]),YandG.push(word[i]);break}for(i=0;i<len;++i)state[i]=="w"&&(words=words.filter(a=>(wordCount=0,YandGCount=0,wordArray=Array.from(a),wordArray.forEach(a=>wordCount+=a==word[i]?1:0),YandG.forEach(a=>YandGCount+=a==word[i]?1:0),a.search(word[i])==-1||wordCount!=0&&wordCount<=YandGCount)));words.length==0?document.getElementById("rest").innerHTML="There's nothing":words.length==1?document.getElementById("rest").innerHTML=`The answer is ${words[0]}`:(document.getElementById("word").value=words[0],document.getElementById("rest").innerHTML=words),historyWords.push(words),nowWords+=1}</script>
 </div>
 <footer class=post-footer>
 </footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css>
