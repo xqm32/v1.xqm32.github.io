@@ -120,7 +120,7 @@ unproxy() {
 
 虽然看起来没有必要，但是只有设置了 `http_proxy` 和 `https_proxy` 才能对 `wget` 生效，笔者感觉十分奇怪。
 
-参考 [WSL2 网络代理设置](https://syz913.github.io/2021/03/20/wsl2/) 和 [Ubuntu「一键」设置代理](https://blog.skk.moe/post/enable-proxy-on-ubuntu/)。
+参考 [WSL2 网络代理设置](https://syz913.github.io/2021/03/20/wsl2/) 和 [Ubuntu「一键」设置代理](https://blog.skk.moe/post/enable-proxy-on-ubuntu/).
 
 ## WSL 与加速器产生冲突
 
