@@ -96,6 +96,12 @@ winget install --id Git.Git -e --source winget
 
 # WSL
 
+## 更换 USTC 镜像
+
+```bash
+sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+```
+
 ## WSL 2 配置代理
 
 若使用 `bash`，则在 `.bashrc` 中添加：
