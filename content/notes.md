@@ -88,7 +88,7 @@ git config --global http.https://github.com.proxy http://127.0.0.1:10809
 winget install --id Git.Git -e --source winget
 ```
 
-参见[Git Downloads](https://git-scm.com/download/win)
+参见[Git Downloads](https://git-scm.com/download/win).
 
 ## NVM 配置问题
 
