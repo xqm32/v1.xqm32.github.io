@@ -35,3 +35,38 @@ class Solution:
         return '/'+'/'.join(pwd)
 # @lc code=end
 ```
+
+## 2022.3.5
+
+```python3
+#
+# @lc app=leetcode.cn id=137 lang=python3
+#
+# [137] 只出现一次的数字 II
+#
+
+import fire
+from typing import List
+
+# @lc code=start
+
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        if len(nums) <= 3:
+            return nums[0]
+        nums.sort()
+        if nums[0] != nums[1]:
+            return nums[0]
+        elif nums[-1] != nums[-2]:
+            return nums[-1]
+        for i in range(1, len(nums)-1):
+            if nums[i] != nums[i-1] and nums[i] != nums[i+1]:
+                return nums[i]
+
+        # @lc code=end
+
+
+if __name__ == '__main__':
+    fire.Fire(Solution)
+```
