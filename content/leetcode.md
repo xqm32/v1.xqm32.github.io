@@ -5,6 +5,42 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.7
+
+-1 % 7 居然 -6
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=504 lang=python3
+#
+# [504] 七进制数
+#
+
+import fire
+from prompt_toolkit import ANSI
+
+# @lc code=start
+
+
+class Solution:
+    def convertToBase7(self, num: int) -> str:
+        s = '-' if num < 0 else '0' if num == 0 else ''
+        num = abs(num)
+        ans, r = '', num % 7
+        while(num):
+            ans = str(r) + ans
+            num //= 7
+            r = num % 7
+        return s+ans
+
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.6
 
 这题居然做了两三个小时，我太菜了 🍅
