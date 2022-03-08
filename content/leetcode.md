@@ -5,6 +5,70 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.8
+
+我太菜了，做了三个半小时😭
+
+重点是不要遍历，在下面的代码里就用了 `set()` 来减少遍历。
+
+代码原理请把注释去除在运行即可显示。
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=2055 lang=python3
+#
+# [2055] 蜡烛之间的盘子
+#
+
+from typing import List
+import fire
+from rich.console import Console
+console = Console()
+
+
+def stress(s: str, f: int, t: int, c: str) -> None:
+    console.log(f'{s[:f]}[{c}]{s[f:t]}[/{c}]{s[t:]}')
+
+# @lc code=start
+
+
+class Solution:
+    def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:
+        p, c, r = [], [], []
+        cp, pc, cc = set(), 0, 0
+
+        for i in range(0, len(s)):
+            if s[i] == '*':
+                pc += 1
+                p.append(cc)
+            elif s[i] == '|':
+                cc += 1
+                p.append(cc)
+                c.append(pc)
+                cp.add(i)
+
+        for i, j in queries:
+            # console.rule()
+            # console.log(''.join(str(i) for i in p))
+            # stress(f'{s} i={i} j={j}', i, j+1, 'yellow')
+
+            f = p[i]-1 if i in cp else p[i]
+            t = p[j]-1
+
+            if t-f > 0:
+                r.append(c[t]-c[f])
+            else:
+                r.append(0)
+
+        return r
+        # @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.7
 
 -1 % 7 居然 -6
