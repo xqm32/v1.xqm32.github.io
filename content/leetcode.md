@@ -5,6 +5,50 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.9 X
+
+真不会写，毫无头绪，写出来只有 TLE。
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=798 lang=python3
+#
+# [798] 得分最高的最小轮调
+#
+
+
+from typing import List
+import fire
+from rich.console import Console
+console = Console()
+
+# @lc code=start
+
+
+class Solution:
+    def bestRotation(self, nums: List[int]) -> int:
+        l = len(nums)
+        r = [0, 0]
+        for i in range(0, l):
+            s = 0
+            for j in range(0, i):
+                if (nums[j] <= l+j-i):
+                    s += 1
+            for j in range(i, l):
+                if (nums[j] <= j-i):
+                    s += 1
+            if s > r[0]:
+                r[0] = s
+                r[1] = i
+        return r[1]
+
+
+# @lc code=end
+fire.Fire(Solution)
+```
+
 ## 2022.3.8
 
 我太菜了，做了三个半小时😭
