@@ -5,7 +5,44 @@ draft: false
 
 **力扣每日一水**。
 
-## 2022.3.9 X
+## 2022.3.9
+
+妙啊，太妙了！
+
+- [X] 看题解
+  
+```python3
+#
+# @lc app=leetcode.cn id=1109 lang=python3
+#
+# [1109] 航班预订统计
+#
+
+import fire
+from typing import List
+
+# @lc code=start
+
+
+class Solution:
+    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+        ans, diff = [0] * n, [0] * (n+1)
+        for i in bookings:
+            diff[i[0]-1] += i[2]
+            diff[i[1]] -= i[2]
+        ans[0] = diff[0]
+        for i in range(1, n):
+            ans[i] = ans[i-1]+diff[i]
+        return ans
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
+参考：[差分](https://leetcode-cn.com/problems/smallest-rotation-with-highest-score/solution/gong-shui-san-xie-shang-xia-jie-fen-xi-c-p6kh/)
+
+---
 
 真不会写，毫无头绪，写出来只有 TLE。
 
