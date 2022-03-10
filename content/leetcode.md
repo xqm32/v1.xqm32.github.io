@@ -5,6 +5,41 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.10
+
+动态规划。
+
+- [X] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=322 lang=python3
+#
+# [322] 零钱兑换
+#
+
+import fire
+from typing import List
+
+# @lc code=start
+
+
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        a = [amount+1]*(amount+1)
+        a[0] = 0
+        for i in range(0, amount+1):
+            for j in coins:
+                if i-j < 0:
+                    continue
+                a[i] = min(a[i], a[i-j]+1)
+        return -1 if a[amount] == amount+1 else a[amount]
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.9
 
 妙啊，太妙了！
