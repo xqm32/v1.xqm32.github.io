@@ -5,6 +5,36 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.11
+
+滑动窗口 + 动态规划，今天忙写个简单的。
+
+- [X] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=509 lang=python3
+#
+# [509] 斐波那契数
+#
+
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def fib(self, n: int) -> int:
+        a, b = 0, 1
+        for i in range(1, n):
+            a, b = b, a+b
+        return b if n else 0
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.10
 
 动态规划。
