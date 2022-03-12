@@ -5,6 +5,38 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.22
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=118 lang=python3
+#
+# [118] 杨辉三角
+#
+
+import fire
+from typing import List
+# @lc code=start
+
+
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        re = []
+        for i in range(0, numRows):
+            now = [1]*(i+1)
+            for j in range(1, i):
+                # 0, 1 不会进入循环
+                now[j] = re[i-1][j-1] + re[i-1][j]
+            re.append(now)
+        return re
+        # @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.11
 
 滑动窗口 + 动态规划，今天忙写个简单的。
