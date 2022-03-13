@@ -5,7 +5,72 @@ draft: false
 
 **力扣每日一水**。
 
-## 2022.3.22
+## 2022.3.13
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=232 lang=python3
+#
+# [232] 用栈实现队列
+#
+
+import fire
+
+# @lc code=start
+
+
+class MyQueue:
+
+    def __init__(self):
+        self.qStack = []
+        self.tStack = []
+
+    def push(self, x: int) -> None:
+        self.qStack.append(x)
+
+    def pop(self) -> int:
+        while self.qStack != []:
+            self.tStack.append(self.qStack.pop())
+        thePop = self.tStack.pop()
+        while self.tStack != []:
+            self.qStack.append(self.tStack.pop())
+        return thePop
+
+    def peek(self) -> int:
+        while self.qStack != []:
+            self.tStack.append(self.qStack.pop())
+        thePeek = self.tStack[-1]
+        while self.tStack != []:
+            self.qStack.append(self.tStack.pop())
+        return thePeek
+
+    def empty(self) -> bool:
+        return self.qStack == []
+
+        # Your MyQueue object will be instantiated and called as such:
+        # obj = MyQueue()
+        # obj.push(x)
+        # param_2 = obj.pop()
+        # param_3 = obj.peek()
+        # param_4 = obj.empty()
+# @lc code=end
+
+
+obj = MyQueue()
+obj.push(1)
+obj.push(2)
+obj.push(3)
+print(obj.pop())
+print(obj.peek())
+print(obj.pop())
+print(obj.empty())
+
+# fire.Fire(MyQueue)
+```
+
+## 2022.3.12
 
 - [ ] 看题解
 
