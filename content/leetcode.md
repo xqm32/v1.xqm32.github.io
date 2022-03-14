@@ -5,6 +5,36 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.14
+
+一次 AC。
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=1137 lang=python3
+#
+# [1137] 第 N 个泰波那契数
+#
+
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        a, b, c = 0, 1, 1
+        for i in range(2, n):
+            a, b, c = b, c, a+b+c
+        return c if n else 0
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.13
 
 - [ ] 看题解
