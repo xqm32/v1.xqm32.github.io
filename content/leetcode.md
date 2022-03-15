@@ -5,6 +5,36 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.15
+
+一次 AC，实际上就是斐波那契数列。
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=70 lang=python3
+#
+# [70] 爬楼梯
+#
+
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        a, b = 1, 1
+        for i in range(1, n):
+            a, b = b, a+b
+        return b
+        # @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.14
 
 一次 AC。
