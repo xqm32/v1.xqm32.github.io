@@ -5,6 +5,36 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.16
+
+一次 AC，非常简单。
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=746 lang=python3
+#
+# [746] 使用最小花费爬楼梯
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        for i in range(2, len(cost)):
+            cost[i] += min(cost[i-1], cost[i-2])
+        return min(cost[-1], cost[-2])
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.15
 
 一次 AC，实际上就是斐波那契数列。
