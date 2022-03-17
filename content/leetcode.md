@@ -5,6 +5,41 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.17
+
+一次 AC，还行。
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=198 lang=python3
+#
+# [198] 打家劫舍
+#
+
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
+        if len(nums) > 2:
+            nums[2] += nums[0]
+            for i in range(3, len(nums)):
+                nums[i] += max(nums[i-2], nums[i-3])
+        return max(nums[-1], nums[-2])
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.16
 
 一次 AC，非常简单。
