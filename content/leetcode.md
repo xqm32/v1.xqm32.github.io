@@ -5,6 +5,47 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.18
+
+两次 AC，看评论有了点思路，居然是暴力解😓。
+
+- [ ] 看题解
+```python3
+#
+# @lc app=leetcode.cn id=213 lang=python3
+#
+# [213] 打家劫舍 II
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        revs = nums.copy()
+        revs.reverse()
+        if len(nums) < 4:
+            return max(nums)
+        else:
+            nums[2] += nums[0]
+            for i in range(3, len(nums)-1):
+                nums[i] += max(nums[i-2], nums[i-3])
+            numm = max(nums[-2], nums[-3])
+
+            revs[2] += revs[0]
+            for i in range(3, len(revs)-1):
+                revs[i] += max(revs[i-2], revs[i-3])
+            revm = max(revs[-2], revs[-3])
+        return max(numm, revm)
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.17
 
 一次 AC，还行。
