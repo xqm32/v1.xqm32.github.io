@@ -5,11 +5,49 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.17
+
+又是看评论解出来的，思路很重要，这题重点在于**如何转换**为打家劫舍的那题。
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=740 lang=python3
+#
+# [740] 删除并获得点数
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def deleteAndEarn(self, nums: List[int]) -> int:
+        count = [0] * (max(nums)+1)
+        for i in nums:
+            count[i] += i
+        if len(count) == 1:
+            return count[0]
+        if len(count) > 2:
+            count[2] += count[0]
+            for i in range(3, len(count)):
+                count[i] += max(count[i-2], count[i-3])
+        return max(count[-1], count[-2])
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.18
 
 两次 AC，看评论有了点思路，居然是暴力解😓。
 
 - [ ] 看题解
+
 ```python3
 #
 # @lc app=leetcode.cn id=213 lang=python3
