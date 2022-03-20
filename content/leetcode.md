@@ -5,6 +5,42 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.20
+
+一次 AC。
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=55 lang=python3
+#
+# [55] 跳跃游戏
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        jumpTo = [0] * len(nums)
+        jumpTo[0] = nums[0]
+        for i in range(1, len(nums)):
+            if jumpTo[i-1] < i:
+                return False
+            jumpTo[i] = max(jumpTo[i-1], i+nums[i])
+        return True
+
+
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.19
 
 又是看评论解出来的，思路很重要，这题重点在于**如何转换**为打家劫舍的那题。
