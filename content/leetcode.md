@@ -11,6 +11,36 @@ draft: false
 
 - [ ] 看题解
 
+优化后的解法
+
+```python3
+#
+# @lc app=leetcode.cn id=55 lang=python3
+#
+# [55] 跳跃游戏
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        for i in range(1, len(nums)):
+            if nums[i-1] < i:
+                return False
+            nums[i] = max(nums[i-1], i+nums[i])
+        return True
+
+
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ```python3
 #
 # @lc app=leetcode.cn id=55 lang=python3
