@@ -7,6 +7,10 @@ draft: false
 
 ## 2022.3.21
 
+T53 最大子数组和，看到个大佬🐂解（https://leetcode-cn.com/problems/maximum-subarray/comments/39601）
+
+---
+
 一次 AC，但是也太暴力了吧？
 
 - [ ] 看题解
