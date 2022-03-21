@@ -5,6 +5,39 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.21
+
+一次 AC，但是也太暴力了吧？
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=45 lang=python3
+#
+# [45] 跳跃游戏 II
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        ans = [10001]*(len(nums)+1000)
+        ans[0] = 0
+        for i in range(0, len(nums)):
+            for j in range(i+1, i+nums[i]+1):
+                ans[j] = min(ans[j], ans[i]+1)
+        return ans[len(nums)-1]
+# @lc code=end
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.20
 
 一次 AC。
