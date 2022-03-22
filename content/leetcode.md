@@ -7,6 +7,10 @@ draft: false
 
 ## 2022.3.22
 
+搞明白了，参考这个题解（https://leetcode-cn.com/problems/maximum-subarray/solution/dong-tai-gui-hua-fen-zhi-fa-python-dai-ma-java-dai/）
+
+---
+
 解是解出来了，没搞明白为什么。
 
 ```python3
