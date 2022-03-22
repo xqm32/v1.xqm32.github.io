@@ -5,6 +5,37 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.22
+
+解是解出来了，没搞明白为什么。
+
+```python3
+#
+# @lc app=leetcode.cn id=53 lang=python3
+#
+# [53] 最大子数组和
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        for i in range(1, len(nums)):
+            nums[i] += max(nums[i-1], 0)
+        return max(nums)
+
+
+# @lc code=end
+    func = maxSubArray
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.21
 
 T53 最大子数组和，看到个大佬🐂解（https://leetcode-cn.com/problems/maximum-subarray/comments/39601）
