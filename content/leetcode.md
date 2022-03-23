@@ -5,6 +5,40 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.23
+
+参考题解解出来的（https://leetcode-cn.com/problems/maximum-sum-circular-subarray/solution/wo-hua-yi-bian-jiu-kan-dong-de-ti-jie-ni-892u/）
+
+```python3
+#
+# @lc app=leetcode.cn id=918 lang=python3
+#
+# [918] 环形子数组的最大和
+#
+from typing import List
+import fire
+# @lc code=start
+
+
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+        minNums = nums.copy()
+        maxNums = nums.copy()
+        for i in range(1, len(nums)):
+            minNums[i] += min(minNums[i-1], 0)
+        for i in range(1, len(nums)):
+            maxNums[i] += max(maxNums[i-1], 0)
+        minN = min(minNums)
+        maxN = max(maxNums)
+        sumN = sum(nums)
+        return max(maxN, sumN-minN) if maxN > 0 else maxN
+# @lc code=end
+    func = maxSubarraySumCircular
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.22
 
 搞明白了，参考这个题解（https://leetcode-cn.com/problems/maximum-subarray/solution/dong-tai-gui-hua-fen-zhi-fa-python-dai-ma-java-dai/）
