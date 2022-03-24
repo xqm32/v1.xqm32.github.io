@@ -5,6 +5,42 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.24
+
+参考题解（https://leetcode-cn.com/problems/maximum-product-subarray/solution/hua-jie-suan-fa-152-cheng-ji-zui-da-zi-xu-lie-by-g/）
+
+```python3
+#
+# @lc app=leetcode.cn id=152 lang=python3
+#
+# [152] 乘积最大子数组
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        maxN, minN, theMax = 1, 1, -11
+        for i in range(0, len(nums)):
+            if nums[i] < 0:
+                maxN, minN = minN, maxN
+            maxN = max(maxN*nums[i], nums[i])
+            minN = min(minN*nums[i], nums[i])
+            theMax = max(theMax, maxN)
+        return theMax
+
+
+# @lc code=end
+    func = maxProduct
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.23
 
 参考题解解出来的（https://leetcode-cn.com/problems/maximum-sum-circular-subarray/solution/wo-hua-yi-bian-jiu-kan-dong-de-ti-jie-ni-892u/）
