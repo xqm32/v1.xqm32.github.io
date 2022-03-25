@@ -5,6 +5,50 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.25
+
+参考题解（https://leetcode-cn.com/problems/maximum-length-of-subarray-with-positive-product/solution/15-by-leetcode-wei-2iqi/）
+
+```python3
+#
+# @lc app=leetcode.cn id=1567 lang=python3
+#
+# [1567] 乘积为正数的最长子数组长度
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def getMaxLen(self, nums: List[int]) -> int:
+        pos, neg, ans = 0, 0, 0
+        for i in nums:
+            if i == 0:
+                pos, neg = 0, 0
+            elif i > 0:
+                pos += 1
+                if neg > 0:
+                    neg += 1
+                ans = max(pos, ans)
+            elif i < 0:
+                pos, neg = neg, pos
+                neg += 1
+                if pos > 0:
+                    pos += 1
+                ans = max(pos, ans)
+        return ans
+
+
+# @lc code=end
+    func = getMaxLen
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.24
 
 参考题解（https://leetcode-cn.com/problems/maximum-product-subarray/solution/hua-jie-suan-fa-152-cheng-ji-zui-da-zi-xu-lie-by-g/）
