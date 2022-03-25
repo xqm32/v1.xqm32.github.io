@@ -7,6 +7,10 @@ draft: false
 
 ## 2022.3.25
 
+新增了注释。
+
+---
+
 参考题解（https://leetcode-cn.com/problems/maximum-length-of-subarray-with-positive-product/solution/15-by-leetcode-wei-2iqi/）
 
 ```python3
@@ -15,33 +19,43 @@ draft: false
 #
 # [1567] 乘积为正数的最长子数组长度
 #
-
 from typing import List
 import fire
-
+from rich.console import Console
+console = Console()
 # @lc code=start
 
 
 class Solution:
     def getMaxLen(self, nums: List[int]) -> int:
+        # pos 是乘积为正数的最大长度
+        # neg 是乘积为负数的最大长度
         pos, neg, ans = 0, 0, 0
+        # console.log("p n a nums")
         for i in nums:
             if i == 0:
+                # 为零则正负数长度都清零
                 pos, neg = 0, 0
             elif i > 0:
                 pos += 1
+                # neg 为 0 那么此时整个数组还不为负
                 if neg > 0:
                     neg += 1
+                # 求最大的正数就好了
                 ans = max(pos, ans)
             elif i < 0:
+                # 若新增一个负数
+                # 那么最长的正数会变成负数
+                # 最长的负数会变成正数
                 pos, neg = neg, pos
                 neg += 1
+                # pos 为 0 那么此时整个数组不含正数
                 if pos > 0:
                     pos += 1
+                # 求最大的正数就好了
                 ans = max(pos, ans)
+            # console.log(pos, neg, ans, i)
         return ans
-
-
 # @lc code=end
     func = getMaxLen
 
