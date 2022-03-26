@@ -5,6 +5,45 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.26
+
+一次 AC。
+
+```python3
+#
+# @lc app=leetcode.cn id=682 lang=python3
+#
+# [682] 棒球比赛
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def calPoints(self, ops: List[str]) -> int:
+        stack = []
+        for i in ops:
+            if i == 'C':
+                stack.pop()
+            elif i == 'D':
+                stack.append(2*stack[-1])
+            elif i == '+':
+                stack.append(stack[-1]+stack[-2])
+            else:
+                stack.append(int(i))
+        return sum(stack)
+
+
+# @lc code=end
+    func = calPoints
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.25
 
 新增了注释。
