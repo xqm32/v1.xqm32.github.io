@@ -5,6 +5,38 @@ draft: false
 
 **力扣每日一水**。
 
+## 2022.3.27
+
+一次 AC。
+
+```python3
+#
+# @lc app=leetcode.cn id=9 lang=python3
+#
+# [9] 回文数
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        x = str(x)
+        l = len(x)
+        for i in range(0, l//2):
+            if x[i] != x[l-i-1]:
+                return False
+        return True
+# @lc code=end
+    func = isPalindrome
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.26
 
 一次 AC。
