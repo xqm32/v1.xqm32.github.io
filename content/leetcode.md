@@ -5,6 +5,38 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.3.29
+
+```python3
+#
+# @lc app=leetcode.cn id=1684 lang=python3
+#
+# [1684] 统计一致字符串的数目
+#
+from typing import List
+import fire
+# @lc code=start
+
+
+class Solution:
+    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+        ans: int = 0
+        allowed = set(allowed)
+        for i in words:
+            for j in set(i):
+                if j not in allowed:
+                    break
+            else:
+                ans += 1
+        return ans
+
+# @lc code=end
+    func = countConsistentStrings
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.28
 
 看评论学到了线性复杂度不用额外空间的算法。
