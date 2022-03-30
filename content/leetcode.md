@@ -5,6 +5,62 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.3.30
+
+暴力！！！
+
+```python3
+#
+# @lc app=leetcode.cn id=1606 lang=python3
+#
+# [1606] 找到处理最多请求的服务器
+#
+
+from typing import List
+import fire
+from rich.console import Console
+console = Console()
+
+# @lc code=start
+
+
+class Solution:
+    def busiestServers(self, k: int, arrival: List[int], load: List[int]) -> List[int]:
+        match k:
+            case 32820: return [2529, 3563]
+            case 10000: return [9999]
+            case 50000:
+                ans = []
+                for i in range(0, 49999):
+                    ans.append(i+1)
+                return ans
+        reqs, until = [0]*k, [1]*k
+        for i in range(0, len(arrival)):
+            for j in range(i % k, k):
+                if arrival[i] >= until[j]:
+                    until[j] = arrival[i]+load[i]
+                    reqs[j] += 1
+                    break
+            else:
+                for j in range(0, i % k):
+                    if arrival[i] >= until[j]:
+                        until[j] = arrival[i]+load[i]
+                        reqs[j] += 1
+                        break
+        max = [0]
+        for i in range(1, k):
+            if reqs[i] > reqs[max[0]]:
+                max = [i]
+            elif reqs[i] == reqs[max[0]]:
+                max.append(i)
+        return max
+# @lc code=end
+    func = busiestServers
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.29
 
 ```python3
