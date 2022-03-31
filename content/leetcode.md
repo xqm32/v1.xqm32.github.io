@@ -5,6 +5,42 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.3.31
+
+- [X] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=728 lang=python3
+#
+# [728] 自除数
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        ans = []
+        for i in range(left, right+1):
+            if '0' in str(i):
+                continue
+            for j in str(i):
+                if i % int(j) != 0:
+                    break
+            else:
+                ans.append(i)
+        return ans
+# @lc code=end
+    func = selfDividingNumbers
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.30
 
 暴力！！！但还是要看题解的，先去写作业了......
