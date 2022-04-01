@@ -96,6 +96,12 @@ winget install --id Git.Git -e --source winget
 
 # WSL
 
+## WSL 自启动
+
+仅在 Windows 11 下有效。
+
+参见 [WSL 自启动](https://docs.microsoft.com/zh-cn/windows/wsl/wsl-config#boot-settings)。
+
 ## 更换 USTC 镜像
 
 ```bash
