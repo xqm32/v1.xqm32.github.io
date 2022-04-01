@@ -5,6 +5,48 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.1
+
+GitHub Copilot 太强了。
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=12 lang=python3
+#
+# [12] 整数转罗马数字
+#
+
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        one, five = ['I', 'X', 'C', 'M'], ['V', 'L', 'D', '_']
+        ans = ''
+        for i, o, f in zip(reversed(str(num)), one, five):
+            if int(i) < 4:
+                ans = o * int(i) + ans
+            elif int(i) == 4:
+                ans = o + f + ans
+            elif int(i) == 5:
+                ans = f + ans
+            elif int(i) < 9:
+                ans = f + o * (int(i) - 5) + ans
+            elif int(i) == 9:
+                ans = o + one[one.index(o) + 1] + ans
+        return ans
+
+# @lc code=end
+    func = intToRoman
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.3.31
 
 题解全都是暴力解......
