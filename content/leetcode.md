@@ -5,6 +5,43 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.2
+
+- [ ] 看题解
+
+```python3
+#
+# @lc app=leetcode.cn id=165 lang=python3
+#
+# [165] 比较版本号
+#
+
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def compareVersion(self, version1: str, version2: str) -> int:
+        v1 = version1.split('.')
+        v2 = version2.split('.')
+        if len(v1) > len(v2):
+            v2 += ['0'] * (len(v1) - len(v2))
+        elif len(v1) < len(v2):
+            v1 += ['0'] * (len(v2) - len(v1))
+        for i in range(len(v1)):
+            if int(v1[i]) > int(v2[i]):
+                return 1
+            elif int(v1[i]) < int(v2[i]):
+                return -1
+        return 0
+# @lc code=end
+    func = compareVersion
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.1
 
 GitHub Copilot 太强了。
@@ -89,6 +126,8 @@ fire.Fire(Solution)
 
 暴力！！！但还是要看题解的，先去写作业了......
 
+- [ ] 看题解
+
 ```python3
 #
 # @lc app=leetcode.cn id=1606 lang=python3
@@ -143,6 +182,8 @@ fire.Fire(Solution)
 
 ## 2022.3.29
 
+- [ ] 看题解
+
 ```python3
 #
 # @lc app=leetcode.cn id=1684 lang=python3
@@ -177,6 +218,8 @@ fire.Fire(Solution)
 
 看评论学到了线性复杂度不用额外空间的算法。
 
+- [X] 看题解
+
 ```python3
 #
 # @lc app=leetcode.cn id=136 lang=python3
@@ -205,6 +248,8 @@ fire.Fire(Solution)
 ## 2022.3.27
 
 一次 AC。
+
+- [ ] 看题解
 
 ```python3
 #
@@ -237,6 +282,8 @@ fire.Fire(Solution)
 ## 2022.3.26
 
 一次 AC。
+
+- [ ] 看题解
 
 ```python3
 #
@@ -280,6 +327,8 @@ fire.Fire(Solution)
 ---
 
 参考题解（https://leetcode-cn.com/problems/maximum-length-of-subarray-with-positive-product/solution/15-by-leetcode-wei-2iqi/）
+
+- [X] 看题解
 
 ```python3
 #
@@ -335,6 +384,8 @@ fire.Fire(Solution)
 
 参考题解（https://leetcode-cn.com/problems/maximum-product-subarray/solution/hua-jie-suan-fa-152-cheng-ji-zui-da-zi-xu-lie-by-g/）
 
+- [X] 看题解
+
 ```python3
 #
 # @lc app=leetcode.cn id=152 lang=python3
@@ -370,6 +421,8 @@ fire.Fire(Solution)
 ## 2022.3.23
 
 参考题解解出来的（https://leetcode-cn.com/problems/maximum-sum-circular-subarray/solution/wo-hua-yi-bian-jiu-kan-dong-de-ti-jie-ni-892u/）
+
+- [X] 看题解
 
 ```python3
 #
@@ -408,6 +461,8 @@ fire.Fire(Solution)
 ---
 
 解是解出来了，没搞明白为什么。
+
+- [X] 看题解
 
 ```python3
 #
