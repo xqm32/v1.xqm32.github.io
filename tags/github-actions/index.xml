@@ -1,6 +1,83 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Github Actions on Qiming's Blog</title><link>https://xqm32.github.io/tags/github-actions/</link><description>Recent content in Github Actions on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 04 Sep 2021 19:47:57 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/github-actions/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 Github Actions 自动化部署 Hugo 博客</title><link>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</link><pubDate>Sat, 04 Sep 2021 19:47:57 +0800</pubDate><guid>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</guid><description>笔者一直想有个属于自己的博客，通过在网上不断搜索，笔者发现使用 Hugo 部署至 Github Pages 上是一个不错的选择。但是，这样的部署也有一个缺陷：需要手动生成部署文件，再上传至 Github，这是十分麻烦的。因此笔者又在网上搜索文档、文章，后来了解到，可以使用 Github Actions 进行自动化部署，我们只需要将网站源码推送至 Github 便可以自动化地生成博客网站。不过，虽然在操作上是方便了许多，但如何配置这样的自动化部署似乎依旧是一个复杂的问题。于是笔者继续在网上搜索文档和文章，但大部分都没有给出较为「官方」的解决方案，也很少有参考资料可供加深了解，故而笔者转向寻求 Hugo 文档 的帮助，最终做到了使用 Github Actions 自动化部署 Hugo 博客。
-准备工作 首先，我们需要创建可以用于部署 Hugo 博客的 Github 仓库，具体的操作可以参考 GitHub Pages 文档 。
-其次，我们需要在电脑上安装 Git 和 Hugo（注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误），请参考 此文档 进行安装。
-之后，我们将使用 Hugo 在本地创建网站，名称建议使用 username.github.io（其中 username 是你的 Github ID），具体的方法请参照 此文档。
-Github Actions 在完成准备工作后，我们需要在本地创建网站的文件夹中建立 .github/workflows/gh-pages.yml 文件，在其中填入（此代码参考 Hugo 文档中 Host on GitHub 一项）：
-name: github pages on: push: branches: - main # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github Actions on Qiming's Blog</title><link>https://xqm32.github.io/tags/github-actions/</link><description>Recent content in Github Actions on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 04 Sep 2021 15:47:24 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/github-actions/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 Github Actions 自动化部署 Hugo 博客</title><link>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</link><pubDate>Sat, 04 Sep 2021 15:47:24 +0800</pubDate><guid>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</guid><description>&lt;p>笔者一直想有个属于自己的博客，通过在网上不断搜索，笔者发现使用 Hugo 部署至 Github Pages 上是一个不错的选择。但是，这样的部署也有一个缺陷：需要手动生成部署文件，再上传至 Github，这是十分麻烦的。因此笔者又在网上搜索文档、文章，后来了解到，可以使用 Github Actions 进行自动化部署，我们只需要将网站源码推送至 Github 便可以自动化地生成博客网站。不过，虽然在操作上是方便了许多，但如何配置这样的自动化部署似乎依旧是一个复杂的问题。于是笔者继续在网上搜索文档和文章，但大部分都没有给出较为「官方」的解决方案，也很少有参考资料可供加深了解，故而笔者转向寻求 &lt;a class="link" href="https://gohugo.io/documentation/" target="_blank" rel="noopener"
+>Hugo 文档&lt;/a> 的帮助，最终做到了使用 Github Actions 自动化部署 Hugo 博客。&lt;/p>
+&lt;h3 id="准备工作">准备工作&lt;/h3>
+&lt;p>首先，我们需要创建可以用于部署 Hugo 博客的 Github 仓库，具体的操作可以参考 &lt;a class="link" href="https://docs.github.com/en/pages" target="_blank" rel="noopener"
+>GitHub Pages 文档&lt;/a> 。&lt;/p>
+&lt;p>其次，我们需要在电脑上安装 Git 和 Hugo（&lt;strong>注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误&lt;/strong>），请参考 &lt;a class="link" href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener"
+>此文档&lt;/a> 进行安装。&lt;/p>
+&lt;p>之后，我们将使用 Hugo 在本地创建网站，名称建议使用 &lt;code>username.github.io&lt;/code>（其中 &lt;code>username&lt;/code> 是你的 Github ID），具体的方法请参照 &lt;a class="link" href="https://gohugo.io/getting-started/quick-start/" target="_blank" rel="noopener"
+>此文档&lt;/a>。&lt;/p>
+&lt;h3 id="github-actions">Github Actions&lt;/h3>
+&lt;p>在完成&lt;strong>准备工作&lt;/strong>后，我们需要在本地创建网站的文件夹中建立 &lt;code>.github/workflows/gh-pages.yml&lt;/code> 文件，在其中填入（此代码参考 Hugo 文档中 &lt;a class="link" href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action" target="_blank" rel="noopener"
+>Host on GitHub&lt;/a> 一项）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github pages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">main &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Set a branch to deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pull_request&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-20.04&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch Hugo themes (true OR recursive)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch all history for .GitInfo and .Lastmod&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;latest&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># extended: true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-gh-pages@v3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">if&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github.ref == &amp;#39;refs/heads/main&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">github_token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.GITHUB_TOKEN }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>之后推送至 Github，并将仓库中 &lt;code>Settings - Pages - Source - Branch&lt;/code> 的设置从 &lt;code>main&lt;/code> 修改至 &lt;code>gh-pages&lt;/code> 并点击 &lt;code>Save&lt;/code> 按钮，即可完成 Github Actions 部署工作。&lt;/p></description></item></channel></rss>

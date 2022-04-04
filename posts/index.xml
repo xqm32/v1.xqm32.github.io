@@ -1,42 +1,1094 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>文章 on Qiming's Blog</title><link>https://xqm32.github.io/posts/</link><description>Recent content in 文章 on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 07 Sep 2021 14:26:39 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>三阶魔方层先法还原教程</title><link>https://xqm32.github.io/posts/layer-by-layer-guide-of-cube/</link><pubDate>Wed, 02 Mar 2022 11:37:40 +0800</pubDate><guid>https://xqm32.github.io/posts/layer-by-layer-guide-of-cube/</guid><description>笔者编写此文的本意是为了记录和索引公式。其内容源于笔者经验，不免有所疏漏，还请读者于评论区指出。
-笔者希望记忆方便，故本文主要使用汉字式公式，为确保无歧义，亦附有字母式公式作为参考。
-公式索引 必须掌握的公式将加粗表示，不常用的公式将以灰色表示。
-二层 [侧棱][正面] 左上右下右 逆左顺 - URU&amp;rsquo;R&amp;rsquo;U&amp;rsquo; F&amp;rsquo;UF [侧棱][右面] 下逆上左 下右上顺 - R&amp;rsquo;F&amp;rsquo;RU RU&amp;rsquo;R&amp;rsquo;F 三层 [顶棱][右手] 顺 左上右下 逆 - F URU&amp;rsquo;R&amp;rsquo; F&amp;rsquo; 二前四左：顶面空缺块个数和左下角块朝向。 [顶棱][左手] 逆 右上左下 顺 - F&amp;rsquo; U&amp;rsquo;L&amp;rsquo;UL F [小鱼][右手] 上左下左上左左下 - RUR&amp;rsquo;URU2R&amp;rsquo; 小鱼公式的鱼头应向下。 [小鱼][左手] 上右下右上右右下 - L&amp;rsquo;U&amp;rsquo;LU&amp;rsquo;L&amp;rsquo;U'2L [顶棱][右手] 左左上左左下顺顺 - U2RU2R&amp;rsquo;F2 [顶棱][左手] 左左上左左下顺顺 - U2L&amp;rsquo;U2LF2 汉英对照 左 - U 右 - U' 上 - R / L' 下 - R&amp;rsquo; / L 顺 - F 逆 - F' 参考资料 GAN 魔方的层先法教程 最简单的三阶魔方入门教程</description></item><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.github.io/posts/add-gitalk-to-hugo/</link><pubDate>Sun, 09 Jan 2022 20:56:25 +0800</pubDate><guid>https://xqm32.github.io/posts/add-gitalk-to-hugo/</guid><description>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 Gitalk 搭建博客评论区显然是一个不错的选择。
-加入 Gitalk 的方法 这里以 PaperMod 主题为例子，理论上也适用于其他主题，具体还请查阅所用主题的相关文档。
-在 PaperMod 主题中，我们只需要在根目录下创建 layouts/partials/comments.html 文件即可（或者复制 themes/PaperMod/layouts/partials/comments.html 至根目录即可）。
-此后，我们可以参照 Gitalk 文档，在 comments.html 加入如下内容：
-&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&amp;#34;&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;div id=&amp;#34;gitalk-container&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; var gitalk = new Gitalk({ clientID: &amp;#39;GitHub Application Client ID&amp;#39;, clientSecret: &amp;#39;GitHub Application Client Secret&amp;#39;, repo: &amp;#39;GitHub repo&amp;#39;, // The repository of store comments, owner: &amp;#39;GitHub repo owner&amp;#39;, admin: [&amp;#39;GitHub repo owner and collaborators, only these guys can initialize github issues&amp;#39;], id: location.</description></item><item><title>WSL - VS Code 开发流配置</title><link>https://xqm32.github.io/posts/wsl-vscode/</link><pubDate>Tue, 30 Nov 2021 11:15:52 +0800</pubDate><guid>https://xqm32.github.io/posts/wsl-vscode/</guid><description>此前笔者已经写过一篇配置 WSL - VS Code 开发流配置相关的文章，然而微软给出了更加方便地配置方法，所以这里也给出配置的优化。
-安装 WSL 由于微软的优化，现在我们只需要在 Powershell 中输入：
-wsl --install 即可完成 Windows Subsystem for Linux 的安装，此命令会附加安装一个 Ubuntu 发行版，因而亦不需要在 Microsoft Store 中再次下载。
-更换 WSL 的镜像源 国内访问 Ubuntu 的默认软件源速度较慢，因而我们需要更换一个镜像源以加快软件源的访问速度。这里以 USTC 的镜像源为例，只需在 WSL 终端中输入：
-sudo sed -i &amp;#39;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&amp;#39; /etc/apt/sources.list 即可完成换源。
-更新软件包 在 WSL 终端中输入：
-sudo apt update sudo apt upgrade 即可更新。
-其他 余下的步骤可以参考笔者之前的文章。</description></item><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</link><pubDate>Fri, 26 Nov 2021 14:23:09 +0800</pubDate><guid>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</guid><description>此文章已经过时，请参考微软给出的更新的教程 安装 WSL
-本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。
-启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。
-更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
-对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。 启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：</description></item><item><title>Java 课程知识点总结</title><link>https://xqm32.github.io/posts/java-course-knowledge-points/</link><pubDate>Mon, 15 Nov 2021 13:15:31 +0800</pubDate><guid>https://xqm32.github.io/posts/java-course-knowledge-points/</guid><description>注意：本文是合肥工业大学软件工程专业《Java 语言程序设计》课程的知识点总结，基于课程老师给出的知识点总结，笔者不保证内容的准确性，请谨慎参考。
-若文中存在任何问题或有任何疑问请前往 Issue 页面。
-概述 Java 发展历史：
-① 1990 年代初由 Sun 公司开发，最初被命名为 Oak，用于家用电器；
-② 1995 年，Sun 改造了 Oak，以 Java 的名称正式发布，广泛应用于互联网。
-J2ME、J2SE、J2EE：
-J2ME：Java 2 Platform, Micro Edition，应用于嵌入式（embedded）及移动设备（mobile device）；
-J2SE：Java 2 Platform, Standard Edition，应用于桌面（desktop）及服务器（server）环境；
-J2EE：Java 2 Platform, Enterprise Edition，应用于分布式计算（distributed computing）及网络服务（web services），是 J2SE 的拓展。
-Java 语言的特点：
-开放、简单、健壮、安全、面向网络、完全的面向对象编程（OOP）、跨平台（WORA）；
-WORA：Write One, Run Anywhere
-Java 与 C++ 的比较：
-① Java 无指针；
-② Java 无结构体和联合体；
-③ Java 无运算符重载；</description></item><item><title>使用 Github Actions 自动化部署 Hugo 博客</title><link>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</link><pubDate>Sat, 04 Sep 2021 19:47:57 +0800</pubDate><guid>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</guid><description>笔者一直想有个属于自己的博客，通过在网上不断搜索，笔者发现使用 Hugo 部署至 Github Pages 上是一个不错的选择。但是，这样的部署也有一个缺陷：需要手动生成部署文件，再上传至 Github，这是十分麻烦的。因此笔者又在网上搜索文档、文章，后来了解到，可以使用 Github Actions 进行自动化部署，我们只需要将网站源码推送至 Github 便可以自动化地生成博客网站。不过，虽然在操作上是方便了许多，但如何配置这样的自动化部署似乎依旧是一个复杂的问题。于是笔者继续在网上搜索文档和文章，但大部分都没有给出较为「官方」的解决方案，也很少有参考资料可供加深了解，故而笔者转向寻求 Hugo 文档 的帮助，最终做到了使用 Github Actions 自动化部署 Hugo 博客。
-准备工作 首先，我们需要创建可以用于部署 Hugo 博客的 Github 仓库，具体的操作可以参考 GitHub Pages 文档 。
-其次，我们需要在电脑上安装 Git 和 Hugo（注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误），请参考 此文档 进行安装。
-之后，我们将使用 Hugo 在本地创建网站，名称建议使用 username.github.io（其中 username 是你的 Github ID），具体的方法请参照 此文档。
-Github Actions 在完成准备工作后，我们需要在本地创建网站的文件夹中建立 .github/workflows/gh-pages.yml 文件，在其中填入（此代码参考 Hugo 文档中 Host on GitHub 一项）：
-name: github pages on: push: branches: - main # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20.</description></item><item><title>C 语言实现字符串切片</title><link>https://xqm32.github.io/posts/slicing-string-in-c-language/</link><pubDate>Sat, 04 Sep 2021 16:35:51 +0800</pubDate><guid>https://xqm32.github.io/posts/slicing-string-in-c-language/</guid><description>搬运一篇笔者在知乎发的文章：C 语言实现字符串切片
-基于 Python 的切片的格式实现的 C 语言字符串切片：
-#include &amp;lt;ctype.h&amp;gt;#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;string.h&amp;gt; typedef long long SizeType; size_t fgetln(FILE* stream, char* dest, size_t size) { size_t i; for (i = 0, *dest = fgetc(stream); *dest != &amp;#39;\n&amp;#39; &amp;amp;&amp;amp; !feof(stream) &amp;amp;&amp;amp; --size &amp;gt; 0; ++i, *++dest = fgetc(stream)) ; *dest = &amp;#39;\0&amp;#39;; return i; } // 读取一行字符串。 size_t slice(char* from, char* to, SizeType begin, SizeType end, SizeType interval) { SizeType i; begin += begin &amp;lt; 0 ?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>文章 on Qiming's Blog</title><link>https://xqm32.github.io/posts/</link><description>Recent content in 文章 on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Jan 2022 20:36:22 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.github.io/posts/add-gitalk-to-hugo/</link><pubDate>Sun, 09 Jan 2022 20:36:22 +0800</pubDate><guid>https://xqm32.github.io/posts/add-gitalk-to-hugo/</guid><description>&lt;p>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 &lt;code>Gitalk&lt;/code> 搭建博客评论区显然是一个不错的选择。&lt;/p>
+&lt;h1 id="加入-gitalk-的方法">加入 Gitalk 的方法&lt;/h1>
+&lt;p>这里以 &lt;code>PaperMod&lt;/code> 主题为例子，理论上也适用于其他主题，具体还请查阅所用主题的相关文档。&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/adityatelange/hugo-PaperMod/wiki/Features#comments" target="_blank" rel="noopener"
+>在 PaperMod 主题中&lt;/a>，我们只需要在根目录下创建 &lt;code>layouts/partials/comments.html&lt;/code> 文件即可（或者复制 &lt;code>themes/PaperMod/layouts/partials/comments.html&lt;/code> 至根目录即可）。&lt;/p>
+&lt;p>此后，我们可以参照 &lt;a class="link" href="https://github.com/gitalk/gitalk" target="_blank" rel="noopener"
+>Gitalk 文档&lt;/a>，在 &lt;code>comments.html&lt;/code> 加入如下内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;gitalk-container&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">var&lt;/span> &lt;span class="nx">gitalk&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">Gitalk&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clientID&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub Application Client ID&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clientSecret&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub Application Client Secret&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">repo&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub repo&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// The repository of store comments,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">owner&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub repo owner&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">admin&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;GitHub repo owner and collaborators, only these guys can initialize github issues&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">id&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">location&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">pathname&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// Ensure uniqueness and length less than 50
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">distractionFreeMode&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span> &lt;span class="c1">// Facebook-like distraction free mode
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">gitalk&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">render&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;gitalk-container&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意：这里的 &lt;code>clientID&lt;/code> 等内容请参考&lt;a class="link" href="https://github.com/gitalk/gitalk#Usage" target="_blank" rel="noopener"
+>文档中 Usage&lt;/a> 进行申请。&lt;/p>
+&lt;p>此外，还应在 &lt;code>config.yml&lt;/code> 中的 &lt;code>params&lt;/code> 项下加入 &lt;code>comments: true&lt;/code> 以使得评论系统生效。&lt;/p></description></item><item><title>WSL - VS Code 开发流配置</title><link>https://xqm32.github.io/posts/wsl-vscode/</link><pubDate>Sun, 28 Nov 2021 19:15:16 +0800</pubDate><guid>https://xqm32.github.io/posts/wsl-vscode/</guid><description>&lt;p>此前笔者已经写过一篇配置 &lt;code>WSL - VS Code&lt;/code> 开发流配置相关的文章，然而微软给出了&lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install" target="_blank" rel="noopener"
+>更加方便地配置方法&lt;/a>，所以这里也给出配置的优化。&lt;/p>
+&lt;h1 id="安装-wsl">安装 WSL&lt;/h1>
+&lt;p>由于微软的优化，现在我们只需要在 &lt;code>Powershell&lt;/code> 中输入：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">wsl&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-install&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>即可完成 Windows Subsystem for Linux 的安装，此命令会附加安装一个 &lt;code>Ubuntu&lt;/code> 发行版，因而亦不需要在 Microsoft Store 中再次下载。&lt;/p>
+&lt;h1 id="更换-wsl-的镜像源">更换 WSL 的镜像源&lt;/h1>
+&lt;p>国内访问 &lt;code>Ubuntu&lt;/code> 的默认软件源速度较慢，因而我们需要更换一个镜像源以加快软件源的访问速度。这里以 &lt;a class="link" href="https://mirrors.ustc.edu.cn/help/ubuntu.html" target="_blank" rel="noopener"
+>USTC&lt;/a> 的镜像源为例，只需在 &lt;code>WSL&lt;/code> 终端中输入：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo sed -i &lt;span class="s1">&amp;#39;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&amp;#39;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>即可完成换源。&lt;/p>
+&lt;h1 id="更新软件包">更新软件包&lt;/h1>
+&lt;p>在 &lt;code>WSL&lt;/code> 终端中输入：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>即可更新。&lt;/p>
+&lt;h1 id="其他">其他&lt;/h1>
+&lt;p>余下的步骤可以参考笔者&lt;a class="link" href="https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/#%e5%9c%a8-wsl-%e4%b8%8a%e5%ae%89%e8%a3%85-cc-%e7%9a%84%e7%bc%96%e8%af%91%e5%99%a8" >之前的文章&lt;/a>。&lt;/p></description></item><item><title>三阶魔方层先法还原教程</title><link>https://xqm32.github.io/posts/layer-by-layer-guide-of-cube/</link><pubDate>Sun, 21 Nov 2021 19:51:02 +0800</pubDate><guid>https://xqm32.github.io/posts/layer-by-layer-guide-of-cube/</guid><description>&lt;p>笔者编写此文的本意是为了记录和索引公式。其内容源于笔者经验，不免有所疏漏，还请读者于评论区指出。&lt;/p>
+&lt;p>&lt;strong>笔者希望记忆方便，故本文主要使用汉字式公式，为确保无歧义，亦附有字母式公式作为参考。&lt;/strong>&lt;/p>
+&lt;h1 id="公式索引">公式索引&lt;/h1>
+&lt;p>必须掌握的公式将&lt;strong>加粗&lt;/strong>表示，不常用的公式将以&lt;font color=gray>灰色&lt;/font>表示。&lt;/p>
+&lt;h2 id="二层">二层&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>[侧棱][正面] 左上右下右 逆左顺 - URU&amp;rsquo;R&amp;rsquo;U&amp;rsquo; F&amp;rsquo;UF&lt;/strong>&lt;/li>
+&lt;li>[侧棱][右面] 下逆上左 下右上顺 - R&amp;rsquo;F&amp;rsquo;RU RU&amp;rsquo;R&amp;rsquo;F&lt;/li>
+&lt;/ol>
+&lt;h2 id="三层">三层&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>[顶棱][右手] 顺 左上右下 逆 - F URU&amp;rsquo;R&amp;rsquo; F&amp;rsquo;&lt;/strong>
+&lt;strong>二前四左&lt;/strong>：顶面空缺块个数和左下角块朝向。&lt;/li>
+&lt;li>&lt;font color=gray>[顶棱][左手] 逆 右上左下 顺 - F&amp;rsquo; U&amp;rsquo;L&amp;rsquo;UL F&lt;/font>&lt;/li>
+&lt;li>&lt;strong>[小鱼][右手] 上左下左上左左下 - RUR&amp;rsquo;URU2R&amp;rsquo;&lt;/strong>
+小鱼公式的鱼头应向下。&lt;/li>
+&lt;li>&lt;strong>[小鱼][左手] 上右下右上右右下 - L&amp;rsquo;U&amp;rsquo;LU&amp;rsquo;L&amp;rsquo;U'2L&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>[顶棱][右手] 左左上左左下顺顺 - U2RU2R&amp;rsquo;F2&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>[顶棱][左手] 左左上左左下顺顺 - U2L&amp;rsquo;U2LF2&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;h1 id="汉英对照">汉英对照&lt;/h1>
+&lt;ul>
+&lt;li>左 - U&lt;/li>
+&lt;li>右 - U'&lt;/li>
+&lt;li>上 - R / L'&lt;/li>
+&lt;li>下 - R&amp;rsquo; / L&lt;/li>
+&lt;li>顺 - F&lt;/li>
+&lt;li>逆 - F'&lt;/li>
+&lt;/ul>
+&lt;h1 id="参考资料">参考资料&lt;/h1>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://www.gancube.com/zh/layer-by-layer-guide-of-gancube" target="_blank" rel="noopener"
+>GAN 魔方的层先法教程&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/42183224" target="_blank" rel="noopener"
+>最简单的三阶魔方入门教程&lt;/a>&lt;/li>
+&lt;/ol></description></item><item><title>Java 课程知识点总结</title><link>https://xqm32.github.io/posts/java-course-knowledge-points/</link><pubDate>Sun, 14 Nov 2021 17:34:20 +0800</pubDate><guid>https://xqm32.github.io/posts/java-course-knowledge-points/</guid><description>&lt;p>&lt;strong>注意：本文是合肥工业大学软件工程专业《Java 语言程序设计》课程的知识点总结，基于课程老师给出的知识点总结，笔者不保证内容的准确性，请谨慎参考。&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>若文中存在任何问题或有任何疑问请前往 &lt;a class="link" href="https://github.com/xqm32/xqm32.github.io/issues/new" target="_blank" rel="noopener"
+>Issue&lt;/a> 页面。&lt;/strong>&lt;/p>
+&lt;h2 id="概述httpsdocsoraclecomjavasetutorialgetstartedintroindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/getStarted/intro/index.html" target="_blank" rel="noopener"
+>概述&lt;/a>&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 发展历史：&lt;/p>
+&lt;p>① 1990 年代初由 &lt;code>Sun&lt;/code> 公司开发，最初被命名为 &lt;code>Oak&lt;/code>，用于家用电器；&lt;/p>
+&lt;p>② 1995 年，&lt;code>Sun&lt;/code> 改造了 &lt;code>Oak&lt;/code>，以 &lt;code>Java&lt;/code> 的名称正式发布，广泛应用于互联网。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.oracle.com/topics/technologies/newtojava/programming-center.html#Get_Started" target="_blank" rel="noopener"
+>&lt;code>J2ME&lt;/code>、&lt;code>J2SE&lt;/code>、&lt;code>J2EE&lt;/code>&lt;/a>：&lt;/p>
+&lt;p>&lt;code>J2ME&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>2&lt;/strong> Platform, &lt;strong>M&lt;/strong>icro &lt;strong>E&lt;/strong>dition，应用于嵌入式（embedded）及移动设备（mobile device）；&lt;/p>
+&lt;p>&lt;code>J2SE&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>2&lt;/strong> Platform, &lt;strong>S&lt;/strong>tandard &lt;strong>E&lt;/strong>dition，应用于桌面（desktop）及服务器（server）环境；&lt;/p>
+&lt;p>&lt;code>J2EE&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>2&lt;/strong> Platform, &lt;strong>E&lt;/strong>nterprise &lt;strong>E&lt;/strong>dition，应用于分布式计算（distributed computing）及网络服务（web services），是 &lt;code>J2SE&lt;/code> 的拓展。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 语言的特点：&lt;/p>
+&lt;p>开放、简单、健壮、安全、面向网络、完全的面向对象编程（OOP）、跨平台（&lt;code>WORA&lt;/code>）；&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>&lt;code>WORA&lt;/code>&lt;/strong>：&lt;strong>W&lt;/strong>rite &lt;strong>O&lt;/strong>ne, &lt;strong>R&lt;/strong>un &lt;strong>A&lt;/strong>nywhere&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 与 &lt;code>C++&lt;/code> 的比较：&lt;/p>
+&lt;p>① &lt;code>Java&lt;/code> 无&lt;strong>指针&lt;/strong>；&lt;/p>
+&lt;p>② &lt;code>Java&lt;/code> 无&lt;strong>结构体&lt;/strong>和&lt;strong>联合体&lt;/strong>；&lt;/p>
+&lt;p>③ &lt;code>Java&lt;/code> 无&lt;strong>运算符重载&lt;/strong>；&lt;/p>
+&lt;p>④ &lt;code>Java&lt;/code> 无&lt;strong>多重继承&lt;/strong>，以**接口（&lt;code>interface&lt;/code>）**取代；&lt;/p>
+&lt;p>⑤ &lt;code>Java&lt;/code> 无&lt;strong>头文件&lt;/strong>和&lt;strong>预处理&lt;/strong>；&lt;/p>
+&lt;p>⑥ &lt;code>Java&lt;/code> 无 &lt;strong>&lt;code>goto&lt;/code>&lt;/strong> 关键字；&lt;/p>
+&lt;p>⑦ &lt;code>Java&lt;/code> 有 &lt;strong>&lt;code>GC&lt;/code>（Garbage Collection，垃圾回收）&lt;/strong>；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.oracle.com/cn/java/technologies/documentation/whitepapers-jsp.html" target="_blank" rel="noopener"
+>&lt;code>JVM&lt;/code>、&lt;code>JRE&lt;/code>、&lt;code>JDK&lt;/code> 的区别与联系&lt;/a>：&lt;/p>
+&lt;p>&lt;img src="https://xqm32.github.io/java-se-platform.webp"
+loading="lazy"
+alt="java-se-platform"
+>&lt;/p>
+&lt;p>&lt;code>JVM&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>V&lt;/strong>irtual &lt;strong>M&lt;/strong>achine（&lt;code>Java&lt;/code> 虚拟机），是执行 &lt;code>Java&lt;/code> 字节码的虚拟机，能够执行编译后 &lt;code>Java&lt;/code> 语言编写的程序；&lt;/p>
+&lt;p>&lt;code>JRE&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>R&lt;/strong>untime &lt;strong>E&lt;/strong>nvironment（&lt;code>Java&lt;/code> 运行时），包含了 &lt;code>JVM&lt;/code>，和标准类库（Class Library），用户需要安装 &lt;code>JRE&lt;/code> 来运行 &lt;code>Java&lt;/code> 程序；&lt;/p>
+&lt;p>&lt;code>JDK&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>D&lt;/strong>evelopment &lt;strong>K&lt;/strong>it（&lt;code>Java&lt;/code> 开发工具包），包含了 &lt;code>JRE&lt;/code>，开发者需要安装 &lt;code>JDK&lt;/code> 来编译、调试 &lt;code>Java&lt;/code> 程序。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 源代码（&lt;code>.java&lt;/code> 文件）由编译器（&lt;code>javac&lt;/code>）编译为字节码（&lt;code>.class&lt;/code> 文件）再由解释器（&lt;code>java&lt;/code>）执行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>一份 &lt;code>Java&lt;/code> 源代码可以包含多个类的定义，但仅能有一个 &lt;code>public&lt;/code> 修饰的类，且文件名须与此类一致。&lt;/p>
+&lt;blockquote>
+&lt;p>A class may be declared with the modifier &lt;code>public&lt;/code>, in which case that class is visible to all classes everywhere. If a class has no modifier (the default, also known as &lt;em>package-private&lt;/em>), it is visible only within its own package (packages are named groups of related classes — you will learn about them in a later lesson.)&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 的编译器：&lt;code>javac&lt;/code>，解释器：&lt;code>java&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/environment/paths.html" target="_blank" rel="noopener"
+>&lt;code>PATH&lt;/code> 和 &lt;code>CLASSPATH&lt;/code>&lt;/a>：&lt;/p>
+&lt;p>&lt;code>PATH&lt;/code> 中应包含 &lt;code>Java&lt;/code> 的编译器、解释器等可执行程序；&lt;/p>
+&lt;p>&lt;code>CLASSPATH&lt;/code> 中应包含除标准类库外所需的类的路径（包含当前路径 &lt;code>.&lt;/code>）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>包的定义：&lt;code>package&lt;/code>；&lt;/p>
+&lt;p>包的导入：&lt;code>import&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="java-的语法">Java 的语法&lt;/h2>
+&lt;ol start="11">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html" target="_blank" rel="noopener"
+>标识符的命名&lt;/a>：&lt;/p>
+&lt;p>一个合法的标识符应当是一个：&lt;strong>以 &lt;code>Unicode&lt;/code> 字符、&lt;code>$&lt;/code> 字符或 &lt;code>_&lt;/code> 字符开头&lt;/strong>，由 &lt;strong>&lt;code>Unicode&lt;/code> 字符和数字&lt;/strong>组成的，&lt;strong>不限长度&lt;/strong>的，&lt;strong>从未被使用过&lt;/strong>的字符序列。&lt;/p>
+&lt;p>&lt;strong>注意&lt;/strong>：一个合法的标识符不应是&lt;strong>关键字&lt;/strong>、&lt;strong>保留字&lt;/strong>（&lt;code>const&lt;/code>、&lt;code>goto&lt;/code>）或&lt;strong>字面量&lt;/strong>（&lt;code>true&lt;/code>、&lt;code>false&lt;/code>、&lt;code>null&lt;/code>）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 的数据类型：&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的原始数据类型&lt;/a>（&lt;code>byte&lt;/code>、&lt;code>short&lt;/code>、&lt;code>int&lt;/code>、&lt;code>long&lt;/code>、&lt;code>float&lt;/code>、&lt;code>double&lt;/code>、&lt;code>boolean&lt;/code>、&lt;code>char&lt;/code>）、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的数组&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的类&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的接口&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的枚举类型&lt;/a>；&lt;/p>
+&lt;p>&lt;code>Java&lt;/code> 的原始数据类型使用值传递，&lt;code>Java&lt;/code> 的复杂数据类型使用地址传递（* 笔者的理解是因为内存的占用，值传递和地址传递占用的内存大致相同）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中的 &lt;code>char&lt;/code> 类型使用 &lt;code>2&lt;/code> 字节的 &lt;code>Unicode&lt;/code> 编码。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中 &lt;code>8&lt;/code> 个原始数据类型对应着 &lt;code>8&lt;/code> 个类型的封装。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中的字符串类：&lt;code>String&lt;/code>、&lt;code>StringBuffer&lt;/code>；&lt;/p>
+&lt;p>&lt;code>String&lt;/code> 的典型方法：&lt;code>equals()&lt;/code>、&lt;code>indexOf()&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中的类型转换：遵循&lt;a class="link" href="https://zh.wikipedia.org/wiki/%e9%87%8c%e6%b0%8f%e6%9b%bf%e6%8d%a2%e5%8e%9f%e5%88%99" target="_blank" rel="noopener"
+>里氏替换原则&lt;/a>，精度损失视为错误。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 中的数组&lt;/a>，拥有内置的（built-in）&lt;code>length&lt;/code> 属性。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 控制流中的分支语句&lt;/a>：&lt;code>break&lt;/code>、&lt;code>continue&lt;/code> 可以控制带有标号的控制语句。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>参考 PPT 中生成随机数数组的例题（* 也可参考 Java Tutorial 中的例子）。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="面向对象编程httpsdocsoraclecomjavasetutorialjavaconceptsindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/concepts/index.html" target="_blank" rel="noopener"
+>面向对象编程&lt;/a>&lt;/h2>
+&lt;ol start="20">
+&lt;li>
+&lt;p>面向对象编程（OOP）的三大特征：&lt;strong>继承&lt;/strong>、&lt;strong>封装&lt;/strong>、&lt;strong>多态&lt;/strong>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/classdecl.html" target="_blank" rel="noopener"
+>类的声明&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html" target="_blank" rel="noopener"
+>成员变量的声明&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html" target="_blank" rel="noopener"
+>方法的定义&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html" target="_blank" rel="noopener"
+>静态成员（类变量、类方法）&lt;/a>：&lt;/p>
+&lt;p>不被推荐（discouraged）但正确的类方法的调用：&lt;code>instanceName.methodName(args)&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html" target="_blank" rel="noopener"
+>构造方法&lt;/a>：&lt;/p>
+&lt;p>① 与类同名；&lt;/p>
+&lt;p>② 无返回值；&lt;/p>
+&lt;p>③ 由关键字 &lt;code>new&lt;/code> 调用；&lt;/p>
+&lt;p>④ 可重载，但每两个重载的构造方法不应当&lt;strong>同时&lt;/strong>有相同数量、相同类型且相同顺序的参数（确保无歧义）；&lt;/p>
+&lt;p>⑤ 若未定义构造方法，编译器将默认提供一个无参的构造方法。&lt;/p>
+&lt;p>&lt;strong>注意&lt;/strong>：构造方法不是成员。&lt;/p>
+&lt;blockquote>
+&lt;p>A subclass inherits all the &lt;em>members&lt;/em> (fields, methods, and nested classes) from its superclass. &lt;strong>Constructors are not members&lt;/strong>, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank" rel="noopener"
+>访问控制&lt;/a>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Modifier&lt;/th>
+&lt;th>Class&lt;/th>
+&lt;th>Package&lt;/th>
+&lt;th>Subclass&lt;/th>
+&lt;th>World&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>public&lt;/code>&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>protected&lt;/code>&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>N&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>no modifier&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>N&lt;/td>
+&lt;td>N&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>private&lt;/code>&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>N&lt;/td>
+&lt;td>N&lt;/td>
+&lt;td>N&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>（* 没有修饰符表示包内私有（package-private））&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html" target="_blank" rel="noopener"
+>继承&lt;/a>：&lt;/p>
+&lt;p>① 除了没有父类的 &lt;code>Object&lt;/code> 类，每一个类都&lt;strong>有且只有一个&lt;/strong>父类（单重继承）；&lt;/p>
+&lt;p>② &lt;code>Object&lt;/code> 类是所有类的隐式（implicitly）父类；&lt;/p>
+&lt;p>③ 子类将继承一切父类公有（public）或保护（protected）的成员（包括：属性（fields）、方法（methods）、嵌套类（nested classes））。&lt;/p>
+&lt;p>&lt;strong>注意&lt;/strong>：① 构造方法不是成员，故而不被子类继承，但可以被子类调用；② 嵌套类（nested class）可以访问其外部类的所有私有成员，因而子类可以通过其间接访问父类的成员。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>重载（Overload）与&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html" target="_blank" rel="noopener"
+>重写（Override）&lt;/a>：&lt;/p>
+&lt;p>重载：重载的方法具有&lt;strong>相同&lt;/strong>的方法名，&lt;strong>不同&lt;/strong>的&lt;strong>参数数量、类型或顺序&lt;/strong>；&lt;/p>
+&lt;p>重写：重写的方法具有&lt;strong>相同&lt;/strong>的&lt;strong>方法名&lt;/strong>、&lt;strong>参数的数量、类型&lt;/strong>和顺序与相同或为其子类的&lt;strong>返回类型&lt;/strong>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>关键字 &lt;code>this&lt;/code> 和 &lt;code>super&lt;/code>：&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html" target="_blank" rel="noopener"
+>&lt;code>this&lt;/code> 关键字&lt;/a>：用于区分自身属性和外部参数；&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/super.html" target="_blank" rel="noopener"
+>&lt;code>super&lt;/code> 关键字&lt;/a>：用于重写时区分父类与子类的参数或调用父类的构造方法。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html" target="_blank" rel="noopener"
+>方法重写的原则&lt;/a>：&lt;/p>
+&lt;p>要满足&lt;a class="link" href="https://zh.wikipedia.org/wiki/%e9%87%8c%e6%b0%8f%e6%9b%bf%e6%8d%a2%e5%8e%9f%e5%88%99" target="_blank" rel="noopener"
+>里氏替换原则&lt;/a>，因而有 ① 访问权限不应比父类更严格；② 抛出的异常不应比父类更多。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html" target="_blank" rel="noopener"
+>多态（polymorphism）&lt;/a>：运行时多态、编译时多态。&lt;/p>
+&lt;blockquote>
+&lt;p>The Java virtual machine (JVM) calls the appropriate method for the object that is referred to in each variable. It does not call the method that is defined by the variable&amp;rsquo;s type. This behavior is referred to as &lt;em>virtual method invocation&lt;/em> and demonstrates an aspect of the important polymorphism features in the Java language.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>运行时多态的两个前提：① 上溯造型；② 方法重写。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>final&lt;/code> 关键字：&lt;/p>
+&lt;p>修饰变量：不可被&lt;strong>修改&lt;/strong>，为常量；&lt;/p>
+&lt;p>修饰方法：不可被&lt;strong>重写&lt;/strong>；&lt;/p>
+&lt;p>修饰类：不可被&lt;strong>继承&lt;/strong>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="抽象httpsdocsoraclecomjavasetutorialjavaiandiabstracthtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="noopener"
+>抽象&lt;/a>&lt;/h2>
+&lt;ol start="32">
+&lt;li>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="noopener"
+>抽象（&lt;code>abstract&lt;/code> 关键字）&lt;/a>，可以修饰类和方法，也可修饰接口，但那是不必要的（unnecessary）。&lt;/li>
+&lt;li>抽象类：&lt;code>abstract&lt;/code> 关键字修饰的类，&lt;strong>不能实例化&lt;/strong>（* 但不代表不能有一个抽象类型的变量）。&lt;/li>
+&lt;li>抽象方法：&lt;code>abstract&lt;/code> 关键字修饰的方法，&lt;strong>没有实现&lt;/strong>。&lt;/li>
+&lt;li>抽象类中有&lt;strong>任意数量&lt;/strong>的抽象方法和&lt;strong>任意数量&lt;/strong>的非抽象方法。&lt;/li>
+&lt;li>非抽象方法可以调用抽象方法（只有 &lt;code>abstract&lt;/code> 关键字修饰的类拥有抽象方法）（* 由于实例必然是一个非抽象类，调用的抽象方法将一定被实现）。&lt;/li>
+&lt;li>非抽象子类应当实现继承的抽象父类的所有抽象方法和抽象父类的未实现的接口（只有 &lt;code>abstract&lt;/code> 关键字修饰的类拥有抽象方法）。&lt;/li>
+&lt;li>抽象类存在的必要性：通过抽象方法规定子类必须完成的方法（动作）。&lt;/li>
+&lt;/ol>
+&lt;h2 id="接口httpsdocsoraclecomjavasetutorialjavaiandicreateinterfacehtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank" rel="noopener"
+>接口&lt;/a>&lt;/h2>
+&lt;ol start="39">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank" rel="noopener"
+>接口（&lt;code>interface&lt;/code> 关键字）&lt;/a>，只包含常量（constants）和抽象方法（* 实际上还有方法签名（method signatures）、默认方法（default methods））。&lt;/p>
+&lt;p>实现（&lt;code>implements&lt;/code> 关键字）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>接口中的常量&lt;strong>无需修饰&lt;/strong>，默认为 &lt;code>public static final&lt;/code>；方法亦无需修饰，默认为 &lt;code>public abstract&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>一个类可以实现&lt;strong>多个&lt;/strong>接口，接口也可以实现接口。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>非抽象类应当实现接口的&lt;strong>所有方法&lt;/strong>（* 可以理解为抽象只存在于抽象中，实际上 &lt;code>default&lt;/code> 关键字修饰的无需实现）。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="内部类httpsdocsoraclecomjavasetutorialjavajavaoonestedhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html" target="_blank" rel="noopener"
+>内部类&lt;/a>&lt;/h2>
+&lt;p>&lt;strong>注意&lt;/strong>：内部类（inner class）&lt;strong>不是&lt;/strong>静态嵌套类（static nested class）&lt;/p>
+&lt;p>① 内部类不能有 &lt;code>static&lt;/code> 修饰的成员（属性、方法）（* 存疑，编译时无问题，但 Java Tutorial 明确说明）。&lt;/p>
+&lt;blockquote>
+&lt;p>As with instance methods and variables, an inner class is associated with an instance of its enclosing class and has direct access to that object&amp;rsquo;s methods and fields. Also, because an inner class is associated with an instance, it cannot define any static members itself.&lt;/p>
+&lt;/blockquote>
+&lt;p>② 内部类可以访问外部类的所有成员。&lt;/p>
+&lt;h2 id="系统类httpsdocsoraclecomjavasetutorialessentialindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/index.html" target="_blank" rel="noopener"
+>系统类&lt;/a>&lt;/h2>
+&lt;ol start="43">
+&lt;li>
+&lt;p>&lt;code>Object&lt;/code> 类是所有类的父类（间接父类）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" target="_blank" rel="noopener"
+>&lt;code>Object&lt;/code> 类&lt;/a>：&lt;/p>
+&lt;p>&lt;code>Object::equals(Object obj)&lt;/code>：是否是同一个对象（地址相同）；&lt;/p>
+&lt;p>&lt;code>Object::getClass()&lt;/code>：获取对象的&lt;strong>运行时类&lt;/strong>；&lt;/p>
+&lt;p>&lt;code>Object::toString()&lt;/code>：转换为字符串，相当于 &lt;code>getClass().getName() + '@' + Integer.toHexString(hashCode())&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" target="_blank" rel="noopener"
+>&lt;code>String&lt;/code> 类&lt;/a>：&lt;/p>
+&lt;p>&lt;code>String::equals(Object obj)&lt;/code>：当且仅当 &lt;code>obj&lt;/code> 参数不为 &lt;code>null&lt;/code>、类型为 &lt;code>String&lt;/code> 且所存储的字符序列相同时返回 &lt;code>true&lt;/code>（* 也就是该方法的参数不必须是一个 &lt;code>String&lt;/code>）。&lt;/p>
+&lt;p>&lt;code>String::length()&lt;/code>：返回字符串的长度，这是一个&lt;strong>方法&lt;/strong>，注意与数组的 &lt;code>length&lt;/code> &lt;strong>属性&lt;/strong> 区分。&lt;/p>
+&lt;p>&lt;code>String::compareTo(String anotherString)&lt;/code>：顺序为&lt;strong>字典序&lt;/strong>；若前置字符均相同，则短字符串排于长字符串之前。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>原始数据类型与 &lt;code>String&lt;/code> 中的转换：&lt;/p>
+&lt;p>原始数据类型转换为 &lt;code>String&lt;/code>：使用 &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#valueOf%28boolean%29" target="_blank" rel="noopener"
+>&lt;code>String.valueOf()&lt;/code> 方法&lt;/a> 或用加法运算符；&lt;/p>
+&lt;p>&lt;code>String&lt;/code> 转换为原始数据类型：使用如 &lt;code>Integer.parseInt&lt;/code> 式的方法。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Vector.html" target="_blank" rel="noopener"
+>&lt;code>Vector&lt;/code> 列表&lt;/a>和 &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" target="_blank" rel="noopener"
+>&lt;code>ArrayList&lt;/code> 列表&lt;/a>：&lt;code>Vector&lt;/code> 是**线程安全（thread-safe）**的，但如果线程安全不是必须，更推荐使用 &lt;code>ArrayList&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="异常处理httpsdocsoraclecomjavasetutorialessentialexceptionsindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html" target="_blank" rel="noopener"
+>异常处理&lt;/a>&lt;/h2>
+&lt;ol start="48">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/definition.html" target="_blank" rel="noopener"
+>异常处理的基本概念&lt;/a>，&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/advantages.html" target="_blank" rel="noopener"
+>异常处理的优势&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>JVM&lt;/code> 中的运行时错误和 &lt;code>Java&lt;/code> 的异常类的对应关系：由 &lt;code>JVM&lt;/code> 对应。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>PPT 中关于异常的图：&lt;/p>
+&lt;p>&lt;img src="https://xqm32.github.io/exceptions-jvm.svg"
+loading="lazy"
+alt="exceptions-jvm"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中的异常类：&lt;/p>
+&lt;p>&lt;img src="https://xqm32.github.io/exceptions-throwable.gif"
+loading="lazy"
+alt="exceptions-throwable"
+>&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html" target="_blank" rel="noopener"
+>运行时异常&lt;/a>（&lt;code>RuntimeException&lt;/code> 及其子类，又称 &lt;code>unchecked Exception&lt;/code>）：编译器将不会检查异常的捕获情况（* &lt;strong>PPT 中认为&lt;/strong>运行时异常一定是程序的错误）。&lt;/p>
+&lt;blockquote>
+&lt;p>If a client can reasonably be expected to recover from an exception, make it a checked exception. If a client cannot do anything to recover from the exception, make it an unchecked exception.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/handling.html" target="_blank" rel="noopener"
+>异常的处理方法&lt;/a>：&lt;/p>
+&lt;p>① &lt;code>try-catch-finally&lt;/code> 捕获异常；&lt;/p>
+&lt;p>② 使用 &lt;code>throws&lt;/code> 关键字，不进行处理。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/declaring.html" target="_blank" rel="noopener"
+>&lt;code>throws&lt;/code> 关键字&lt;/a>：指定（specify）一个方法&lt;strong>可能&lt;/strong>抛出的所有异常，非运行时异常可以不被指定；&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/throwing.html" target="_blank" rel="noopener"
+>&lt;code>throw&lt;/code> 关键字&lt;/a>：抛出的是一个 &lt;code>Throwable&lt;/code> 对象。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="输入输出流httpsdocsoraclecomjavasetutorialessentialioindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/io/index.html" target="_blank" rel="noopener"
+>输入输出流&lt;/a>&lt;/h2>
+&lt;ol start="54">
+&lt;li>
+&lt;p>输入输出流的四个抽象类：&lt;/p>
+&lt;p>① &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" target="_blank" rel="noopener"
+>&lt;code>InputStream&lt;/code> 抽象类&lt;/a>：以字节（byte）为单位进行输入；&lt;/p>
+&lt;p>② &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" target="_blank" rel="noopener"
+>&lt;code>OutputStream&lt;/code> 抽象类&lt;/a>：以字节（byte）为单位进行输出；&lt;/p>
+&lt;p>③ &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Reader.html" target="_blank" rel="noopener"
+>&lt;code>Reader&lt;/code> 抽象类&lt;/a>：以字符（character）为单位进行输入；&lt;/p>
+&lt;p>④ &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html" target="_blank" rel="noopener"
+>&lt;code>Writer&lt;/code> 抽象类&lt;/a>：以字符（character）为单位进行输出。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>能够用字节流、字符流编写文件的拷贝程序。&lt;/p>
+&lt;p>字节流：&lt;code>InputStream::read()&lt;/code> 到达文件的终止位时将会返回 &lt;code>-1&lt;/code>。&lt;/p>
+&lt;blockquote>
+&lt;p>If no byte is available because the end of the stream has been reached, the value &lt;code>-1&lt;/code> is returned.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/File.html" target="_blank" rel="noopener"
+>&lt;code>File&lt;/code> 类&lt;/a>：&lt;code>File::File(String pathname)&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStreamReader.html" target="_blank" rel="noopener"
+>&lt;code>InputStreamReader&lt;/code> 类&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStreamWriter.html" target="_blank" rel="noopener"
+>&lt;code>OutputStreamWriter&lt;/code> 类&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedReader.html" target="_blank" rel="noopener"
+>&lt;code>BufferedReader&lt;/code> 类&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html" target="_blank" rel="noopener"
+>&lt;code>BufferedWriter&lt;/code> 类&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="多线程httpsdocsoraclecomjavasetutorialessentialconcurrencyprocthreadhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html" target="_blank" rel="noopener"
+>多线程&lt;/a>&lt;/h2>
+&lt;ol start="59">
+&lt;li>
+&lt;p>继承 &lt;code>Thread&lt;/code> 类或实现 &lt;code>Runnable&lt;/code> 接口来完成多线程。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>多线程的四种状态图，参考 PPT（* &lt;code>stop()&lt;/code> 已经&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#stop%28%29" target="_blank" rel="noopener"
+>&lt;strong>废弃（Deprecated）&lt;/strong>&lt;/a>了）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>编写多线程程序的两种方法：&lt;/p>
+&lt;p>① 继承 &lt;code>Thread&lt;/code> 类，重写 &lt;code>run()&lt;/code> 方法。&lt;/p>
+&lt;p>② 实现 &lt;code>Runnable&lt;/code> 接口，并通过其构造一个 &lt;code>Thread&lt;/code> 类。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html" target="_blank" rel="noopener"
+>锁和同步&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep%28long%29" target="_blank" rel="noopener"
+>&lt;code>Thread.sleep(long millis)&lt;/code> 方法&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#currentThread%28%29" target="_blank" rel="noopener"
+>&lt;code>Thread.currentThread()&lt;/code> 方法&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="网络编程httpsdocsoraclecomjavasetutorialnetworkingindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/networking/index.html" target="_blank" rel="noopener"
+>网络编程&lt;/a>&lt;/h2>
+&lt;ol start="64">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/networking/urls/index.html" target="_blank" rel="noopener"
+>&lt;code>URL&lt;/code> 类&lt;/a>，&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" target="_blank" rel="noopener"
+>&lt;code>URL&lt;/code> 类的 &lt;code>API&lt;/code>&lt;/a>：&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html#openStream%28%29" target="_blank" rel="noopener"
+>&lt;code>URL::openStream&lt;/code> 方法&lt;/a>：返回一个字节输入流（&lt;code>InputStream&lt;/code>）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/networking/sockets/definition.html" target="_blank" rel="noopener"
+>&lt;code>Socket&lt;/code> 类通信&lt;/a>，&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/Socket.html" target="_blank" rel="noopener"
+>&lt;code>Socket&lt;/code> 类的 &lt;code>API&lt;/code>&lt;/a>，&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/ServerSocket.html" target="_blank" rel="noopener"
+>&lt;code>ServerSocket&lt;/code> 类的 &lt;code>API&lt;/code>&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="gui-编程httpsdocsoraclecomjavasetutorialuiswingindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/index.html" target="_blank" rel="noopener"
+>GUI 编程&lt;/a>&lt;/h2>
+&lt;ol start="66">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/components/index.html" target="_blank" rel="noopener"
+>各类组件&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html" target="_blank" rel="noopener"
+>&lt;code>Frame&lt;/code> 容器&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/components/panel.html" target="_blank" rel="noopener"
+>&lt;code>Panel&lt;/code> 容器&lt;/a>；&lt;/p>
+&lt;p>&lt;code>Windows&lt;/code>、&lt;code>Frame&lt;/code> 容器的默认布局为 &lt;code>BorderLayout&lt;/code>；&lt;/p>
+&lt;p>&lt;code>Panel&lt;/code>、&lt;code>Applet&lt;/code> 容器的默认布局为 &lt;code>FlowLayout&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>容器的常用方法 &lt;code>add()&lt;/code>、&lt;code>setLayout()&lt;/code>、&lt;code>setSize()&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>AWT&lt;/code> 事件监听模型，参考 PPT。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Button&lt;/code> 的消息响应：可以参考 Java Tutorial 中的&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/components/button.html" target="_blank" rel="noopener"
+>例子&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="知识点之外">知识点之外&lt;/h2>
+&lt;p>以下是除了课程老师给的知识点参考之外的知识点&lt;/p>
+&lt;ol start="71">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html" target="_blank" rel="noopener"
+>Lambda 表达式&lt;/a>：&lt;/p>
+&lt;blockquote>
+&lt;p>A functional interface is any interface that contains only one &lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="noopener"
+>abstract method&lt;/a>. (A functional interface may contain one or more &lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html" target="_blank" rel="noopener"
+>default methods&lt;/a> or &lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html#static" target="_blank" rel="noopener"
+>static methods&lt;/a>.) Because a functional interface contains only one abstract method, you can omit the name of that method when you implement it.&lt;/p>
+&lt;/blockquote>
+&lt;p>语法：&lt;code>() -&amp;gt; {}&lt;/code>（* 亦可使用简写）；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" target="_blank" rel="noopener"
+>&lt;code>InputStream&lt;/code> 字节输入流&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" target="_blank" rel="noopener"
+>&lt;code>OutputStream&lt;/code> 字节输出流&lt;/a>的一些方法：&lt;/p>
+&lt;p>&lt;code>InputStream::readAllBytes()&lt;/code>：读取所有的字节，返回一个字节数组；&lt;/p>
+&lt;p>&lt;code>OutputStream::write(byte [])&lt;/code>：写入字节数组。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>IOException&lt;/code> 是非运行时异常，必须被捕获。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="参考资料">参考资料&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://www.oracle.com/cn/java/technologies/documentation/whitepapers-jsp.html" target="_blank" rel="noopener"
+>Java SE 参考资料 — 白皮书&lt;/a>；&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/index.html" target="_blank" rel="noopener"
+>Java SE 17 &amp;amp; JDK 17 API Specification&lt;/a>；&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/index.html" target="_blank" rel="noopener"
+>The Java Tutorials&lt;/a>。&lt;/li>
+&lt;/ol></description></item><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</link><pubDate>Mon, 13 Sep 2021 19:03:23 +0800</pubDate><guid>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</guid><description>&lt;p>&lt;font color=red>此文章已经过时，请参考微软给出的更新的教程 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener"
+>&lt;font color=red>安装 WSL&lt;/font>&lt;/a>&lt;/font>&lt;/p>
+&lt;p>本教程基于 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener"
+>在 Windows 10 上安装 WSL&lt;/a> 和 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
+>开始使用 WSL VS Code&lt;/a> 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。&lt;/p>
+&lt;h2 id="启用-wsl适用于-linux-的-windows-子系统">启用 WSL（适用于 Linux 的 Windows 子系统）&lt;/h2>
+&lt;p>以&lt;strong>管理员&lt;/strong>身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">dism&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">exe&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">online&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="nb">enable-feature&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">featurename&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="nb">Microsoft-Windows&lt;/span>&lt;span class="n">-Subsystem-Linux&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">all&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">norestart&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果想要更新到 WSL 2 请转到 &lt;a class="link" href="#%e6%9b%b4%e6%96%b0%e8%87%b3-wsl-2" >更新至 WSL 2&lt;/a> 。若希望直接使用 &lt;strong>WSL 1&lt;/strong> 请直接 &lt;strong>重新启动&lt;/strong> 并转到 &lt;a class="link" href="#%e5%ae%89%e8%a3%85%e5%b9%b6%e9%85%8d%e7%bd%ae-linux-%e5%8f%91%e8%a1%8c%e7%89%88" >安装并配置 Linux 发行版&lt;/a>。&lt;/p>
+&lt;h2 id="更新至-wsl-2">更新至 WSL 2&lt;/h2>
+&lt;p>&lt;strong>注意&lt;/strong>：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：&lt;/p>
+&lt;ul>
+&lt;li>对于 x64 系统：&lt;strong>版本 1903&lt;/strong> 或更高版本，采用 &lt;strong>内部版本 18362&lt;/strong> 或更高版本。&lt;/li>
+&lt;li>对于 ARM64 系统：&lt;strong>版本 2004&lt;/strong> 或更高版本，采用 &lt;strong>内部版本 19041&lt;/strong> 或更高版本。&lt;/li>
+&lt;li>低于 18362 的版本不支持 WSL 2。 使用 &lt;a class="link" href="https://www.microsoft.com/software-download/windows10" target="_blank" rel="noopener"
+>Windows Update 助手&lt;/a> 更新 Windows 版本。&lt;/li>
+&lt;/ul>
+&lt;h3 id="启用虚拟机功能">启用虚拟机功能&lt;/h3>
+&lt;p>以&lt;strong>管理员&lt;/strong>身份打开 Powershell 并运行如下命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">dism&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">exe&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">online&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="nb">enable-feature&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">featurename&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="n">VirtualMachinePlatform&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">all&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">norestart&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>重新启动&lt;/strong> 计算机，以完成 WSL 安装并更新到 WSL 2。&lt;/p>
+&lt;h3 id="wsl-2-的后续步骤">WSL 2 的后续步骤&lt;/h3>
+&lt;p>请参考 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package" target="_blank" rel="noopener"
+>后续步骤&lt;/a> 来完成，后转 &lt;a class="link" href="#%e5%ae%89%e8%a3%85%e5%b9%b6%e9%85%8d%e7%bd%ae-linux-%e5%8f%91%e8%a1%8c%e7%89%88" >安装并配置 Linux 发行版&lt;/a>。&lt;/p>
+&lt;h2 id="安装并配置-linux-发行版">安装并配置 Linux 发行版&lt;/h2>
+&lt;p>打开 &lt;strong>Microsoft Store&lt;/strong>，安装一个 Linux 发行版，并打开此发行版，后按照提示进行操作即可。&lt;/p>
+&lt;p>&lt;strong>对于 Linux 的相关操作，请自行搜索。&lt;/strong>&lt;/p>
+&lt;h2 id="更改-wsl-的镜像源">更改 WSL 的镜像源&lt;/h2>
+&lt;p>使用默认的源下载软件是较为缓慢的，因而我们需要更换更快速的镜像。在国内，我们常用的是 &lt;a class="link" href="https://www.tsinghua.edu.cn/" target="_blank" rel="noopener"
+>清华大学&lt;/a> 和 &lt;a class="link" href="https://www.ustc.edu.cn/" target="_blank" rel="noopener"
+>中国科学技术大学&lt;/a> 的镜像。请确认 WSL 的发行版，根据需求选择要使用的镜像：&lt;/p>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener"
+>清华大学开源软件镜像站&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://mirrors.ustc.edu.cn/" target="_blank" rel="noopener"
+>USTC Open Source Software Mirror&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="在-wsl-上安装-cc-的编译器">在 WSL 上安装 C/C++ 的编译器&lt;/h2>
+&lt;p>以 Ubuntu 为例，使用如下命令安装：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install gcc g++
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意&lt;/strong>：在安装之前，可能需要进行包的更新，可使用如下命令更新：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>对于其他 Linux 发行版，请自行在网络上搜索安装与更新的命令，这里不再赘述。&lt;/p>
+&lt;h2 id="将-wsl-与-vs-code-一并使用">将 WSL 与 VS Code 一并使用&lt;/h2>
+&lt;p>以下内容参考 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
+>开始使用 WSL VS Code&lt;/a>，笔者不确保内容的准确性。如有疑问请参考原文。&lt;/p>
+&lt;h3 id="安装并配置-vs-code">安装并配置 VS Code&lt;/h3>
+&lt;p>访问 &lt;a class="link" href="https://code.visualstudio.com/download" target="_blank" rel="noopener"
+>VS Code 安装页&lt;/a> 选择适合的安装程序。&lt;/p>
+&lt;p>打开 VS Code，点击拓展并搜索 「WSL」，安装 WSL 远程拓展包，即可完成操作。在中文环境下，我们还可以安装 VS Code 推荐的中文语言包，以方便阅读。&lt;/p>
+&lt;p>对于 C/C++，我们可以在拓展中搜索 C++，以安装其有关拓展（包含了语法高亮、调试等功能）。&lt;/p>
+&lt;p>更多的 WSL 与 VS Code 共同使用的小技巧的注意事项，请参考 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
+>开始使用 WSL VS Code&lt;/a>&lt;/p>
+&lt;h2 id="使用-wsl-和-vs-code-编写-hello-world-程序">使用 WSL 和 VS Code 编写 Hello world! 程序&lt;/h2>
+&lt;p>&lt;strong>注意&lt;/strong>：以下仅为简单的、单文件的 C 语言编写的源文件的编译方法，笔者不保证（实际上是几乎不能）适用于生产环境。若要了解一种生产环境下的 C 语言编译方法，请参考 &lt;a class="link" href="https://cmake.org/" target="_blank" rel="noopener"
+>CMake&lt;/a>。&lt;/p>
+&lt;p>首先，需要进入存放源代码的文件夹，请读者自行建立，或在 Home 文件夹直接进行。&lt;/p>
+&lt;p>运行如下命令，创建 &lt;code>main.c&lt;/code> 源文件（提示：在 Linux 下键入命令时，请善用 &lt;code>Tab&lt;/code> 键自动补全）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">touch main.c
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在 VS Code 中，点击左下角&lt;strong>打开远程窗口&lt;/strong>按钮，选择 &lt;code>New WSL Window&lt;/code> 即可连接至 WSL。打开存放 &lt;code>main.c&lt;/code> 的文件夹，使用 VS Code 编辑 &lt;code>main.c&lt;/code> 文件，填入如下内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello world!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>按下 &lt;code>ctrl&lt;/code> + &lt;code>`&lt;/code> 打开命令行终端，输入以下命令编译此程序：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gcc main.c
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此时，输入 &lt;code>ls&lt;/code> 命令，我们可以看到当前目录下已经生成了一个名为 &lt;code>a.out&lt;/code> 的可执行文件。&lt;/p>
+&lt;p>我们执行这个程序（&lt;strong>注意&lt;/strong>：&lt;code>./&lt;/code> 是不可缺少的，具体原因请自行搜索，这里不再赘述）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./a.out
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以看到输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Hello world!
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>若要重新编译源文件，请使用 &lt;code>rm&lt;/code> 命令，删除 &lt;code>a.out&lt;/code> 文件，并再次执行编译命令。&lt;/p>
+&lt;p>若要了解其他 &lt;code>gcc&lt;/code> 命令的使用方法，请执行命令 &lt;code>man gcc&lt;/code> 或 &lt;code>gcc --help&lt;/code>。更多 Linux 常用命令请自行于网络上搜索。&lt;/p></description></item><item><title>C 语言实现字符串切片</title><link>https://xqm32.github.io/posts/slicing-string-in-c-language/</link><pubDate>Sat, 04 Sep 2021 16:33:50 +0800</pubDate><guid>https://xqm32.github.io/posts/slicing-string-in-c-language/</guid><description>&lt;p>搬运一篇笔者在知乎发的文章：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/56543803" target="_blank" rel="noopener"
+>C 语言实现字符串切片&lt;/a>&lt;/p>
+&lt;p>基于 Python 的切片的格式实现的 C 语言字符串切片：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;span class="lnt">66
+&lt;/span>&lt;span class="lnt">67
+&lt;/span>&lt;span class="lnt">68
+&lt;/span>&lt;span class="lnt">69
+&lt;/span>&lt;span class="lnt">70
+&lt;/span>&lt;span class="lnt">71
+&lt;/span>&lt;span class="lnt">72
+&lt;/span>&lt;span class="lnt">73
+&lt;/span>&lt;span class="lnt">74
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;ctype.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;string.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">typedef&lt;/span> &lt;span class="kt">long&lt;/span> &lt;span class="kt">long&lt;/span> &lt;span class="n">SizeType&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">size_t&lt;/span> &lt;span class="nf">fgetln&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">FILE&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">stream&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">dest&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">size_t&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">size_t&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">dest&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fgetc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">stream&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">*&lt;/span>&lt;span class="n">dest&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="sc">&amp;#39;\n&amp;#39;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="o">!&lt;/span>&lt;span class="n">feof&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">stream&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">size&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">++&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">*++&lt;/span>&lt;span class="n">dest&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fgetc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">stream&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">*&lt;/span>&lt;span class="n">dest&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="sc">&amp;#39;\0&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 读取一行字符串。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">size_t&lt;/span> &lt;span class="nf">slice&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">from&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">to&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">SizeType&lt;/span> &lt;span class="n">begin&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">SizeType&lt;/span> &lt;span class="n">end&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">SizeType&lt;/span> &lt;span class="n">interval&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">SizeType&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">begin&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="n">begin&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="n">strlen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">end&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="n">end&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">strlen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">interval&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">interval&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="nl">interval&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">from&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">begin&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="sc">&amp;#39;\0&amp;#39;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="n">begin&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">end&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="o">++&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">begin&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="n">interval&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">to&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">from&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">begin&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">to&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="sc">&amp;#39;\0&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 切片函数。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="nf">StrSize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">from&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">SizeType&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">m&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">SizeType&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">SizeType&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">*&lt;/span>&lt;span class="n">m&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">atoll&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">from&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">strchr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="sc">&amp;#39;:&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">from&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">*&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">atoll&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">from&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">strchr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="sc">&amp;#39;:&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">from&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">*&lt;/span>&lt;span class="n">o&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">atoll&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">from&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 字符串解析成数字，由 &amp;#34;:&amp;#34; 分隔。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">size_t&lt;/span> &lt;span class="nf">strslice&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">format&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">from&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">to&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">SizeType&lt;/span> &lt;span class="n">m&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">n&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">o&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">StrSize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">format&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">m&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">n&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">o&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// printf(&amp;#34;%lld, %lld, %lld\n&amp;#34;, m, n, o);
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="n">slice&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">from&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">to&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">m&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">n&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 用字符串作为切片的格式的切片函数。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">argc&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">argv&lt;/span>&lt;span class="p">[])&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">malloc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">128&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">Format&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">malloc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">128&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">char&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">Save&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">malloc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">128&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(;;)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">memset&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">128&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">memset&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Format&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">128&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">memset&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Save&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">128&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fgetln&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">stdin&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">128&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fgetln&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">stdin&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Format&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">128&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">strslice&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Format&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Save&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%s&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Save&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>测试：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">::
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">d
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-1:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">d
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">:1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">H
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">:-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello worl
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">::1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">::2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hlowrd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1:-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ello worl
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2:1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[无输出]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-2:-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">l
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-1:-2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[无输出]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>使用 Github Actions 自动化部署 Hugo 博客</title><link>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</link><pubDate>Sat, 04 Sep 2021 15:47:24 +0800</pubDate><guid>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</guid><description>&lt;p>笔者一直想有个属于自己的博客，通过在网上不断搜索，笔者发现使用 Hugo 部署至 Github Pages 上是一个不错的选择。但是，这样的部署也有一个缺陷：需要手动生成部署文件，再上传至 Github，这是十分麻烦的。因此笔者又在网上搜索文档、文章，后来了解到，可以使用 Github Actions 进行自动化部署，我们只需要将网站源码推送至 Github 便可以自动化地生成博客网站。不过，虽然在操作上是方便了许多，但如何配置这样的自动化部署似乎依旧是一个复杂的问题。于是笔者继续在网上搜索文档和文章，但大部分都没有给出较为「官方」的解决方案，也很少有参考资料可供加深了解，故而笔者转向寻求 &lt;a class="link" href="https://gohugo.io/documentation/" target="_blank" rel="noopener"
+>Hugo 文档&lt;/a> 的帮助，最终做到了使用 Github Actions 自动化部署 Hugo 博客。&lt;/p>
+&lt;h3 id="准备工作">准备工作&lt;/h3>
+&lt;p>首先，我们需要创建可以用于部署 Hugo 博客的 Github 仓库，具体的操作可以参考 &lt;a class="link" href="https://docs.github.com/en/pages" target="_blank" rel="noopener"
+>GitHub Pages 文档&lt;/a> 。&lt;/p>
+&lt;p>其次，我们需要在电脑上安装 Git 和 Hugo（&lt;strong>注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误&lt;/strong>），请参考 &lt;a class="link" href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener"
+>此文档&lt;/a> 进行安装。&lt;/p>
+&lt;p>之后，我们将使用 Hugo 在本地创建网站，名称建议使用 &lt;code>username.github.io&lt;/code>（其中 &lt;code>username&lt;/code> 是你的 Github ID），具体的方法请参照 &lt;a class="link" href="https://gohugo.io/getting-started/quick-start/" target="_blank" rel="noopener"
+>此文档&lt;/a>。&lt;/p>
+&lt;h3 id="github-actions">Github Actions&lt;/h3>
+&lt;p>在完成&lt;strong>准备工作&lt;/strong>后，我们需要在本地创建网站的文件夹中建立 &lt;code>.github/workflows/gh-pages.yml&lt;/code> 文件，在其中填入（此代码参考 Hugo 文档中 &lt;a class="link" href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action" target="_blank" rel="noopener"
+>Host on GitHub&lt;/a> 一项）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github pages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">main &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Set a branch to deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pull_request&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-20.04&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch Hugo themes (true OR recursive)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch all history for .GitInfo and .Lastmod&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;latest&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># extended: true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-gh-pages@v3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">if&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github.ref == &amp;#39;refs/heads/main&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">github_token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.GITHUB_TOKEN }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>之后推送至 Github，并将仓库中 &lt;code>Settings - Pages - Source - Branch&lt;/code> 的设置从 &lt;code>main&lt;/code> 修改至 &lt;code>gh-pages&lt;/code> 并点击 &lt;code>Save&lt;/code> 按钮，即可完成 Github Actions 部署工作。&lt;/p></description></item></channel></rss>

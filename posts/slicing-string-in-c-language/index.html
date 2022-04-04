@@ -1,137 +1,262 @@
-<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>C 语言实现字符串切片 | Qiming's Blog</title><meta name=keywords content="编程"><meta name=description content="搬运一篇笔者在知乎发的文章：C 语言实现字符串切片
-基于 Python 的切片的格式实现的 C 语言字符串切片：
-#include <ctype.h>#include <stdio.h>#include <stdlib.h>#include <string.h> typedef long long SizeType;  size_t fgetln(FILE* stream, char* dest, size_t size) {  size_t i;  for (i = 0, *dest = fgetc(stream);  *dest != '\n' && !feof(stream) && --size > 0;  ++i, *++dest = fgetc(stream))  ;  *dest = '\0';  return i; }  // 读取一行字符串。  size_t slice(char* from,  char* to,  SizeType begin,  SizeType end,  SizeType interval) {  SizeType i;  begin += begin < 0 ?"><meta name=author content="Qiming Xu"><link rel=canonical href=https://xqm32.github.io/posts/slicing-string-in-c-language/><link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=https://xqm32.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://xqm32.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://xqm32.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://xqm32.github.io/apple-touch-icon.png><link rel=mask-icon href=https://xqm32.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.96.0"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="C 语言实现字符串切片"><meta property="og:description" content="搬运一篇笔者在知乎发的文章：C 语言实现字符串切片
-基于 Python 的切片的格式实现的 C 语言字符串切片：
-#include <ctype.h>#include <stdio.h>#include <stdlib.h>#include <string.h> typedef long long SizeType;  size_t fgetln(FILE* stream, char* dest, size_t size) {  size_t i;  for (i = 0, *dest = fgetc(stream);  *dest != '\n' && !feof(stream) && --size > 0;  ++i, *++dest = fgetc(stream))  ;  *dest = '\0';  return i; }  // 读取一行字符串。  size_t slice(char* from,  char* to,  SizeType begin,  SizeType end,  SizeType interval) {  SizeType i;  begin += begin < 0 ?"><meta property="og:type" content="article"><meta property="og:url" content="https://xqm32.github.io/posts/slicing-string-in-c-language/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-09-04T16:33:50+08:00"><meta property="article:modified_time" content="2021-09-04T16:35:51+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="C 语言实现字符串切片"><meta name=twitter:description content="搬运一篇笔者在知乎发的文章：C 语言实现字符串切片
-基于 Python 的切片的格式实现的 C 语言字符串切片：
-#include <ctype.h>#include <stdio.h>#include <stdlib.h>#include <string.h> typedef long long SizeType;  size_t fgetln(FILE* stream, char* dest, size_t size) {  size_t i;  for (i = 0, *dest = fgetc(stream);  *dest != '\n' && !feof(stream) && --size > 0;  ++i, *++dest = fgetc(stream))  ;  *dest = '\0';  return i; }  // 读取一行字符串。  size_t slice(char* from,  char* to,  SizeType begin,  SizeType end,  SizeType interval) {  SizeType i;  begin += begin < 0 ?"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://xqm32.github.io/posts/"},{"@type":"ListItem","position":2,"name":"C 语言实现字符串切片","item":"https://xqm32.github.io/posts/slicing-string-in-c-language/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"C 语言实现字符串切片","name":"C 语言实现字符串切片","description":"搬运一篇笔者在知乎发的文章：C 语言实现字符串切片\n基于 Python 的切片的格式实现的 C 语言字符串切片：\n#include \u0026lt;ctype.h\u0026gt;#include \u0026lt;stdio.h\u0026gt;#include \u0026lt;stdlib.h\u0026gt;#include \u0026lt;string.h\u0026gt; typedef long long SizeType;  size_t fgetln(FILE* stream, char* dest, size_t size) {  size_t i;  for (i = 0, *dest = fgetc(stream);  *dest != \u0026#39;\\n\u0026#39; \u0026amp;\u0026amp; !feof(stream) \u0026amp;\u0026amp; --size \u0026gt; 0;  ++i, *++dest = fgetc(stream))  ;  *dest = \u0026#39;\\0\u0026#39;;  return i; }  // 读取一行字符串。  size_t slice(char* from,  char* to,  SizeType begin,  SizeType end,  SizeType interval) {  SizeType i;  begin += begin \u0026lt; 0 ?","keywords":["编程"],"articleBody":"搬运一篇笔者在知乎发的文章：C 语言实现字符串切片\n基于 Python 的切片的格式实现的 C 语言字符串切片：\n#include #include #include #include  typedef long long SizeType;  size_t fgetln(FILE* stream, char* dest, size_t size) {  size_t i;  for (i = 0, *dest = fgetc(stream);  *dest != '\\n' \u0026\u0026 !feof(stream) \u0026\u0026 --size  0;  ++i, *++dest = fgetc(stream))  ;  *dest = '\\0';  return i; }  // 读取一行字符串。  size_t slice(char* from,  char* to,  SizeType begin,  SizeType end,  SizeType interval) {  SizeType i;  begin += begin  0 ? strlen(from) : 0;  end += end  0 ? 0 : strlen(from);  interval = interval ? interval : 1;  for (i = 0; from[begin] != '\\0' \u0026\u0026 begin  end; ++i, begin += interval)  to[i] = from[begin];  to[i] = '\\0';  return i; }  // 切片函数。  char* StrSize(char* from, SizeType* m, SizeType* n, SizeType* o) {  *m = atoll(from);  from = strchr(from, ':');  if (!from)  return from;  *n = atoll(++from);  from = strchr(from, ':');  if (!from)  return from;  *o = atoll(++from);  return from; }  // 字符串解析成数字，由 \":\" 分隔。  size_t strslice(char* format, char* from, char* to) {  SizeType m = 0, n = 0, o = 0;  StrSize(format, \u0026m, \u0026n, \u0026o);  // printf(\"%lld, %lld, %lld\\n\", m, n, o);  return slice(from, to, m, n, o); }  // 用字符串作为切片的格式的切片函数。  int main(int argc, char* argv[]) {  char* String = malloc(128);  char* Format = malloc(128);  char* Save = malloc(128);  for (;;) {  memset(String, 0, 128);  memset(Format, 0, 128);  memset(Save, 0, 128);  fgetln(stdin, String, 128);  fgetln(stdin, Format, 128);  strslice(Format, String, Save);  printf(\"%s\\n\", Save);  } } 测试：\nHello world :: Hello world  Hello world 1 ello world  Hello world -1 d  Hello world 1: ello world  Hello world -1: d  Hello world :1 H  Hello world :-1 Hello worl  Hello world ::1 Hello world  Hello world ::2 Hlowrd  Hello world 1:-1 ello worl  Hello world 2:1 [无输出]  Hello world -2:-1 l  Hello world -1:-2 [无输出] ","wordCount":"302","inLanguage":"zh","datePublished":"2021-09-04T16:33:50+08:00","dateModified":"2021-09-04T16:35:51+08:00","author":{"@type":"Person","name":"Qiming Xu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xqm32.github.io/posts/slicing-string-in-c-language/"},"publisher":{"@type":"Organization","name":"Qiming's Blog","logo":{"@type":"ImageObject","url":"https://xqm32.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://xqm32.github.io/ accesskey=h title="Qiming's Blog (Alt + H)">Qiming's Blog</a>
-<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu><li><a href=https://xqm32.github.io/about/ title=关于我><span>关于我</span></a></li><li><a href=https://xqm32.github.io/friends/ title=朋友们><span>朋友们</span></a></li><li><a href=https://xqm32.github.io/posts/ title=文章><span>文章</span></a></li><li><a href=https://xqm32.github.io/notes/ title=笔记><span>笔记</span></a></li><li><a href=https://xqm32.github.io/categories/ title=分类><span>分类</span></a></li><li><a href=https://xqm32.github.io/tags/ title=标签><span>标签</span></a></li><li><a href=https://xqm32.github.io/archives/ title=归档><span>归档</span></a></li><li><a href=https://xqm32.github.io/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class=post-title>C 语言实现字符串切片</h1><div class=post-meta><span title="2021-09-04 16:35:51 +0800 +0800">2021-09-04 16:35:51</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Qiming Xu</div></header><div class=post-content><p>搬运一篇笔者在知乎发的文章：<a href=https://zhuanlan.zhihu.com/p/56543803>C 语言实现字符串切片</a></p><p>基于 Python 的切片的格式实现的 C 语言字符串切片：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;ctype.h&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> SizeType;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>size_t <span style=color:#a6e22e>fgetln</span>(FILE<span style=color:#f92672>*</span> stream, <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> dest, size_t size) {
-</span></span><span style=display:flex><span>    size_t i;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#f92672>*</span>dest <span style=color:#f92672>=</span> fgetc(stream);
-</span></span><span style=display:flex><span>         <span style=color:#f92672>*</span>dest <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;\n&#39;</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>!</span>feof(stream) <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>--</span>size <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>         <span style=color:#f92672>++</span>i, <span style=color:#f92672>*++</span>dest <span style=color:#f92672>=</span> fgetc(stream))
-</span></span><span style=display:flex><span>        ;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>*</span>dest <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\0&#39;</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> i;
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 读取一行字符串。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span>size_t <span style=color:#a6e22e>slice</span>(<span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> from,
-</span></span><span style=display:flex><span>             <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> to,
-</span></span><span style=display:flex><span>             SizeType begin,
-</span></span><span style=display:flex><span>             SizeType end,
-</span></span><span style=display:flex><span>             SizeType interval) {
-</span></span><span style=display:flex><span>    SizeType i;
-</span></span><span style=display:flex><span>    begin <span style=color:#f92672>+=</span> begin <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>?</span> strlen(from) <span style=color:#f92672>:</span> <span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>    end <span style=color:#f92672>+=</span> end <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>?</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>:</span> strlen(from);
-</span></span><span style=display:flex><span>    interval <span style=color:#f92672>=</span> interval <span style=color:#f92672>?</span> interval : <span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; from[begin] <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;\0&#39;</span> <span style=color:#f92672>&amp;&amp;</span> begin <span style=color:#f92672>&lt;</span> end; <span style=color:#f92672>++</span>i, begin <span style=color:#f92672>+=</span> interval)
-</span></span><span style=display:flex><span>        to[i] <span style=color:#f92672>=</span> from[begin];
-</span></span><span style=display:flex><span>    to[i] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\0&#39;</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> i;
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 切片函数。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> <span style=color:#a6e22e>StrSize</span>(<span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> from, SizeType<span style=color:#f92672>*</span> m, SizeType<span style=color:#f92672>*</span> n, SizeType<span style=color:#f92672>*</span> o) {
-</span></span><span style=display:flex><span>    <span style=color:#f92672>*</span>m <span style=color:#f92672>=</span> atoll(from);
-</span></span><span style=display:flex><span>    from <span style=color:#f92672>=</span> strchr(from, <span style=color:#e6db74>&#39;:&#39;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>from)
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> from;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>*</span>n <span style=color:#f92672>=</span> atoll(<span style=color:#f92672>++</span>from);
-</span></span><span style=display:flex><span>    from <span style=color:#f92672>=</span> strchr(from, <span style=color:#e6db74>&#39;:&#39;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>from)
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> from;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>*</span>o <span style=color:#f92672>=</span> atoll(<span style=color:#f92672>++</span>from);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> from;
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 字符串解析成数字，由 &#34;:&#34; 分隔。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span>size_t <span style=color:#a6e22e>strslice</span>(<span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> format, <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> from, <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> to) {
-</span></span><span style=display:flex><span>    SizeType m <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, n <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, o <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>    StrSize(format, <span style=color:#f92672>&amp;</span>m, <span style=color:#f92672>&amp;</span>n, <span style=color:#f92672>&amp;</span>o);
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// printf(&#34;%lld, %lld, %lld\n&#34;, m, n, o);
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> slice(from, to, m, n, o);
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 用字符串作为切片的格式的切片函数。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> argv[]) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> String <span style=color:#f92672>=</span> malloc(<span style=color:#ae81ff>128</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> Format <span style=color:#f92672>=</span> malloc(<span style=color:#ae81ff>128</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> Save <span style=color:#f92672>=</span> malloc(<span style=color:#ae81ff>128</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (;;) {
-</span></span><span style=display:flex><span>        memset(String, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>128</span>);
-</span></span><span style=display:flex><span>        memset(Format, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>128</span>);
-</span></span><span style=display:flex><span>        memset(Save, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>128</span>);
-</span></span><span style=display:flex><span>        fgetln(stdin, String, <span style=color:#ae81ff>128</span>);
-</span></span><span style=display:flex><span>        fgetln(stdin, Format, <span style=color:#ae81ff>128</span>);
-</span></span><span style=display:flex><span>        strslice(Format, String, Save);
-</span></span><span style=display:flex><span>        printf(<span style=color:#e6db74>&#34;%s</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, Save);
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>测试：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>::
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>1
-</span></span><span style=display:flex><span>ello world
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>-1
-</span></span><span style=display:flex><span>d
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>1:
-</span></span><span style=display:flex><span>ello world
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>-1:
-</span></span><span style=display:flex><span>d
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>:1
-</span></span><span style=display:flex><span>H
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>:-1
-</span></span><span style=display:flex><span>Hello worl
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>::1
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>::2
-</span></span><span style=display:flex><span>Hlowrd
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>1:-1
-</span></span><span style=display:flex><span>ello worl
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>2:1
-</span></span><span style=display:flex><span>[无输出]
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>-2:-1
-</span></span><span style=display:flex><span>l
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Hello world
-</span></span><span style=display:flex><span>-1:-2
-</span></span><span style=display:flex><span>[无输出]
-</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://xqm32.github.io/tags/%E7%BC%96%E7%A8%8B/>编程</a></li></ul></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css><script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js></script><div id=gitalk-container></div><script>var gitalk=new Gitalk({clientID:"effe960551db601801d0",clientSecret:"273d97946210e4a1e06df08497f5085dc1c32a5d",repo:"xqm32.github.io",owner:"xqm32",admin:["xqm32"],id:location.pathname,distractionFreeMode:!1});gitalk.render("gitalk-container")</script></article></main><footer class=footer><span>&copy; 2022 <a href=https://xqm32.github.io/>Qiming's Blog</a></span>
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();var e=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView({behavior:"smooth"}),e==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${e}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(t=>{const n=t.parentNode.parentNode,e=document.createElement("button");e.classList.add("copy-code"),e.innerText="复制";function s(){e.innerText="已复制！",setTimeout(()=>{e.innerText="复制"},2e3)}e.addEventListener("click",o=>{if("clipboard"in navigator){navigator.clipboard.writeText(t.textContent),s();return}const e=document.createRange();e.selectNodeContents(t);const n=window.getSelection();n.removeAllRanges(),n.addRange(e);try{document.execCommand("copy"),s()}catch(e){}n.removeRange(e)}),n.classList.contains("highlight")?n.appendChild(e):n.parentNode.firstChild==n||(t.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?t.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(e):t.parentNode.appendChild(e))})</script></body></html>
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="搬运一篇笔者在知乎发的文章：C 语言实现字符串切片 基于 Python 的切片的格式实现的 C 语言字符串切片： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25"><title>C 语言实现字符串切片</title><link rel=canonical href=https://xqm32.github.io/posts/slicing-string-in-c-language/><link rel=stylesheet href=/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css><meta property="og:title" content="C 语言实现字符串切片"><meta property="og:description" content="搬运一篇笔者在知乎发的文章：C 语言实现字符串切片 基于 Python 的切片的格式实现的 C 语言字符串切片： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25"><meta property="og:url" content="https://xqm32.github.io/posts/slicing-string-in-c-language/"><meta property="og:site_name" content="Qiming's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="编程"><meta property="article:published_time" content="2021-09-04T16:33:50+08:00"><meta property="article:modified_time" content="2021-09-04T16:33:50+08:00"><meta name=twitter:title content="C 语言实现字符串切片"><meta name=twitter:description content="搬运一篇笔者在知乎发的文章：C 语言实现字符串切片 基于 Python 的切片的格式实现的 C 语言字符串切片： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25"></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hud3f1d7d8fc59217abba44cbd8c386bca_15539_300x0_resize_box_3.png width=300 height=249 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>Qiming's Blog</a></h1><h2 class=site-description>某不知名高校软件工程二年级在读蒟蒻一枚</h2></div></header><ol class=social-menu><li><a href=https://github.com/xqm32 target=_blank title=GitHub><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://stackoverflow.com/users/16325470 target=_blank title=Stackoverflow><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-stackoverflow" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 17v1a2 2 0 002 2h12a2 2 0 002-2v-1"/><path d="M8 16h8"/><path d="M8.322 12.582l7.956.836"/><path d="M8.787 9.168l7.826 1.664"/><path d="M10.096 5.764l7.608 2.472"/></svg></a></li><li><a href=https://steamcommunity.com/id/xqm32 target=_blank title=Steam><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-steam" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.5 5a4.5 4.5.0 11-.653 8.953L11.5 16.962V17a3 3 0 01-2.824 2.995L8.5 20a3 3 0 01-2.94-2.402L3 16.5V13l3.51 1.755a2.989 2.989.0 012.834-.635l2.727-3.818A4.5 4.5.0 0116.5 5z"/><circle fill="currentcolor" cx="16.5" cy="9.5" r="1"/></svg></a></li><li><a href=https://t.me/xqm32 target=_blank title=Telegram><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>关于我</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>归档</span></a></li><li><a href=/friends/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg><span>友链</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>搜索</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>暗色模式</span></li></div></ol></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/>技术分享</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/posts/slicing-string-in-c-language/>C 语言实现字符串切片</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>Sep 04, 2021</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>阅读时长: 2 分钟</time></div></footer></div></header><section class=article-content><p>搬运一篇笔者在知乎发的文章：<a class=link href=https://zhuanlan.zhihu.com/p/56543803 target=_blank rel=noopener>C 语言实现字符串切片</a></p><p>基于 Python 的切片的格式实现的 C 语言字符串切片：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;ctype.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=kt>long</span> <span class=kt>long</span> <span class=n>SizeType</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>size_t</span> <span class=nf>fgetln</span><span class=p>(</span><span class=n>FILE</span><span class=o>*</span> <span class=n>stream</span><span class=p>,</span> <span class=kt>char</span><span class=o>*</span> <span class=n>dest</span><span class=p>,</span> <span class=n>size_t</span> <span class=n>size</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>size_t</span> <span class=n>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=o>*</span><span class=n>dest</span> <span class=o>=</span> <span class=n>fgetc</span><span class=p>(</span><span class=n>stream</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>         <span class=o>*</span><span class=n>dest</span> <span class=o>!=</span> <span class=sc>&#39;\n&#39;</span> <span class=o>&amp;&amp;</span> <span class=o>!</span><span class=n>feof</span><span class=p>(</span><span class=n>stream</span><span class=p>)</span> <span class=o>&amp;&amp;</span> <span class=o>--</span><span class=n>size</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>         <span class=o>++</span><span class=n>i</span><span class=p>,</span> <span class=o>*++</span><span class=n>dest</span> <span class=o>=</span> <span class=n>fgetc</span><span class=p>(</span><span class=n>stream</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        <span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>*</span><span class=n>dest</span> <span class=o>=</span> <span class=sc>&#39;\0&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 读取一行字符串。
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=n>size_t</span> <span class=nf>slice</span><span class=p>(</span><span class=kt>char</span><span class=o>*</span> <span class=n>from</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>             <span class=kt>char</span><span class=o>*</span> <span class=n>to</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>             <span class=n>SizeType</span> <span class=n>begin</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>             <span class=n>SizeType</span> <span class=n>end</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>             <span class=n>SizeType</span> <span class=n>interval</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>SizeType</span> <span class=n>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>begin</span> <span class=o>+=</span> <span class=n>begin</span> <span class=o>&lt;</span> <span class=mi>0</span> <span class=o>?</span> <span class=n>strlen</span><span class=p>(</span><span class=n>from</span><span class=p>)</span> <span class=o>:</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>end</span> <span class=o>+=</span> <span class=n>end</span> <span class=o>&gt;</span> <span class=mi>0</span> <span class=o>?</span> <span class=mi>0</span> <span class=o>:</span> <span class=n>strlen</span><span class=p>(</span><span class=n>from</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>interval</span> <span class=o>=</span> <span class=n>interval</span> <span class=o>?</span> <span class=nl>interval</span> <span class=p>:</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>from</span><span class=p>[</span><span class=n>begin</span><span class=p>]</span> <span class=o>!=</span> <span class=sc>&#39;\0&#39;</span> <span class=o>&amp;&amp;</span> <span class=n>begin</span> <span class=o>&lt;</span> <span class=n>end</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>,</span> <span class=n>begin</span> <span class=o>+=</span> <span class=n>interval</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>to</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>from</span><span class=p>[</span><span class=n>begin</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>to</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=sc>&#39;\0&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 切片函数。
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kt>char</span><span class=o>*</span> <span class=nf>StrSize</span><span class=p>(</span><span class=kt>char</span><span class=o>*</span> <span class=n>from</span><span class=p>,</span> <span class=n>SizeType</span><span class=o>*</span> <span class=n>m</span><span class=p>,</span> <span class=n>SizeType</span><span class=o>*</span> <span class=n>n</span><span class=p>,</span> <span class=n>SizeType</span><span class=o>*</span> <span class=n>o</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=o>*</span><span class=n>m</span> <span class=o>=</span> <span class=n>atoll</span><span class=p>(</span><span class=n>from</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>from</span> <span class=o>=</span> <span class=n>strchr</span><span class=p>(</span><span class=n>from</span><span class=p>,</span> <span class=sc>&#39;:&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>from</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>from</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>*</span><span class=n>n</span> <span class=o>=</span> <span class=n>atoll</span><span class=p>(</span><span class=o>++</span><span class=n>from</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>from</span> <span class=o>=</span> <span class=n>strchr</span><span class=p>(</span><span class=n>from</span><span class=p>,</span> <span class=sc>&#39;:&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>from</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>from</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>*</span><span class=n>o</span> <span class=o>=</span> <span class=n>atoll</span><span class=p>(</span><span class=o>++</span><span class=n>from</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>from</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 字符串解析成数字，由 &#34;:&#34; 分隔。
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=n>size_t</span> <span class=nf>strslice</span><span class=p>(</span><span class=kt>char</span><span class=o>*</span> <span class=n>format</span><span class=p>,</span> <span class=kt>char</span><span class=o>*</span> <span class=n>from</span><span class=p>,</span> <span class=kt>char</span><span class=o>*</span> <span class=n>to</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>SizeType</span> <span class=n>m</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>n</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>o</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>StrSize</span><span class=p>(</span><span class=n>format</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>m</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>n</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>o</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// printf(&#34;%lld, %lld, %lld\n&#34;, m, n, o);
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>return</span> <span class=n>slice</span><span class=p>(</span><span class=n>from</span><span class=p>,</span> <span class=n>to</span><span class=p>,</span> <span class=n>m</span><span class=p>,</span> <span class=n>n</span><span class=p>,</span> <span class=n>o</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 用字符串作为切片的格式的切片函数。
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span><span class=o>*</span> <span class=n>argv</span><span class=p>[])</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>char</span><span class=o>*</span> <span class=n>String</span> <span class=o>=</span> <span class=n>malloc</span><span class=p>(</span><span class=mi>128</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>char</span><span class=o>*</span> <span class=n>Format</span> <span class=o>=</span> <span class=n>malloc</span><span class=p>(</span><span class=mi>128</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>char</span><span class=o>*</span> <span class=n>Save</span> <span class=o>=</span> <span class=n>malloc</span><span class=p>(</span><span class=mi>128</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(;;)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>memset</span><span class=p>(</span><span class=n>String</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>128</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>memset</span><span class=p>(</span><span class=n>Format</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>128</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>memset</span><span class=p>(</span><span class=n>Save</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>128</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>fgetln</span><span class=p>(</span><span class=n>stdin</span><span class=p>,</span> <span class=n>String</span><span class=p>,</span> <span class=mi>128</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>fgetln</span><span class=p>(</span><span class=n>stdin</span><span class=p>,</span> <span class=n>Format</span><span class=p>,</span> <span class=mi>128</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>strslice</span><span class=p>(</span><span class=n>Format</span><span class=p>,</span> <span class=n>String</span><span class=p>,</span> <span class=n>Save</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>printf</span><span class=p>(</span><span class=s>&#34;%s</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>Save</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>测试：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-markdown data-lang=markdown><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>::
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>1
+</span></span><span class=line><span class=cl>ello world
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>-1
+</span></span><span class=line><span class=cl>d
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>1:
+</span></span><span class=line><span class=cl>ello world
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>-1:
+</span></span><span class=line><span class=cl>d
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>:1
+</span></span><span class=line><span class=cl>H
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>:-1
+</span></span><span class=line><span class=cl>Hello worl
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>::1
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>::2
+</span></span><span class=line><span class=cl>Hlowrd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>1:-1
+</span></span><span class=line><span class=cl>ello worl
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>2:1
+</span></span><span class=line><span class=cl>[无输出]
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>-2:-1
+</span></span><span class=line><span class=cl>l
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello world
+</span></span><span class=line><span class=cl>-1:-2
+</span></span><span class=line><span class=cl>[无输出]
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/%E7%BC%96%E7%A8%8B/>编程</a></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><aside class=related-contents--wrapper><h2 class=section-title>相关文章</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/posts/add-gitalk-to-hugo/><div class=article-details><h2 class=article-title>为 Hugo 博客加入 Gitalk</h2></div></a></article><article><a href=/posts/layer-by-layer-guide-of-cube/><div class=article-details><h2 class=article-title>三阶魔方层先法还原教程</h2></div></a></article><article><a href=/posts/java-course-knowledge-points/><div class=article-details><h2 class=article-title>Java 课程知识点总结</h2></div></a></article><article><a href=/posts/wsl-vscode-for-c-cpp/><div class=article-details><h2 class=article-title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</h2></div></a></article><article><a href=/posts/deploy-hugo-via-github-actions/><div class=article-details><h2 class=article-title>使用 Github Actions 自动化部署 Hugo 博客</h2></div></a></article></div></div></aside><div id=gitalk-container></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css><script src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/blueimp-md5@2.18.0/js/md5.min.js></script>
+<script>const gitalk=new Gitalk({clientID:"effe960551db601801d0",clientSecret:"273d97946210e4a1e06df08497f5085dc1c32a5d",repo:"xqm32.github.io",owner:"xqm32",admin:["[xqm32]"],id:location.pathname,distractionFreeMode:!1});(function(){gitalk.render("gitalk-container")})()</script><footer class=site-footer><section class=copyright>&copy;
+2021 -
+2022 Qiming's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.11.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

@@ -1,6 +1,143 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>VS Code on Qiming's Blog</title><link>https://xqm32.github.io/tags/vs-code/</link><description>Recent content in VS Code on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Nov 2021 14:23:09 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/vs-code/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</link><pubDate>Fri, 26 Nov 2021 14:23:09 +0800</pubDate><guid>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</guid><description>此文章已经过时，请参考微软给出的更新的教程 安装 WSL
-本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。
-启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。
-更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
-对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。 启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VS Code on Qiming's Blog</title><link>https://xqm32.github.io/tags/vs-code/</link><description>Recent content in VS Code on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 13 Sep 2021 19:03:23 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/vs-code/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</link><pubDate>Mon, 13 Sep 2021 19:03:23 +0800</pubDate><guid>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</guid><description>&lt;p>&lt;font color=red>此文章已经过时，请参考微软给出的更新的教程 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener"
+>&lt;font color=red>安装 WSL&lt;/font>&lt;/a>&lt;/font>&lt;/p>
+&lt;p>本教程基于 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener"
+>在 Windows 10 上安装 WSL&lt;/a> 和 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
+>开始使用 WSL VS Code&lt;/a> 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。&lt;/p>
+&lt;h2 id="启用-wsl适用于-linux-的-windows-子系统">启用 WSL（适用于 Linux 的 Windows 子系统）&lt;/h2>
+&lt;p>以&lt;strong>管理员&lt;/strong>身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">dism&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">exe&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">online&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="nb">enable-feature&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">featurename&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="nb">Microsoft-Windows&lt;/span>&lt;span class="n">-Subsystem-Linux&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">all&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">norestart&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果想要更新到 WSL 2 请转到 &lt;a class="link" href="#%e6%9b%b4%e6%96%b0%e8%87%b3-wsl-2" >更新至 WSL 2&lt;/a> 。若希望直接使用 &lt;strong>WSL 1&lt;/strong> 请直接 &lt;strong>重新启动&lt;/strong> 并转到 &lt;a class="link" href="#%e5%ae%89%e8%a3%85%e5%b9%b6%e9%85%8d%e7%bd%ae-linux-%e5%8f%91%e8%a1%8c%e7%89%88" >安装并配置 Linux 发行版&lt;/a>。&lt;/p>
+&lt;h2 id="更新至-wsl-2">更新至 WSL 2&lt;/h2>
+&lt;p>&lt;strong>注意&lt;/strong>：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：&lt;/p>
+&lt;ul>
+&lt;li>对于 x64 系统：&lt;strong>版本 1903&lt;/strong> 或更高版本，采用 &lt;strong>内部版本 18362&lt;/strong> 或更高版本。&lt;/li>
+&lt;li>对于 ARM64 系统：&lt;strong>版本 2004&lt;/strong> 或更高版本，采用 &lt;strong>内部版本 19041&lt;/strong> 或更高版本。&lt;/li>
+&lt;li>低于 18362 的版本不支持 WSL 2。 使用 &lt;a class="link" href="https://www.microsoft.com/software-download/windows10" target="_blank" rel="noopener"
+>Windows Update 助手&lt;/a> 更新 Windows 版本。&lt;/li>
+&lt;/ul>
+&lt;h3 id="启用虚拟机功能">启用虚拟机功能&lt;/h3>
+&lt;p>以&lt;strong>管理员&lt;/strong>身份打开 Powershell 并运行如下命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">dism&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">exe&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">online&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="nb">enable-feature&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">featurename&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="n">VirtualMachinePlatform&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">all&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">norestart&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>重新启动&lt;/strong> 计算机，以完成 WSL 安装并更新到 WSL 2。&lt;/p>
+&lt;h3 id="wsl-2-的后续步骤">WSL 2 的后续步骤&lt;/h3>
+&lt;p>请参考 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package" target="_blank" rel="noopener"
+>后续步骤&lt;/a> 来完成，后转 &lt;a class="link" href="#%e5%ae%89%e8%a3%85%e5%b9%b6%e9%85%8d%e7%bd%ae-linux-%e5%8f%91%e8%a1%8c%e7%89%88" >安装并配置 Linux 发行版&lt;/a>。&lt;/p>
+&lt;h2 id="安装并配置-linux-发行版">安装并配置 Linux 发行版&lt;/h2>
+&lt;p>打开 &lt;strong>Microsoft Store&lt;/strong>，安装一个 Linux 发行版，并打开此发行版，后按照提示进行操作即可。&lt;/p>
+&lt;p>&lt;strong>对于 Linux 的相关操作，请自行搜索。&lt;/strong>&lt;/p>
+&lt;h2 id="更改-wsl-的镜像源">更改 WSL 的镜像源&lt;/h2>
+&lt;p>使用默认的源下载软件是较为缓慢的，因而我们需要更换更快速的镜像。在国内，我们常用的是 &lt;a class="link" href="https://www.tsinghua.edu.cn/" target="_blank" rel="noopener"
+>清华大学&lt;/a> 和 &lt;a class="link" href="https://www.ustc.edu.cn/" target="_blank" rel="noopener"
+>中国科学技术大学&lt;/a> 的镜像。请确认 WSL 的发行版，根据需求选择要使用的镜像：&lt;/p>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener"
+>清华大学开源软件镜像站&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://mirrors.ustc.edu.cn/" target="_blank" rel="noopener"
+>USTC Open Source Software Mirror&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="在-wsl-上安装-cc-的编译器">在 WSL 上安装 C/C++ 的编译器&lt;/h2>
+&lt;p>以 Ubuntu 为例，使用如下命令安装：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install gcc g++
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意&lt;/strong>：在安装之前，可能需要进行包的更新，可使用如下命令更新：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>对于其他 Linux 发行版，请自行在网络上搜索安装与更新的命令，这里不再赘述。&lt;/p>
+&lt;h2 id="将-wsl-与-vs-code-一并使用">将 WSL 与 VS Code 一并使用&lt;/h2>
+&lt;p>以下内容参考 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
+>开始使用 WSL VS Code&lt;/a>，笔者不确保内容的准确性。如有疑问请参考原文。&lt;/p>
+&lt;h3 id="安装并配置-vs-code">安装并配置 VS Code&lt;/h3>
+&lt;p>访问 &lt;a class="link" href="https://code.visualstudio.com/download" target="_blank" rel="noopener"
+>VS Code 安装页&lt;/a> 选择适合的安装程序。&lt;/p>
+&lt;p>打开 VS Code，点击拓展并搜索 「WSL」，安装 WSL 远程拓展包，即可完成操作。在中文环境下，我们还可以安装 VS Code 推荐的中文语言包，以方便阅读。&lt;/p>
+&lt;p>对于 C/C++，我们可以在拓展中搜索 C++，以安装其有关拓展（包含了语法高亮、调试等功能）。&lt;/p>
+&lt;p>更多的 WSL 与 VS Code 共同使用的小技巧的注意事项，请参考 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
+>开始使用 WSL VS Code&lt;/a>&lt;/p>
+&lt;h2 id="使用-wsl-和-vs-code-编写-hello-world-程序">使用 WSL 和 VS Code 编写 Hello world! 程序&lt;/h2>
+&lt;p>&lt;strong>注意&lt;/strong>：以下仅为简单的、单文件的 C 语言编写的源文件的编译方法，笔者不保证（实际上是几乎不能）适用于生产环境。若要了解一种生产环境下的 C 语言编译方法，请参考 &lt;a class="link" href="https://cmake.org/" target="_blank" rel="noopener"
+>CMake&lt;/a>。&lt;/p>
+&lt;p>首先，需要进入存放源代码的文件夹，请读者自行建立，或在 Home 文件夹直接进行。&lt;/p>
+&lt;p>运行如下命令，创建 &lt;code>main.c&lt;/code> 源文件（提示：在 Linux 下键入命令时，请善用 &lt;code>Tab&lt;/code> 键自动补全）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">touch main.c
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在 VS Code 中，点击左下角&lt;strong>打开远程窗口&lt;/strong>按钮，选择 &lt;code>New WSL Window&lt;/code> 即可连接至 WSL。打开存放 &lt;code>main.c&lt;/code> 的文件夹，使用 VS Code 编辑 &lt;code>main.c&lt;/code> 文件，填入如下内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello world!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>按下 &lt;code>ctrl&lt;/code> + &lt;code>`&lt;/code> 打开命令行终端，输入以下命令编译此程序：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gcc main.c
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此时，输入 &lt;code>ls&lt;/code> 命令，我们可以看到当前目录下已经生成了一个名为 &lt;code>a.out&lt;/code> 的可执行文件。&lt;/p>
+&lt;p>我们执行这个程序（&lt;strong>注意&lt;/strong>：&lt;code>./&lt;/code> 是不可缺少的，具体原因请自行搜索，这里不再赘述）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./a.out
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以看到输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Hello world!
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>若要重新编译源文件，请使用 &lt;code>rm&lt;/code> 命令，删除 &lt;code>a.out&lt;/code> 文件，并再次执行编译命令。&lt;/p>
+&lt;p>若要了解其他 &lt;code>gcc&lt;/code> 命令的使用方法，请执行命令 &lt;code>man gcc&lt;/code> 或 &lt;code>gcc --help&lt;/code>。更多 Linux 常用命令请自行于网络上搜索。&lt;/p></description></item></channel></rss>

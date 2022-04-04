@@ -1,16 +1,483 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>HFUT on Qiming's Blog</title><link>https://xqm32.github.io/tags/hfut/</link><description>Recent content in HFUT on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 15 Nov 2021 13:15:31 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/hfut/index.xml" rel="self" type="application/rss+xml"/><item><title>Java 课程知识点总结</title><link>https://xqm32.github.io/posts/java-course-knowledge-points/</link><pubDate>Mon, 15 Nov 2021 13:15:31 +0800</pubDate><guid>https://xqm32.github.io/posts/java-course-knowledge-points/</guid><description>注意：本文是合肥工业大学软件工程专业《Java 语言程序设计》课程的知识点总结，基于课程老师给出的知识点总结，笔者不保证内容的准确性，请谨慎参考。
-若文中存在任何问题或有任何疑问请前往 Issue 页面。
-概述 Java 发展历史：
-① 1990 年代初由 Sun 公司开发，最初被命名为 Oak，用于家用电器；
-② 1995 年，Sun 改造了 Oak，以 Java 的名称正式发布，广泛应用于互联网。
-J2ME、J2SE、J2EE：
-J2ME：Java 2 Platform, Micro Edition，应用于嵌入式（embedded）及移动设备（mobile device）；
-J2SE：Java 2 Platform, Standard Edition，应用于桌面（desktop）及服务器（server）环境；
-J2EE：Java 2 Platform, Enterprise Edition，应用于分布式计算（distributed computing）及网络服务（web services），是 J2SE 的拓展。
-Java 语言的特点：
-开放、简单、健壮、安全、面向网络、完全的面向对象编程（OOP）、跨平台（WORA）；
-WORA：Write One, Run Anywhere
-Java 与 C++ 的比较：
-① Java 无指针；
-② Java 无结构体和联合体；
-③ Java 无运算符重载；</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HFUT on Qiming's Blog</title><link>https://xqm32.github.io/tags/hfut/</link><description>Recent content in HFUT on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 14 Nov 2021 17:34:20 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/hfut/index.xml" rel="self" type="application/rss+xml"/><item><title>Java 课程知识点总结</title><link>https://xqm32.github.io/posts/java-course-knowledge-points/</link><pubDate>Sun, 14 Nov 2021 17:34:20 +0800</pubDate><guid>https://xqm32.github.io/posts/java-course-knowledge-points/</guid><description>&lt;p>&lt;strong>注意：本文是合肥工业大学软件工程专业《Java 语言程序设计》课程的知识点总结，基于课程老师给出的知识点总结，笔者不保证内容的准确性，请谨慎参考。&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>若文中存在任何问题或有任何疑问请前往 &lt;a class="link" href="https://github.com/xqm32/xqm32.github.io/issues/new" target="_blank" rel="noopener"
+>Issue&lt;/a> 页面。&lt;/strong>&lt;/p>
+&lt;h2 id="概述httpsdocsoraclecomjavasetutorialgetstartedintroindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/getStarted/intro/index.html" target="_blank" rel="noopener"
+>概述&lt;/a>&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 发展历史：&lt;/p>
+&lt;p>① 1990 年代初由 &lt;code>Sun&lt;/code> 公司开发，最初被命名为 &lt;code>Oak&lt;/code>，用于家用电器；&lt;/p>
+&lt;p>② 1995 年，&lt;code>Sun&lt;/code> 改造了 &lt;code>Oak&lt;/code>，以 &lt;code>Java&lt;/code> 的名称正式发布，广泛应用于互联网。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.oracle.com/topics/technologies/newtojava/programming-center.html#Get_Started" target="_blank" rel="noopener"
+>&lt;code>J2ME&lt;/code>、&lt;code>J2SE&lt;/code>、&lt;code>J2EE&lt;/code>&lt;/a>：&lt;/p>
+&lt;p>&lt;code>J2ME&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>2&lt;/strong> Platform, &lt;strong>M&lt;/strong>icro &lt;strong>E&lt;/strong>dition，应用于嵌入式（embedded）及移动设备（mobile device）；&lt;/p>
+&lt;p>&lt;code>J2SE&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>2&lt;/strong> Platform, &lt;strong>S&lt;/strong>tandard &lt;strong>E&lt;/strong>dition，应用于桌面（desktop）及服务器（server）环境；&lt;/p>
+&lt;p>&lt;code>J2EE&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>2&lt;/strong> Platform, &lt;strong>E&lt;/strong>nterprise &lt;strong>E&lt;/strong>dition，应用于分布式计算（distributed computing）及网络服务（web services），是 &lt;code>J2SE&lt;/code> 的拓展。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 语言的特点：&lt;/p>
+&lt;p>开放、简单、健壮、安全、面向网络、完全的面向对象编程（OOP）、跨平台（&lt;code>WORA&lt;/code>）；&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>&lt;code>WORA&lt;/code>&lt;/strong>：&lt;strong>W&lt;/strong>rite &lt;strong>O&lt;/strong>ne, &lt;strong>R&lt;/strong>un &lt;strong>A&lt;/strong>nywhere&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 与 &lt;code>C++&lt;/code> 的比较：&lt;/p>
+&lt;p>① &lt;code>Java&lt;/code> 无&lt;strong>指针&lt;/strong>；&lt;/p>
+&lt;p>② &lt;code>Java&lt;/code> 无&lt;strong>结构体&lt;/strong>和&lt;strong>联合体&lt;/strong>；&lt;/p>
+&lt;p>③ &lt;code>Java&lt;/code> 无&lt;strong>运算符重载&lt;/strong>；&lt;/p>
+&lt;p>④ &lt;code>Java&lt;/code> 无&lt;strong>多重继承&lt;/strong>，以**接口（&lt;code>interface&lt;/code>）**取代；&lt;/p>
+&lt;p>⑤ &lt;code>Java&lt;/code> 无&lt;strong>头文件&lt;/strong>和&lt;strong>预处理&lt;/strong>；&lt;/p>
+&lt;p>⑥ &lt;code>Java&lt;/code> 无 &lt;strong>&lt;code>goto&lt;/code>&lt;/strong> 关键字；&lt;/p>
+&lt;p>⑦ &lt;code>Java&lt;/code> 有 &lt;strong>&lt;code>GC&lt;/code>（Garbage Collection，垃圾回收）&lt;/strong>；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.oracle.com/cn/java/technologies/documentation/whitepapers-jsp.html" target="_blank" rel="noopener"
+>&lt;code>JVM&lt;/code>、&lt;code>JRE&lt;/code>、&lt;code>JDK&lt;/code> 的区别与联系&lt;/a>：&lt;/p>
+&lt;p>&lt;img src="https://xqm32.github.io/java-se-platform.webp"
+loading="lazy"
+alt="java-se-platform"
+>&lt;/p>
+&lt;p>&lt;code>JVM&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>V&lt;/strong>irtual &lt;strong>M&lt;/strong>achine（&lt;code>Java&lt;/code> 虚拟机），是执行 &lt;code>Java&lt;/code> 字节码的虚拟机，能够执行编译后 &lt;code>Java&lt;/code> 语言编写的程序；&lt;/p>
+&lt;p>&lt;code>JRE&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>R&lt;/strong>untime &lt;strong>E&lt;/strong>nvironment（&lt;code>Java&lt;/code> 运行时），包含了 &lt;code>JVM&lt;/code>，和标准类库（Class Library），用户需要安装 &lt;code>JRE&lt;/code> 来运行 &lt;code>Java&lt;/code> 程序；&lt;/p>
+&lt;p>&lt;code>JDK&lt;/code>：&lt;strong>J&lt;/strong>ava &lt;strong>D&lt;/strong>evelopment &lt;strong>K&lt;/strong>it（&lt;code>Java&lt;/code> 开发工具包），包含了 &lt;code>JRE&lt;/code>，开发者需要安装 &lt;code>JDK&lt;/code> 来编译、调试 &lt;code>Java&lt;/code> 程序。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 源代码（&lt;code>.java&lt;/code> 文件）由编译器（&lt;code>javac&lt;/code>）编译为字节码（&lt;code>.class&lt;/code> 文件）再由解释器（&lt;code>java&lt;/code>）执行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>一份 &lt;code>Java&lt;/code> 源代码可以包含多个类的定义，但仅能有一个 &lt;code>public&lt;/code> 修饰的类，且文件名须与此类一致。&lt;/p>
+&lt;blockquote>
+&lt;p>A class may be declared with the modifier &lt;code>public&lt;/code>, in which case that class is visible to all classes everywhere. If a class has no modifier (the default, also known as &lt;em>package-private&lt;/em>), it is visible only within its own package (packages are named groups of related classes — you will learn about them in a later lesson.)&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 的编译器：&lt;code>javac&lt;/code>，解释器：&lt;code>java&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/environment/paths.html" target="_blank" rel="noopener"
+>&lt;code>PATH&lt;/code> 和 &lt;code>CLASSPATH&lt;/code>&lt;/a>：&lt;/p>
+&lt;p>&lt;code>PATH&lt;/code> 中应包含 &lt;code>Java&lt;/code> 的编译器、解释器等可执行程序；&lt;/p>
+&lt;p>&lt;code>CLASSPATH&lt;/code> 中应包含除标准类库外所需的类的路径（包含当前路径 &lt;code>.&lt;/code>）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>包的定义：&lt;code>package&lt;/code>；&lt;/p>
+&lt;p>包的导入：&lt;code>import&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="java-的语法">Java 的语法&lt;/h2>
+&lt;ol start="11">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html" target="_blank" rel="noopener"
+>标识符的命名&lt;/a>：&lt;/p>
+&lt;p>一个合法的标识符应当是一个：&lt;strong>以 &lt;code>Unicode&lt;/code> 字符、&lt;code>$&lt;/code> 字符或 &lt;code>_&lt;/code> 字符开头&lt;/strong>，由 &lt;strong>&lt;code>Unicode&lt;/code> 字符和数字&lt;/strong>组成的，&lt;strong>不限长度&lt;/strong>的，&lt;strong>从未被使用过&lt;/strong>的字符序列。&lt;/p>
+&lt;p>&lt;strong>注意&lt;/strong>：一个合法的标识符不应是&lt;strong>关键字&lt;/strong>、&lt;strong>保留字&lt;/strong>（&lt;code>const&lt;/code>、&lt;code>goto&lt;/code>）或&lt;strong>字面量&lt;/strong>（&lt;code>true&lt;/code>、&lt;code>false&lt;/code>、&lt;code>null&lt;/code>）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 的数据类型：&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的原始数据类型&lt;/a>（&lt;code>byte&lt;/code>、&lt;code>short&lt;/code>、&lt;code>int&lt;/code>、&lt;code>long&lt;/code>、&lt;code>float&lt;/code>、&lt;code>double&lt;/code>、&lt;code>boolean&lt;/code>、&lt;code>char&lt;/code>）、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的数组&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的类&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的接口&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 的枚举类型&lt;/a>；&lt;/p>
+&lt;p>&lt;code>Java&lt;/code> 的原始数据类型使用值传递，&lt;code>Java&lt;/code> 的复杂数据类型使用地址传递（* 笔者的理解是因为内存的占用，值传递和地址传递占用的内存大致相同）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中的 &lt;code>char&lt;/code> 类型使用 &lt;code>2&lt;/code> 字节的 &lt;code>Unicode&lt;/code> 编码。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中 &lt;code>8&lt;/code> 个原始数据类型对应着 &lt;code>8&lt;/code> 个类型的封装。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中的字符串类：&lt;code>String&lt;/code>、&lt;code>StringBuffer&lt;/code>；&lt;/p>
+&lt;p>&lt;code>String&lt;/code> 的典型方法：&lt;code>equals()&lt;/code>、&lt;code>indexOf()&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中的类型转换：遵循&lt;a class="link" href="https://zh.wikipedia.org/wiki/%e9%87%8c%e6%b0%8f%e6%9b%bf%e6%8d%a2%e5%8e%9f%e5%88%99" target="_blank" rel="noopener"
+>里氏替换原则&lt;/a>，精度损失视为错误。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 中的数组&lt;/a>，拥有内置的（built-in）&lt;code>length&lt;/code> 属性。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html" target="_blank" rel="noopener"
+>&lt;code>Java&lt;/code> 控制流中的分支语句&lt;/a>：&lt;code>break&lt;/code>、&lt;code>continue&lt;/code> 可以控制带有标号的控制语句。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>参考 PPT 中生成随机数数组的例题（* 也可参考 Java Tutorial 中的例子）。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="面向对象编程httpsdocsoraclecomjavasetutorialjavaconceptsindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/concepts/index.html" target="_blank" rel="noopener"
+>面向对象编程&lt;/a>&lt;/h2>
+&lt;ol start="20">
+&lt;li>
+&lt;p>面向对象编程（OOP）的三大特征：&lt;strong>继承&lt;/strong>、&lt;strong>封装&lt;/strong>、&lt;strong>多态&lt;/strong>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/classdecl.html" target="_blank" rel="noopener"
+>类的声明&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html" target="_blank" rel="noopener"
+>成员变量的声明&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html" target="_blank" rel="noopener"
+>方法的定义&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html" target="_blank" rel="noopener"
+>静态成员（类变量、类方法）&lt;/a>：&lt;/p>
+&lt;p>不被推荐（discouraged）但正确的类方法的调用：&lt;code>instanceName.methodName(args)&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html" target="_blank" rel="noopener"
+>构造方法&lt;/a>：&lt;/p>
+&lt;p>① 与类同名；&lt;/p>
+&lt;p>② 无返回值；&lt;/p>
+&lt;p>③ 由关键字 &lt;code>new&lt;/code> 调用；&lt;/p>
+&lt;p>④ 可重载，但每两个重载的构造方法不应当&lt;strong>同时&lt;/strong>有相同数量、相同类型且相同顺序的参数（确保无歧义）；&lt;/p>
+&lt;p>⑤ 若未定义构造方法，编译器将默认提供一个无参的构造方法。&lt;/p>
+&lt;p>&lt;strong>注意&lt;/strong>：构造方法不是成员。&lt;/p>
+&lt;blockquote>
+&lt;p>A subclass inherits all the &lt;em>members&lt;/em> (fields, methods, and nested classes) from its superclass. &lt;strong>Constructors are not members&lt;/strong>, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank" rel="noopener"
+>访问控制&lt;/a>：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Modifier&lt;/th>
+&lt;th>Class&lt;/th>
+&lt;th>Package&lt;/th>
+&lt;th>Subclass&lt;/th>
+&lt;th>World&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>public&lt;/code>&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>protected&lt;/code>&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>N&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>no modifier&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>N&lt;/td>
+&lt;td>N&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>private&lt;/code>&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>N&lt;/td>
+&lt;td>N&lt;/td>
+&lt;td>N&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>（* 没有修饰符表示包内私有（package-private））&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html" target="_blank" rel="noopener"
+>继承&lt;/a>：&lt;/p>
+&lt;p>① 除了没有父类的 &lt;code>Object&lt;/code> 类，每一个类都&lt;strong>有且只有一个&lt;/strong>父类（单重继承）；&lt;/p>
+&lt;p>② &lt;code>Object&lt;/code> 类是所有类的隐式（implicitly）父类；&lt;/p>
+&lt;p>③ 子类将继承一切父类公有（public）或保护（protected）的成员（包括：属性（fields）、方法（methods）、嵌套类（nested classes））。&lt;/p>
+&lt;p>&lt;strong>注意&lt;/strong>：① 构造方法不是成员，故而不被子类继承，但可以被子类调用；② 嵌套类（nested class）可以访问其外部类的所有私有成员，因而子类可以通过其间接访问父类的成员。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>重载（Overload）与&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html" target="_blank" rel="noopener"
+>重写（Override）&lt;/a>：&lt;/p>
+&lt;p>重载：重载的方法具有&lt;strong>相同&lt;/strong>的方法名，&lt;strong>不同&lt;/strong>的&lt;strong>参数数量、类型或顺序&lt;/strong>；&lt;/p>
+&lt;p>重写：重写的方法具有&lt;strong>相同&lt;/strong>的&lt;strong>方法名&lt;/strong>、&lt;strong>参数的数量、类型&lt;/strong>和顺序与相同或为其子类的&lt;strong>返回类型&lt;/strong>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>关键字 &lt;code>this&lt;/code> 和 &lt;code>super&lt;/code>：&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html" target="_blank" rel="noopener"
+>&lt;code>this&lt;/code> 关键字&lt;/a>：用于区分自身属性和外部参数；&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/super.html" target="_blank" rel="noopener"
+>&lt;code>super&lt;/code> 关键字&lt;/a>：用于重写时区分父类与子类的参数或调用父类的构造方法。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html" target="_blank" rel="noopener"
+>方法重写的原则&lt;/a>：&lt;/p>
+&lt;p>要满足&lt;a class="link" href="https://zh.wikipedia.org/wiki/%e9%87%8c%e6%b0%8f%e6%9b%bf%e6%8d%a2%e5%8e%9f%e5%88%99" target="_blank" rel="noopener"
+>里氏替换原则&lt;/a>，因而有 ① 访问权限不应比父类更严格；② 抛出的异常不应比父类更多。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html" target="_blank" rel="noopener"
+>多态（polymorphism）&lt;/a>：运行时多态、编译时多态。&lt;/p>
+&lt;blockquote>
+&lt;p>The Java virtual machine (JVM) calls the appropriate method for the object that is referred to in each variable. It does not call the method that is defined by the variable&amp;rsquo;s type. This behavior is referred to as &lt;em>virtual method invocation&lt;/em> and demonstrates an aspect of the important polymorphism features in the Java language.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>运行时多态的两个前提：① 上溯造型；② 方法重写。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>final&lt;/code> 关键字：&lt;/p>
+&lt;p>修饰变量：不可被&lt;strong>修改&lt;/strong>，为常量；&lt;/p>
+&lt;p>修饰方法：不可被&lt;strong>重写&lt;/strong>；&lt;/p>
+&lt;p>修饰类：不可被&lt;strong>继承&lt;/strong>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="抽象httpsdocsoraclecomjavasetutorialjavaiandiabstracthtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="noopener"
+>抽象&lt;/a>&lt;/h2>
+&lt;ol start="32">
+&lt;li>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="noopener"
+>抽象（&lt;code>abstract&lt;/code> 关键字）&lt;/a>，可以修饰类和方法，也可修饰接口，但那是不必要的（unnecessary）。&lt;/li>
+&lt;li>抽象类：&lt;code>abstract&lt;/code> 关键字修饰的类，&lt;strong>不能实例化&lt;/strong>（* 但不代表不能有一个抽象类型的变量）。&lt;/li>
+&lt;li>抽象方法：&lt;code>abstract&lt;/code> 关键字修饰的方法，&lt;strong>没有实现&lt;/strong>。&lt;/li>
+&lt;li>抽象类中有&lt;strong>任意数量&lt;/strong>的抽象方法和&lt;strong>任意数量&lt;/strong>的非抽象方法。&lt;/li>
+&lt;li>非抽象方法可以调用抽象方法（只有 &lt;code>abstract&lt;/code> 关键字修饰的类拥有抽象方法）（* 由于实例必然是一个非抽象类，调用的抽象方法将一定被实现）。&lt;/li>
+&lt;li>非抽象子类应当实现继承的抽象父类的所有抽象方法和抽象父类的未实现的接口（只有 &lt;code>abstract&lt;/code> 关键字修饰的类拥有抽象方法）。&lt;/li>
+&lt;li>抽象类存在的必要性：通过抽象方法规定子类必须完成的方法（动作）。&lt;/li>
+&lt;/ol>
+&lt;h2 id="接口httpsdocsoraclecomjavasetutorialjavaiandicreateinterfacehtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank" rel="noopener"
+>接口&lt;/a>&lt;/h2>
+&lt;ol start="39">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank" rel="noopener"
+>接口（&lt;code>interface&lt;/code> 关键字）&lt;/a>，只包含常量（constants）和抽象方法（* 实际上还有方法签名（method signatures）、默认方法（default methods））。&lt;/p>
+&lt;p>实现（&lt;code>implements&lt;/code> 关键字）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>接口中的常量&lt;strong>无需修饰&lt;/strong>，默认为 &lt;code>public static final&lt;/code>；方法亦无需修饰，默认为 &lt;code>public abstract&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>一个类可以实现&lt;strong>多个&lt;/strong>接口，接口也可以实现接口。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>非抽象类应当实现接口的&lt;strong>所有方法&lt;/strong>（* 可以理解为抽象只存在于抽象中，实际上 &lt;code>default&lt;/code> 关键字修饰的无需实现）。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="内部类httpsdocsoraclecomjavasetutorialjavajavaoonestedhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html" target="_blank" rel="noopener"
+>内部类&lt;/a>&lt;/h2>
+&lt;p>&lt;strong>注意&lt;/strong>：内部类（inner class）&lt;strong>不是&lt;/strong>静态嵌套类（static nested class）&lt;/p>
+&lt;p>① 内部类不能有 &lt;code>static&lt;/code> 修饰的成员（属性、方法）（* 存疑，编译时无问题，但 Java Tutorial 明确说明）。&lt;/p>
+&lt;blockquote>
+&lt;p>As with instance methods and variables, an inner class is associated with an instance of its enclosing class and has direct access to that object&amp;rsquo;s methods and fields. Also, because an inner class is associated with an instance, it cannot define any static members itself.&lt;/p>
+&lt;/blockquote>
+&lt;p>② 内部类可以访问外部类的所有成员。&lt;/p>
+&lt;h2 id="系统类httpsdocsoraclecomjavasetutorialessentialindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/index.html" target="_blank" rel="noopener"
+>系统类&lt;/a>&lt;/h2>
+&lt;ol start="43">
+&lt;li>
+&lt;p>&lt;code>Object&lt;/code> 类是所有类的父类（间接父类）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" target="_blank" rel="noopener"
+>&lt;code>Object&lt;/code> 类&lt;/a>：&lt;/p>
+&lt;p>&lt;code>Object::equals(Object obj)&lt;/code>：是否是同一个对象（地址相同）；&lt;/p>
+&lt;p>&lt;code>Object::getClass()&lt;/code>：获取对象的&lt;strong>运行时类&lt;/strong>；&lt;/p>
+&lt;p>&lt;code>Object::toString()&lt;/code>：转换为字符串，相当于 &lt;code>getClass().getName() + '@' + Integer.toHexString(hashCode())&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" target="_blank" rel="noopener"
+>&lt;code>String&lt;/code> 类&lt;/a>：&lt;/p>
+&lt;p>&lt;code>String::equals(Object obj)&lt;/code>：当且仅当 &lt;code>obj&lt;/code> 参数不为 &lt;code>null&lt;/code>、类型为 &lt;code>String&lt;/code> 且所存储的字符序列相同时返回 &lt;code>true&lt;/code>（* 也就是该方法的参数不必须是一个 &lt;code>String&lt;/code>）。&lt;/p>
+&lt;p>&lt;code>String::length()&lt;/code>：返回字符串的长度，这是一个&lt;strong>方法&lt;/strong>，注意与数组的 &lt;code>length&lt;/code> &lt;strong>属性&lt;/strong> 区分。&lt;/p>
+&lt;p>&lt;code>String::compareTo(String anotherString)&lt;/code>：顺序为&lt;strong>字典序&lt;/strong>；若前置字符均相同，则短字符串排于长字符串之前。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>原始数据类型与 &lt;code>String&lt;/code> 中的转换：&lt;/p>
+&lt;p>原始数据类型转换为 &lt;code>String&lt;/code>：使用 &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#valueOf%28boolean%29" target="_blank" rel="noopener"
+>&lt;code>String.valueOf()&lt;/code> 方法&lt;/a> 或用加法运算符；&lt;/p>
+&lt;p>&lt;code>String&lt;/code> 转换为原始数据类型：使用如 &lt;code>Integer.parseInt&lt;/code> 式的方法。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Vector.html" target="_blank" rel="noopener"
+>&lt;code>Vector&lt;/code> 列表&lt;/a>和 &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" target="_blank" rel="noopener"
+>&lt;code>ArrayList&lt;/code> 列表&lt;/a>：&lt;code>Vector&lt;/code> 是**线程安全（thread-safe）**的，但如果线程安全不是必须，更推荐使用 &lt;code>ArrayList&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="异常处理httpsdocsoraclecomjavasetutorialessentialexceptionsindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html" target="_blank" rel="noopener"
+>异常处理&lt;/a>&lt;/h2>
+&lt;ol start="48">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/definition.html" target="_blank" rel="noopener"
+>异常处理的基本概念&lt;/a>，&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/advantages.html" target="_blank" rel="noopener"
+>异常处理的优势&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>JVM&lt;/code> 中的运行时错误和 &lt;code>Java&lt;/code> 的异常类的对应关系：由 &lt;code>JVM&lt;/code> 对应。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>PPT 中关于异常的图：&lt;/p>
+&lt;p>&lt;img src="https://xqm32.github.io/exceptions-jvm.svg"
+loading="lazy"
+alt="exceptions-jvm"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Java&lt;/code> 中的异常类：&lt;/p>
+&lt;p>&lt;img src="https://xqm32.github.io/exceptions-throwable.gif"
+loading="lazy"
+alt="exceptions-throwable"
+>&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html" target="_blank" rel="noopener"
+>运行时异常&lt;/a>（&lt;code>RuntimeException&lt;/code> 及其子类，又称 &lt;code>unchecked Exception&lt;/code>）：编译器将不会检查异常的捕获情况（* &lt;strong>PPT 中认为&lt;/strong>运行时异常一定是程序的错误）。&lt;/p>
+&lt;blockquote>
+&lt;p>If a client can reasonably be expected to recover from an exception, make it a checked exception. If a client cannot do anything to recover from the exception, make it an unchecked exception.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/handling.html" target="_blank" rel="noopener"
+>异常的处理方法&lt;/a>：&lt;/p>
+&lt;p>① &lt;code>try-catch-finally&lt;/code> 捕获异常；&lt;/p>
+&lt;p>② 使用 &lt;code>throws&lt;/code> 关键字，不进行处理。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/declaring.html" target="_blank" rel="noopener"
+>&lt;code>throws&lt;/code> 关键字&lt;/a>：指定（specify）一个方法&lt;strong>可能&lt;/strong>抛出的所有异常，非运行时异常可以不被指定；&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/throwing.html" target="_blank" rel="noopener"
+>&lt;code>throw&lt;/code> 关键字&lt;/a>：抛出的是一个 &lt;code>Throwable&lt;/code> 对象。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="输入输出流httpsdocsoraclecomjavasetutorialessentialioindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/io/index.html" target="_blank" rel="noopener"
+>输入输出流&lt;/a>&lt;/h2>
+&lt;ol start="54">
+&lt;li>
+&lt;p>输入输出流的四个抽象类：&lt;/p>
+&lt;p>① &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" target="_blank" rel="noopener"
+>&lt;code>InputStream&lt;/code> 抽象类&lt;/a>：以字节（byte）为单位进行输入；&lt;/p>
+&lt;p>② &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" target="_blank" rel="noopener"
+>&lt;code>OutputStream&lt;/code> 抽象类&lt;/a>：以字节（byte）为单位进行输出；&lt;/p>
+&lt;p>③ &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Reader.html" target="_blank" rel="noopener"
+>&lt;code>Reader&lt;/code> 抽象类&lt;/a>：以字符（character）为单位进行输入；&lt;/p>
+&lt;p>④ &lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Writer.html" target="_blank" rel="noopener"
+>&lt;code>Writer&lt;/code> 抽象类&lt;/a>：以字符（character）为单位进行输出。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>能够用字节流、字符流编写文件的拷贝程序。&lt;/p>
+&lt;p>字节流：&lt;code>InputStream::read()&lt;/code> 到达文件的终止位时将会返回 &lt;code>-1&lt;/code>。&lt;/p>
+&lt;blockquote>
+&lt;p>If no byte is available because the end of the stream has been reached, the value &lt;code>-1&lt;/code> is returned.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/File.html" target="_blank" rel="noopener"
+>&lt;code>File&lt;/code> 类&lt;/a>：&lt;code>File::File(String pathname)&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStreamReader.html" target="_blank" rel="noopener"
+>&lt;code>InputStreamReader&lt;/code> 类&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStreamWriter.html" target="_blank" rel="noopener"
+>&lt;code>OutputStreamWriter&lt;/code> 类&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedReader.html" target="_blank" rel="noopener"
+>&lt;code>BufferedReader&lt;/code> 类&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html" target="_blank" rel="noopener"
+>&lt;code>BufferedWriter&lt;/code> 类&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="多线程httpsdocsoraclecomjavasetutorialessentialconcurrencyprocthreadhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html" target="_blank" rel="noopener"
+>多线程&lt;/a>&lt;/h2>
+&lt;ol start="59">
+&lt;li>
+&lt;p>继承 &lt;code>Thread&lt;/code> 类或实现 &lt;code>Runnable&lt;/code> 接口来完成多线程。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>多线程的四种状态图，参考 PPT（* &lt;code>stop()&lt;/code> 已经&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#stop%28%29" target="_blank" rel="noopener"
+>&lt;strong>废弃（Deprecated）&lt;/strong>&lt;/a>了）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>编写多线程程序的两种方法：&lt;/p>
+&lt;p>① 继承 &lt;code>Thread&lt;/code> 类，重写 &lt;code>run()&lt;/code> 方法。&lt;/p>
+&lt;p>② 实现 &lt;code>Runnable&lt;/code> 接口，并通过其构造一个 &lt;code>Thread&lt;/code> 类。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html" target="_blank" rel="noopener"
+>锁和同步&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep%28long%29" target="_blank" rel="noopener"
+>&lt;code>Thread.sleep(long millis)&lt;/code> 方法&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#currentThread%28%29" target="_blank" rel="noopener"
+>&lt;code>Thread.currentThread()&lt;/code> 方法&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="网络编程httpsdocsoraclecomjavasetutorialnetworkingindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/networking/index.html" target="_blank" rel="noopener"
+>网络编程&lt;/a>&lt;/h2>
+&lt;ol start="64">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/networking/urls/index.html" target="_blank" rel="noopener"
+>&lt;code>URL&lt;/code> 类&lt;/a>，&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" target="_blank" rel="noopener"
+>&lt;code>URL&lt;/code> 类的 &lt;code>API&lt;/code>&lt;/a>：&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html#openStream%28%29" target="_blank" rel="noopener"
+>&lt;code>URL::openStream&lt;/code> 方法&lt;/a>：返回一个字节输入流（&lt;code>InputStream&lt;/code>）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/networking/sockets/definition.html" target="_blank" rel="noopener"
+>&lt;code>Socket&lt;/code> 类通信&lt;/a>，&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/Socket.html" target="_blank" rel="noopener"
+>&lt;code>Socket&lt;/code> 类的 &lt;code>API&lt;/code>&lt;/a>，&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/ServerSocket.html" target="_blank" rel="noopener"
+>&lt;code>ServerSocket&lt;/code> 类的 &lt;code>API&lt;/code>&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="gui-编程httpsdocsoraclecomjavasetutorialuiswingindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/index.html" target="_blank" rel="noopener"
+>GUI 编程&lt;/a>&lt;/h2>
+&lt;ol start="66">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/components/index.html" target="_blank" rel="noopener"
+>各类组件&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html" target="_blank" rel="noopener"
+>&lt;code>Frame&lt;/code> 容器&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/components/panel.html" target="_blank" rel="noopener"
+>&lt;code>Panel&lt;/code> 容器&lt;/a>；&lt;/p>
+&lt;p>&lt;code>Windows&lt;/code>、&lt;code>Frame&lt;/code> 容器的默认布局为 &lt;code>BorderLayout&lt;/code>；&lt;/p>
+&lt;p>&lt;code>Panel&lt;/code>、&lt;code>Applet&lt;/code> 容器的默认布局为 &lt;code>FlowLayout&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>容器的常用方法 &lt;code>add()&lt;/code>、&lt;code>setLayout()&lt;/code>、&lt;code>setSize()&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>AWT&lt;/code> 事件监听模型，参考 PPT。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Button&lt;/code> 的消息响应：可以参考 Java Tutorial 中的&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/uiswing/components/button.html" target="_blank" rel="noopener"
+>例子&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="知识点之外">知识点之外&lt;/h2>
+&lt;p>以下是除了课程老师给的知识点参考之外的知识点&lt;/p>
+&lt;ol start="71">
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html" target="_blank" rel="noopener"
+>Lambda 表达式&lt;/a>：&lt;/p>
+&lt;blockquote>
+&lt;p>A functional interface is any interface that contains only one &lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="noopener"
+>abstract method&lt;/a>. (A functional interface may contain one or more &lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html" target="_blank" rel="noopener"
+>default methods&lt;/a> or &lt;a class="link" href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html#static" target="_blank" rel="noopener"
+>static methods&lt;/a>.) Because a functional interface contains only one abstract method, you can omit the name of that method when you implement it.&lt;/p>
+&lt;/blockquote>
+&lt;p>语法：&lt;code>() -&amp;gt; {}&lt;/code>（* 亦可使用简写）；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" target="_blank" rel="noopener"
+>&lt;code>InputStream&lt;/code> 字节输入流&lt;/a>、&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html" target="_blank" rel="noopener"
+>&lt;code>OutputStream&lt;/code> 字节输出流&lt;/a>的一些方法：&lt;/p>
+&lt;p>&lt;code>InputStream::readAllBytes()&lt;/code>：读取所有的字节，返回一个字节数组；&lt;/p>
+&lt;p>&lt;code>OutputStream::write(byte [])&lt;/code>：写入字节数组。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>IOException&lt;/code> 是非运行时异常，必须被捕获。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="参考资料">参考资料&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://www.oracle.com/cn/java/technologies/documentation/whitepapers-jsp.html" target="_blank" rel="noopener"
+>Java SE 参考资料 — 白皮书&lt;/a>；&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/index.html" target="_blank" rel="noopener"
+>Java SE 17 &amp;amp; JDK 17 API Specification&lt;/a>；&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/index.html" target="_blank" rel="noopener"
+>The Java Tutorials&lt;/a>。&lt;/li>
+&lt;/ol></description></item></channel></rss>

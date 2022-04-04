@@ -1,18 +1,307 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>教程 on Qiming's Blog</title><link>https://xqm32.github.io/tags/%E6%95%99%E7%A8%8B/</link><description>Recent content in 教程 on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Mar 2022 11:37:40 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>三阶魔方层先法还原教程</title><link>https://xqm32.github.io/posts/layer-by-layer-guide-of-cube/</link><pubDate>Wed, 02 Mar 2022 11:37:40 +0800</pubDate><guid>https://xqm32.github.io/posts/layer-by-layer-guide-of-cube/</guid><description>笔者编写此文的本意是为了记录和索引公式。其内容源于笔者经验，不免有所疏漏，还请读者于评论区指出。
-笔者希望记忆方便，故本文主要使用汉字式公式，为确保无歧义，亦附有字母式公式作为参考。
-公式索引 必须掌握的公式将加粗表示，不常用的公式将以灰色表示。
-二层 [侧棱][正面] 左上右下右 逆左顺 - URU&amp;rsquo;R&amp;rsquo;U&amp;rsquo; F&amp;rsquo;UF [侧棱][右面] 下逆上左 下右上顺 - R&amp;rsquo;F&amp;rsquo;RU RU&amp;rsquo;R&amp;rsquo;F 三层 [顶棱][右手] 顺 左上右下 逆 - F URU&amp;rsquo;R&amp;rsquo; F&amp;rsquo; 二前四左：顶面空缺块个数和左下角块朝向。 [顶棱][左手] 逆 右上左下 顺 - F&amp;rsquo; U&amp;rsquo;L&amp;rsquo;UL F [小鱼][右手] 上左下左上左左下 - RUR&amp;rsquo;URU2R&amp;rsquo; 小鱼公式的鱼头应向下。 [小鱼][左手] 上右下右上右右下 - L&amp;rsquo;U&amp;rsquo;LU&amp;rsquo;L&amp;rsquo;U'2L [顶棱][右手] 左左上左左下顺顺 - U2RU2R&amp;rsquo;F2 [顶棱][左手] 左左上左左下顺顺 - U2L&amp;rsquo;U2LF2 汉英对照 左 - U 右 - U' 上 - R / L' 下 - R&amp;rsquo; / L 顺 - F 逆 - F' 参考资料 GAN 魔方的层先法教程 最简单的三阶魔方入门教程</description></item><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.github.io/posts/add-gitalk-to-hugo/</link><pubDate>Sun, 09 Jan 2022 20:56:25 +0800</pubDate><guid>https://xqm32.github.io/posts/add-gitalk-to-hugo/</guid><description>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 Gitalk 搭建博客评论区显然是一个不错的选择。
-加入 Gitalk 的方法 这里以 PaperMod 主题为例子，理论上也适用于其他主题，具体还请查阅所用主题的相关文档。
-在 PaperMod 主题中，我们只需要在根目录下创建 layouts/partials/comments.html 文件即可（或者复制 themes/PaperMod/layouts/partials/comments.html 至根目录即可）。
-此后，我们可以参照 Gitalk 文档，在 comments.html 加入如下内容：
-&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&amp;#34;&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;div id=&amp;#34;gitalk-container&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; var gitalk = new Gitalk({ clientID: &amp;#39;GitHub Application Client ID&amp;#39;, clientSecret: &amp;#39;GitHub Application Client Secret&amp;#39;, repo: &amp;#39;GitHub repo&amp;#39;, // The repository of store comments, owner: &amp;#39;GitHub repo owner&amp;#39;, admin: [&amp;#39;GitHub repo owner and collaborators, only these guys can initialize github issues&amp;#39;], id: location.</description></item><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</link><pubDate>Fri, 26 Nov 2021 14:23:09 +0800</pubDate><guid>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</guid><description>此文章已经过时，请参考微软给出的更新的教程 安装 WSL
-本教程基于 在 Windows 10 上安装 WSL 和 开始使用 WSL VS Code 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。
-启用 WSL（适用于 Linux 的 Windows 子系统） 以管理员身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 如果想要更新到 WSL 2 请转到 更新至 WSL 2 。若希望直接使用 WSL 1 请直接 重新启动 并转到 安装并配置 Linux 发行版。
-更新至 WSL 2 注意：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：
-对于 x64 系统：版本 1903 或更高版本，采用 内部版本 18362 或更高版本。 对于 ARM64 系统：版本 2004 或更高版本，采用 内部版本 19041 或更高版本。 低于 18362 的版本不支持 WSL 2。 使用 Windows Update 助手 更新 Windows 版本。 启用虚拟机功能 以管理员身份打开 Powershell 并运行如下命令：</description></item><item><title>使用 Github Actions 自动化部署 Hugo 博客</title><link>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</link><pubDate>Sat, 04 Sep 2021 19:47:57 +0800</pubDate><guid>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</guid><description>笔者一直想有个属于自己的博客，通过在网上不断搜索，笔者发现使用 Hugo 部署至 Github Pages 上是一个不错的选择。但是，这样的部署也有一个缺陷：需要手动生成部署文件，再上传至 Github，这是十分麻烦的。因此笔者又在网上搜索文档、文章，后来了解到，可以使用 Github Actions 进行自动化部署，我们只需要将网站源码推送至 Github 便可以自动化地生成博客网站。不过，虽然在操作上是方便了许多，但如何配置这样的自动化部署似乎依旧是一个复杂的问题。于是笔者继续在网上搜索文档和文章，但大部分都没有给出较为「官方」的解决方案，也很少有参考资料可供加深了解，故而笔者转向寻求 Hugo 文档 的帮助，最终做到了使用 Github Actions 自动化部署 Hugo 博客。
-准备工作 首先，我们需要创建可以用于部署 Hugo 博客的 Github 仓库，具体的操作可以参考 GitHub Pages 文档 。
-其次，我们需要在电脑上安装 Git 和 Hugo（注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误），请参考 此文档 进行安装。
-之后，我们将使用 Hugo 在本地创建网站，名称建议使用 username.github.io（其中 username 是你的 Github ID），具体的方法请参照 此文档。
-Github Actions 在完成准备工作后，我们需要在本地创建网站的文件夹中建立 .github/workflows/gh-pages.yml 文件，在其中填入（此代码参考 Hugo 文档中 Host on GitHub 一项）：
-name: github pages on: push: branches: - main # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>教程 on Qiming's Blog</title><link>https://xqm32.github.io/tags/%E6%95%99%E7%A8%8B/</link><description>Recent content in 教程 on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Jan 2022 20:36:22 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.github.io/posts/add-gitalk-to-hugo/</link><pubDate>Sun, 09 Jan 2022 20:36:22 +0800</pubDate><guid>https://xqm32.github.io/posts/add-gitalk-to-hugo/</guid><description>&lt;p>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 &lt;code>Gitalk&lt;/code> 搭建博客评论区显然是一个不错的选择。&lt;/p>
+&lt;h1 id="加入-gitalk-的方法">加入 Gitalk 的方法&lt;/h1>
+&lt;p>这里以 &lt;code>PaperMod&lt;/code> 主题为例子，理论上也适用于其他主题，具体还请查阅所用主题的相关文档。&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/adityatelange/hugo-PaperMod/wiki/Features#comments" target="_blank" rel="noopener"
+>在 PaperMod 主题中&lt;/a>，我们只需要在根目录下创建 &lt;code>layouts/partials/comments.html&lt;/code> 文件即可（或者复制 &lt;code>themes/PaperMod/layouts/partials/comments.html&lt;/code> 至根目录即可）。&lt;/p>
+&lt;p>此后，我们可以参照 &lt;a class="link" href="https://github.com/gitalk/gitalk" target="_blank" rel="noopener"
+>Gitalk 文档&lt;/a>，在 &lt;code>comments.html&lt;/code> 加入如下内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;gitalk-container&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">var&lt;/span> &lt;span class="nx">gitalk&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">Gitalk&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clientID&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub Application Client ID&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clientSecret&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub Application Client Secret&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">repo&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub repo&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// The repository of store comments,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">owner&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub repo owner&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">admin&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;GitHub repo owner and collaborators, only these guys can initialize github issues&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">id&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">location&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">pathname&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// Ensure uniqueness and length less than 50
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">distractionFreeMode&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span> &lt;span class="c1">// Facebook-like distraction free mode
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">gitalk&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">render&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;gitalk-container&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意：这里的 &lt;code>clientID&lt;/code> 等内容请参考&lt;a class="link" href="https://github.com/gitalk/gitalk#Usage" target="_blank" rel="noopener"
+>文档中 Usage&lt;/a> 进行申请。&lt;/p>
+&lt;p>此外，还应在 &lt;code>config.yml&lt;/code> 中的 &lt;code>params&lt;/code> 项下加入 &lt;code>comments: true&lt;/code> 以使得评论系统生效。&lt;/p></description></item><item><title>三阶魔方层先法还原教程</title><link>https://xqm32.github.io/posts/layer-by-layer-guide-of-cube/</link><pubDate>Sun, 21 Nov 2021 19:51:02 +0800</pubDate><guid>https://xqm32.github.io/posts/layer-by-layer-guide-of-cube/</guid><description>&lt;p>笔者编写此文的本意是为了记录和索引公式。其内容源于笔者经验，不免有所疏漏，还请读者于评论区指出。&lt;/p>
+&lt;p>&lt;strong>笔者希望记忆方便，故本文主要使用汉字式公式，为确保无歧义，亦附有字母式公式作为参考。&lt;/strong>&lt;/p>
+&lt;h1 id="公式索引">公式索引&lt;/h1>
+&lt;p>必须掌握的公式将&lt;strong>加粗&lt;/strong>表示，不常用的公式将以&lt;font color=gray>灰色&lt;/font>表示。&lt;/p>
+&lt;h2 id="二层">二层&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>[侧棱][正面] 左上右下右 逆左顺 - URU&amp;rsquo;R&amp;rsquo;U&amp;rsquo; F&amp;rsquo;UF&lt;/strong>&lt;/li>
+&lt;li>[侧棱][右面] 下逆上左 下右上顺 - R&amp;rsquo;F&amp;rsquo;RU RU&amp;rsquo;R&amp;rsquo;F&lt;/li>
+&lt;/ol>
+&lt;h2 id="三层">三层&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>[顶棱][右手] 顺 左上右下 逆 - F URU&amp;rsquo;R&amp;rsquo; F&amp;rsquo;&lt;/strong>
+&lt;strong>二前四左&lt;/strong>：顶面空缺块个数和左下角块朝向。&lt;/li>
+&lt;li>&lt;font color=gray>[顶棱][左手] 逆 右上左下 顺 - F&amp;rsquo; U&amp;rsquo;L&amp;rsquo;UL F&lt;/font>&lt;/li>
+&lt;li>&lt;strong>[小鱼][右手] 上左下左上左左下 - RUR&amp;rsquo;URU2R&amp;rsquo;&lt;/strong>
+小鱼公式的鱼头应向下。&lt;/li>
+&lt;li>&lt;strong>[小鱼][左手] 上右下右上右右下 - L&amp;rsquo;U&amp;rsquo;LU&amp;rsquo;L&amp;rsquo;U'2L&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>[顶棱][右手] 左左上左左下顺顺 - U2RU2R&amp;rsquo;F2&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>[顶棱][左手] 左左上左左下顺顺 - U2L&amp;rsquo;U2LF2&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;h1 id="汉英对照">汉英对照&lt;/h1>
+&lt;ul>
+&lt;li>左 - U&lt;/li>
+&lt;li>右 - U'&lt;/li>
+&lt;li>上 - R / L'&lt;/li>
+&lt;li>下 - R&amp;rsquo; / L&lt;/li>
+&lt;li>顺 - F&lt;/li>
+&lt;li>逆 - F'&lt;/li>
+&lt;/ul>
+&lt;h1 id="参考资料">参考资料&lt;/h1>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://www.gancube.com/zh/layer-by-layer-guide-of-gancube" target="_blank" rel="noopener"
+>GAN 魔方的层先法教程&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/42183224" target="_blank" rel="noopener"
+>最简单的三阶魔方入门教程&lt;/a>&lt;/li>
+&lt;/ol></description></item><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</link><pubDate>Mon, 13 Sep 2021 19:03:23 +0800</pubDate><guid>https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/</guid><description>&lt;p>&lt;font color=red>此文章已经过时，请参考微软给出的更新的教程 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener"
+>&lt;font color=red>安装 WSL&lt;/font>&lt;/a>&lt;/font>&lt;/p>
+&lt;p>本教程基于 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener"
+>在 Windows 10 上安装 WSL&lt;/a> 和 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
+>开始使用 WSL VS Code&lt;/a> 编写，笔者不保证内容的准确性。如有任何疑问，请参考微软有关 WSL 的官方文档。&lt;/p>
+&lt;h2 id="启用-wsl适用于-linux-的-windows-子系统">启用 WSL（适用于 Linux 的 Windows 子系统）&lt;/h2>
+&lt;p>以&lt;strong>管理员&lt;/strong>身份打开 Powershell（可以右击 Windows 徽标键，并选择该项）并运行如下命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">dism&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">exe&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">online&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="nb">enable-feature&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">featurename&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="nb">Microsoft-Windows&lt;/span>&lt;span class="n">-Subsystem-Linux&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">all&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">norestart&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果想要更新到 WSL 2 请转到 &lt;a class="link" href="#%e6%9b%b4%e6%96%b0%e8%87%b3-wsl-2" >更新至 WSL 2&lt;/a> 。若希望直接使用 &lt;strong>WSL 1&lt;/strong> 请直接 &lt;strong>重新启动&lt;/strong> 并转到 &lt;a class="link" href="#%e5%ae%89%e8%a3%85%e5%b9%b6%e9%85%8d%e7%bd%ae-linux-%e5%8f%91%e8%a1%8c%e7%89%88" >安装并配置 Linux 发行版&lt;/a>。&lt;/p>
+&lt;h2 id="更新至-wsl-2">更新至 WSL 2&lt;/h2>
+&lt;p>&lt;strong>注意&lt;/strong>：若要更新至 WSL 2，请确保 Windows 10 已经达到以下运行要求：&lt;/p>
+&lt;ul>
+&lt;li>对于 x64 系统：&lt;strong>版本 1903&lt;/strong> 或更高版本，采用 &lt;strong>内部版本 18362&lt;/strong> 或更高版本。&lt;/li>
+&lt;li>对于 ARM64 系统：&lt;strong>版本 2004&lt;/strong> 或更高版本，采用 &lt;strong>内部版本 19041&lt;/strong> 或更高版本。&lt;/li>
+&lt;li>低于 18362 的版本不支持 WSL 2。 使用 &lt;a class="link" href="https://www.microsoft.com/software-download/windows10" target="_blank" rel="noopener"
+>Windows Update 助手&lt;/a> 更新 Windows 版本。&lt;/li>
+&lt;/ul>
+&lt;h3 id="启用虚拟机功能">启用虚拟机功能&lt;/h3>
+&lt;p>以&lt;strong>管理员&lt;/strong>身份打开 Powershell 并运行如下命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">dism&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">exe&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">online&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="nb">enable-feature&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">featurename&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="n">VirtualMachinePlatform&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">all&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">norestart&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>重新启动&lt;/strong> 计算机，以完成 WSL 安装并更新到 WSL 2。&lt;/p>
+&lt;h3 id="wsl-2-的后续步骤">WSL 2 的后续步骤&lt;/h3>
+&lt;p>请参考 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package" target="_blank" rel="noopener"
+>后续步骤&lt;/a> 来完成，后转 &lt;a class="link" href="#%e5%ae%89%e8%a3%85%e5%b9%b6%e9%85%8d%e7%bd%ae-linux-%e5%8f%91%e8%a1%8c%e7%89%88" >安装并配置 Linux 发行版&lt;/a>。&lt;/p>
+&lt;h2 id="安装并配置-linux-发行版">安装并配置 Linux 发行版&lt;/h2>
+&lt;p>打开 &lt;strong>Microsoft Store&lt;/strong>，安装一个 Linux 发行版，并打开此发行版，后按照提示进行操作即可。&lt;/p>
+&lt;p>&lt;strong>对于 Linux 的相关操作，请自行搜索。&lt;/strong>&lt;/p>
+&lt;h2 id="更改-wsl-的镜像源">更改 WSL 的镜像源&lt;/h2>
+&lt;p>使用默认的源下载软件是较为缓慢的，因而我们需要更换更快速的镜像。在国内，我们常用的是 &lt;a class="link" href="https://www.tsinghua.edu.cn/" target="_blank" rel="noopener"
+>清华大学&lt;/a> 和 &lt;a class="link" href="https://www.ustc.edu.cn/" target="_blank" rel="noopener"
+>中国科学技术大学&lt;/a> 的镜像。请确认 WSL 的发行版，根据需求选择要使用的镜像：&lt;/p>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener"
+>清华大学开源软件镜像站&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://mirrors.ustc.edu.cn/" target="_blank" rel="noopener"
+>USTC Open Source Software Mirror&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="在-wsl-上安装-cc-的编译器">在 WSL 上安装 C/C++ 的编译器&lt;/h2>
+&lt;p>以 Ubuntu 为例，使用如下命令安装：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install gcc g++
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意&lt;/strong>：在安装之前，可能需要进行包的更新，可使用如下命令更新：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>对于其他 Linux 发行版，请自行在网络上搜索安装与更新的命令，这里不再赘述。&lt;/p>
+&lt;h2 id="将-wsl-与-vs-code-一并使用">将 WSL 与 VS Code 一并使用&lt;/h2>
+&lt;p>以下内容参考 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
+>开始使用 WSL VS Code&lt;/a>，笔者不确保内容的准确性。如有疑问请参考原文。&lt;/p>
+&lt;h3 id="安装并配置-vs-code">安装并配置 VS Code&lt;/h3>
+&lt;p>访问 &lt;a class="link" href="https://code.visualstudio.com/download" target="_blank" rel="noopener"
+>VS Code 安装页&lt;/a> 选择适合的安装程序。&lt;/p>
+&lt;p>打开 VS Code，点击拓展并搜索 「WSL」，安装 WSL 远程拓展包，即可完成操作。在中文环境下，我们还可以安装 VS Code 推荐的中文语言包，以方便阅读。&lt;/p>
+&lt;p>对于 C/C++，我们可以在拓展中搜索 C++，以安装其有关拓展（包含了语法高亮、调试等功能）。&lt;/p>
+&lt;p>更多的 WSL 与 VS Code 共同使用的小技巧的注意事项，请参考 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
+>开始使用 WSL VS Code&lt;/a>&lt;/p>
+&lt;h2 id="使用-wsl-和-vs-code-编写-hello-world-程序">使用 WSL 和 VS Code 编写 Hello world! 程序&lt;/h2>
+&lt;p>&lt;strong>注意&lt;/strong>：以下仅为简单的、单文件的 C 语言编写的源文件的编译方法，笔者不保证（实际上是几乎不能）适用于生产环境。若要了解一种生产环境下的 C 语言编译方法，请参考 &lt;a class="link" href="https://cmake.org/" target="_blank" rel="noopener"
+>CMake&lt;/a>。&lt;/p>
+&lt;p>首先，需要进入存放源代码的文件夹，请读者自行建立，或在 Home 文件夹直接进行。&lt;/p>
+&lt;p>运行如下命令，创建 &lt;code>main.c&lt;/code> 源文件（提示：在 Linux 下键入命令时，请善用 &lt;code>Tab&lt;/code> 键自动补全）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">touch main.c
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在 VS Code 中，点击左下角&lt;strong>打开远程窗口&lt;/strong>按钮，选择 &lt;code>New WSL Window&lt;/code> 即可连接至 WSL。打开存放 &lt;code>main.c&lt;/code> 的文件夹，使用 VS Code 编辑 &lt;code>main.c&lt;/code> 文件，填入如下内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello world!&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>按下 &lt;code>ctrl&lt;/code> + &lt;code>`&lt;/code> 打开命令行终端，输入以下命令编译此程序：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gcc main.c
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此时，输入 &lt;code>ls&lt;/code> 命令，我们可以看到当前目录下已经生成了一个名为 &lt;code>a.out&lt;/code> 的可执行文件。&lt;/p>
+&lt;p>我们执行这个程序（&lt;strong>注意&lt;/strong>：&lt;code>./&lt;/code> 是不可缺少的，具体原因请自行搜索，这里不再赘述）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./a.out
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以看到输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Hello world!
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>若要重新编译源文件，请使用 &lt;code>rm&lt;/code> 命令，删除 &lt;code>a.out&lt;/code> 文件，并再次执行编译命令。&lt;/p>
+&lt;p>若要了解其他 &lt;code>gcc&lt;/code> 命令的使用方法，请执行命令 &lt;code>man gcc&lt;/code> 或 &lt;code>gcc --help&lt;/code>。更多 Linux 常用命令请自行于网络上搜索。&lt;/p></description></item><item><title>使用 Github Actions 自动化部署 Hugo 博客</title><link>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</link><pubDate>Sat, 04 Sep 2021 15:47:24 +0800</pubDate><guid>https://xqm32.github.io/posts/deploy-hugo-via-github-actions/</guid><description>&lt;p>笔者一直想有个属于自己的博客，通过在网上不断搜索，笔者发现使用 Hugo 部署至 Github Pages 上是一个不错的选择。但是，这样的部署也有一个缺陷：需要手动生成部署文件，再上传至 Github，这是十分麻烦的。因此笔者又在网上搜索文档、文章，后来了解到，可以使用 Github Actions 进行自动化部署，我们只需要将网站源码推送至 Github 便可以自动化地生成博客网站。不过，虽然在操作上是方便了许多，但如何配置这样的自动化部署似乎依旧是一个复杂的问题。于是笔者继续在网上搜索文档和文章，但大部分都没有给出较为「官方」的解决方案，也很少有参考资料可供加深了解，故而笔者转向寻求 &lt;a class="link" href="https://gohugo.io/documentation/" target="_blank" rel="noopener"
+>Hugo 文档&lt;/a> 的帮助，最终做到了使用 Github Actions 自动化部署 Hugo 博客。&lt;/p>
+&lt;h3 id="准备工作">准备工作&lt;/h3>
+&lt;p>首先，我们需要创建可以用于部署 Hugo 博客的 Github 仓库，具体的操作可以参考 &lt;a class="link" href="https://docs.github.com/en/pages" target="_blank" rel="noopener"
+>GitHub Pages 文档&lt;/a> 。&lt;/p>
+&lt;p>其次，我们需要在电脑上安装 Git 和 Hugo（&lt;strong>注意：在 Linux，特别是 Ubuntu 上，请不要使用默认的包管理器安装 Hugo，此法安装的 Hugo 版本有时过低，会造成大量错误&lt;/strong>），请参考 &lt;a class="link" href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener"
+>此文档&lt;/a> 进行安装。&lt;/p>
+&lt;p>之后，我们将使用 Hugo 在本地创建网站，名称建议使用 &lt;code>username.github.io&lt;/code>（其中 &lt;code>username&lt;/code> 是你的 Github ID），具体的方法请参照 &lt;a class="link" href="https://gohugo.io/getting-started/quick-start/" target="_blank" rel="noopener"
+>此文档&lt;/a>。&lt;/p>
+&lt;h3 id="github-actions">Github Actions&lt;/h3>
+&lt;p>在完成&lt;strong>准备工作&lt;/strong>后，我们需要在本地创建网站的文件夹中建立 &lt;code>.github/workflows/gh-pages.yml&lt;/code> 文件，在其中填入（此代码参考 Hugo 文档中 &lt;a class="link" href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action" target="_blank" rel="noopener"
+>Host on GitHub&lt;/a> 一项）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github pages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">main &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Set a branch to deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">pull_request&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-20.04&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch Hugo themes (true OR recursive)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch all history for .GitInfo and .Lastmod&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;latest&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># extended: true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-gh-pages@v3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">if&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github.ref == &amp;#39;refs/heads/main&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">github_token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.GITHUB_TOKEN }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>之后推送至 Github，并将仓库中 &lt;code>Settings - Pages - Source - Branch&lt;/code> 的设置从 &lt;code>main&lt;/code> 修改至 &lt;code>gh-pages&lt;/code> 并点击 &lt;code>Save&lt;/code> 按钮，即可完成 Github Actions 部署工作。&lt;/p></description></item></channel></rss>

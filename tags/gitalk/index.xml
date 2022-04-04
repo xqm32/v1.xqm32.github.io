@@ -1,5 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Gitalk on Qiming's Blog</title><link>https://xqm32.github.io/tags/gitalk/</link><description>Recent content in Gitalk on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Jan 2022 20:56:25 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/gitalk/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.github.io/posts/add-gitalk-to-hugo/</link><pubDate>Sun, 09 Jan 2022 20:56:25 +0800</pubDate><guid>https://xqm32.github.io/posts/add-gitalk-to-hugo/</guid><description>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 Gitalk 搭建博客评论区显然是一个不错的选择。
-加入 Gitalk 的方法 这里以 PaperMod 主题为例子，理论上也适用于其他主题，具体还请查阅所用主题的相关文档。
-在 PaperMod 主题中，我们只需要在根目录下创建 layouts/partials/comments.html 文件即可（或者复制 themes/PaperMod/layouts/partials/comments.html 至根目录即可）。
-此后，我们可以参照 Gitalk 文档，在 comments.html 加入如下内容：
-&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&amp;#34;&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;div id=&amp;#34;gitalk-container&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; var gitalk = new Gitalk({ clientID: &amp;#39;GitHub Application Client ID&amp;#39;, clientSecret: &amp;#39;GitHub Application Client Secret&amp;#39;, repo: &amp;#39;GitHub repo&amp;#39;, // The repository of store comments, owner: &amp;#39;GitHub repo owner&amp;#39;, admin: [&amp;#39;GitHub repo owner and collaborators, only these guys can initialize github issues&amp;#39;], id: location.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gitalk on Qiming's Blog</title><link>https://xqm32.github.io/tags/gitalk/</link><description>Recent content in Gitalk on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Jan 2022 20:36:22 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/tags/gitalk/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.github.io/posts/add-gitalk-to-hugo/</link><pubDate>Sun, 09 Jan 2022 20:36:22 +0800</pubDate><guid>https://xqm32.github.io/posts/add-gitalk-to-hugo/</guid><description>&lt;p>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 &lt;code>Gitalk&lt;/code> 搭建博客评论区显然是一个不错的选择。&lt;/p>
+&lt;h1 id="加入-gitalk-的方法">加入 Gitalk 的方法&lt;/h1>
+&lt;p>这里以 &lt;code>PaperMod&lt;/code> 主题为例子，理论上也适用于其他主题，具体还请查阅所用主题的相关文档。&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/adityatelange/hugo-PaperMod/wiki/Features#comments" target="_blank" rel="noopener"
+>在 PaperMod 主题中&lt;/a>，我们只需要在根目录下创建 &lt;code>layouts/partials/comments.html&lt;/code> 文件即可（或者复制 &lt;code>themes/PaperMod/layouts/partials/comments.html&lt;/code> 至根目录即可）。&lt;/p>
+&lt;p>此后，我们可以参照 &lt;a class="link" href="https://github.com/gitalk/gitalk" target="_blank" rel="noopener"
+>Gitalk 文档&lt;/a>，在 &lt;code>comments.html&lt;/code> 加入如下内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;gitalk-container&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">var&lt;/span> &lt;span class="nx">gitalk&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">Gitalk&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clientID&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub Application Client ID&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clientSecret&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub Application Client Secret&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">repo&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub repo&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// The repository of store comments,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">owner&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;GitHub repo owner&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">admin&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;GitHub repo owner and collaborators, only these guys can initialize github issues&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">id&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">location&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">pathname&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// Ensure uniqueness and length less than 50
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">distractionFreeMode&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span> &lt;span class="c1">// Facebook-like distraction free mode
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">gitalk&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">render&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;gitalk-container&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意：这里的 &lt;code>clientID&lt;/code> 等内容请参考&lt;a class="link" href="https://github.com/gitalk/gitalk#Usage" target="_blank" rel="noopener"
+>文档中 Usage&lt;/a> 进行申请。&lt;/p>
+&lt;p>此外，还应在 &lt;code>config.yml&lt;/code> 中的 &lt;code>params&lt;/code> 项下加入 &lt;code>comments: true&lt;/code> 以使得评论系统生效。&lt;/p></description></item></channel></rss>
