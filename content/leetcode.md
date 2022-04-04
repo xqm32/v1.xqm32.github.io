@@ -5,6 +5,64 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.4
+
+暴力解了。
+
+```python3
+#
+# @lc app=leetcode.cn id=2211 lang=python3
+#
+# [2211] 统计道路上的碰撞次数
+#
+
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def countCollisions(self, directions: str) -> int:
+        ans = 0
+        stuck = ['L']
+        for i in directions:
+            if i == 'L':
+                match stuck[-1]:
+                    case 'L':
+                        stuck.append('L')
+                    case 'S':
+                        # print('S crash L +1')
+                        stuck.append('S')
+                        ans += 1
+                    case 'R':
+                        # print('R crash L +2')
+                        stuck.pop()
+                        ans += 2
+                        while(stuck[-1] == 'R'):
+                            stuck.pop()
+                            ans += 1
+                        stuck.append('S')
+            elif i == 'S':
+                match stuck[-1]:
+                    case 'L' | 'S':
+                        stuck.append('S')
+                    case 'R':
+                        # print('R crash S +1')
+                        while(stuck[-1] == 'R'):
+                            stuck.pop()
+                            ans += 1
+                        stuck.append('S')
+            elif i == 'R':
+                stuck.append('R')
+        # print(''.join(stuck))
+        return ans
+        # @lc code=end
+    func = countCollisions
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.3
 
 好吧，这是 GitHub Copilot 写出来的。
