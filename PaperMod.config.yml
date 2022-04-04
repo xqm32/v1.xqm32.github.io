@@ -1,0 +1,77 @@
+baseURL: https://xqm32.github.io/
+defaultContentLanguage: zh
+languageCode: zh-cn
+title: Qiming's Blog
+theme: PaperMod
+
+enableGitinfo: true
+enableEmoji: true
+
+# 日期以 Git 日期显示
+frontmatter:
+  date:
+    - :git
+    - :default
+
+# 使得 Markdown 中可以嵌入 HTML
+# 参见：https://gohugo.io/getting-started/configuration-markup#goldmark
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  comments: true
+
+  env: production
+  description: "Qiming's Blog"
+  author: "Qiming Xu"
+
+  DateFormat: "2006-01-02 15:04:05"
+  defalutTheme: auto
+
+  ShowReadingTime: true
+  ShowCodeCopyButtons: true
+  showtoc: ture
+
+  homeInfoParams:
+    Title: Qiming's Blog
+    Content: >
+      - 🏫 软件工程二年级在读，就读于[某不知名高校](https://www.hfut.edu.cn)
+
+      - 👇 这是我的 Github，喜欢请 ⭐ 一下吧
+
+  socialIcons:
+    - name: "GitHub"
+      url: "https://github.com/xqm32"
+    - name: "Stackoverflow"
+      url: "https://stackoverflow.com/users/16325470"
+    - name: "Telegram"
+      url: "https://t.me/xqm32"
+    - name: "Steam"
+      url: "https://steamcommunity.com/id/xqm32"
+
+menu:
+  main:
+    - identifier: posts
+      name: 文章
+      url: /posts/
+      weight: -100
+    - identifier: notes
+      name: 笔记
+      url: /notes/
+      weight: -90
+    - identifier: categories
+      name: 分类
+      url: /categories/
+      weight: -80
+    - identifier: tags
+      name: 标签
+      url: /tags/
+      weight: -70
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON

@@ -1,6 +1,25 @@
 ---
 title: "朋友们"
 draft: false
+title: "友链"
+links:
+  - title: RedContritio
+    description: 莱可可
+    website: https://redcontritio.github.io/
+    image: https://q1.qlogo.cn/g?b=qq&nk=591369735&s=640
+  - title: YKgsmUDq
+    description: 神犇
+    website: http://ykgsmudq.com/
+    image: http://ykgsmudq.com/uploads/me.png
+  - title: Inko
+    description: 串串儿
+    website: https://blog.inko.lv/
+menu:
+    main: 
+        weight: -180
+        params:
+            icon: link
+comments: true
 ---
 
 # 朋友们
