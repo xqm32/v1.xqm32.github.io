@@ -5,6 +5,32 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.5
+
+参考题解（https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/solution/er-jin-zhi-biao-shi-zhong-zhi-shu-ge-ji-jy35g/）
+
+```python3
+#
+# @lc app=leetcode.cn id=762 lang=python3
+#
+# [762] 二进制表示中质数个计算置位
+#
+
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def countPrimeSetBits(self, left: int, right: int) -> int:
+        return sum(((1 << x.bit_count()) & 665772) != 0 for x in range(left, right + 1))
+# @lc code=end
+    func = countPrimeSetBits
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.4
 
 暴力解了。
