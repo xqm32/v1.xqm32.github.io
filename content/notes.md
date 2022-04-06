@@ -11,6 +11,10 @@ draft: false
 
 [腾讯解君愁](https://mirrors.tencent.com/help/npm.html)。
 
+## Hugo 设置自定义域名
+
+参见 [Use a Custom Domain](https://gohugo.io/hosting-and-deployment/hosting-on-github/#use-a-custom-domain)。
+
 ## Hugo 中嵌入 HTML 的方法
 
 于 `config.yml` 中加入以下配置：
