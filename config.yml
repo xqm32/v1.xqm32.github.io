@@ -1,5 +1,4 @@
-# baseurl: https://xqm32.github.io/
-baseurl: https://xqm32.org/
+baseurl: https://xqm32.github.io/
 languageCode: zh-cn
 theme: hugo-theme-stack
 # paginate: 5
