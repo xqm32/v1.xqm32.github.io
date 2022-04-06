@@ -5,6 +5,40 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.6
+
+GitHub Copilot 解出来的，不关我事啊！🤣
+
+```python3
+#
+# @lc app=leetcode.cn id=409 lang=python3
+#
+# [409] 最长回文串
+#
+import fire
+# @lc code=start
+
+
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        if not s:
+            return 0
+        d = {}
+        for i in s:
+            d[i] = d.get(i, 0) + 1
+        res = 0
+        for i in d:
+            res += d[i] // 2 * 2
+            if d[i] % 2 == 1 and res % 2 == 0:
+                res += 1
+        return res
+# @lc code=end
+    func = longestPalindrome
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.5
 
 参考题解（https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/solution/er-jin-zhi-biao-shi-zhong-zhi-shu-ge-ji-jy35g/）
