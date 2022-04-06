@@ -7,6 +7,39 @@ draft: false
 
 ## 2022.4.6
 
+这下是自己写的了。
+
+```python3
+#
+# @lc app=leetcode.cn id=409 lang=python3
+#
+# [409] 最长回文串
+#
+import fire
+# @lc code=start
+
+
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        ans, center = 0, False
+        s = list(s.count(i) for i in set(s))
+        s.sort()
+        for i in s:
+            if i % 2 == 0:
+                ans += i
+            elif not center:
+                center = True
+                ans += i
+            else:
+                ans += i-1
+        return ans
+# @lc code=end
+    func = longestPalindrome
+
+
+fire.Fire(Solution)
+```
+
 GitHub Copilot 解出来的，不关我事啊！🤣
 
 ```python3
