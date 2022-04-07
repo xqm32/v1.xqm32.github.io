@@ -5,6 +5,32 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.7
+
+注意可能不同长度。
+
+```python3
+#
+# @lc app=leetcode.cn id=796 lang=python3
+#
+# [796] 旋转字符串
+#
+
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        return len(s) == len(goal) and (s*2).find(goal) != -1
+# @lc code=end
+    func = rotateString
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.6
 
 这下是自己写的了。
