@@ -5,6 +5,62 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.8
+
+分两层遍历即可。
+
+```python3
+#
+# @lc app=leetcode.cn id=429 lang=python3
+#
+# [429] N 叉树的层序遍历
+#
+
+import fire
+from typing import List
+
+
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+
+# @lc code=start
+
+
+class Solution:
+    def levelOrder(self, root: 'Node') -> List[List[int]]:
+        if root is None:
+            return []
+        ans = []
+        layerA = [root]
+        layerB = []
+        ansA = []
+        ansB = []
+
+        while layerA:
+            for i in layerA:
+                ansA.append(i.val)
+                layerB.extend(i.children)
+            ans.append(list(ansA))
+            ansA.clear()
+            layerA.clear()
+            while layerB:
+                for i in layerB:
+                    ansB.append(i.val)
+                    layerA.extend(i.children)
+                ans.append(list(ansB))
+                ansB.clear()
+                layerB.clear()
+        return ans
+
+# @lc code=end
+    func = levelOrder
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.7
 
 注意可能不同长度。
