@@ -5,6 +5,43 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.9
+
+最开始想复杂了，看题解明白了。
+
+```python3
+#
+# @lc app=leetcode.cn id=780 lang=python3
+#
+# [780] 到达终点
+#
+
+import fire
+
+# @lc code=start
+class Solution:
+    def reachingPoints(self, sx: int, sy: int, tx: int, ty: int) -> bool:
+        return (
+            self.reachingPoints(
+                sx, sy, tx % ty if tx > ty else tx, ty % tx if ty > tx else ty
+            )
+            if sx < tx != ty > sy
+            else True
+            if sx == tx and sy == ty
+            else ty > sy and (ty - sy) % tx == 0
+            if tx == sx
+            else tx > sx and (tx - sx) % ty == 0
+            if ty == sy
+            else False
+        )
+
+    # @lc code=end
+    func = reachingPoints
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.8
 
 分两层遍历即可。
