@@ -4204,7 +4204,7 @@ style="border: none; width: 47%"
 &lt;/tr>
 &lt;tr v-if="!player.disabled">
 &lt;td class="button" style="border: none; text-align: right">
-&lt;button @click="player.pre-=10">10&lt;/button>
+&lt;!-- &lt;button @click="player.pre-=10">10&lt;/button> -->
 &lt;button @click="player.pre-=5">5&lt;/button>
 &lt;button @click="player.pre-=4">4&lt;/button>
 &lt;button @click="player.pre-=3">3&lt;/button>
@@ -4223,7 +4223,7 @@ style="border: none; width: 47%"
 &lt;button @click="player.pre+=3">3&lt;/button>
 &lt;button @click="player.pre+=4">4&lt;/button>
 &lt;button @click="player.pre+=5">5&lt;/button>
-&lt;button @click="player.pre+=10">10&lt;/button>
+&lt;!-- &lt;button @click="player.pre+=10">10&lt;/button> -->
 &lt;/td>
 &lt;/tr>
 &lt;tr v-if="!player.disabled">
