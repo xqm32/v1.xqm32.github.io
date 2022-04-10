@@ -4258,12 +4258,8 @@ if (player.mana &lt; 0) player.mana = 0;
 methods: {
 servant33(player) {
 that = this;
-for (let i = 0; i &lt; this.players.length; ++i)
-if (this.players[i].mana &lt;= 0 &amp;&amp; i.color != player.color) {
-return;
-}
 this.players.forEach(function (i) {
-if (!i.disabled &amp;&amp; i.color != player.color) {
+if (!i.disabled &amp;&amp; i.color != player.color &amp;&amp; i.mana>0) {
 that.minus(i, 1);
 that.add(player, 1);
 }
