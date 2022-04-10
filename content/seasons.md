@@ -4,15 +4,14 @@ draft: false
 ---
 
 <script src="https://unpkg.com/vue@next"></script>
-<script src="https://unpkg.com/mathjs@10.4.3"></script>
+<script src="https://unpkg.com/jquery@3.6.0"></script>
+<!-- 计算器 -->
+<!-- <script src="https://unpkg.com/mathjs@10.4.3"></script> -->
 
 <div id="Seasons">
-  <template v-for="player in players" :key="players.color">
-    <table
-      v-if="!player.disabled"
-      style="border-left: none; border-right: none"
-    >
-      <tr>
+  <table style="border-left: none; border-right: none">
+    <template v-for="player in players" :key="player.color">
+      <tr v-if="!player.disabled">
         <td
           v-bind="{bgcolor: player.color}"
           style="border: none; width: 45%"
@@ -26,88 +25,121 @@ draft: false
           style="border: none; width: 45%"
         ></td>
       </tr>
-      <tr>
-        <td style="border: none; text-align: right">
+      <tr v-if="!player.disabled">
+        <td class="button" style="border: none; text-align: right">
+          <button @click="minus(player, 10)">10</button>
           <button @click="minus(player, 5)">5</button>
+          <button @click="minus(player, 4)">4</button>
           <button @click="minus(player, 3)">3</button>
           <button @click="minus(player, 2)">2</button>
           <button @click="minus(player, 1)">1</button>
         </td>
-        <td style="border: none; text-align: center">{{player.mana}}</td>
-        <td style="border: none; text-align: left">
+        <td class="button" style="border: none; text-align: center">
+          <span v-if="player.exp==0">{{player.mana}}</span>
+          <!-- <button v-else @click="">
+            {{player.mana}}<span v-if="player.exp>0">+</span>{{player.exp}}
+          </button> -->
+        </td>
+        <td class="button" style="border: none; text-align: left">
           <button @click="add(player, 1)">1</button>
           <button @click="add(player, 2)">2</button>
           <button @click="add(player, 3)">3</button>
+          <button @click="add(player, 4)">4</button>
           <button @click="add(player, 5)">5</button>
+          <button @click="add(player, 10)">10</button>
         </td>
       </tr>
-      <tr>
-        <td style="border: none; text-align: right">
-          <button @click="servant33(player)">邪术魔蛭</button>
-          <button @click="servant39(player)">凝望者提图斯</button>
+      <tr v-if="!player.disabled">
+        <td class="button" style="border: none; text-align: right">
+          <button @click="servant11(player)">菲格林</button>
+          <button @click="servant16(player)">凯恩</button>
+          <button @click="servant39(player)">提图斯</button>
         </td>
-        <td style="border: none; text-align: center">
-          <button @click="disable(player)">禁用</button>
+        <td class="button" style="border: none; text-align: center">
+          <button @click="disable(player)">禁</button>
         </td>
-        <td style="border: none; text-align: left">
+        <td class="button" style="border: none; text-align: left">
+          <button @click="undo">撤销</button>
+          <button @click="redo">重做</button>
+        </td>
+        <!-- 计算器 -->
+        <!-- <td class="button" style="border: none; text-align: left">
           <input type="text" @input="evaluate($event, player)" />
           ={{player.expression}}
-        </td>
+        </td> -->
       </tr>
-    </table>
-  </template>
-  <table>
-    <td style="border: none; text-align: right; width: 40%"></td>
-    <td style="border: none; text-align: center; width: 10%">
+    </template>
+  </table>
+  <!-- 全部启用 -->
+  <!-- <table>
+    <td style="border: none; text-align: right; width: 30%"></td>
+    <td style="border: none; text-align: center; width: 40%">
       <button @click="enableAll">全部启用</button>
     </td>
-    <td style="border: none; text-align: right; width: 40%"></td>
-  </table>
+    <td style="border: none; text-align: right; width: 30%"></td>
+  </table> -->
+  <table id="histories"></table>
 </div>
 
 <script>
   const Seasons = {
     data() {
       return {
-        expression: "",
+        era: 0,
+        histories: [[0, 0, 0, 0]],
+        // expression: "",
+        // players: [
+        //   { color: "purple", mana: 0, disabled: false, expression: "" },
+        //   { color: "gold", mana: 0, disabled: false, expression: "" },
+        //   { color: "orange", mana: 0, disabled: false, expression: "" },
+        //   { color: "gray", mana: 0, disabled: false, expression: "" },
+        // ],
         players: [
-          { color: "purple", mana: 0, disabled: false, expression: "" },
-          { color: "yellow", mana: 0, disabled: false, expression: "" },
-          { color: "orange", mana: 0, disabled: false, expression: "" },
-          { color: "gray", mana: 0, disabled: false, expression: "" },
+          { color: "purple", mana: 0, disabled: false, exp: 0 },
+          { color: "gold", mana: 0, disabled: false, exp: 0 },
+          { color: "gray", mana: 0, disabled: false, exp: 0 },
+          { color: "orange", mana: 0, disabled: false, exp: 0 },
         ],
       };
     },
-    watch: {
-      players(newPlayers, oldPlyaers) {
-        players.forEach((player) => {
-          if (player.mana < 0) player.mana = 0;
-        });
-      },
+    mounted() {
+      this.newEra(0);
     },
     methods: {
-      servant33(player) {
+      servant11(player) {
         that = this;
         this.players.forEach(function (i) {
           if (!i.disabled && i.color != player.color && i.mana > 0) {
-            that.minus(i, 1);
-            that.add(player, 1);
+            that.minus(i, 1, false);
+            that.add(player, 1, false);
           }
         });
+        this.recordHistory();
+      },
+      servant16(player) {
+        that = this;
+        this.players.forEach(function (i) {
+          if (!i.disabled && i.color != player.color) that.minus(i, 4, false);
+        });
+        this.recordHistory();
       },
       servant39(player) {
         that = this;
         for (let i = 0; i < this.players.length; ++i)
-          if (this.players[i].mana <= 0 && i.color != player.color) {
-            alert("凝望者提图斯将牺牲");
+          if (
+            this.players[i].mana <= 0 &&
+            this.players[i].color != player.color
+          ) {
+            alert("提图斯牺牲");
             return;
           }
         this.players.forEach(function (i) {
           if (!i.disabled && i.color != player.color) {
-            that.minus(i, 1);
-            that.add(player, 1);
+            that.minus(i, 1, false);
+            that.add(player, 1, false);
           }
         });
+        this.recordHistory();
       },
       disable(player) {
         player.disabled = true;
@@ -120,17 +152,86 @@ draft: false
           i.disabled = false;
         });
       },
-      minus(player, n) {
+      minus(player, n, record = true) {
         player.mana -= n;
         if (player.mana < 0) player.mana = 0;
+        if (record) this.recordHistory();
       },
-      add(player, n) {
+      add(player, n, record = true) {
         player.mana += n;
+        if (record) this.recordHistory();
       },
-      evaluate(event, player) {
-        player.expression = math.evaluate(event.target.value);
+      recordHistory() {
+        let history = [];
+        for (let i = 0; i < this.players.length; ++i)
+          history.push(this.players[i].mana);
+        if (0 <= this.era && this.era < this.histories.length - 1) {
+          this.histories[++this.era] = history;
+        } else {
+          ++this.era;
+          this.histories.push(history);
+          this.newEra(this.era);
+        }
+        this.rotateEra(this.era - 1, this.era);
       },
+      undo() {
+        if (this.era - 1 < 0) return;
+        let history = this.histories[--this.era];
+        for (let i = 0; i < this.players.length; ++i)
+          this.players[i].mana = history[i];
+        this.rotateEra(this.era + 1, this.era);
+      },
+      redo() {
+        if (this.era + 1 >= this.histories.length) return;
+        let history = this.histories[++this.era];
+        for (let i = 0; i < this.players.length; ++i)
+          this.players[i].mana = history[i];
+        this.rotateEra(this.era - 1, this.era);
+      },
+      newEra(era) {
+        $("#histories").prepend(
+          `<tr id=${era}>
+            <td class="history"><font color="purple">${this.histories[era][0]}</font></td>
+            <td class="history"><font color="gold">${this.histories[era][1]}</font></td>
+            <td class="history"><font color="gray">${this.histories[era][2]}</font></td>
+            <td class="history"><font color="orange">${this.histories[era][3]}</font></td>
+            </tr>`
+        );
+      },
+      rotateEra(from, to) {
+        $(`#histories>#${from}`).html(
+          `<td class="history"><font color="purple">${this.histories[from][0]}</font></td>
+            <td class="history"><font color="gold">${this.histories[from][1]}</font></td>
+            <td class="history"><font color="gray">${this.histories[from][2]}</font></td>
+            <td class="history"><font color="orange">${this.histories[from][3]}</font></td>`
+        );
+        $(`#histories>#${to}`).html(
+          `<td class="gaming"><font color="purple">${this.histories[to][0]}</font></td>
+            <td class="gaming"><font color="gold">${this.histories[to][1]}</font></td>
+            <td class="gaming"><font color="gray">${this.histories[to][2]}</font></td>
+            <td class="gaming"><font color="orange">${this.histories[to][3]}</font></td>`
+        );
+      },
+      // 计算器
+      // evaluate(event, player) {
+      //   player.expression = math.evaluate(event.target.value);
+      // },
     },
   };
   Vue.createApp(Seasons).mount("#Seasons");
 </script>
+<style>
+  td.button {
+    background-color: whitesmoke;
+  }
+  td.history {
+    background-color: whitesmoke;
+    border: none;
+    text-align: center;
+  }
+  td.gaming {
+    background-color: lightgray;
+    border: none;
+    text-align: center;
+  }
+</style>
