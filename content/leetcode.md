@@ -5,6 +5,66 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.10
+
+简单题。
+
+```python3
+#
+# @lc app=leetcode.cn id=804 lang=python3
+#
+# [804] 唯一摩尔斯密码词
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+class Solution:
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        d = {
+            "a": ".-",
+            "b": "-...",
+            "c": "-.-.",
+            "d": "-..",
+            "e": ".",
+            "f": "..-.",
+            "g": "--.",
+            "h": "....",
+            "i": "..",
+            "j": ".---",
+            "k": "-.-",
+            "l": ".-..",
+            "m": "--",
+            "n": "-.",
+            "o": "---",
+            "p": ".--.",
+            "q": "--.-",
+            "r": ".-.",
+            "s": "...",
+            "t": "-",
+            "u": "..-",
+            "v": "...-",
+            "w": ".--",
+            "x": "-..-",
+            "y": "-.--",
+            "z": "--..",
+        }
+        s = set()
+        for i in words:
+            t = ""
+            for j in i:
+                t += d[j]
+            s.add(t)
+        return len(s)
+
+    # @lc code=end
+    func = uniqueMorseRepresentations
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.9
 
 最开始想复杂了，看题解明白了。
