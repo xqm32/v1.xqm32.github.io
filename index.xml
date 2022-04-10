@@ -4181,7 +4181,63 @@ $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># @lc code=end&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>TODO</title><link>https://xqm32.github.io/todo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/todo/</guid><description>&lt;ul>
+&lt;/div></description></item><item><title>Seasons</title><link>https://xqm32.github.io/seasons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/seasons/</guid><description>&lt;script src="https://unpkg.com/vue@next">&lt;/script>
+&lt;div id="Seasons">
+&lt;table v-for="player in players" style="border-left:none;border-right:none;">
+&lt;tr>
+&lt;td v-bind="{bgcolor: player.color}" style="border:none;width:45%">&lt;/td>
+&lt;td v-bind="{bgcolor: player.color}" style="border:none;width:10%">&lt;/td>
+&lt;td v-bind="{bgcolor: player.color}" style="border:none;width:45%">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="border:none;text-align:right">
+&lt;span style="margin-right:5%">-&lt;/span>
+&lt;button @click="player.mana-=5">5&lt;/button>
+&lt;button @click="player.mana-=3">3&lt;/button>
+&lt;button @click="player.mana-=2">2&lt;/button>
+&lt;button @click="player.mana-=1">1&lt;/button>
+&lt;/td>
+&lt;td style="border:none;text-align:center">
+{{player.mana}}
+&lt;/td>
+&lt;td style="border:none;text-align:left">
+&lt;button @click="player.mana+=1">1&lt;/button>
+&lt;button @click="player.mana+=2">2&lt;/button>
+&lt;button @click="player.mana+=3">3&lt;/button>
+&lt;button @click="player.mana+=5">5&lt;/button>
+&lt;span style="margin-left:5%">+&lt;/span>
+&lt;/td>
+&lt;/tr>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;script>
+const Seasons = {
+data() {
+return {
+players: [
+{
+color: "purple",
+mana: 0,
+},
+{
+color: "yellow",
+mana: 0,
+},
+{
+color: "orange",
+mana: 0,
+},
+{
+color: "gray",
+mana: 0,
+},
+],
+};
+},
+};
+Vue.createApp(Seasons).mount("#Seasons");
+&lt;/script></description></item><item><title>TODO</title><link>https://xqm32.github.io/todo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/todo/</guid><description>&lt;ul>
 &lt;li>&lt;input disabled="" type="checkbox"> Git 的变基&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> CloudFlare CDN 加速&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> PDF.js 索引&lt;/li>
