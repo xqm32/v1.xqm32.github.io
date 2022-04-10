@@ -4,6 +4,7 @@ draft: false
 ---
 
 <script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/mathjs@10.4.3"></script>
 
 <div id="Seasons">
   <template v-for="player in players" :key="players.color">
@@ -48,6 +49,10 @@ draft: false
         <td style="border: none; text-align: center">
           <button @click="disable(player)">禁用</button>
         </td>
+        <td style="border: none; text-align: left">
+          <input type="text" @input="evaluate($event, player)" />
+          ={{player.expression}}
+        </td>
       </tr>
     </table>
   </template>
@@ -64,11 +69,12 @@ draft: false
   const Seasons = {
     data() {
       return {
+        expression: "",
         players: [
-          { color: "purple", mana: 0, disabled: false },
-          { color: "yellow", mana: 0, disabled: false },
-          { color: "orange", mana: 0, disabled: false },
-          { color: "gray", mana: 0, disabled: false },
+          { color: "purple", mana: 0, disabled: false, expression: "" },
+          { color: "yellow", mana: 0, disabled: false, expression: "" },
+          { color: "orange", mana: 0, disabled: false, expression: "" },
+          { color: "gray", mana: 0, disabled: false, expression: "" },
         ],
       };
     },
@@ -83,7 +89,7 @@ draft: false
       servant33(player) {
         that = this;
         this.players.forEach(function (i) {
-          if (!i.disabled && i.color != player.color && i.mana>0) {
+          if (!i.disabled && i.color != player.color && i.mana > 0) {
             that.minus(i, 1);
             that.add(player, 1);
           }
@@ -120,6 +126,9 @@ draft: false
       },
       add(player, n) {
         player.mana += n;
+      },
+      evaluate(event, player) {
+        player.expression = math.evaluate(event.target.value);
       },
     },
   };
