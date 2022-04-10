@@ -4182,14 +4182,13 @@ $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Seasons</title><link>https://xqm32.github.io/seasons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/seasons/</guid><description>&lt;script src="https://unpkg.com/vue@next">&lt;/script>
-&lt;script src="https://unpkg.com/mathjs@10.4.3">&lt;/script>
+&lt;script src="https://unpkg.com/jquery@3.6.0">&lt;/script>
+&lt;!-- 计算器 -->
+&lt;!-- &lt;script src="https://unpkg.com/mathjs@10.4.3">&lt;/script> -->
 &lt;div id="Seasons">
-&lt;template v-for="player in players" :key="players.color">
-&lt;table
-v-if="!player.disabled"
-style="border-left: none; border-right: none"
->
-&lt;tr>
+&lt;table style="border-left: none; border-right: none">
+&lt;template v-for="player in players" :key="player.color">
+&lt;tr v-if="!player.disabled">
 &lt;td
 v-bind="{bgcolor: player.color}"
 style="border: none; width: 45%"
@@ -4203,87 +4202,120 @@ v-bind="{bgcolor: player.color}"
 style="border: none; width: 45%"
 >&lt;/td>
 &lt;/tr>
-&lt;tr>
-&lt;td style="border: none; text-align: right">
+&lt;tr v-if="!player.disabled">
+&lt;td class="button" style="border: none; text-align: right">
+&lt;button @click="minus(player, 10)">10&lt;/button>
 &lt;button @click="minus(player, 5)">5&lt;/button>
+&lt;button @click="minus(player, 4)">4&lt;/button>
 &lt;button @click="minus(player, 3)">3&lt;/button>
 &lt;button @click="minus(player, 2)">2&lt;/button>
 &lt;button @click="minus(player, 1)">1&lt;/button>
 &lt;/td>
-&lt;td style="border: none; text-align: center">{{player.mana}}&lt;/td>
-&lt;td style="border: none; text-align: left">
+&lt;td class="button" style="border: none; text-align: center">
+&lt;span v-if="player.exp==0">{{player.mana}}&lt;/span>
+&lt;!-- &lt;button v-else @click="">
+{{player.mana}}&lt;span v-if="player.exp>0">+&lt;/span>{{player.exp}}
+&lt;/button> -->
+&lt;/td>
+&lt;td class="button" style="border: none; text-align: left">
 &lt;button @click="add(player, 1)">1&lt;/button>
 &lt;button @click="add(player, 2)">2&lt;/button>
 &lt;button @click="add(player, 3)">3&lt;/button>
+&lt;button @click="add(player, 4)">4&lt;/button>
 &lt;button @click="add(player, 5)">5&lt;/button>
+&lt;button @click="add(player, 10)">10&lt;/button>
 &lt;/td>
 &lt;/tr>
-&lt;tr>
-&lt;td style="border: none; text-align: right">
-&lt;button @click="servant33(player)">邪术魔蛭&lt;/button>
-&lt;button @click="servant39(player)">凝望者提图斯&lt;/button>
+&lt;tr v-if="!player.disabled">
+&lt;td class="button" style="border: none; text-align: right">
+&lt;button @click="servant11(player)">菲格林&lt;/button>
+&lt;button @click="servant16(player)">凯恩&lt;/button>
+&lt;button @click="servant39(player)">提图斯&lt;/button>
 &lt;/td>
-&lt;td style="border: none; text-align: center">
-&lt;button @click="disable(player)">禁用&lt;/button>
+&lt;td class="button" style="border: none; text-align: center">
+&lt;button @click="disable(player)">禁&lt;/button>
 &lt;/td>
-&lt;td style="border: none; text-align: left">
+&lt;td class="button" style="border: none; text-align: left">
+&lt;button @click="undo">撤销&lt;/button>
+&lt;button @click="redo">重做&lt;/button>
+&lt;/td>
+&lt;!-- 计算器 -->
+&lt;!-- &lt;td class="button" style="border: none; text-align: left">
 &lt;input type="text" @input="evaluate($event, player)" />
 ={{player.expression}}
-&lt;/td>
+&lt;/td> -->
 &lt;/tr>
-&lt;/table>
 &lt;/template>
-&lt;table>
-&lt;td style="border: none; text-align: right; width: 40%">&lt;/td>
-&lt;td style="border: none; text-align: center; width: 10%">
+&lt;/table>
+&lt;!-- 全部启用 -->
+&lt;!-- &lt;table>
+&lt;td style="border: none; text-align: right; width: 30%">&lt;/td>
+&lt;td style="border: none; text-align: center; width: 40%">
 &lt;button @click="enableAll">全部启用&lt;/button>
 &lt;/td>
-&lt;td style="border: none; text-align: right; width: 40%">&lt;/td>
-&lt;/table>
+&lt;td style="border: none; text-align: right; width: 30%">&lt;/td>
+&lt;/table> -->
+&lt;table id="histories">&lt;/table>
 &lt;/div>
 &lt;script>
 const Seasons = {
 data() {
 return {
-expression: "",
+era: 0,
+histories: [[0, 0, 0, 0]],
+// expression: "",
+// players: [
+// { color: "purple", mana: 0, disabled: false, expression: "" },
+// { color: "gold", mana: 0, disabled: false, expression: "" },
+// { color: "orange", mana: 0, disabled: false, expression: "" },
+// { color: "gray", mana: 0, disabled: false, expression: "" },
+// ],
 players: [
-{ color: "purple", mana: 0, disabled: false, expression: "" },
-{ color: "yellow", mana: 0, disabled: false, expression: "" },
-{ color: "orange", mana: 0, disabled: false, expression: "" },
-{ color: "gray", mana: 0, disabled: false, expression: "" },
+{ color: "purple", mana: 0, disabled: false, exp: 0 },
+{ color: "gold", mana: 0, disabled: false, exp: 0 },
+{ color: "gray", mana: 0, disabled: false, exp: 0 },
+{ color: "orange", mana: 0, disabled: false, exp: 0 },
 ],
 };
 },
-watch: {
-players(newPlayers, oldPlyaers) {
-players.forEach((player) => {
-if (player.mana &lt; 0) player.mana = 0;
-});
-},
+mounted() {
+this.newEra(0);
 },
 methods: {
-servant33(player) {
+servant11(player) {
 that = this;
 this.players.forEach(function (i) {
 if (!i.disabled &amp;&amp; i.color != player.color &amp;&amp; i.mana > 0) {
-that.minus(i, 1);
-that.add(player, 1);
+that.minus(i, 1, false);
+that.add(player, 1, false);
 }
 });
+this.recordHistory();
+},
+servant16(player) {
+that = this;
+this.players.forEach(function (i) {
+if (!i.disabled &amp;&amp; i.color != player.color) that.minus(i, 4, false);
+});
+this.recordHistory();
 },
 servant39(player) {
 that = this;
 for (let i = 0; i &lt; this.players.length; ++i)
-if (this.players[i].mana &lt;= 0 &amp;&amp; i.color != player.color) {
-alert("凝望者提图斯将牺牲");
+if (
+this.players[i].mana &lt;= 0 &amp;&amp;
+this.players[i].color != player.color
+) {
+alert("提图斯牺牲");
 return;
 }
 this.players.forEach(function (i) {
 if (!i.disabled &amp;&amp; i.color != player.color) {
-that.minus(i, 1);
-that.add(player, 1);
+that.minus(i, 1, false);
+that.add(player, 1, false);
 }
 });
+this.recordHistory();
 },
 disable(player) {
 player.disabled = true;
@@ -4296,20 +4328,89 @@ this.players.forEach(function (i) {
 i.disabled = false;
 });
 },
-minus(player, n) {
+minus(player, n, record = true) {
 player.mana -= n;
 if (player.mana &lt; 0) player.mana = 0;
+if (record) this.recordHistory();
 },
-add(player, n) {
+add(player, n, record = true) {
 player.mana += n;
+if (record) this.recordHistory();
 },
-evaluate(event, player) {
-player.expression = math.evaluate(event.target.value);
+recordHistory() {
+let history = [];
+for (let i = 0; i &lt; this.players.length; ++i)
+history.push(this.players[i].mana);
+if (0 &lt;= this.era &amp;&amp; this.era &lt; this.histories.length - 1) {
+this.histories[++this.era] = history;
+} else {
+++this.era;
+this.histories.push(history);
+this.newEra(this.era);
+}
+this.rotateEra(this.era - 1, this.era);
 },
+undo() {
+if (this.era - 1 &lt; 0) return;
+let history = this.histories[--this.era];
+for (let i = 0; i &lt; this.players.length; ++i)
+this.players[i].mana = history[i];
+this.rotateEra(this.era + 1, this.era);
+},
+redo() {
+if (this.era + 1 >= this.histories.length) return;
+let history = this.histories[++this.era];
+for (let i = 0; i &lt; this.players.length; ++i)
+this.players[i].mana = history[i];
+this.rotateEra(this.era - 1, this.era);
+},
+newEra(era) {
+$("#histories").prepend(
+`&lt;tr id=${era}>
+&lt;td class="history">&lt;font color="purple">${this.histories[era][0]}&lt;/font>&lt;/td>
+&lt;td class="history">&lt;font color="gold">${this.histories[era][1]}&lt;/font>&lt;/td>
+&lt;td class="history">&lt;font color="gray">${this.histories[era][2]}&lt;/font>&lt;/td>
+&lt;td class="history">&lt;font color="orange">${this.histories[era][3]}&lt;/font>&lt;/td>
+&lt;/tr>`
+);
+},
+rotateEra(from, to) {
+$(`#histories>#${from}`).html(
+`&lt;td class="history">&lt;font color="purple">${this.histories[from][0]}&lt;/font>&lt;/td>
+&lt;td class="history">&lt;font color="gold">${this.histories[from][1]}&lt;/font>&lt;/td>
+&lt;td class="history">&lt;font color="gray">${this.histories[from][2]}&lt;/font>&lt;/td>
+&lt;td class="history">&lt;font color="orange">${this.histories[from][3]}&lt;/font>&lt;/td>`
+);
+$(`#histories>#${to}`).html(
+`&lt;td class="gaming">&lt;font color="purple">${this.histories[to][0]}&lt;/font>&lt;/td>
+&lt;td class="gaming">&lt;font color="gold">${this.histories[to][1]}&lt;/font>&lt;/td>
+&lt;td class="gaming">&lt;font color="gray">${this.histories[to][2]}&lt;/font>&lt;/td>
+&lt;td class="gaming">&lt;font color="orange">${this.histories[to][3]}&lt;/font>&lt;/td>`
+);
+},
+// 计算器
+// evaluate(event, player) {
+// player.expression = math.evaluate(event.target.value);
+// },
 },
 };
 Vue.createApp(Seasons).mount("#Seasons");
-&lt;/script></description></item><item><title>TODO</title><link>https://xqm32.github.io/todo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/todo/</guid><description>&lt;ul>
+&lt;/script>
+&lt;style>
+td.button {
+background-color: whitesmoke;
+}
+td.history {
+background-color: whitesmoke;
+border: none;
+text-align: center;
+}
+td.gaming {
+background-color: lightgray;
+border: none;
+text-align: center;
+}
+&lt;/style></description></item><item><title>TODO</title><link>https://xqm32.github.io/todo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/todo/</guid><description>&lt;ul>
 &lt;li>&lt;input disabled="" type="checkbox"> Git 的变基&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> CloudFlare CDN 加速&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> PDF.js 索引&lt;/li>
