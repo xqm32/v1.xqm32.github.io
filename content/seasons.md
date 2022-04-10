@@ -14,39 +14,39 @@ draft: false
       <tr v-if="!player.disabled">
         <td
           v-bind="{bgcolor: player.color}"
-          style="border: none; width: 45%"
+          style="border: none; width: 47%"
         ></td>
         <td
           v-bind="{bgcolor: player.color}"
-          style="border: none; width: 10%"
+          style="border: none; width: 6%"
         ></td>
         <td
           v-bind="{bgcolor: player.color}"
-          style="border: none; width: 45%"
+          style="border: none; width: 47%"
         ></td>
       </tr>
       <tr v-if="!player.disabled">
         <td class="button" style="border: none; text-align: right">
-          <button @click="minus(player, 10)">10</button>
-          <button @click="minus(player, 5)">5</button>
-          <button @click="minus(player, 4)">4</button>
-          <button @click="minus(player, 3)">3</button>
-          <button @click="minus(player, 2)">2</button>
-          <button @click="minus(player, 1)">1</button>
+          <button @click="player.pre-=10">10</button>
+          <button @click="player.pre-=5">5</button>
+          <button @click="player.pre-=4">4</button>
+          <button @click="player.pre-=3">3</button>
+          <button @click="player.pre-=2">2</button>
+          <button @click="player.pre-=1">1</button>
         </td>
         <td class="button" style="border: none; text-align: center">
-          <span v-if="player.exp==0">{{player.mana}}</span>
-          <!-- <button v-else @click="">
-            {{player.mana}}<span v-if="player.exp>0">+</span>{{player.exp}}
-          </button> -->
+          <span v-if="player.pre==0">{{player.mana}}</span>
+          <button v-else @click="done(player)">
+            {{player.mana}}<span v-if="player.pre>0">+</span>{{player.pre}}
+          </button>
         </td>
         <td class="button" style="border: none; text-align: left">
-          <button @click="add(player, 1)">1</button>
-          <button @click="add(player, 2)">2</button>
-          <button @click="add(player, 3)">3</button>
-          <button @click="add(player, 4)">4</button>
-          <button @click="add(player, 5)">5</button>
-          <button @click="add(player, 10)">10</button>
+          <button @click="player.pre+=1">1</button>
+          <button @click="player.pre+=2">2</button>
+          <button @click="player.pre+=3">3</button>
+          <button @click="player.pre+=4">4</button>
+          <button @click="player.pre+=5">5</button>
+          <button @click="player.pre+=10">10</button>
         </td>
       </tr>
       <tr v-if="!player.disabled">
@@ -59,6 +59,7 @@ draft: false
           <button @click="disable(player)">禁</button>
         </td>
         <td class="button" style="border: none; text-align: left">
+          <button @click="reset(player)">重置</button>
           <button @click="undo">撤销</button>
           <button @click="redo">重做</button>
         </td>
@@ -95,10 +96,10 @@ draft: false
         //   { color: "gray", mana: 0, disabled: false, expression: "" },
         // ],
         players: [
-          { color: "purple", mana: 0, disabled: false, exp: 0 },
-          { color: "gold", mana: 0, disabled: false, exp: 0 },
-          { color: "gray", mana: 0, disabled: false, exp: 0 },
-          { color: "orange", mana: 0, disabled: false, exp: 0 },
+          { color: "purple", mana: 0, disabled: false, pre: 0 },
+          { color: "gold", mana: 0, disabled: false, pre: 0 },
+          { color: "gray", mana: 0, disabled: false, pre: 0 },
+          { color: "orange", mana: 0, disabled: false, pre: 0 },
         ],
       };
     },
@@ -110,7 +111,7 @@ draft: false
         that = this;
         this.players.forEach(function (i) {
           if (!i.disabled && i.color != player.color && i.mana > 0) {
-            that.minus(i, 1, false);
+            that.add(i, -1, false);
             that.add(player, 1, false);
           }
         });
@@ -119,7 +120,7 @@ draft: false
       servant16(player) {
         that = this;
         this.players.forEach(function (i) {
-          if (!i.disabled && i.color != player.color) that.minus(i, 4, false);
+          if (!i.disabled && i.color != player.color) that.add(i, -4, false);
         });
         this.recordHistory();
       },
@@ -135,13 +136,15 @@ draft: false
           }
         this.players.forEach(function (i) {
           if (!i.disabled && i.color != player.color) {
-            that.minus(i, 1, false);
+            that.add(i, -1, false);
             that.add(player, 1, false);
           }
         });
         this.recordHistory();
       },
       disable(player) {
+        const r = confirm(`确定要禁用 ${player.color} 玩家吗？`);
+        if (!r) return;
         player.disabled = true;
         for (let i = 0; i < this.players.length; ++i)
           if (!this.players[i].disabled) return;
@@ -152,14 +155,17 @@ draft: false
           i.disabled = false;
         });
       },
-      minus(player, n, record = true) {
-        player.mana -= n;
-        if (player.mana < 0) player.mana = 0;
+      add(player, n, record = true) {
+        if (player.mana + n < 0) player.mana = 0;
+        else player.mana += n;
         if (record) this.recordHistory();
       },
-      add(player, n, record = true) {
-        player.mana += n;
-        if (record) this.recordHistory();
+      done(player) {
+        this.add(player, player.pre);
+        player.pre = 0;
+      },
+      reset(player) {
+        player.pre = 0;
       },
       recordHistory() {
         let history = [];
