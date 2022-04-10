@@ -27,7 +27,7 @@ draft: false
       </tr>
       <tr v-if="!player.disabled">
         <td class="button" style="border: none; text-align: right">
-          <button @click="player.pre-=10">10</button>
+          <!-- <button @click="player.pre-=10">10</button> -->
           <button @click="player.pre-=5">5</button>
           <button @click="player.pre-=4">4</button>
           <button @click="player.pre-=3">3</button>
@@ -46,7 +46,7 @@ draft: false
           <button @click="player.pre+=3">3</button>
           <button @click="player.pre+=4">4</button>
           <button @click="player.pre+=5">5</button>
-          <button @click="player.pre+=10">10</button>
+          <!-- <button @click="player.pre+=10">10</button> -->
         </td>
       </tr>
       <tr v-if="!player.disabled">
