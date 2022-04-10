@@ -4183,57 +4183,124 @@ $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 &lt;/div>
 &lt;/div></description></item><item><title>Seasons</title><link>https://xqm32.github.io/seasons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/seasons/</guid><description>&lt;script src="https://unpkg.com/vue@next">&lt;/script>
 &lt;div id="Seasons">
-&lt;table v-for="player in players" style="border-left:none;border-right:none;">
+&lt;template v-for="player in players" :key="players.color">
+&lt;table
+v-if="!player.disabled"
+style="border-left: none; border-right: none"
+>
 &lt;tr>
-&lt;td v-bind="{bgcolor: player.color}" style="border:none;width:45%">&lt;/td>
-&lt;td v-bind="{bgcolor: player.color}" style="border:none;width:10%">&lt;/td>
-&lt;td v-bind="{bgcolor: player.color}" style="border:none;width:45%">&lt;/td>
+&lt;td
+v-bind="{bgcolor: player.color}"
+style="border: none; width: 45%"
+>&lt;/td>
+&lt;td
+v-bind="{bgcolor: player.color}"
+style="border: none; width: 10%"
+>&lt;/td>
+&lt;td
+v-bind="{bgcolor: player.color}"
+style="border: none; width: 45%"
+>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="border:none;text-align:right">
-&lt;span style="margin-right:5%">-&lt;/span>
-&lt;button @click="player.mana-=5">5&lt;/button>
-&lt;button @click="player.mana-=3">3&lt;/button>
-&lt;button @click="player.mana-=2">2&lt;/button>
-&lt;button @click="player.mana-=1">1&lt;/button>
+&lt;td style="border: none; text-align: right">
+&lt;button @click="minus(player, 5)">5&lt;/button>
+&lt;button @click="minus(player, 3)">3&lt;/button>
+&lt;button @click="minus(player, 2)">2&lt;/button>
+&lt;button @click="minus(player, 1)">1&lt;/button>
 &lt;/td>
-&lt;td style="border:none;text-align:center">
-{{player.mana}}
+&lt;td style="border: none; text-align: center">{{player.mana}}&lt;/td>
+&lt;td style="border: none; text-align: left">
+&lt;button @click="add(player, 1)">1&lt;/button>
+&lt;button @click="add(player, 2)">2&lt;/button>
+&lt;button @click="add(player, 3)">3&lt;/button>
+&lt;button @click="add(player, 5)">5&lt;/button>
 &lt;/td>
-&lt;td style="border:none;text-align:left">
-&lt;button @click="player.mana+=1">1&lt;/button>
-&lt;button @click="player.mana+=2">2&lt;/button>
-&lt;button @click="player.mana+=3">3&lt;/button>
-&lt;button @click="player.mana+=5">5&lt;/button>
-&lt;span style="margin-left:5%">+&lt;/span>
+&lt;/tr>
+&lt;tr>
+&lt;td style="border: none; text-align: right">
+&lt;button @click="servant33(player)">邪术魔蛭&lt;/button>
+&lt;button @click="servant39(player)">凝望者提图斯&lt;/button>
+&lt;/td>
+&lt;td style="border: none; text-align: center">
+&lt;button @click="disable(player)">禁用&lt;/button>
 &lt;/td>
 &lt;/tr>
 &lt;/table>
-&lt;/div>
+&lt;/template>
+&lt;table>
+&lt;td style="border: none; text-align: right; width: 40%">&lt;/td>
+&lt;td style="border: none; text-align: center; width: 10%">
+&lt;button @click="enableAll">全部启用&lt;/button>
+&lt;/td>
+&lt;td style="border: none; text-align: right; width: 40%">&lt;/td>
+&lt;/table>
 &lt;/div>
 &lt;script>
 const Seasons = {
 data() {
 return {
 players: [
-{
-color: "purple",
-mana: 0,
-},
-{
-color: "yellow",
-mana: 0,
-},
-{
-color: "orange",
-mana: 0,
-},
-{
-color: "gray",
-mana: 0,
-},
+{ color: "purple", mana: 0, disabled: false },
+{ color: "yellow", mana: 0, disabled: false },
+{ color: "orange", mana: 0, disabled: false },
+{ color: "gray", mana: 0, disabled: false },
 ],
 };
+},
+watch: {
+players(newPlayers, oldPlyaers) {
+players.forEach((player) => {
+if (player.mana &lt; 0) player.mana = 0;
+});
+},
+},
+methods: {
+servant33(player) {
+that = this;
+for (let i = 0; i &lt; this.players.length; ++i)
+if (this.players[i].mana &lt;= 0 &amp;&amp; i.color != player.color) {
+return;
+}
+this.players.forEach(function (i) {
+if (!i.disabled &amp;&amp; i.color != player.color) {
+that.minus(i, 1);
+that.add(player, 1);
+}
+});
+},
+servant39(player) {
+that = this;
+for (let i = 0; i &lt; this.players.length; ++i)
+if (this.players[i].mana &lt;= 0 &amp;&amp; i.color != player.color) {
+alert("凝望者提图斯将牺牲");
+return;
+}
+this.players.forEach(function (i) {
+if (!i.disabled &amp;&amp; i.color != player.color) {
+that.minus(i, 1);
+that.add(player, 1);
+}
+});
+},
+disable(player) {
+player.disabled = true;
+for (let i = 0; i &lt; this.players.length; ++i)
+if (!this.players[i].disabled) return;
+this.enableAll();
+},
+enableAll() {
+this.players.forEach(function (i) {
+i.disabled = false;
+});
+},
+minus(player, n) {
+player.mana -= n;
+if (player.mana &lt; 0) player.mana = 0;
+},
+add(player, n) {
+player.mana += n;
+},
 },
 };
 Vue.createApp(Seasons).mount("#Seasons");
