@@ -4182,6 +4182,7 @@ $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Seasons</title><link>https://xqm32.github.io/seasons/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/seasons/</guid><description>&lt;script src="https://unpkg.com/vue@next">&lt;/script>
+&lt;script src="https://unpkg.com/mathjs@10.4.3">&lt;/script>
 &lt;div id="Seasons">
 &lt;template v-for="player in players" :key="players.color">
 &lt;table
@@ -4225,6 +4226,10 @@ style="border: none; width: 45%"
 &lt;td style="border: none; text-align: center">
 &lt;button @click="disable(player)">禁用&lt;/button>
 &lt;/td>
+&lt;td style="border: none; text-align: left">
+&lt;input type="text" @input="evaluate($event, player)" />
+={{player.expression}}
+&lt;/td>
 &lt;/tr>
 &lt;/table>
 &lt;/template>
@@ -4240,11 +4245,12 @@ style="border: none; width: 45%"
 const Seasons = {
 data() {
 return {
+expression: "",
 players: [
-{ color: "purple", mana: 0, disabled: false },
-{ color: "yellow", mana: 0, disabled: false },
-{ color: "orange", mana: 0, disabled: false },
-{ color: "gray", mana: 0, disabled: false },
+{ color: "purple", mana: 0, disabled: false, expression: "" },
+{ color: "yellow", mana: 0, disabled: false, expression: "" },
+{ color: "orange", mana: 0, disabled: false, expression: "" },
+{ color: "gray", mana: 0, disabled: false, expression: "" },
 ],
 };
 },
@@ -4259,7 +4265,7 @@ methods: {
 servant33(player) {
 that = this;
 this.players.forEach(function (i) {
-if (!i.disabled &amp;&amp; i.color != player.color &amp;&amp; i.mana>0) {
+if (!i.disabled &amp;&amp; i.color != player.color &amp;&amp; i.mana > 0) {
 that.minus(i, 1);
 that.add(player, 1);
 }
@@ -4296,6 +4302,9 @@ if (player.mana &lt; 0) player.mana = 0;
 },
 add(player, n) {
 player.mana += n;
+},
+evaluate(event, player) {
+player.expression = math.evaluate(event.target.value);
 },
 },
 };
