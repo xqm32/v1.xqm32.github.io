@@ -82,12 +82,8 @@ draft: false
     methods: {
       servant33(player) {
         that = this;
-        for (let i = 0; i < this.players.length; ++i)
-          if (this.players[i].mana <= 0 && i.color != player.color) {
-            return;
-          }
         this.players.forEach(function (i) {
-          if (!i.disabled && i.color != player.color) {
+          if (!i.disabled && i.color != player.color && i.mana>0) {
             that.minus(i, 1);
             that.add(player, 1);
           }
