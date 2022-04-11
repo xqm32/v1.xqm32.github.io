@@ -9,14 +9,13 @@ const app = Vue.createApp({
       computeds: {},
       histories: [],
       familiars: [
-        { name: "Karin", method: this.karin },
-        { name: "Figrim", method: this.figrim },
-        { name: "Titus", method: this.titus },
+        { name: "凯", method: this.karin },
+        { name: "菲", method: this.figrim },
+        { name: "提", method: this.titus },
       ],
       operations: [
-        { name: "Reset", method: this.reset },
-        { name: "Undo", method: this.undo },
-        { name: "Redo", method: this.redo },
+        { name: "前", method: this.undo },
+        { name: "后", method: this.redo },
       ],
     };
   },
@@ -32,6 +31,13 @@ const app = Vue.createApp({
     },
     // History
     undo() {
+      let reset = false;
+      for (let key in this.computeds)
+        if (this.computeds[key] != 0) {
+          this.reset(key);
+          reset = true;
+        }
+      if (reset) return;
       if (this.currentEra < this.histories.length - 1)
         this.crystals = { ...this.histories[++this.currentEra] };
     },
@@ -40,6 +46,8 @@ const app = Vue.createApp({
         this.crystals = { ...this.histories[--this.currentEra] };
     },
     record() {
+      // 只记录 50 次
+      if (this.histories.length >= 50) this.histories.pop();
       if (this.currentEra == 0) this.histories.unshift({ ...this.crystals });
       else this.histories[--this.currentEra] = { ...this.crystals };
     },
@@ -63,9 +71,10 @@ const app = Vue.createApp({
       else return "btn-outline-success";
     },
     signComputed(color) {
-      if (this.computeds[color] == 0) return "";
-      else if (this.computeds[color] > 0) return "+" + this.computeds[color];
-      else return this.computeds[color];
+      if (this.computeds[color] == 0) return `${this.crystals[color]}`;
+      else if (this.computeds[color] > 0)
+        return `${this.crystals[color]}+${this.computeds[color]}`;
+      else return `${this.crystals[color]}${this.computeds[color]}`;
     },
     // Familiar
     karin(color) {
