@@ -15,12 +15,12 @@
     <link href="./seasons.css" rel="stylesheet" />
 
     <!-- vue.js -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.prod.js"></script>
 
     <title>Seasons Helper</title>
   </head>
   <body>
-    <div class="container" id="Seasons">
+    <div class="container-fluid" id="Seasons">
       <!-- Main section start -->
       <!-- Choose colors start-->
       <table class="table table-borderless" v-if="!gaming">
@@ -74,23 +74,9 @@
         <tbody>
           <tr class="text-center" v-for="color in colors">
             <th scope="row" :style="{'background-color':color}"></th>
-            <td clas="text-end">
-              <!-- Familiars start-->
+            <td>
               <div class="btn-group" role="group">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  @click="familiar.method(color)"
-                  v-for="familiar in familiars"
-                >
-                  {{familiar.name}}
-                </button>
-              </div>
-              <!-- Familiars end-->
-            </td>
-            <td class="text-end">
-              <!-- Subtract crystals start -->
-              <div class="btn-group" role="group">
+                <!-- Subtract crystals start -->
                 <button
                   type="button"
                   class="btn btn-outline-success"
@@ -99,23 +85,17 @@
                 >
                   {{i}}
                 </button>
-              </div>
-              <!-- Subtract crystals end -->
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn"
-                :class="btnComputed(color)"
-                :disabled="computeds[color]==0"
-                @click="compute(color)"
-              >
-                {{crystals[color]}}{{signComputed(color)}}
-              </button>
-            </td>
-            <td class="text-start">
-              <!-- Add crystals start -->
-              <div class="btn-group" role="group">
+                <!-- Subtract crystals end -->
+                <button
+                  type="button"
+                  class="btn"
+                  :class="btnComputed(color)"
+                  :disabled="computeds[color]==0"
+                  @click="compute(color)"
+                >
+                  {{signComputed(color)}}
+                </button>
+                <!-- Add crystals start -->
                 <button
                   type="button"
                   class="btn btn-outline-danger"
@@ -124,22 +104,18 @@
                 >
                   {{i}}
                 </button>
-              </div>
-              <!-- Add crystals end -->
-            </td>
-            <td clas="text-start">
-              <!-- Operations start-->
-              <div class="btn-group" role="group">
+                <!-- Add crystals end -->
+                <!-- Familiars start-->
                 <button
                   type="button"
                   class="btn btn-outline-primary"
-                  @click="operate.method(color)"
-                  v-for="operate in operations"
+                  @click="familiar.method(color)"
+                  v-for="familiar in familiars"
                 >
-                  {{operate.name}}
+                  {{familiar.name}}
                 </button>
+                <!-- Familiars end-->
               </div>
-              <!-- Operations end-->
             </td>
             <th scope="row" :style="{'background-color':color}"></th>
           </tr>
@@ -155,6 +131,23 @@
               :style="{'background-color':color}"
               v-for="color in colors"
             ></th>
+          </tr>
+          <tr class="text-center">
+            <th
+              scope="col"
+              :style="{'background-color':color}"
+              v-for="operate in operations"
+            >
+              <!-- Operations start-->
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                @click="operate.method(color)"
+              >
+                {{operate.name}}
+              </button>
+              <!-- Operations end-->
+            </th>
           </tr>
         </thead>
         <tbody>
