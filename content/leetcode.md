@@ -5,6 +5,38 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.11
+
+简单的排列组合题。
+
+```python3
+#
+# @lc app=leetcode.cn id=357 lang=python3
+#
+# [357] 计算各个位数不同的数字个数
+#
+import fire
+
+# @lc code=start
+import math
+
+
+class Solution:
+    def countNumbersWithUniqueDigits(self, n: int) -> int:
+        if n == 0:
+            return 1
+        ans = math.perm(10, 1)
+        for i in range(2, n + 1):
+            ans += math.perm(9, 1) * math.perm(9, i - 1)
+        return ans
+
+    # @lc code=end
+    func = countNumbersWithUniqueDigits
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.10
 
 简单题。
