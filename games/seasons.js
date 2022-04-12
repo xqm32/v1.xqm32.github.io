@@ -17,6 +17,12 @@ const app = Vue.createApp({
         { name: "前", method: this.undo },
         { name: "后", method: this.redo },
       ],
+      message: {
+        Start: "开始",
+        Restart: "重新开始",
+        Crystals: "水晶",
+        Brand: "《四季物语》助手",
+      },
     };
   },
   // Methods
@@ -29,12 +35,23 @@ const app = Vue.createApp({
       this.record();
       this.gaming = true;
     },
+    restart() {
+      will = confirm("确定要重新开始吗？");
+      if (will) {
+        this.gaming = false;
+        this.currentEra = 0;
+        this.colors = [];
+        this.crystals = {};
+        this.computeds = {};
+        this.histories = [];
+      }
+    },
     // History
     undo() {
       let reset = false;
-      for (let key in this.computeds)
-        if (this.computeds[key] != 0) {
-          this.reset(key);
+      for (let color in this.computeds)
+        if (this.computeds[color] != 0) {
+          this.reset(color);
           reset = true;
         }
       if (reset) return;
@@ -55,6 +72,9 @@ const app = Vue.createApp({
     reset(color) {
       this.computeds[color] = 0;
     },
+    resets() {
+      for (let color in this.computeds) this.computeds[color] = 0;
+    },
     compute(color) {
       if (this.crystals[color] + this.computeds[color] < 0)
         this.crystals[color] = 0;
@@ -63,7 +83,18 @@ const app = Vue.createApp({
       this.record();
     },
     computes() {
-      for (let key in this.computeds) this.compute(key);
+      for (let color in this.computeds) {
+        if (this.crystals[color] + this.computeds[color] < 0)
+          this.crystals[color] = 0;
+        else this.crystals[color] += this.computeds[color];
+        this.computeds[color] = 0;
+      }
+      this.record();
+    },
+    bgComputed(color) {
+      if (this.computeds[color] == 0) return "bg-secondary";
+      else if (this.computeds[color] > 0) return "bg-danger";
+      else return "bg-success";
     },
     btnComputed(color) {
       if (this.computeds[color] == 0) return "btn-outline-secondary";
@@ -71,10 +102,9 @@ const app = Vue.createApp({
       else return "btn-outline-success";
     },
     signComputed(color) {
-      if (this.computeds[color] == 0) return `${this.crystals[color]}`;
-      else if (this.computeds[color] > 0)
-        return `${this.crystals[color]}+${this.computeds[color]}`;
-      else return `${this.crystals[color]}${this.computeds[color]}`;
+      if (this.computeds[color] == 0) return ``;
+      else if (this.computeds[color] > 0) return `+${this.computeds[color]}`;
+      else return `${this.computeds[color]}`;
     },
     // Familiar
     karin(color) {
@@ -103,7 +133,7 @@ const app = Vue.createApp({
           this.computeds[color] += 1;
         }
       this.computes();
-      if (sacrifice) alert("Sacrifice Titus!");
+      if (sacrifice) alert("提图斯牺牲！");
     },
   },
 });
