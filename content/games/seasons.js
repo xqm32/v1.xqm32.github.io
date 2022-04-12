@@ -47,12 +47,19 @@ const app = Vue.createApp({
       this.gaming = true;
     },
     restart() {
-      this.gaming = false;
-      this.currentEra = 0;
-      this.colors = [];
-      this.crystals = {};
-      this.computeds = {};
-      this.histories = [];
+      // 等待 DOM 渲染完毕
+      this.$nextTick(() => {
+        this.gaming = false;
+        this.currentEra = 0;
+        this.colors = [];
+        this.crystals = {};
+        this.computeds = {};
+        this.histories = [];
+        this.alertID = 0;
+        this.alerts = {};
+        this.modalID = 0;
+        this.modals = {};
+      });
     },
     // History
     undo() {
@@ -175,6 +182,7 @@ const app = Vue.createApp({
       let that = this;
       let element = document.getElementById(`modal-${modalID}`);
       element.addEventListener("hidden.bs.modal", function () {
+        // 此处有一个 DOM 渲染
         delete that.modals[modalID];
       });
       let modal = bootstrap.Modal.getOrCreateInstance(element);
