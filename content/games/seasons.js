@@ -14,8 +14,8 @@ const app = Vue.createApp({
         { name: "提", method: this.titus },
       ],
       operations: [
-        { name: "前", method: this.undo },
-        { name: "后", method: this.redo },
+        { icon: "bi-arrow-counterclockwise", method: this.undo },
+        { icon: "bi-arrow-clockwise", method: this.redo },
       ],
       message: {
         Start: "开始",
