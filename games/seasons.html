@@ -28,8 +28,8 @@
     <title>Seasons Helper</title>
   </head>
   <body>
-    <!-- Navbar start -->
     <div class="container-fluid" id="Seasons">
+      <!-- Navbar start -->
       <nav class="navbar">
         <div class="container-fluid">
           <span class="navbar-brand">{{message.Brand}}</span>
@@ -37,7 +37,7 @@
             <button
               class="btn btn-outline-success"
               :disabled="!gaming"
-              @click="restart"
+              @click="modal(message.Modal.Restart,message.Modal.RestartTitle,restart)"
             >
               <i class="bi bi-arrow-repeat"></i> {{message.Restart}}
             </button>
@@ -45,6 +45,67 @@
         </div>
       </nav>
       <!-- Navbar end -->
+      <!-- Modal start -->
+      <!-- When backdrop is set to static, the modal will not close when clicking outside it. Click the button below to try it. -->
+      <div
+        class="modal fade"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        :id="'modal-'+id"
+        :key="id"
+        v-for="(modal, id) in modals"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{modal.title}}</h5>
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                @click="closeModal(id)"
+              ></button>
+            </div>
+            <div class="modal-body">{{modal.message}}</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                @click="closeModal(id)"
+              >
+                {{message.Cancel}}
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="()=>{modal.method();closeModal(id);}"
+              >
+                {{message.Confirm}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal end -->
+      <!-- Alerts start -->
+      <div
+        class="alert alert-dismissible fade show"
+        role="alert"
+        :id="'alert-'+id"
+        :class="'alert-'+alert.type"
+        :key="id"
+        v-for="(alert, id) in alerts"
+      >
+        {{alert.message}}
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          @click="closeAlert(id)"
+        ></button>
+      </div>
+      <!-- Alerts end -->
       <!-- Main section start -->
       <!-- Choose colors start-->
       <table class="table table-borderless text-center" v-if="!gaming">
@@ -174,7 +235,7 @@
                   @click="operate.method(color)"
                   v-for="operate in operations"
                 >
-                  <i class="bi" :class="operate.icon"></i>
+                  <i class="bi" :class="'bi-'+operate.icon"></i>
                 </button>
               </div>
             </td>

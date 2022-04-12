@@ -8,19 +8,30 @@ const app = Vue.createApp({
       crystals: {},
       computeds: {},
       histories: [],
+      // 这里必须用唯一 ID，不能用数组，否则由于索引的变换 vue.js 将会错误渲染
+      alertID: 0,
+      alerts: {},
+      modalID: 0,
+      modals: {},
+      // Constants
       familiars: [
         { name: "凯", method: this.karin },
         { name: "菲", method: this.figrim },
         { name: "提", method: this.titus },
       ],
       operations: [
-        { icon: "bi-arrow-counterclockwise", method: this.undo },
-        { icon: "bi-arrow-clockwise", method: this.redo },
+        { icon: "arrow-counterclockwise", method: this.undo },
+        { icon: "arrow-clockwise", method: this.redo },
       ],
       message: {
-        Start: "开始",
+        Modal: {
+          Restart: "确定要重新开始吗？",
+          RestartTitle: "重新开始",
+        },
+        Cancel: "取消",
+        Confirm: "确认",
         Restart: "重新开始",
-        Crystals: "水晶",
+        Start: "开始",
         Brand: "《四季物语》助手",
       },
     };
@@ -36,15 +47,12 @@ const app = Vue.createApp({
       this.gaming = true;
     },
     restart() {
-      will = confirm("确定要重新开始吗？");
-      if (will) {
-        this.gaming = false;
-        this.currentEra = 0;
-        this.colors = [];
-        this.crystals = {};
-        this.computeds = {};
-        this.histories = [];
-      }
+      this.gaming = false;
+      this.currentEra = 0;
+      this.colors = [];
+      this.crystals = {};
+      this.computeds = {};
+      this.histories = [];
     },
     // History
     undo() {
@@ -133,7 +141,44 @@ const app = Vue.createApp({
           this.computeds[color] += 1;
         }
       this.computes();
-      if (sacrifice) alert("提图斯牺牲！");
+      if (sacrifice) this.alert("提图斯牺牲！", "danger");
+    },
+    // Alerts and Modals
+    alert(message, type) {
+      this.alerts[this.alertID] = { message: message, type: type };
+      ++this.alertID;
+    },
+    closeAlert(alertID) {
+      let that = this;
+      let element = document.getElementById(`alert-${alertID}`);
+      element.addEventListener("closed.bs.alert", function () {
+        delete that.alerts[alertID];
+      });
+      let alert = bootstrap.Alert.getOrCreateInstance(element);
+      alert.close();
+    },
+    modal(message, title, method) {
+      this.modals[this.modalID] = {
+        message: message,
+        title: title,
+        method: method,
+      };
+      // 需要等待 modal 渲染完毕
+      this.$nextTick(() => {
+        let element = document.getElementById(`modal-${this.modalID}`);
+        let modal = bootstrap.Modal.getOrCreateInstance(element);
+        modal.show();
+        ++this.modalID;
+      });
+    },
+    closeModal(modalID) {
+      let that = this;
+      let element = document.getElementById(`modal-${modalID}`);
+      element.addEventListener("hidden.bs.modal", function () {
+        delete that.modals[modalID];
+      });
+      let modal = bootstrap.Modal.getOrCreateInstance(element);
+      modal.hide();
     },
   },
 });
