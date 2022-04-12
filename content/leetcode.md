@@ -5,6 +5,37 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.12
+
+```python3
+#
+# @lc app=leetcode.cn id=806 lang=python3
+#
+# [806] 写字符串需要的行数
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+class Solution:
+    def numberOfLines(self, widths: List[int], s: str) -> List[int]:
+        ans = 1
+        line = 0
+        for i in s:
+            if line + widths[ord(i) - ord("a")] > 100:
+                ans += 1
+                line = 0
+            line += widths[ord(i) - ord("a")]
+        return [ans, line]
+
+    # @lc code=end
+    func = numberOfLines
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.11
 
 简单的排列组合题。
