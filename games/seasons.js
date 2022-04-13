@@ -8,6 +8,7 @@ const app = Vue.createApp({
       gaming: false,
       historiesTable: true,
       currentEra: 0,
+      currentColor: 0,
       maxEra: 0,
       colors: [],
       crystals: {},
@@ -20,20 +21,38 @@ const app = Vue.createApp({
       // modalID: 0,
       modals: {
         chart: {
+          // 点击图表时才进行更新
+          click: () => {
+            historiesChart.update();
+            this.showModal("chart");
+          },
           icon: "graph-up",
-          class: "modal-fullscreen",
+          type: "success",
+
           title: "图表",
+          class: "modal-fullscreen",
           message: `<canvas id="historiesChart"></canvas>`,
-          cancel: "关闭",
         },
         restart: {
-          icon: "arrow-repeat",
+          click: () => this.showModal("restart"),
           button: "重新开始",
+          icon: "arrow-repeat",
+          type: "success",
+
           title: "重新开始",
           message: "确定要重新开始吗？",
+
           cancel: "取消",
           confirm: "确认",
+
           method: this.restart,
+        },
+      },
+      navs: {
+        nextRound: {
+          click: () => this.nextRound(),
+          icon: "dice-6",
+          type: "success",
         },
       },
       // 常量
@@ -51,6 +70,10 @@ const app = Vue.createApp({
         Brand: "《四季物语》助手",
       },
     };
+  },
+  created() {
+    this.navs.chart = this.modals.chart;
+    this.navs.restart = this.modals.restart;
   },
   // 方法
   methods: {
@@ -72,7 +95,7 @@ const app = Vue.createApp({
         historiesChart = new Chart(document.getElementById("historiesChart"), {
           type: "line",
           data: historiesData,
-          options: { pointRadius: 0, tension: 0.1 },
+          options: { pointRadius: 0, tension: 0.1, maintainAspectRatio: false },
         });
         this.record();
       });
@@ -131,7 +154,6 @@ const app = Vue.createApp({
           for (let index in this.histories[color])
             if (index > this.maxEra) delete this.histories[color][index];
       } else ++this.maxEra;
-      historiesChart.update();
     },
     // 计算
     reset(color) {
@@ -145,7 +167,6 @@ const app = Vue.createApp({
         this.crystals[color] = 0;
       else this.crystals[color] += this.computeds[color];
       this.computeds[color] = 0;
-      this.record();
     },
     computes() {
       for (let color in this.computeds) {
@@ -154,6 +175,11 @@ const app = Vue.createApp({
         else this.crystals[color] += this.computeds[color];
         this.computeds[color] = 0;
       }
+    },
+    nextRound() {
+      this.computes();
+      if (this.currentColor + 1 >= this.colors.length) this.currentColor = 0;
+      else ++this.currentColor;
       this.record();
     },
     bgComputed(color) {
