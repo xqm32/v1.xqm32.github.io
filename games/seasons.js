@@ -6,9 +6,8 @@ const app = Vue.createApp({
   data() {
     return {
       gaming: false,
-      historiesTable: true,
+      historiesTable: false,
       currentEra: 0,
-      currentColor: 0,
       maxEra: 0,
       colors: [],
       crystals: {},
@@ -17,8 +16,6 @@ const app = Vue.createApp({
       // 这里必须用唯一 ID，不能用数组，否则由于索引的变换 vue.js 将会错误渲染
       alertID: 0,
       alerts: {},
-      // modal 逻辑变更，不再自动添加 modalID
-      // modalID: 0,
       modals: {
         chart: {
           // 点击图表时才进行更新
@@ -50,7 +47,10 @@ const app = Vue.createApp({
       },
       navs: {
         nextRound: {
-          click: () => this.nextRound(),
+          click: () => {
+            this.computes();
+            this.record();
+          },
           icon: "dice-6",
           type: "success",
         },
@@ -75,6 +75,11 @@ const app = Vue.createApp({
     this.navs.chart = this.modals.chart;
     this.navs.restart = this.modals.restart;
   },
+  computed: {
+    currentColor() {
+      return (this.currentEra - 1) % this.colors.length;
+    },
+  },
   // 方法
   methods: {
     start() {
@@ -95,7 +100,25 @@ const app = Vue.createApp({
         historiesChart = new Chart(document.getElementById("historiesChart"), {
           type: "line",
           data: historiesData,
-          options: { pointRadius: 0, tension: 0.1, maintainAspectRatio: false },
+          options: {
+            // 不保持比例
+            maintainAspectRatio: false,
+            interaction: { intersect: false },
+            // 不显示点
+            radius: 0,
+            // 贝塞尔曲线
+            tension: 0.1,
+            scales: {
+              x: {
+                grid: {
+                  color: (x) => {
+                    if (x.tick.value + 1 == this.currentEra) return "lightblue";
+                    return Chart.borderColor;
+                  },
+                },
+              },
+            },
+          },
         });
         this.record();
       });
@@ -111,9 +134,6 @@ const app = Vue.createApp({
         this.histories = [];
         this.alertID = 0;
         this.alerts = {};
-        // modal 逻辑变更，现在不再清空 modal
-        // this.modalID = 0;
-        // this.modals = {};
         // 清空历史图标数据（实际是解绑，使得原对象 GC）
         historiesData = { datasets: [] };
         historiesChart.destroy();
@@ -144,7 +164,6 @@ const app = Vue.createApp({
         this.crystals[color] = this.histories[color][this.currentEra];
     },
     record() {
-      // 只记录 50 次
       ++this.currentEra;
       for (let color of this.colors)
         this.histories[color][this.currentEra] = this.crystals[color];
@@ -153,7 +172,7 @@ const app = Vue.createApp({
         for (let color of this.colors)
           for (let index in this.histories[color])
             if (index > this.maxEra) delete this.histories[color][index];
-      } else ++this.maxEra;
+      } else if (this.currentEra > this.maxEra) ++this.maxEra;
     },
     // 计算
     reset(color) {
@@ -175,12 +194,6 @@ const app = Vue.createApp({
         else this.crystals[color] += this.computeds[color];
         this.computeds[color] = 0;
       }
-    },
-    nextRound() {
-      this.computes();
-      if (this.currentColor + 1 >= this.colors.length) this.currentColor = 0;
-      else ++this.currentColor;
-      this.record();
     },
     bgComputed(color) {
       if (this.computeds[color] == 0) return "bg-secondary";
@@ -250,30 +263,6 @@ const app = Vue.createApp({
       let modal = bootstrap.Modal.getOrCreateInstance(element);
       modal.hide();
     },
-    // modal 逻辑变更，不再新加入 modal
-    // modal(what, method) {
-    //   this.modals[this.modalID] = {
-    //     what: what,
-    //     method: method,
-    //   };
-    //   // 需要等待 modal 渲染完毕
-    //   this.$nextTick(() => {
-    //     let element = document.getElementById(`modal-${this.modalID}`);
-    //     let modal = bootstrap.Modal.getOrCreateInstance(element);
-    //     modal.show();
-    //     ++this.modalID;
-    //   });
-    // },
-    // closeModal(modalID) {
-    //   let that = this;
-    //   let element = document.getElementById(`modal-${modalID}`);
-    //   element.addEventListener("hidden.bs.modal", function () {
-    //     // 此处有一个 DOM 渲染
-    //     delete that.modals[modalID];
-    //   });
-    //   let modal = bootstrap.Modal.getOrCreateInstance(element);
-    //   modal.hide();
-    // },
   },
 });
 
