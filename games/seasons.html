@@ -42,7 +42,7 @@
           <span class="navbar-brand">{{message.Brand}}</span>
           <div class="d-flex">
             <button
-              class="btn ms-2"
+              class="btn me-2"
               :class="'btn-outline-'+navs[tab].type"
               :disabled="!gaming"
               @click="navs[tab].click"
@@ -51,6 +51,15 @@
               <i class="bi" :class="'bi-'+navs[tab].icon"></i>
               {{navs[tab]?.button}}
             </button>
+            <input
+              type="checkbox"
+              class="btn-check"
+              id="showHelp"
+              v-model="showHelp"
+            />
+            <label class="btn btn-outline-primary" for="showHelp">
+              <i class="bi bi-question-lg"></i>
+            </label>
           </div>
         </div>
       </nav>
@@ -260,6 +269,40 @@
         </tbody>
       </table>
       <!-- Game end-->
+      <!-- Guide start -->
+      <ul class="list-group list-group-flush" v-if="showHelp">
+        <li class="list-group-item">
+          <button type="button" class="btn btn-outline-success" disabled>
+            <i class="bi bi-dice-6"></i>
+          </button>
+          进行下一回合
+        </li>
+        <li class="list-group-item">
+          <button type="button" class="btn btn-outline-success" disabled>
+            <i class="bi bi-graph-up"></i>
+          </button>
+          查看数据图表
+        </li>
+        <li class="list-group-item">
+          <button type="button" class="btn btn-outline-success" disabled>
+            <i class="bi bi-arrow-repeat"></i>
+          </button>
+          重新开始
+        </li>
+        <li class="list-group-item">
+          <button type="button" class="btn btn-outline-primary" disabled>
+            <i class="bi bi-arrow-counterclockwise"></i>
+          </button>
+          取消神仆/重置变更/上一回合
+        </li>
+        <li class="list-group-item">
+          <button type="button" class="btn btn-outline-primary" disabled>
+            <i class="bi bi-arrow-clockwise"></i>
+          </button>
+          下一回合
+        </li>
+      </ul>
+      <!-- Guide end -->
       <!-- Main section end -->
     </div>
 
