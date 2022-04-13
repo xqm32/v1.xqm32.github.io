@@ -191,7 +191,10 @@ const app = Vue.createApp({
       this.computeds[color] = 0;
     },
     resets() {
-      for (let color in this.computeds) this.computeds[color] = 0;
+      for (let color in this.computeds) {
+        this.computeds[color] = 0;
+        this.computedsHistories[color] = [];
+      }
     },
     compute(color) {
       if (this.crystals[color] + this.computeds[color] < 0)
@@ -204,8 +207,8 @@ const app = Vue.createApp({
         if (this.crystals[color] + this.computeds[color] < 0)
           this.crystals[color] = 0;
         else this.crystals[color] += this.computeds[color];
-        this.computeds[color] = 0;
       }
+      this.resets();
     },
     bgComputed(color) {
       if (this.computeds[color] == 0) return "bg-secondary";
