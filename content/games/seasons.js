@@ -17,8 +17,6 @@ const app = Vue.createApp({
       // 这里必须用唯一 ID，不能用数组，否则由于索引的变换 vue.js 将会错误渲染
       alertID: 0,
       alerts: {},
-      // modal 逻辑变更，不再自动添加 modalID
-      // modalID: 0,
       modals: {
         chart: {
           // 点击图表时才进行更新
@@ -250,30 +248,6 @@ const app = Vue.createApp({
       let modal = bootstrap.Modal.getOrCreateInstance(element);
       modal.hide();
     },
-    // modal 逻辑变更，不再新加入 modal
-    // modal(what, method) {
-    //   this.modals[this.modalID] = {
-    //     what: what,
-    //     method: method,
-    //   };
-    //   // 需要等待 modal 渲染完毕
-    //   this.$nextTick(() => {
-    //     let element = document.getElementById(`modal-${this.modalID}`);
-    //     let modal = bootstrap.Modal.getOrCreateInstance(element);
-    //     modal.show();
-    //     ++this.modalID;
-    //   });
-    // },
-    // closeModal(modalID) {
-    //   let that = this;
-    //   let element = document.getElementById(`modal-${modalID}`);
-    //   element.addEventListener("hidden.bs.modal", function () {
-    //     // 此处有一个 DOM 渲染
-    //     delete that.modals[modalID];
-    //   });
-    //   let modal = bootstrap.Modal.getOrCreateInstance(element);
-    //   modal.hide();
-    // },
   },
 });
 
