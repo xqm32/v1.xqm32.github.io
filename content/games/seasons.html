@@ -170,7 +170,7 @@
       <table class="table table-borderless table-sm text-center" v-if="gaming">
         <tbody>
           <tr
-            :class="{'table-active': color==colors[currentColor]}"
+            :class="{'table-success': color==colors[currentColor]}"
             v-for="color in colors"
           >
             <th scope="row" :style="{'background-color':color}"></th>
@@ -260,27 +260,6 @@
         </tbody>
       </table>
       <!-- Game end-->
-      <!-- History start -->
-      <table
-        class="table table-borderless table-sm text-center"
-        v-if="gaming&&historiesTable"
-      >
-        <thead>
-          <tr>
-            <th
-              scope="col"
-              :style="{'background-color':color}"
-              v-for="color in colors"
-            ></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr :class="{'table-active': era==currentEra}" v-for="era in maxEra">
-            <td v-for="color in colors">{{histories[color][era]}}</td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- History end -->
       <!-- Main section end -->
     </div>
 

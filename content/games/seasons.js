@@ -6,12 +6,12 @@ const app = Vue.createApp({
   data() {
     return {
       gaming: false,
-      historiesTable: false,
-      currentEra: 0,
-      maxEra: 0,
       colors: [],
       crystals: {},
       computeds: {},
+      // 历史记录
+      currentEra: 0,
+      maxEra: 0,
       histories: {},
       // 这里必须用唯一 ID，不能用数组，否则由于索引的变换 vue.js 将会错误渲染
       alertID: 0,
@@ -77,6 +77,7 @@ const app = Vue.createApp({
   },
   computed: {
     currentColor() {
+      // currentEra 从 1 开始
       return (this.currentEra - 1) % this.colors.length;
     },
   },
@@ -112,7 +113,8 @@ const app = Vue.createApp({
               x: {
                 grid: {
                   color: (x) => {
-                    if (x.tick.value + 1 == this.currentEra) return "lightblue";
+                    // success 的颜色，var(--bs-table-bg)
+                    if (x.tick.value + 1 == this.currentEra) return "#d1e7dd";
                     return Chart.borderColor;
                   },
                 },
@@ -127,11 +129,14 @@ const app = Vue.createApp({
       // 等待 DOM 渲染完毕
       this.$nextTick(() => {
         this.gaming = false;
-        this.currentEra = 0;
         this.colors = [];
         this.crystals = {};
         this.computeds = {};
-        this.histories = [];
+
+        this.currentEra = 0;
+        this.maxEra = 0;
+        this.histories = {};
+
         this.alertID = 0;
         this.alerts = {};
         // 清空历史图标数据（实际是解绑，使得原对象 GC）
