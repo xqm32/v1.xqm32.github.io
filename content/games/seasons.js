@@ -5,6 +5,7 @@ const app = Vue.createApp({
   // 数据
   data() {
     return {
+      showHelp: false,
       gaming: false,
       colors: [],
       crystals: {},
@@ -32,7 +33,6 @@ const app = Vue.createApp({
         },
         restart: {
           click: () => this.showModal("restart"),
-          button: "重新开始",
           icon: "arrow-repeat",
           type: "success",
 
@@ -67,13 +67,14 @@ const app = Vue.createApp({
       ],
       message: {
         Start: "开始",
-        Brand: "《四季物语》助手",
+        Brand: "四季物语",
       },
     };
   },
   created() {
     this.navs.chart = this.modals.chart;
     this.navs.restart = this.modals.restart;
+    this.computedsHistories = {};
   },
   computed: {
     currentColor() {
@@ -89,6 +90,7 @@ const app = Vue.createApp({
         this.computeds[color] = 0;
         // 初始化历史记录
         this.histories[color] = {};
+        this.computedsHistories[color] = [];
         historiesData.datasets.push({
           label: color,
           data: this.histories[color],
@@ -147,6 +149,11 @@ const app = Vue.createApp({
     },
     // 历史
     undo() {
+      // 取消功能
+      if (this.isSummoned()) {
+        this.discard();
+        return;
+      }
       // 重置功能
       let reset = false;
       for (let color in this.computeds)
@@ -216,11 +223,26 @@ const app = Vue.createApp({
       else return `${this.computeds[color]}`;
     },
     // 神仆
+    isSummoned() {
+      for (let color of this.colors)
+        if (this.computedsHistories[color].length > 0) return true;
+      return false;
+    },
+    summon() {
+      for (let color of this.colors)
+        this.computedsHistories[color].push(this.computeds[color]);
+    },
+    discard() {
+      for (let color of this.colors)
+        this.computeds[color] = this.computedsHistories[color].pop();
+    },
     karin(color) {
+      this.summon();
       for (let key in this.computeds)
         if (key != color) this.computeds[key] -= 4;
     },
     figrim(color) {
+      this.summon();
       for (let key in this.computeds)
         if (this.crystals[key] + this.computeds[key] < 1) continue;
         else if (key != color) {
@@ -229,6 +251,7 @@ const app = Vue.createApp({
         }
     },
     titus(color) {
+      this.summon();
       let sacrifice = false;
       for (let key in this.computeds)
         if (this.crystals[key] + this.computeds[key] < 1) sacrifice = true;
