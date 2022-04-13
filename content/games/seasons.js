@@ -6,8 +6,7 @@ const app = Vue.createApp({
   data() {
     return {
       gaming: false,
-      historiesChart: true,
-      historiesTable: false,
+      historiesTable: true,
       currentEra: 0,
       maxEra: 0,
       colors: [],
@@ -17,8 +16,26 @@ const app = Vue.createApp({
       // 这里必须用唯一 ID，不能用数组，否则由于索引的变换 vue.js 将会错误渲染
       alertID: 0,
       alerts: {},
-      modalID: 0,
-      modals: {},
+      // modal 逻辑变更，不再自动添加 modalID
+      // modalID: 0,
+      modals: {
+        chart: {
+          icon: "graph-up",
+          class: "modal-fullscreen",
+          title: "图表",
+          message: `<canvas id="historiesChart"></canvas>`,
+          cancel: "关闭",
+        },
+        restart: {
+          icon: "arrow-repeat",
+          button: "重新开始",
+          title: "重新开始",
+          message: "确定要重新开始吗？",
+          cancel: "取消",
+          confirm: "确认",
+          method: this.restart,
+        },
+      },
       // 常量
       familiars: [
         { name: "凯", method: this.karin },
@@ -30,13 +47,6 @@ const app = Vue.createApp({
         { icon: "arrow-clockwise", method: this.redo },
       ],
       message: {
-        Restart: {
-          button: "重新开始",
-          message: "确定要重新开始吗？",
-          title: "重新开始",
-          cancel: "取消",
-          confirm: "确认",
-        },
         Start: "开始",
         Brand: "《四季物语》助手",
       },
@@ -78,10 +88,13 @@ const app = Vue.createApp({
         this.histories = [];
         this.alertID = 0;
         this.alerts = {};
-        this.modalID = 0;
-        this.modals = {};
+        // modal 逻辑变更，现在不再清空 modal
+        // this.modalID = 0;
+        // this.modals = {};
         // 清空历史图标数据（实际是解绑，使得原对象 GC）
         historiesData = { datasets: [] };
+        historiesChart.destroy();
+        historiesChart = null;
       });
     },
     // 历史
@@ -201,29 +214,40 @@ const app = Vue.createApp({
       let alert = bootstrap.Alert.getOrCreateInstance(element);
       alert.close();
     },
-    modal(what, method) {
-      this.modals[this.modalID] = {
-        what: what,
-        method: method,
-      };
-      // 需要等待 modal 渲染完毕
-      this.$nextTick(() => {
-        let element = document.getElementById(`modal-${this.modalID}`);
-        let modal = bootstrap.Modal.getOrCreateInstance(element);
-        modal.show();
-        ++this.modalID;
-      });
+    showModal(modalID) {
+      let element = document.getElementById(`modal-${modalID}`);
+      let modal = bootstrap.Modal.getOrCreateInstance(element);
+      modal.show();
     },
     closeModal(modalID) {
-      let that = this;
       let element = document.getElementById(`modal-${modalID}`);
-      element.addEventListener("hidden.bs.modal", function () {
-        // 此处有一个 DOM 渲染
-        delete that.modals[modalID];
-      });
       let modal = bootstrap.Modal.getOrCreateInstance(element);
       modal.hide();
     },
+    // modal 逻辑变更，不再新加入 modal
+    // modal(what, method) {
+    //   this.modals[this.modalID] = {
+    //     what: what,
+    //     method: method,
+    //   };
+    //   // 需要等待 modal 渲染完毕
+    //   this.$nextTick(() => {
+    //     let element = document.getElementById(`modal-${this.modalID}`);
+    //     let modal = bootstrap.Modal.getOrCreateInstance(element);
+    //     modal.show();
+    //     ++this.modalID;
+    //   });
+    // },
+    // closeModal(modalID) {
+    //   let that = this;
+    //   let element = document.getElementById(`modal-${modalID}`);
+    //   element.addEventListener("hidden.bs.modal", function () {
+    //     // 此处有一个 DOM 渲染
+    //     delete that.modals[modalID];
+    //   });
+    //   let modal = bootstrap.Modal.getOrCreateInstance(element);
+    //   modal.hide();
+    // },
   },
 });
 

@@ -42,11 +42,13 @@
           <span class="navbar-brand">{{message.Brand}}</span>
           <div class="d-flex">
             <button
-              class="btn btn-outline-success"
+              class="btn btn-outline-success ms-2"
               :disabled="!gaming"
-              @click="modal(message.Restart,restart)"
+              @click="showModal(modal)"
+              v-for="modal in ['chart','restart']"
             >
-              <i class="bi bi-arrow-repeat"></i> {{message.Restart.button}}
+              <i class="bi" :class="'bi-'+modals[modal].icon"></i>
+              {{modals[modal]?.button}}
             </button>
           </div>
         </div>
@@ -63,34 +65,34 @@
         :key="id"
         v-for="(modal, id) in modals"
       >
-        <div class="modal-dialog">
+        <div class="modal-dialog" :class="modal?.class">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">{{modal.what.title}}</h5>
+              <h5 class="modal-title">{{modal.title}}</h5>
               <button
                 type="button"
                 class="btn-close"
+                data-bs-dismiss="modal"
                 aria-label="Close"
-                @click="closeModal(id)"
               ></button>
             </div>
-            <div class="modal-body" v-html="modal.what.message"></div>
+            <div class="modal-body" v-html="modal.message"></div>
             <div class="modal-footer">
               <button
                 type="button"
                 class="btn btn-secondary"
-                @click="closeModal(id)"
-                v-if="modal.what.hasOwnProperty('cancel')"
+                data-bs-dismiss="modal"
+                v-if="modal.hasOwnProperty('cancel')"
               >
-                {{modal.what.cancel}}
+                {{modal.cancel}}
               </button>
               <button
                 type="button"
                 class="btn btn-primary"
                 @click="()=>{modal.method();closeModal(id);}"
-                v-if="modal.what.hasOwnProperty('confirm')"
+                v-if="modal.hasOwnProperty('confirm')"
               >
-                {{modal.what.confirm}}
+                {{modal.confirm}}
               </button>
             </div>
           </div>
@@ -254,9 +256,6 @@
         </tbody>
       </table>
       <!-- Game end-->
-      <!-- Chart start -->
-      <canvas id="historiesChart" v-if="gaming&&historiesChart"></canvas>
-      <!-- Chart end -->
       <!-- History start -->
       <table
         class="table table-borderless table-sm text-center"
