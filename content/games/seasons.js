@@ -1,19 +1,25 @@
+let historiesData = { datasets: [] };
+let historiesChart = null;
+
 const app = Vue.createApp({
-  // Data
+  // 数据
   data() {
     return {
       gaming: false,
+      historiesChart: true,
+      historiesTable: false,
       currentEra: 0,
+      maxEra: 0,
       colors: [],
       crystals: {},
       computeds: {},
-      histories: [],
+      histories: {},
       // 这里必须用唯一 ID，不能用数组，否则由于索引的变换 vue.js 将会错误渲染
       alertID: 0,
       alerts: {},
       modalID: 0,
       modals: {},
-      // Constants
+      // 常量
       familiars: [
         { name: "凯", method: this.karin },
         { name: "菲", method: this.figrim },
@@ -24,27 +30,42 @@ const app = Vue.createApp({
         { icon: "arrow-clockwise", method: this.redo },
       ],
       message: {
-        Modal: {
-          Restart: "确定要重新开始吗？",
-          RestartTitle: "重新开始",
+        Restart: {
+          button: "重新开始",
+          message: "确定要重新开始吗？",
+          title: "重新开始",
+          cancel: "取消",
+          confirm: "确认",
         },
-        Cancel: "取消",
-        Confirm: "确认",
-        Restart: "重新开始",
         Start: "开始",
         Brand: "《四季物语》助手",
       },
     };
   },
-  // Methods
+  // 方法
   methods: {
     start() {
       for (let color of this.colors) {
         this.crystals[color] = 0;
         this.computeds[color] = 0;
+        // 初始化历史记录
+        this.histories[color] = {};
+        historiesData.datasets.push({
+          label: color,
+          data: this.histories[color],
+          backgroundColor: color,
+          borderColor: color,
+        });
       }
-      this.record();
       this.gaming = true;
+      this.$nextTick(() => {
+        historiesChart = new Chart(document.getElementById("historiesChart"), {
+          type: "line",
+          data: historiesData,
+          options: { pointRadius: 0, tension: 0.1 },
+        });
+        this.record();
+      });
     },
     restart() {
       // 等待 DOM 渲染完毕
@@ -59,31 +80,47 @@ const app = Vue.createApp({
         this.alerts = {};
         this.modalID = 0;
         this.modals = {};
+        // 清空历史图标数据（实际是解绑，使得原对象 GC）
+        historiesData = { datasets: [] };
       });
     },
-    // History
+    // 历史
     undo() {
+      // 重置功能
       let reset = false;
       for (let color in this.computeds)
         if (this.computeds[color] != 0) {
-          this.reset(color);
+          this.computeds[color] = 0;
           reset = true;
         }
       if (reset) return;
-      if (this.currentEra < this.histories.length - 1)
-        this.crystals = { ...this.histories[++this.currentEra] };
+      // 撤销功能
+      // vue 的范围计数从 1 开始，满足它 :)
+      if (this.currentEra <= 1) return;
+      --this.currentEra;
+      for (let color of this.colors)
+        this.crystals[color] = this.histories[color][this.currentEra];
     },
     redo() {
-      if (this.currentEra > 0)
-        this.crystals = { ...this.histories[--this.currentEra] };
+      if (this.currentEra >= this.maxEra) return;
+      ++this.currentEra;
+      for (let color of this.colors)
+        this.crystals[color] = this.histories[color][this.currentEra];
     },
     record() {
       // 只记录 50 次
-      if (this.histories.length >= 50) this.histories.pop();
-      if (this.currentEra == 0) this.histories.unshift({ ...this.crystals });
-      else this.histories[--this.currentEra] = { ...this.crystals };
+      ++this.currentEra;
+      for (let color of this.colors)
+        this.histories[color][this.currentEra] = this.crystals[color];
+      if (this.currentEra < this.maxEra) {
+        this.maxEra = this.currentEra;
+        for (let color of this.colors)
+          for (let index in this.histories[color])
+            if (index > this.maxEra) delete this.histories[color][index];
+      } else ++this.maxEra;
+      historiesChart.update();
     },
-    // Compute
+    // 计算
     reset(color) {
       this.computeds[color] = 0;
     },
@@ -121,7 +158,7 @@ const app = Vue.createApp({
       else if (this.computeds[color] > 0) return `+${this.computeds[color]}`;
       else return `${this.computeds[color]}`;
     },
-    // Familiar
+    // 神仆
     karin(color) {
       for (let key in this.computeds)
         if (key != color) this.computeds[key] -= 4;
@@ -148,11 +185,11 @@ const app = Vue.createApp({
           this.computeds[color] += 1;
         }
       this.computes();
-      if (sacrifice) this.alert("提图斯牺牲！", "danger");
+      if (sacrifice) this.alert({ message: "提图斯牺牲", type: danger });
     },
-    // Alerts and Modals
-    alert(message, type) {
-      this.alerts[this.alertID] = { message: message, type: type };
+    // Alerts 和 Modals
+    alert(what) {
+      this.alerts[this.alertID] = { what: what };
       ++this.alertID;
     },
     closeAlert(alertID) {
@@ -164,10 +201,9 @@ const app = Vue.createApp({
       let alert = bootstrap.Alert.getOrCreateInstance(element);
       alert.close();
     },
-    modal(message, title, method) {
+    modal(what, method) {
       this.modals[this.modalID] = {
-        message: message,
-        title: title,
+        what: what,
         method: method,
       };
       // 需要等待 modal 渲染完毕

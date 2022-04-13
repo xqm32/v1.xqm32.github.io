@@ -25,6 +25,13 @@
     <!-- vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.prod.js"></script>
 
+    <!-- chart.js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"
+      integrity="sha256-ErZ09KkZnzjpqcane4SCyyHsKAXMvID9/xwbl/Aq1pc="
+      crossorigin="anonymous"
+    ></script>
+
     <title>Seasons Helper</title>
   </head>
   <body>
@@ -37,16 +44,16 @@
             <button
               class="btn btn-outline-success"
               :disabled="!gaming"
-              @click="modal(message.Modal.Restart,message.Modal.RestartTitle,restart)"
+              @click="modal(message.Restart,restart)"
             >
-              <i class="bi bi-arrow-repeat"></i> {{message.Restart}}
+              <i class="bi bi-arrow-repeat"></i> {{message.Restart.button}}
             </button>
           </div>
         </div>
       </nav>
       <!-- Navbar end -->
       <!-- Modal start -->
-      <!-- When backdrop is set to static, the modal will not close when clicking outside it. Click the button below to try it. -->
+      <!-- See https://getbootstrap.com/docs/5.1/components/modal/#static-backdrop -->
       <div
         class="modal fade"
         data-bs-backdrop="static"
@@ -59,7 +66,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">{{modal.title}}</h5>
+              <h5 class="modal-title">{{modal.what.title}}</h5>
               <button
                 type="button"
                 class="btn-close"
@@ -67,21 +74,23 @@
                 @click="closeModal(id)"
               ></button>
             </div>
-            <div class="modal-body">{{modal.message}}</div>
+            <div class="modal-body" v-html="modal.what.message"></div>
             <div class="modal-footer">
               <button
                 type="button"
                 class="btn btn-secondary"
                 @click="closeModal(id)"
+                v-if="modal.what.hasOwnProperty('cancel')"
               >
-                {{message.Cancel}}
+                {{modal.what.cancel}}
               </button>
               <button
                 type="button"
                 class="btn btn-primary"
                 @click="()=>{modal.method();closeModal(id);}"
+                v-if="modal.what.hasOwnProperty('confirm')"
               >
-                {{message.Confirm}}
+                {{modal.what.confirm}}
               </button>
             </div>
           </div>
@@ -245,8 +254,14 @@
         </tbody>
       </table>
       <!-- Game end-->
+      <!-- Chart start -->
+      <canvas id="historiesChart" v-if="gaming&&historiesChart"></canvas>
+      <!-- Chart end -->
       <!-- History start -->
-      <table class="table table-borderless table-sm text-center" v-if="gaming">
+      <table
+        class="table table-borderless table-sm text-center"
+        v-if="gaming&&historiesTable"
+      >
         <thead>
           <tr>
             <th
@@ -257,11 +272,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-            :class="{'table-active': era==currentEra}"
-            v-for="(history, era) in histories"
-          >
-            <td v-for="color in colors">{{history[color]}}</td>
+          <tr :class="{'table-active': era==currentEra}" v-for="era in maxEra">
+            <td v-for="color in colors">{{histories[color][era]}}</td>
           </tr>
         </tbody>
       </table>
