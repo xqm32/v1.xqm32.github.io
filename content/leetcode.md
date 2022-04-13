@@ -5,6 +5,38 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.14
+
+简单题。
+
+```python3
+#
+# @lc app=leetcode.cn id=1672 lang=python3
+#
+# [1672] 最富有客户的资产总量
+#
+
+from typing import List
+
+import fire
+
+# @lc code=start
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        ans = sum(accounts[0])
+        for i in range(1, len(accounts)):
+            t = sum(accounts[i])
+            if t > ans:
+                ans = t
+        return ans
+        # @lc code=end
+
+    func = maximumWealth
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.13
 
 ```python3
