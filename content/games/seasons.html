@@ -105,11 +105,11 @@
         class="alert alert-dismissible fade show"
         role="alert"
         :id="'alert-'+id"
-        :class="'alert-'+alert.type"
+        :class="'alert-'+alert.what.type"
         :key="id"
         v-for="(alert, id) in alerts"
       >
-        {{alert.message}}
+        {{alert.what.message}}
         <button
           type="button"
           class="btn-close"

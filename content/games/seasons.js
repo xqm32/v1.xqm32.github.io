@@ -214,30 +214,24 @@ const app = Vue.createApp({
     karin(color) {
       for (let key in this.computeds)
         if (key != color) this.computeds[key] -= 4;
-      this.computes();
     },
     figrim(color) {
-      this.computes();
       for (let key in this.computeds)
-        if (this.crystals[key] < 1) continue;
+        if (this.crystals[key] + this.computeds[key] < 1) continue;
         else if (key != color) {
           this.computeds[key] -= 1;
           this.computeds[color] += 1;
         }
-      this.computes();
     },
     titus(color) {
       let sacrifice = false;
-      // Titus 需要先 compute，判断是否有对手无法支付
-      this.computes();
       for (let key in this.computeds)
-        if (this.crystals[key] < 1) sacrifice = true;
+        if (this.crystals[key] + this.computeds[key] < 1) sacrifice = true;
         else if (key != color) {
           this.computeds[key] -= 1;
           this.computeds[color] += 1;
         }
-      this.computes();
-      if (sacrifice) this.alert({ message: "提图斯牺牲", type: danger });
+      if (sacrifice) this.alert({ message: "提图斯牺牲", type: "danger" });
     },
     // Alerts 和 Modals
     alert(what) {
