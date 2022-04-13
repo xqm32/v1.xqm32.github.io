@@ -42,13 +42,14 @@
           <span class="navbar-brand">{{message.Brand}}</span>
           <div class="d-flex">
             <button
-              class="btn btn-outline-success ms-2"
+              class="btn ms-2"
+              :class="'btn-outline-'+navs[tab].type"
               :disabled="!gaming"
-              @click="showModal(modal)"
-              v-for="modal in ['chart','restart']"
+              @click="navs[tab].click"
+              v-for="tab in ['nextRound','chart','restart']"
             >
-              <i class="bi" :class="'bi-'+modals[modal].icon"></i>
-              {{modals[modal]?.button}}
+              <i class="bi" :class="'bi-'+navs[tab].icon"></i>
+              {{navs[tab]?.button}}
             </button>
           </div>
         </div>
@@ -168,7 +169,10 @@
       <!-- Game start-->
       <table class="table table-borderless table-sm text-center" v-if="gaming">
         <tbody>
-          <tr v-for="color in colors">
+          <tr
+            :class="{'table-active': color==colors[currentColor]}"
+            v-for="color in colors"
+          >
             <th scope="row" :style="{'background-color':color}"></th>
             <!-- Subtract crystals start -->
             <td class="text-end">
