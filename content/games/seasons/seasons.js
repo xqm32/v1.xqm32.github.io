@@ -17,6 +17,7 @@ const app = Vue.createApp({
       // 这里必须用唯一 ID，不能用数组，否则由于索引的变换 vue.js 将会错误渲染
       alertID: 0,
       alerts: {},
+      // 渲染
       modals: {
         chart: {
           // 点击图表时才进行更新
@@ -55,7 +56,6 @@ const app = Vue.createApp({
           type: "success",
         },
       },
-      // 常量
       familiars: [
         { name: "凯", method: this.karin },
         { name: "菲", method: this.figrim },
@@ -69,13 +69,30 @@ const app = Vue.createApp({
         Start: "开始",
         Brand: "四季物语",
       },
+      guides: [
+        { type: "success", icon: "dice-6", message: "进行下一回合" },
+        { type: "success", icon: "graph-up", message: "查看数据图表" },
+        { type: "success", icon: "arrow-repeat", message: "重新开始" },
+        {
+          type: "primary",
+          icon: "arrow-counterclockwise",
+          message: "取消神仆/重置变更/上一回合",
+        },
+        {
+          type: "primary",
+          icon: "arrow-counterclockwise",
+          message: "下一回合",
+        },
+      ],
     };
   },
+  // 参见 https://v3.cn.vuejs.org/guide/composition-api-lifecycle-hooks.html
   created() {
     this.navs.chart = this.modals.chart;
     this.navs.restart = this.modals.restart;
     this.computedsHistories = {};
   },
+  // 计算属性
   computed: {
     currentColor() {
       // currentEra 从 1 开始
@@ -98,7 +115,9 @@ const app = Vue.createApp({
           borderColor: color,
         });
       }
+      // 一切就绪，开始游戏
       this.gaming = true;
+      // 等待 DOM 树渲染完毕
       this.$nextTick(() => {
         historiesChart = new Chart(document.getElementById("historiesChart"), {
           type: "line",
@@ -106,11 +125,13 @@ const app = Vue.createApp({
           options: {
             // 不保持比例
             maintainAspectRatio: false,
+            // 无需点击即可显示 Tooltips
             interaction: { intersect: false },
             // 不显示点
             radius: 0,
             // 贝塞尔曲线
             tension: 0.1,
+            // 显示当前历史
             scales: {
               x: {
                 grid: {

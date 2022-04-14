@@ -271,35 +271,16 @@
       <!-- Game end-->
       <!-- Guide start -->
       <ul class="list-group list-group-flush" v-if="showHelp">
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-success" disabled>
-            <i class="bi bi-dice-6"></i>
+        <li class="list-group-item" v-for="guide in guides">
+          <button
+            type="button"
+            class="btn"
+            :class="'btn-outline-'+guide.type"
+            disabled
+          >
+            <i class="bi" :class="'bi-'+guide.icon"></i>
           </button>
-          进行下一回合
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-success" disabled>
-            <i class="bi bi-graph-up"></i>
-          </button>
-          查看数据图表
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-success" disabled>
-            <i class="bi bi-arrow-repeat"></i>
-          </button>
-          重新开始
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-primary" disabled>
-            <i class="bi bi-arrow-counterclockwise"></i>
-          </button>
-          取消神仆/重置变更/上一回合
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-primary" disabled>
-            <i class="bi bi-arrow-clockwise"></i>
-          </button>
-          下一回合
+          {{guide.message}}
         </li>
       </ul>
       <!-- Guide end -->
