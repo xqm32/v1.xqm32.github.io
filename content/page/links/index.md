@@ -10,13 +10,12 @@ links:
   - title: YKgsmUDq
     description: 神犇
     website: http://ykgsmudq.com/
-    image: http://ykgsmudq.com/uploads/me.png
   - title: Inko
     description: 串串儿
     website: https://blog.inko.lv/
 menu:
     main: 
-        weight: -180
+        weight: 200
         params:
             icon: link
 comments: true

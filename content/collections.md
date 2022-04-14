@@ -1,9 +1,7 @@
 ---
-title: "备份"
+title: "我的收藏夹"
 draft: false
 ---
-
-<font color=pink>一些“备份”，更类似于收藏夹。</font>
 
 # 软件
 

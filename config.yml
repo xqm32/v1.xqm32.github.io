@@ -21,7 +21,7 @@ permalinks:
 
 params:
   mainSections:
-    - posts
+    - post
   featuredImageField: image
   rssFullContent: true
   favicon:

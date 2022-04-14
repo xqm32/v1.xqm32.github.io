@@ -1,11 +1,11 @@
 ---
 title: "关于我"
-draft: false
+draft: true
 menu:
     main: 
-        weight: -200
+        weight: 0
         params:
             icon: user
 ---
 
-[朋友们](/friends)
+[朋友们](/page/links)
