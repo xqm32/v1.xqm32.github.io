@@ -40,16 +40,16 @@
       <nav class="navbar">
         <div class="container-fluid">
           <span class="navbar-brand">{{message.Brand}}</span>
-          <div class="d-flex">
+          <div class="d-flex d-none d-sm-block">
             <button
               class="btn me-2"
-              :class="'btn-outline-'+navs[tab].type"
-              :disabled="!gaming"
-              @click="navs[tab].click"
-              v-for="tab in ['nextRound','chart','restart']"
+              :class="'btn-outline-'+tab.type"
+              :disabled="!gaming||tab.disabled"
+              @click="tab.click"
+              v-for="tab in tabs"
             >
-              <i class="bi" :class="'bi-'+navs[tab].icon"></i>
-              {{navs[tab]?.button}}
+              <i class="bi" :class="'bi-'+tab.icon"></i>
+              {{tab?.button}}
             </button>
             <input
               type="checkbox"
@@ -189,7 +189,7 @@
                 <button
                   type="button"
                   class="btn btn-outline-success"
-                  @click="computeds[color]-=i"
+                  @click="stageds[color]-=i"
                   v-for="i in [5,4,3,2,1]"
                 >
                   {{i}}
@@ -203,19 +203,19 @@
                 <button
                   type="button"
                   class="btn"
-                  :class="btnComputed(color)"
-                  :disabled="computeds[color]==0"
-                  @click="compute(color)"
+                  :class="'btn-outline-'+btnColor(color)"
+                  :disabled="stageds[color]==0"
+                  @click="commit(color)"
                 >
                   {{this.crystals[color]}}
                   <!-- Badge start -->
                   <!-- z-index 必须大于 1，否则将被按钮遮盖 -->
                   <span
                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-                    :class="bgComputed(color)"
+                    :class="'bg-'+bgColor(color)"
                     style="z-index: 2"
                   >
-                    {{signComputed(color)}}
+                    {{signedStage(color)}}
                   </span>
                   <!-- Badge end -->
                 </button>
@@ -228,7 +228,7 @@
                 <button
                   type="button"
                   class="btn btn-outline-danger"
-                  @click="computeds[color]+=i"
+                  @click="stageds[color]+=i"
                   v-for="i in [1,2,3,4,5]"
                 >
                   {{i}}
@@ -237,15 +237,20 @@
             </td>
             <!-- Add crystals end -->
             <!-- Familiars start-->
-            <td class="text-start">
+            <td class="text-start" v-for="(familiar, name) in familiars">
               <div class="btn-group" role="group">
                 <button
                   type="button"
                   class="btn btn-outline-primary"
-                  @click="familiar.method(color)"
-                  v-for="familiar in familiars"
+                  @click="effect(color, name)"
                 >
-                  {{familiar.name}}
+                  {{familiar.message}}
+                  <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
+                    style="z-index: 2"
+                  >
+                    {{effecteds[color][name]}}
+                  </span>
                 </button>
               </div>
             </td>
@@ -271,35 +276,16 @@
       <!-- Game end-->
       <!-- Guide start -->
       <ul class="list-group list-group-flush" v-if="showHelp">
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-success" disabled>
-            <i class="bi bi-dice-6"></i>
+        <li class="list-group-item" v-for="guide in guides">
+          <button
+            type="button"
+            class="btn"
+            :class="'btn-outline-'+guide.type"
+            disabled
+          >
+            <i class="bi" :class="'bi-'+guide.icon"></i>
           </button>
-          进行下一回合
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-success" disabled>
-            <i class="bi bi-graph-up"></i>
-          </button>
-          查看数据图表
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-success" disabled>
-            <i class="bi bi-arrow-repeat"></i>
-          </button>
-          重新开始
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-primary" disabled>
-            <i class="bi bi-arrow-counterclockwise"></i>
-          </button>
-          取消神仆/重置变更/上一回合
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-outline-primary" disabled>
-            <i class="bi bi-arrow-clockwise"></i>
-          </button>
-          下一回合
+          {{guide.message}}
         </li>
       </ul>
       <!-- Guide end -->

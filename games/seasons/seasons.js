@@ -5,18 +5,23 @@ const app = Vue.createApp({
   // 数据
   data() {
     return {
-      showHelp: false,
+      // 游戏设置
       gaming: false,
-      colors: [],
+      showHelp: false,
+      // 游戏数据
+      colors: [], // 遍历 colors 一定要用 of
       crystals: {},
-      computeds: {},
-      // 历史记录
-      currentEra: 0,
-      maxEra: 0,
-      histories: {},
+      stageds: {},
+      effecteds: {},
+      // 历史数据
+      currentEra: 0, // 当前纪元
+      maxEra: 0, // 最大纪元
+      histories: {}, // 历史变化
+      effectedsHistories: {},
       // 这里必须用唯一 ID，不能用数组，否则由于索引的变换 vue.js 将会错误渲染
       alertID: 0,
       alerts: {},
+      // 预设弹窗
       modals: {
         chart: {
           // 点击图表时才进行更新
@@ -45,38 +50,71 @@ const app = Vue.createApp({
           method: this.restart,
         },
       },
-      navs: {
+      // 预设导航
+      buttons: {
+        undo: {
+          click: () => this.undo(),
+          icon: "arrow-left",
+          type: "success",
+        },
+        redo: {
+          click: () => this.redo(),
+          icon: "arrow-right",
+          type: "success",
+        },
         nextRound: {
           click: () => {
-            this.computes();
+            this.applyAll();
+            this.commitAll();
             this.record();
           },
           icon: "dice-6",
           type: "success",
         },
       },
-      // 常量
-      familiars: [
-        { name: "凯", method: this.karin },
-        { name: "菲", method: this.figrim },
-        { name: "提", method: this.titus },
-      ],
+      familiars: {
+        karin: { message: "凯", method: this.karin },
+        figrim: { message: "菲", method: this.figrim },
+        titus: { message: "提", method: this.titus },
+      },
       operations: [
-        { icon: "arrow-counterclockwise", method: this.undo },
-        { icon: "arrow-clockwise", method: this.redo },
+        { icon: "x-lg", method: this.discard },
+        { icon: "check-lg", method: this.apply },
       ],
       message: {
         Start: "开始",
-        Brand: "四季物语",
+        Brand: "《四季物语》助手",
       },
+      guides: [
+        { type: "success", icon: "arrow-left", message: "返回上一回合" },
+        { type: "success", icon: "dice-6", message: "进行下一回合" },
+        { type: "success", icon: "arrow-right", message: "前往下一回合" },
+        { type: "success", icon: "graph-up", message: "查看数据图表" },
+        { type: "success", icon: "arrow-repeat", message: "重新开始游戏" },
+        {
+          type: "primary",
+          icon: "x-lg",
+          message: "取消神仆技能",
+        },
+        {
+          type: "primary",
+          icon: "check-lg",
+          message: "应用神仆技能",
+        },
+      ],
     };
   },
-  created() {
-    this.navs.chart = this.modals.chart;
-    this.navs.restart = this.modals.restart;
-    this.computedsHistories = {};
-  },
+  // 计算属性
   computed: {
+    tabs() {
+      return [
+        this.buttons.undo,
+        this.buttons.nextRound,
+        this.buttons.redo,
+        this.modals.chart,
+        this.modals.restart,
+      ];
+    },
     currentColor() {
       // currentEra 从 1 开始
       return (this.currentEra - 1) % this.colors.length;
@@ -87,10 +125,11 @@ const app = Vue.createApp({
     start() {
       for (let color of this.colors) {
         this.crystals[color] = 0;
-        this.computeds[color] = 0;
+        this.stageds[color] = 0;
+        this.effecteds[color] = {};
         // 初始化历史记录
         this.histories[color] = {};
-        this.computedsHistories[color] = [];
+        this.effectedsHistories[color] = [];
         historiesData.datasets.push({
           label: color,
           data: this.histories[color],
@@ -98,24 +137,30 @@ const app = Vue.createApp({
           borderColor: color,
         });
       }
+      // 一切就绪，开始游戏
       this.gaming = true;
+      this.buttons.undo.disabled = true;
+      this.buttons.redo.disabled = true;
+      // 等待 DOM 树渲染完毕
       this.$nextTick(() => {
         historiesChart = new Chart(document.getElementById("historiesChart"), {
           type: "line",
           data: historiesData,
           options: {
-            // 不保持比例
+            // 图表比例设置为可以变化，以填充不同比例的屏幕
             maintainAspectRatio: false,
+            // 关闭精确点击/触摸
             interaction: { intersect: false },
-            // 不显示点
+            // 不显示圆点
             radius: 0,
-            // 贝塞尔曲线
+            // 贝塞尔曲线精度
             tension: 0.1,
+            // 在图表上使用一条竖线显示当前 Era
             scales: {
               x: {
                 grid: {
                   color: (x) => {
-                    // success 的颜色，var(--bs-table-bg)
+                    // #d1e7dd 为 success 的颜色，var(--bs-table-bg)
                     if (x.tick.value + 1 == this.currentEra) return "#d1e7dd";
                     return Chart.borderColor;
                   },
@@ -128,53 +173,52 @@ const app = Vue.createApp({
       });
     },
     restart() {
-      // 等待 DOM 渲染完毕
+      // 等待 DOM 树渲染完毕
       this.$nextTick(() => {
+        // 重置游戏设置
         this.gaming = false;
+        this.showHelp = false;
+        this.buttons.undo.disabled = true;
+        this.buttons.redo.disabled = true;
+        // 重置游戏数据
         this.colors = [];
         this.crystals = {};
-        this.computeds = {};
-
+        this.stageds = {};
+        this.effecteds = {};
+        // 重置历史数据
         this.currentEra = 0;
         this.maxEra = 0;
         this.histories = {};
-
+        this.effectedsHistories = {};
+        // 重置提示
         this.alertID = 0;
         this.alerts = {};
-        // 清空历史图标数据（实际是解绑，使得原对象 GC）
+        // 重置图表数据
         historiesData = { datasets: [] };
         historiesChart.destroy();
         historiesChart = null;
       });
     },
-    // 历史
+    // 上一回合
     undo() {
-      // 取消功能
-      if (this.isSummoned()) {
-        this.discard();
-        return;
-      }
-      // 重置功能
-      let reset = false;
-      for (let color in this.computeds)
-        if (this.computeds[color] != 0) {
-          this.computeds[color] = 0;
-          reset = true;
-        }
-      if (reset) return;
-      // 撤销功能
       // vue 的范围计数从 1 开始，满足它 :)
       if (this.currentEra <= 1) return;
       --this.currentEra;
       for (let color of this.colors)
         this.crystals[color] = this.histories[color][this.currentEra];
+      if (this.currentEra <= 1) this.buttons.undo.disabled = true;
+      if (this.currentEra < this.maxEra) this.buttons.redo.disabled = false;
     },
+    // 下一回合
     redo() {
       if (this.currentEra >= this.maxEra) return;
       ++this.currentEra;
       for (let color of this.colors)
         this.crystals[color] = this.histories[color][this.currentEra];
+      if (this.currentEra > 1) this.buttons.undo.disabled = false;
+      if (this.currentEra >= this.maxEra) this.buttons.redo.disabled = true;
     },
+    // 记录历史
     record() {
       ++this.currentEra;
       for (let color of this.colors)
@@ -185,90 +229,83 @@ const app = Vue.createApp({
           for (let index in this.histories[color])
             if (index > this.maxEra) delete this.histories[color][index];
       } else if (this.currentEra > this.maxEra) ++this.maxEra;
+      if (this.currentEra > 1) this.buttons.undo.disabled = false;
+      else this.buttons.undo.disabled = true;
+      if (this.currentEra < this.maxEra) this.buttons.redo.disabled = false;
+      else this.buttons.redo.disabled = true;
     },
-    // 计算
+    // 重置暂存水晶
     reset(color) {
-      this.computeds[color] = 0;
+      this.stageds[color] = 0;
     },
-    resets() {
-      for (let color in this.computeds) {
-        this.computeds[color] = 0;
-        this.computedsHistories[color] = [];
-      }
+    // 重置所有暂存水晶
+    resetAll() {
+      for (let color of this.colors) this.reset(color);
     },
-    compute(color) {
-      if (this.crystals[color] + this.computeds[color] < 0)
+    // 提交暂存水晶
+    commit(color) {
+      if (this.crystals[color] + this.stageds[color] < 0)
         this.crystals[color] = 0;
-      else this.crystals[color] += this.computeds[color];
-      this.computeds[color] = 0;
+      else this.crystals[color] += this.stageds[color];
+      this.reset(color);
     },
-    computes() {
-      for (let color in this.computeds) {
-        if (this.crystals[color] + this.computeds[color] < 0)
-          this.crystals[color] = 0;
-        else this.crystals[color] += this.computeds[color];
+    // 提交所有暂存水晶
+    commitAll() {
+      for (let color of this.colors) this.commit(color);
+    },
+    // 召唤神仆
+    effect(color, familiar) {
+      this.effectedsHistories[color].push({ ...this.effecteds[color] });
+      if (this.effecteds[color].hasOwnProperty(familiar))
+        this.effecteds[color][familiar] += 1;
+      else this.effecteds[color][familiar] = 1;
+    },
+    // 取消召唤
+    discard(color) {
+      if (this.effectedsHistories[color].length > 0)
+        this.effecteds[color] = this.effectedsHistories[color].pop();
+    },
+    // 应用召唤
+    apply(color) {
+      for (let name in this.effecteds[color]) {
+        for (let i = 0; i < this.effecteds[color][name]; i++)
+          this.familiars[name].method(color);
+        delete this.effecteds[color][name];
       }
-      this.resets();
     },
-    bgComputed(color) {
-      if (this.computeds[color] == 0) return "bg-secondary";
-      else if (this.computeds[color] > 0) return "bg-danger";
-      else return "bg-success";
+    applyAll() {
+      for (let color of this.colors) this.apply(color);
     },
-    btnComputed(color) {
-      if (this.computeds[color] == 0) return "btn-outline-secondary";
-      else if (this.computeds[color] > 0) return "btn-outline-danger";
-      else return "btn-outline-success";
-    },
-    signComputed(color) {
-      if (this.computeds[color] == 0) return ``;
-      else if (this.computeds[color] > 0) return `+${this.computeds[color]}`;
-      else return `${this.computeds[color]}`;
-    },
-    // 神仆
-    isSummoned() {
-      for (let color of this.colors)
-        if (this.computedsHistories[color].length > 0) return true;
-      return false;
-    },
-    summon() {
-      for (let color of this.colors)
-        this.computedsHistories[color].push(this.computeds[color]);
-    },
-    discard() {
-      for (let color of this.colors)
-        this.computeds[color] = this.computedsHistories[color].pop();
-    },
+    // 凯恩
     karin(color) {
-      this.summon();
-      for (let key in this.computeds)
-        if (key != color) this.computeds[key] -= 4;
+      for (let i of this.colors) if (i != color) this.stageds[i] -= 4;
     },
+    // 菲格林
     figrim(color) {
-      this.summon();
-      for (let key in this.computeds)
-        if (this.crystals[key] + this.computeds[key] < 1) continue;
-        else if (key != color) {
-          this.computeds[key] -= 1;
-          this.computeds[color] += 1;
+      for (let i of this.colors)
+        if (this.crystals[i] + this.stageds[i] < 1) continue;
+        else if (i != color) {
+          this.stageds[i] -= 1;
+          this.stageds[color] += 1;
         }
     },
+    // 提图斯
     titus(color) {
-      this.summon();
       let sacrifice = false;
-      for (let key in this.computeds)
-        if (this.crystals[key] + this.computeds[key] < 1) sacrifice = true;
-        else if (key != color) {
-          this.computeds[key] -= 1;
-          this.computeds[color] += 1;
+      for (let i of this.colors)
+        if (this.crystals[i] + this.stageds[i] < 1) sacrifice = true;
+        else if (i != color) {
+          this.stageds[i] -= 1;
+          this.stageds[color] += 1;
         }
       if (sacrifice) this.alert({ message: "提图斯牺牲", type: "danger" });
     },
-    // Alerts 和 Modals
+    // 提示
     alert(what) {
       this.alerts[this.alertID] = { what: what };
       ++this.alertID;
     },
+    // 关闭提示
     closeAlert(alertID) {
       let that = this;
       let element = document.getElementById(`alert-${alertID}`);
@@ -278,15 +315,35 @@ const app = Vue.createApp({
       let alert = bootstrap.Alert.getOrCreateInstance(element);
       alert.close();
     },
+    // 弹窗
     showModal(modalID) {
       let element = document.getElementById(`modal-${modalID}`);
       let modal = bootstrap.Modal.getOrCreateInstance(element);
       modal.show();
     },
+    // 关闭弹窗
     closeModal(modalID) {
       let element = document.getElementById(`modal-${modalID}`);
       let modal = bootstrap.Modal.getOrCreateInstance(element);
       modal.hide();
+    },
+    // 背景颜色
+    bgColor(color) {
+      if (this.stageds[color] == 0) return "secondary";
+      else if (this.stageds[color] > 0) return "danger";
+      else return "success";
+    },
+    // 按钮颜色
+    btnColor(color) {
+      if (this.stageds[color] == 0) return "secondary";
+      else if (this.stageds[color] > 0) return "danger";
+      else return "success";
+    },
+    // 有符号的暂存水晶
+    signedStage(color) {
+      if (this.stageds[color] == 0) return ``;
+      else if (this.stageds[color] > 0) return `+${this.stageds[color]}`;
+      else return `${this.stageds[color]}`;
     },
   },
 });
