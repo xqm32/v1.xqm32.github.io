@@ -1127,7 +1127,74 @@ $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 }
 &lt;/script>&lt;blockquote>
 &lt;/blockquote></description></item><item><title>LeetCode</title><link>https://xqm32.github.io/leetcode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/leetcode/</guid><description>&lt;p>&lt;strong>力扣每日一水&lt;/strong>&lt;/p>
-&lt;h2 id="2022414">2022.4.14&lt;/h2>
+&lt;h2 id="2022415">2022.4.15&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python3" data-lang="python3">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># @lc app=leetcode.cn id=125 lang=python3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># [125] 验证回文串&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">fire&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># @lc code=start&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Solution&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">isPalindrome&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">s&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">bool&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">j&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">while&lt;/span> &lt;span class="kc">True&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">while&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">s&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">isalnum&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">i&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">while&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">s&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">j&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">isalnum&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="n">j&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">j&lt;/span> &lt;span class="o">-=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="n">j&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">s&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">s&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">j&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">lower&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">False&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">i&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">j&lt;/span> &lt;span class="o">-=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># @lc code=end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">func&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">isPalindrome&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">fire&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Fire&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Solution&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="2022414">2022.4.14&lt;/h2>
 &lt;p>简单题。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -2910,7 +2977,7 @@ $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="2022321">2022.3.21&lt;/h2>
-&lt;p>T53 最大子数组和，看到个大佬🐂解（https://leetcode-cn.com/problems/maximum-subarray/comments/39601）&lt;/p>
+&lt;p>T53 最大子数组和，看到个大佬 🐂 解（https://leetcode-cn.com/problems/maximum-subarray/comments/39601）&lt;/p>
 &lt;hr>
 &lt;p>一次 AC，但是也太暴力了吧？&lt;/p>
 &lt;ul>
@@ -3160,7 +3227,7 @@ $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="2022318">2022.3.18&lt;/h2>
-&lt;p>两次 AC，看评论有了点思路，居然是暴力解😓。&lt;/p>
+&lt;p>两次 AC，看评论有了点思路，居然是暴力解 😓。&lt;/p>
 &lt;ul>
 &lt;li>&lt;input disabled="" type="checkbox"> 看题解&lt;/li>
 &lt;/ul>
@@ -3907,7 +3974,7 @@ $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="202238">2022.3.8&lt;/h2>
-&lt;p>我太菜了，做了三个半小时😭&lt;/p>
+&lt;p>我太菜了，做了三个半小时 😭&lt;/p>
 &lt;p>重点是不要遍历，在下面的代码里就用了 &lt;code>set()&lt;/code> 来减少遍历。&lt;/p>
 &lt;p>代码原理请把注释去除在运行即可显示。&lt;/p>
 &lt;ul>
@@ -4506,159 +4573,7 @@ document.getElementById("rest").innerHTML = words;
 historyWords.push(words);
 nowWords += 1
 }
-&lt;/script></description></item><item><title>代码</title><link>https://xqm32.github.io/zcst/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/zcst/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">base64&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">a&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;6508b291b7172cadc9987137f8683f67&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">ord&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">e&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">ord&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">f&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">)):&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">f&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="mi">255&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">e&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">255&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">d&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">32&lt;/span>&lt;span class="p">]))&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">g&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">f&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">base64&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">b64encode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;UTF-8&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">decode&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.2/base64.min.js">&lt;/script>
-&lt;script type="module"src="https://cdn.jsdelivr.net/npm/url-js@2.0.0-u/dist/url.min.js">
-import URLJS from 'url-js';
-&lt;/script>
-&lt;p>&lt;button onClick="getURL()">加密：&lt;/button> &lt;input id="url"/>
-&lt;br/>
-&lt;button onClick="clearResult()">结果：&lt;/button> &lt;span id="result">&lt;/span>&lt;/p>
-&lt;script>
-// 加密
-function ent(content) {
-md5 = "6508b291b7172cadc9987137f8683f67";
-R = [];
-for (i = 0; i &lt; content.length; ++i) {
-C = content.charCodeAt(i);
-M = md5.charCodeAt(i % 32);
-R.push(C + M);
-}
-R = "." + R.join(".");
-return Base64.encode(R);
-}
-function getURL() {
-url = document.getElementById("url").value;
-switch (url) {
-case "bing":
-url = "https://www.bing.com";
-break;
-case "baidu":
-url = "https://www.baidu.com";
-break;
-case "cnki":
-url = "https://www.cnki.net";
-}
-protocol = URLJS.parseUrl(url, "protocol");
-protocol = protocol ? protocol.substring(0, protocol.length - 1) : "https";
-hostname = URLJS.parseUrl(url, "hostname");
-hostname = hostname ? hostname : "www.bing.com";
-pathname = URLJS.parseUrl(url, "pathname");
-pathname = pathname ? pathname : "/";
-search = URLJS.parseUrl(url, "search");
-search = search ? search : "";
-document.getElementById(
-"result"
-).innerHTML = `&lt;a href='https://vpn.zcst.edu.cn/webvpn/${ent(
-protocol
-)}/${ent(hostname)}${pathname}${search}'>${url ? url : "Search"}&lt;/a>`;
-}
-function clearResult() {
-document.getElementById("result").innerHTML = "";
-}
-&lt;/script></description></item><item><title>友链</title><link>https://xqm32.github.io/%E5%8F%8B%E9%93%BE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/%E5%8F%8B%E9%93%BE/</guid><description>&lt;h1 id="朋友们">朋友们&lt;/h1>
-&lt;p>👦 可爱的 &lt;a class="link" href="https://redcontritio.github.io/" target="_blank" rel="noopener"
->&lt;font color=pink>RedContritio&lt;/font>&lt;/a> 酱&lt;/p>
-&lt;p>🐂 神犇 &lt;a class="link" href="http://ykgsmudq.com/" target="_blank" rel="noopener"
->YKgsmUDq&lt;/a>&lt;/p>
-&lt;p>⚓ 串串儿 &lt;a class="link" href="https://blog.inko.lv/" target="_blank" rel="noopener"
->&lt;font color=lightblue>Inko&lt;/font>&lt;/a>&lt;/p></description></item><item><title>归档</title><link>https://xqm32.github.io/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/archives/</guid><description/></item><item><title>我的收藏夹</title><link>https://xqm32.github.io/collections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/collections/</guid><description>&lt;h1 id="软件">软件&lt;/h1>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.7-zip.org/" target="_blank" rel="noopener"
->7-Zip&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.voidtools.com/zh-cn/" target="_blank" rel="noopener"
->Everything&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.sumatrapdfreader.org/free-pdf-reader" target="_blank" rel="noopener"
->Sumatra PDF&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://support.apple.com/zh-cn/icloud" target="_blank" rel="noopener"
->iCloud&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.apple.com.cn/itunes/" target="_blank" rel="noopener"
->iTunes&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
->Git&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
->Visual Studio Code&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://marktext.app/" target="_blank" rel="noopener"
->Mark Text&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://im.qq.com/pcqq" target="_blank" rel="noopener"
->QQ&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://pc.weixin.qq.com/" target="_blank" rel="noopener"
->Wechat&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.minecraft.net/zh-hans" target="_blank" rel="noopener"
->Minecraft&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;h1 id="开发">开发&lt;/h1>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/" target="_blank" rel="noopener"
->适用于 Linux 的 Windows 子系统文档&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/index.html" target="_blank" rel="noopener"
->The Java™ Tutorials&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/index.html" target="_blank" rel="noopener"
->Java SE 17 &amp;amp; JDK 17&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.oracle.com/cn/java/technologies/documentation/whitepapers-jsp.html" target="_blank" rel="noopener"
->Java SE 参考资料&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank" rel="noopener"
->JavaScript | MDN&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol></description></item><item><title>搜索</title><link>https://xqm32.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/search/</guid><description/></item><item><title>笔记</title><link>https://xqm32.github.io/notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/notes/</guid><description>&lt;p>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。&lt;/p>
+&lt;/script></description></item><item><title>笔记</title><link>https://xqm32.github.io/notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/notes/</guid><description>&lt;p>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。&lt;/p>
 &lt;h1 id="配置">配置&lt;/h1>
 &lt;h2 id="npm-镜像设置">&lt;code>npm&lt;/code> 镜像设置&lt;/h2>
 &lt;p>&lt;a class="link" href="https://mirrors.tencent.com/help/npm.html" target="_blank" rel="noopener"
@@ -4928,4 +4843,156 @@ document.getElementById("result").innerHTML = "";
 2022.2.27 隔离第二天😅
 2022.2.28 被隔离第三天😅
 2022.3.3 今天怕是要露宿街头了😅
---></description></item></channel></rss>
+--></description></item><item><title>代码</title><link>https://xqm32.github.io/zcst/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/zcst/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">base64&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">a&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;6508b291b7172cadc9987137f8683f67&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">ord&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">e&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">ord&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">f&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">)):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">f&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="mi">255&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">e&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">255&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">d&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">32&lt;/span>&lt;span class="p">]))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">g&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">f&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">base64&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">b64encode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;UTF-8&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">decode&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.2/base64.min.js">&lt;/script>
+&lt;script type="module"src="https://cdn.jsdelivr.net/npm/url-js@2.0.0-u/dist/url.min.js">
+import URLJS from 'url-js';
+&lt;/script>
+&lt;p>&lt;button onClick="getURL()">加密：&lt;/button> &lt;input id="url"/>
+&lt;br/>
+&lt;button onClick="clearResult()">结果：&lt;/button> &lt;span id="result">&lt;/span>&lt;/p>
+&lt;script>
+// 加密
+function ent(content) {
+md5 = "6508b291b7172cadc9987137f8683f67";
+R = [];
+for (i = 0; i &lt; content.length; ++i) {
+C = content.charCodeAt(i);
+M = md5.charCodeAt(i % 32);
+R.push(C + M);
+}
+R = "." + R.join(".");
+return Base64.encode(R);
+}
+function getURL() {
+url = document.getElementById("url").value;
+switch (url) {
+case "bing":
+url = "https://www.bing.com";
+break;
+case "baidu":
+url = "https://www.baidu.com";
+break;
+case "cnki":
+url = "https://www.cnki.net";
+}
+protocol = URLJS.parseUrl(url, "protocol");
+protocol = protocol ? protocol.substring(0, protocol.length - 1) : "https";
+hostname = URLJS.parseUrl(url, "hostname");
+hostname = hostname ? hostname : "www.bing.com";
+pathname = URLJS.parseUrl(url, "pathname");
+pathname = pathname ? pathname : "/";
+search = URLJS.parseUrl(url, "search");
+search = search ? search : "";
+document.getElementById(
+"result"
+).innerHTML = `&lt;a href='https://vpn.zcst.edu.cn/webvpn/${ent(
+protocol
+)}/${ent(hostname)}${pathname}${search}'>${url ? url : "Search"}&lt;/a>`;
+}
+function clearResult() {
+document.getElementById("result").innerHTML = "";
+}
+&lt;/script></description></item><item><title>归档</title><link>https://xqm32.github.io/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/archives/</guid><description/></item><item><title>搜索</title><link>https://xqm32.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/search/</guid><description/></item><item><title>我的收藏夹</title><link>https://xqm32.github.io/collections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/collections/</guid><description>&lt;h1 id="软件">软件&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.7-zip.org/" target="_blank" rel="noopener"
+>7-Zip&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.voidtools.com/zh-cn/" target="_blank" rel="noopener"
+>Everything&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.sumatrapdfreader.org/free-pdf-reader" target="_blank" rel="noopener"
+>Sumatra PDF&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://support.apple.com/zh-cn/icloud" target="_blank" rel="noopener"
+>iCloud&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.apple.com.cn/itunes/" target="_blank" rel="noopener"
+>iTunes&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
+>Git&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
+>Visual Studio Code&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://marktext.app/" target="_blank" rel="noopener"
+>Mark Text&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://im.qq.com/pcqq" target="_blank" rel="noopener"
+>QQ&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://pc.weixin.qq.com/" target="_blank" rel="noopener"
+>Wechat&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.minecraft.net/zh-hans" target="_blank" rel="noopener"
+>Minecraft&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h1 id="开发">开发&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/" target="_blank" rel="noopener"
+>适用于 Linux 的 Windows 子系统文档&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/index.html" target="_blank" rel="noopener"
+>The Java™ Tutorials&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://docs.oracle.com/en/java/javase/17/docs/api/index.html" target="_blank" rel="noopener"
+>Java SE 17 &amp;amp; JDK 17&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.oracle.com/cn/java/technologies/documentation/whitepapers-jsp.html" target="_blank" rel="noopener"
+>Java SE 参考资料&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank" rel="noopener"
+>JavaScript | MDN&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>友链</title><link>https://xqm32.github.io/%E5%8F%8B%E9%93%BE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/%E5%8F%8B%E9%93%BE/</guid><description>&lt;h1 id="朋友们">朋友们&lt;/h1>
+&lt;p>👦 可爱的 &lt;a class="link" href="https://redcontritio.github.io/" target="_blank" rel="noopener"
+>&lt;font color=pink>RedContritio&lt;/font>&lt;/a> 酱&lt;/p>
+&lt;p>🐂 神犇 &lt;a class="link" href="http://ykgsmudq.com/" target="_blank" rel="noopener"
+>YKgsmUDq&lt;/a>&lt;/p>
+&lt;p>⚓ 串串儿 &lt;a class="link" href="https://blog.inko.lv/" target="_blank" rel="noopener"
+>&lt;font color=lightblue>Inko&lt;/font>&lt;/a>&lt;/p></description></item></channel></rss>
