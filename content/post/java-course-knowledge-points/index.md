@@ -8,7 +8,7 @@ draft: false
 
 **注意：本文是合肥工业大学软件工程专业《Java 语言程序设计》课程的知识点总结，基于课程老师给出的知识点总结，笔者不保证内容的准确性，请谨慎参考。**
 
-**若文中存在任何问题或有任何疑问请前往 [Issue](https://github.com/xqm32/xqm32.github.io/issues/new) 页面。**
+**若文中存在任何问题或有任何疑问请在此评论。**
 
 ## [概述](https://docs.oracle.com/javase/tutorial/getStarted/intro/index.html)
 
@@ -62,7 +62,7 @@ draft: false
 
 7. 一份 `Java` 源代码可以包含多个类的定义，但仅能有一个 `public` 修饰的类，且文件名须与此类一致。
 
-   > A class may be declared with the modifier `public`, in which case that class is visible to all classes everywhere. If a class has no modifier (the default, also known as *package-private*), it is visible only within its own package (packages are named groups of related classes — you will learn about them in a later lesson.)
+   > A class may be declared with the modifier `public`, in which case that class is visible to all classes everywhere. If a class has no modifier (the default, also known as _package-private_), it is visible only within its own package (packages are named groups of related classes — you will learn about them in a later lesson.)
 
 8. `Java` 的编译器：`javac`，解释器：`java`。
 
@@ -88,7 +88,7 @@ draft: false
 
     [`Java` 的原始数据类型](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)（`byte`、`short`、`int`、`long`、`float`、`double`、`boolean`、`char`）、[`Java` 的数组](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html)、[`Java` 的类](https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html)、[`Java` 的接口](https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html)、[`Java` 的枚举类型](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)；
 
-    `Java` 的原始数据类型使用值传递，`Java` 的复杂数据类型使用地址传递（* 笔者的理解是因为内存的占用，值传递和地址传递占用的内存大致相同）。
+    `Java` 的原始数据类型使用值传递，`Java` 的复杂数据类型使用地址传递（\* 笔者的理解是因为内存的占用，值传递和地址传递占用的内存大致相同）。
 
 13. `Java` 中的 `char` 类型使用 `2` 字节的 `Unicode` 编码。
 
@@ -130,7 +130,7 @@ draft: false
 
     **注意**：构造方法不是成员。
 
-    > A subclass inherits all the *members* (fields, methods, and nested classes) from its superclass. **Constructors are not members**, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.
+    > A subclass inherits all the _members_ (fields, methods, and nested classes) from its superclass. **Constructors are not members**, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.
 
 24. [访问控制](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html)：
 
@@ -141,7 +141,7 @@ draft: false
     | no modifier | Y     | Y       | N        | N     |
     | `private`   | Y     | N       | N        | N     |
 
-    （* 没有修饰符表示包内私有（package-private））
+    （\* 没有修饰符表示包内私有（package-private））
 
 25. [继承](https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html)：
 
@@ -171,7 +171,7 @@ draft: false
 
 29. [多态（polymorphism）](https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html)：运行时多态、编译时多态。
 
-    > The Java virtual machine (JVM) calls the appropriate method for the object that is referred to in each variable. It does not call the method that is defined by the variable's type. This behavior is referred to as *virtual method invocation* and demonstrates an aspect of the important polymorphism features in the Java language.
+    > The Java virtual machine (JVM) calls the appropriate method for the object that is referred to in each variable. It does not call the method that is defined by the variable's type. This behavior is referred to as _virtual method invocation_ and demonstrates an aspect of the important polymorphism features in the Java language.
 
 30. 运行时多态的两个前提：① 上溯造型；② 方法重写。
 
@@ -186,10 +186,10 @@ draft: false
 ## [抽象](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html)
 
 32. [抽象（`abstract` 关键字）](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html)，可以修饰类和方法，也可修饰接口，但那是不必要的（unnecessary）。
-33. 抽象类：`abstract` 关键字修饰的类，**不能实例化**（* 但不代表不能有一个抽象类型的变量）。
+33. 抽象类：`abstract` 关键字修饰的类，**不能实例化**（\* 但不代表不能有一个抽象类型的变量）。
 34. 抽象方法：`abstract` 关键字修饰的方法，**没有实现**。
 35. 抽象类中有**任意数量**的抽象方法和**任意数量**的非抽象方法。
-36. 非抽象方法可以调用抽象方法（只有 `abstract` 关键字修饰的类拥有抽象方法）（* 由于实例必然是一个非抽象类，调用的抽象方法将一定被实现）。
+36. 非抽象方法可以调用抽象方法（只有 `abstract` 关键字修饰的类拥有抽象方法）（\* 由于实例必然是一个非抽象类，调用的抽象方法将一定被实现）。
 37. 非抽象子类应当实现继承的抽象父类的所有抽象方法和抽象父类的未实现的接口（只有 `abstract` 关键字修饰的类拥有抽象方法）。
 38. 抽象类存在的必要性：通过抽象方法规定子类必须完成的方法（动作）。
 
@@ -203,13 +203,13 @@ draft: false
 
 41. 一个类可以实现**多个**接口，接口也可以实现接口。
 
-42. 非抽象类应当实现接口的**所有方法**（* 可以理解为抽象只存在于抽象中，实际上 `default` 关键字修饰的无需实现）。
+42. 非抽象类应当实现接口的**所有方法**（\* 可以理解为抽象只存在于抽象中，实际上 `default` 关键字修饰的无需实现）。
 
 ## [内部类](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)
 
 **注意**：内部类（inner class）**不是**静态嵌套类（static nested class）
 
-① 内部类不能有 `static` 修饰的成员（属性、方法）（* 存疑，编译时无问题，但 Java Tutorial 明确说明）。
+① 内部类不能有 `static` 修饰的成员（属性、方法）（\* 存疑，编译时无问题，但 Java Tutorial 明确说明）。
 
 > As with instance methods and variables, an inner class is associated with an instance of its enclosing class and has direct access to that object's methods and fields. Also, because an inner class is associated with an instance, it cannot define any static members itself.
 
@@ -314,7 +314,7 @@ draft: false
 
 64. [`URL` 类](https://docs.oracle.com/javase/tutorial/networking/urls/index.html)，[`URL` 类的 `API`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html)：
 
-    [`URL::openStream` 方法](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html#openStream())：返回一个字节输入流（`InputStream`）。
+    [`URL::openStream` 方法](<https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html#openStream()>)：返回一个字节输入流（`InputStream`）。
 
 65. [`Socket` 类通信](https://docs.oracle.com/javase/tutorial/networking/sockets/definition.html)，[`Socket` 类的 `API`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/Socket.html)，[`ServerSocket` 类的 `API`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/ServerSocket.html)。
 
@@ -342,7 +342,7 @@ draft: false
 
     > A functional interface is any interface that contains only one [abstract method](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html). (A functional interface may contain one or more [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html) or [static methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html#static).) Because a functional interface contains only one abstract method, you can omit the name of that method when you implement it.
 
-    语法：`() -> {}`（* 亦可使用简写）；
+    语法：`() -> {}`（\* 亦可使用简写）；
 
 72. [`InputStream` 字节输入流](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html)、[`OutputStream` 字节输出流](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html)的一些方法：
 
