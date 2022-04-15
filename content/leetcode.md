@@ -5,6 +5,41 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.15
+
+```python3
+#
+# @lc app=leetcode.cn id=125 lang=python3
+#
+# [125] 验证回文串
+#
+import fire
+
+# @lc code=start
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        i = 0
+        j = len(s) - 1
+        while True:
+            while not s[i].isalnum() and i < len(s) - 1:
+                i += 1
+            while not s[j].isalnum() and j > 0:
+                j -= 1
+            if i >= j:
+                return True
+            if s[i].lower() != s[j].lower():
+                return False
+            else:
+                i += 1
+                j -= 1
+
+    # @lc code=end
+    func = isPalindrome
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.14
 
 简单题。
@@ -573,7 +608,7 @@ fire.Fire(Solution)
 
 题解全都是暴力解......
 
-- [X] 看题解
+- [x] 看题解
 
 ```python3
 #
@@ -703,7 +738,7 @@ fire.Fire(Solution)
 
 看评论学到了线性复杂度不用额外空间的算法。
 
-- [X] 看题解
+- [x] 看题解
 
 ```python3
 #
@@ -813,7 +848,7 @@ fire.Fire(Solution)
 
 参考题解（https://leetcode-cn.com/problems/maximum-length-of-subarray-with-positive-product/solution/15-by-leetcode-wei-2iqi/）
 
-- [X] 看题解
+- [x] 看题解
 
 ```python3
 #
@@ -869,7 +904,7 @@ fire.Fire(Solution)
 
 参考题解（https://leetcode-cn.com/problems/maximum-product-subarray/solution/hua-jie-suan-fa-152-cheng-ji-zui-da-zi-xu-lie-by-g/）
 
-- [X] 看题解
+- [x] 看题解
 
 ```python3
 #
@@ -907,7 +942,7 @@ fire.Fire(Solution)
 
 参考题解解出来的（https://leetcode-cn.com/problems/maximum-sum-circular-subarray/solution/wo-hua-yi-bian-jiu-kan-dong-de-ti-jie-ni-892u/）
 
-- [X] 看题解
+- [x] 看题解
 
 ```python3
 #
@@ -947,7 +982,7 @@ fire.Fire(Solution)
 
 解是解出来了，没搞明白为什么。
 
-- [X] 看题解
+- [x] 看题解
 
 ```python3
 #
@@ -978,7 +1013,7 @@ fire.Fire(Solution)
 
 ## 2022.3.21
 
-T53 最大子数组和，看到个大佬🐂解（https://leetcode-cn.com/problems/maximum-subarray/comments/39601）
+T53 最大子数组和，看到个大佬 🐂 解（https://leetcode-cn.com/problems/maximum-subarray/comments/39601）
 
 ---
 
@@ -1118,7 +1153,7 @@ fire.Fire(Solution)
 
 ## 2022.3.18
 
-两次 AC，看评论有了点思路，居然是暴力解😓。
+两次 AC，看评论有了点思路，居然是暴力解 😓。
 
 - [ ] 看题解
 
@@ -1384,7 +1419,7 @@ fire.Fire(Solution)
 
 滑动窗口 + 动态规划，今天忙写个简单的。
 
-- [X] 看题解
+- [x] 看题解
 
 ```python3
 #
@@ -1414,7 +1449,7 @@ fire.Fire(Solution)
 
 动态规划。
 
-- [X] 看题解
+- [x] 看题解
 
 ```python3
 #
@@ -1449,8 +1484,8 @@ fire.Fire(Solution)
 
 妙啊，太妙了！
 
-- [X] 看题解
-  
+- [x] 看题解
+
 ```python3
 #
 # @lc app=leetcode.cn id=1109 lang=python3
@@ -1528,7 +1563,7 @@ fire.Fire(Solution)
 
 ## 2022.3.8
 
-我太菜了，做了三个半小时😭
+我太菜了，做了三个半小时 😭
 
 重点是不要遍历，在下面的代码里就用了 `set()` 来减少遍历。
 
