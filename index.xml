@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qiming's Blog</title><link>https://xqm32.github.io/</link><description>Recent content on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Jan 2022 20:36:22 +0800</lastBuildDate><atom:link href="https://xqm32.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.github.io/p/%E4%B8%BA-hugo-%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5-gitalk/</link><pubDate>Sun, 09 Jan 2022 20:36:22 +0800</pubDate><guid>https://xqm32.github.io/p/%E4%B8%BA-hugo-%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5-gitalk/</guid><description>&lt;p>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 &lt;code>Gitalk&lt;/code> 搭建博客评论区显然是一个不错的选择。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qiming's Blog</title><link>https://xqm32.org/</link><description>Recent content on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Jan 2022 20:36:22 +0800</lastBuildDate><atom:link href="https://xqm32.org/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.org/p/%E4%B8%BA-hugo-%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5-gitalk/</link><pubDate>Sun, 09 Jan 2022 20:36:22 +0800</pubDate><guid>https://xqm32.org/p/%E4%B8%BA-hugo-%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5-gitalk/</guid><description>&lt;p>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 &lt;code>Gitalk&lt;/code> 搭建博客评论区显然是一个不错的选择。&lt;/p>
 &lt;h1 id="加入-gitalk-的方法">加入 Gitalk 的方法&lt;/h1>
 &lt;p>这里以 &lt;code>PaperMod&lt;/code> 主题为例子，理论上也适用于其他主题，具体还请查阅所用主题的相关文档。&lt;/p>
 &lt;p>&lt;a class="link" href="https://github.com/adityatelange/hugo-PaperMod/wiki/Features#comments" target="_blank" rel="noopener"
@@ -45,7 +45,7 @@
 &lt;/div>
 &lt;/div>&lt;p>注意：这里的 &lt;code>clientID&lt;/code> 等内容请参考&lt;a class="link" href="https://github.com/gitalk/gitalk#Usage" target="_blank" rel="noopener"
 >文档中 Usage&lt;/a> 进行申请。&lt;/p>
-&lt;p>此外，还应在 &lt;code>config.yml&lt;/code> 中的 &lt;code>params&lt;/code> 项下加入 &lt;code>comments: true&lt;/code> 以使得评论系统生效。&lt;/p></description></item><item><title>WSL - VS Code 开发流配置</title><link>https://xqm32.github.io/p/wsl-vs-code-%E5%BC%80%E5%8F%91%E6%B5%81%E9%85%8D%E7%BD%AE/</link><pubDate>Sun, 28 Nov 2021 19:15:16 +0800</pubDate><guid>https://xqm32.github.io/p/wsl-vs-code-%E5%BC%80%E5%8F%91%E6%B5%81%E9%85%8D%E7%BD%AE/</guid><description>&lt;p>此前笔者已经写过一篇配置 &lt;code>WSL - VS Code&lt;/code> 开发流配置相关的文章，然而微软给出了&lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install" target="_blank" rel="noopener"
+&lt;p>此外，还应在 &lt;code>config.yml&lt;/code> 中的 &lt;code>params&lt;/code> 项下加入 &lt;code>comments: true&lt;/code> 以使得评论系统生效。&lt;/p></description></item><item><title>WSL - VS Code 开发流配置</title><link>https://xqm32.org/p/wsl-vs-code-%E5%BC%80%E5%8F%91%E6%B5%81%E9%85%8D%E7%BD%AE/</link><pubDate>Sun, 28 Nov 2021 19:15:16 +0800</pubDate><guid>https://xqm32.org/p/wsl-vs-code-%E5%BC%80%E5%8F%91%E6%B5%81%E9%85%8D%E7%BD%AE/</guid><description>&lt;p>此前笔者已经写过一篇配置 &lt;code>WSL - VS Code&lt;/code> 开发流配置相关的文章，然而微软给出了&lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install" target="_blank" rel="noopener"
 >更加方便地配置方法&lt;/a>，所以这里也给出配置的优化。&lt;/p>
 &lt;h1 id="安装-wsl">安装 WSL&lt;/h1>
 &lt;p>由于微软的优化，现在我们只需要在 &lt;code>Powershell&lt;/code> 中输入：&lt;/p>
@@ -84,7 +84,7 @@
 &lt;/div>
 &lt;/div>&lt;p>即可更新。&lt;/p>
 &lt;h1 id="其他">其他&lt;/h1>
-&lt;p>余下的步骤可以参考笔者&lt;a class="link" href="https://xqm32.github.io/posts/wsl-vscode-for-c-cpp/#%e5%9c%a8-wsl-%e4%b8%8a%e5%ae%89%e8%a3%85-cc-%e7%9a%84%e7%bc%96%e8%af%91%e5%99%a8" >之前的文章&lt;/a>。&lt;/p></description></item><item><title>三阶魔方层先法还原教程</title><link>https://xqm32.github.io/p/%E4%B8%89%E9%98%B6%E9%AD%94%E6%96%B9%E5%B1%82%E5%85%88%E6%B3%95%E8%BF%98%E5%8E%9F%E6%95%99%E7%A8%8B/</link><pubDate>Sun, 21 Nov 2021 19:51:02 +0800</pubDate><guid>https://xqm32.github.io/p/%E4%B8%89%E9%98%B6%E9%AD%94%E6%96%B9%E5%B1%82%E5%85%88%E6%B3%95%E8%BF%98%E5%8E%9F%E6%95%99%E7%A8%8B/</guid><description>&lt;p>笔者编写此文的本意是为了记录和索引公式。其内容源于笔者经验，不免有所疏漏，还请读者于评论区指出。&lt;/p>
+&lt;p>余下的步骤可以参考笔者&lt;a class="link" href="https://xqm32.org/posts/wsl-vscode-for-c-cpp/#%e5%9c%a8-wsl-%e4%b8%8a%e5%ae%89%e8%a3%85-cc-%e7%9a%84%e7%bc%96%e8%af%91%e5%99%a8" >之前的文章&lt;/a>。&lt;/p></description></item><item><title>三阶魔方层先法还原教程</title><link>https://xqm32.org/p/%E4%B8%89%E9%98%B6%E9%AD%94%E6%96%B9%E5%B1%82%E5%85%88%E6%B3%95%E8%BF%98%E5%8E%9F%E6%95%99%E7%A8%8B/</link><pubDate>Sun, 21 Nov 2021 19:51:02 +0800</pubDate><guid>https://xqm32.org/p/%E4%B8%89%E9%98%B6%E9%AD%94%E6%96%B9%E5%B1%82%E5%85%88%E6%B3%95%E8%BF%98%E5%8E%9F%E6%95%99%E7%A8%8B/</guid><description>&lt;p>笔者编写此文的本意是为了记录和索引公式。其内容源于笔者经验，不免有所疏漏，还请读者于评论区指出。&lt;/p>
 &lt;p>&lt;strong>笔者希望记忆方便，故本文主要使用汉字式公式，为确保无歧义，亦附有字母式公式作为参考。&lt;/strong>&lt;/p>
 &lt;h1 id="公式索引">公式索引&lt;/h1>
 &lt;p>必须掌握的公式将&lt;strong>加粗&lt;/strong>表示，不常用的公式将以&lt;font color=gray>灰色&lt;/font>表示。&lt;/p>
@@ -119,7 +119,7 @@
 >GAN 魔方的层先法教程&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/42183224" target="_blank" rel="noopener"
 >最简单的三阶魔方入门教程&lt;/a>&lt;/li>
-&lt;/ol></description></item><item><title>Java 课程知识点总结</title><link>https://xqm32.github.io/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 14 Nov 2021 17:34:20 +0800</pubDate><guid>https://xqm32.github.io/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</guid><description>&lt;p>&lt;strong>注意：本文是合肥工业大学软件工程专业《Java 语言程序设计》课程的知识点总结，基于课程老师给出的知识点总结，笔者不保证内容的准确性，请谨慎参考。&lt;/strong>&lt;/p>
+&lt;/ol></description></item><item><title>Java 课程知识点总结</title><link>https://xqm32.org/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 14 Nov 2021 17:34:20 +0800</pubDate><guid>https://xqm32.org/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</guid><description>&lt;p>&lt;strong>注意：本文是合肥工业大学软件工程专业《Java 语言程序设计》课程的知识点总结，基于课程老师给出的知识点总结，笔者不保证内容的准确性，请谨慎参考。&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>若文中存在任何问题或有任何疑问请在此评论。&lt;/strong>&lt;/p>
 &lt;h2 id="概述httpsdocsoraclecomjavasetutorialgetstartedintroindexhtml">&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/getStarted/intro/index.html" target="_blank" rel="noopener"
 >概述&lt;/a>&lt;/h2>
@@ -156,10 +156,10 @@
 &lt;li>
 &lt;p>&lt;a class="link" href="https://www.oracle.com/cn/java/technologies/documentation/whitepapers-jsp.html" target="_blank" rel="noopener"
 >&lt;code>JVM&lt;/code>、&lt;code>JRE&lt;/code>、&lt;code>JDK&lt;/code> 的区别与联系&lt;/a>：&lt;/p>
-&lt;p>&lt;img src="https://xqm32.github.io/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/java-se-platform.webp"
+&lt;p>&lt;img src="https://xqm32.org/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/java-se-platform.webp"
 width="692"
 height="506"
-srcset="https://xqm32.github.io/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/java-se-platform_hu0a3439eaa5fc80799c056006cbd6ec01_68622_480x0_resize_q75_h2_box_2.webp 480w, https://xqm32.github.io/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/java-se-platform_hu0a3439eaa5fc80799c056006cbd6ec01_68622_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://xqm32.org/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/java-se-platform_hu0a3439eaa5fc80799c056006cbd6ec01_68622_480x0_resize_q75_h2_box_2.webp 480w, https://xqm32.org/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/java-se-platform_hu0a3439eaa5fc80799c056006cbd6ec01_68622_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
 alt="java-se-platform"
 class="gallery-image"
@@ -440,17 +440,17 @@ data-flex-basis="328px"
 &lt;/li>
 &lt;li>
 &lt;p>PPT 中关于异常的图：&lt;/p>
-&lt;p>&lt;img src="https://xqm32.github.io/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/exceptions-jvm.svg"
+&lt;p>&lt;img src="https://xqm32.org/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/exceptions-jvm.svg"
 loading="lazy"
 alt="exceptions-jvm"
 >&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;code>Java&lt;/code> 中的异常类：&lt;/p>
-&lt;p>&lt;img src="https://xqm32.github.io/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/exceptions-throwable.gif"
+&lt;p>&lt;img src="https://xqm32.org/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/exceptions-throwable.gif"
 width="346"
 height="243"
-srcset="https://xqm32.github.io/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/exceptions-throwable_hu65c5dfc5abe6a662fbf6c7937b8d4c3b_12208_480x0_resize_box.gif 480w, https://xqm32.github.io/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/exceptions-throwable_hu65c5dfc5abe6a662fbf6c7937b8d4c3b_12208_1024x0_resize_box.gif 1024w"
+srcset="https://xqm32.org/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/exceptions-throwable_hu65c5dfc5abe6a662fbf6c7937b8d4c3b_12208_480x0_resize_box.gif 480w, https://xqm32.org/p/java-%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/exceptions-throwable_hu65c5dfc5abe6a662fbf6c7937b8d4c3b_12208_1024x0_resize_box.gif 1024w"
 loading="lazy"
 alt="exceptions-throwable"
 class="gallery-image"
@@ -612,7 +612,7 @@ data-flex-basis="341px"
 >Java SE 17 &amp;amp; JDK 17 API Specification&lt;/a>；&lt;/li>
 &lt;li>&lt;a class="link" href="https://docs.oracle.com/javase/tutorial/index.html" target="_blank" rel="noopener"
 >The Java Tutorials&lt;/a>。&lt;/li>
-&lt;/ol></description></item><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>https://xqm32.github.io/p/%E4%BD%BF%E7%94%A8-wsl-%E5%92%8C-vs-code-%E9%85%8D%E7%BD%AE-c/c-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link><pubDate>Mon, 13 Sep 2021 19:03:23 +0800</pubDate><guid>https://xqm32.github.io/p/%E4%BD%BF%E7%94%A8-wsl-%E5%92%8C-vs-code-%E9%85%8D%E7%BD%AE-c/c-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid><description>&lt;p>&lt;font color=red>此文章已经过时，请参考微软给出的更新的教程 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener"
+&lt;/ol></description></item><item><title>使用 WSL 和 VS Code 配置 C/C++ 开发环境</title><link>https://xqm32.org/p/%E4%BD%BF%E7%94%A8-wsl-%E5%92%8C-vs-code-%E9%85%8D%E7%BD%AE-c/c-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link><pubDate>Mon, 13 Sep 2021 19:03:23 +0800</pubDate><guid>https://xqm32.org/p/%E4%BD%BF%E7%94%A8-wsl-%E5%92%8C-vs-code-%E9%85%8D%E7%BD%AE-c/c-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid><description>&lt;p>&lt;font color=red>此文章已经过时，请参考微软给出的更新的教程 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener"
 >&lt;font color=red>安装 WSL&lt;/font>&lt;/a>&lt;/font>&lt;/p>
 &lt;p>本教程基于 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener"
 >在 Windows 10 上安装 WSL&lt;/a> 和 &lt;a class="link" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode" target="_blank" rel="noopener"
@@ -754,7 +754,7 @@ data-flex-basis="341px"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>若要重新编译源文件，请使用 &lt;code>rm&lt;/code> 命令，删除 &lt;code>a.out&lt;/code> 文件，并再次执行编译命令。&lt;/p>
-&lt;p>若要了解其他 &lt;code>gcc&lt;/code> 命令的使用方法，请执行命令 &lt;code>man gcc&lt;/code> 或 &lt;code>gcc --help&lt;/code>。更多 Linux 常用命令请自行于网络上搜索。&lt;/p></description></item><item><title>C 语言实现字符串切片</title><link>https://xqm32.github.io/p/c-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E7%89%87/</link><pubDate>Sat, 04 Sep 2021 16:33:50 +0800</pubDate><guid>https://xqm32.github.io/p/c-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E7%89%87/</guid><description>&lt;p>搬运一篇笔者在知乎发的文章：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/56543803" target="_blank" rel="noopener"
+&lt;p>若要了解其他 &lt;code>gcc&lt;/code> 命令的使用方法，请执行命令 &lt;code>man gcc&lt;/code> 或 &lt;code>gcc --help&lt;/code>。更多 Linux 常用命令请自行于网络上搜索。&lt;/p></description></item><item><title>C 语言实现字符串切片</title><link>https://xqm32.org/p/c-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E7%89%87/</link><pubDate>Sat, 04 Sep 2021 16:33:50 +0800</pubDate><guid>https://xqm32.org/p/c-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E7%89%87/</guid><description>&lt;p>搬运一篇笔者在知乎发的文章：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/56543803" target="_blank" rel="noopener"
 >C 语言实现字符串切片&lt;/a>&lt;/p>
 &lt;p>基于 Python 的切片的格式实现的 C 语言字符串切片：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -1020,7 +1020,7 @@ data-flex-basis="341px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[无输出]
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>使用 Github Actions 自动化部署 Hugo 博客</title><link>https://xqm32.github.io/p/%E4%BD%BF%E7%94%A8-github-actions-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-hugo-%E5%8D%9A%E5%AE%A2/</link><pubDate>Sat, 04 Sep 2021 15:47:24 +0800</pubDate><guid>https://xqm32.github.io/p/%E4%BD%BF%E7%94%A8-github-actions-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-hugo-%E5%8D%9A%E5%AE%A2/</guid><description>&lt;p>笔者一直想有个属于自己的博客，通过在网上不断搜索，笔者发现使用 Hugo 部署至 Github Pages 上是一个不错的选择。但是，这样的部署也有一个缺陷：需要手动生成部署文件，再上传至 Github，这是十分麻烦的。因此笔者又在网上搜索文档、文章，后来了解到，可以使用 Github Actions 进行自动化部署，我们只需要将网站源码推送至 Github 便可以自动化地生成博客网站。不过，虽然在操作上是方便了许多，但如何配置这样的自动化部署似乎依旧是一个复杂的问题。于是笔者继续在网上搜索文档和文章，但大部分都没有给出较为「官方」的解决方案，也很少有参考资料可供加深了解，故而笔者转向寻求 &lt;a class="link" href="https://gohugo.io/documentation/" target="_blank" rel="noopener"
+&lt;/div></description></item><item><title>使用 Github Actions 自动化部署 Hugo 博客</title><link>https://xqm32.org/p/%E4%BD%BF%E7%94%A8-github-actions-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-hugo-%E5%8D%9A%E5%AE%A2/</link><pubDate>Sat, 04 Sep 2021 15:47:24 +0800</pubDate><guid>https://xqm32.org/p/%E4%BD%BF%E7%94%A8-github-actions-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-hugo-%E5%8D%9A%E5%AE%A2/</guid><description>&lt;p>笔者一直想有个属于自己的博客，通过在网上不断搜索，笔者发现使用 Hugo 部署至 Github Pages 上是一个不错的选择。但是，这样的部署也有一个缺陷：需要手动生成部署文件，再上传至 Github，这是十分麻烦的。因此笔者又在网上搜索文档、文章，后来了解到，可以使用 Github Actions 进行自动化部署，我们只需要将网站源码推送至 Github 便可以自动化地生成博客网站。不过，虽然在操作上是方便了许多，但如何配置这样的自动化部署似乎依旧是一个复杂的问题。于是笔者继续在网上搜索文档和文章，但大部分都没有给出较为「官方」的解决方案，也很少有参考资料可供加深了解，故而笔者转向寻求 &lt;a class="link" href="https://gohugo.io/documentation/" target="_blank" rel="noopener"
 >Hugo 文档&lt;/a> 的帮助，最终做到了使用 Github Actions 自动化部署 Hugo 博客。&lt;/p>
 &lt;h3 id="准备工作">准备工作&lt;/h3>
 &lt;p>首先，我们需要创建可以用于部署 Hugo 博客的 Github 仓库，具体的操作可以参考 &lt;a class="link" href="https://docs.github.com/en/pages" target="_blank" rel="noopener"
@@ -1102,7 +1102,7 @@ data-flex-basis="341px"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>之后推送至 Github，并将仓库中 &lt;code>Settings - Pages - Source - Branch&lt;/code> 的设置从 &lt;code>main&lt;/code> 修改至 &lt;code>gh-pages&lt;/code> 并点击 &lt;code>Save&lt;/code> 按钮，即可完成 Github Actions 部署工作。&lt;/p></description></item><item><title>HFUT</title><link>https://xqm32.github.io/hfut/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/hfut/</guid><description>&lt;p>&lt;strong>HFUT Webvpn 跳转&lt;/strong>&lt;/p>
+&lt;/div>&lt;p>之后推送至 Github，并将仓库中 &lt;code>Settings - Pages - Source - Branch&lt;/code> 的设置从 &lt;code>main&lt;/code> 修改至 &lt;code>gh-pages&lt;/code> 并点击 &lt;code>Save&lt;/code> 按钮，即可完成 Github Actions 部署工作。&lt;/p></description></item><item><title>HFUT</title><link>https://xqm32.org/hfut/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/hfut/</guid><description>&lt;p>&lt;strong>HFUT Webvpn 跳转&lt;/strong>&lt;/p>
 &lt;p>&lt;span>提示：&lt;/span> &lt;span id="tips">点击「加密」二字进行加密&lt;/span>
 &lt;br/>
 &lt;button onClick="go()">加密：&lt;/button> &lt;input id="url"/>
@@ -1137,7 +1137,7 @@ $("#aHref").attr("href", "https://webvpn.hfut.edu.cn" + url);
 $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 }
 &lt;/script>&lt;blockquote>
-&lt;/blockquote></description></item><item><title>LeetCode</title><link>https://xqm32.github.io/leetcode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/leetcode/</guid><description>&lt;p>&lt;strong>力扣每日一水&lt;/strong>&lt;/p>
+&lt;/blockquote></description></item><item><title>LeetCode</title><link>https://xqm32.org/leetcode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/leetcode/</guid><description>&lt;p>&lt;strong>力扣每日一水&lt;/strong>&lt;/p>
 &lt;h2 id="2022416">2022.4.16&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -4538,7 +4538,7 @@ $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># @lc code=end&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Wordle</title><link>https://xqm32.github.io/wordle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/wordle/</guid><description>&lt;h1 id="使用说明">使用说明&lt;/h1>
+&lt;/div></description></item><item><title>Wordle</title><link>https://xqm32.org/wordle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/wordle/</guid><description>&lt;h1 id="使用说明">使用说明&lt;/h1>
 &lt;p>点击拉取：拉取所有单词&lt;/p>
 &lt;p>点击剩余：计算剩余单词&lt;/p>
 &lt;p>状态按照颜色 w(white), y(yellow), g(green) 进行填写&lt;/p>
@@ -4635,7 +4635,7 @@ document.getElementById("rest").innerHTML = words;
 historyWords.push(words);
 nowWords += 1
 }
-&lt;/script></description></item><item><title>笔记</title><link>https://xqm32.github.io/notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/notes/</guid><description>&lt;p>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。&lt;/p>
+&lt;/script></description></item><item><title>笔记</title><link>https://xqm32.org/notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/notes/</guid><description>&lt;p>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。&lt;/p>
 &lt;h1 id="配置">配置&lt;/h1>
 &lt;h2 id="npm-镜像设置">&lt;code>npm&lt;/code> 镜像设置&lt;/h2>
 &lt;p>&lt;a class="link" href="https://mirrors.tencent.com/help/npm.html" target="_blank" rel="noopener"
@@ -4868,7 +4868,7 @@ nowWords += 1
 &lt;p>可爱的&lt;font color=pink>莱子酱&lt;/font>写的&lt;a class="link" href="https://redcontritio.github.io/tags/%E7%BC%96%E7%A8%8B%E9%80%9A%E8%A7%A3-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3-%E5%B0%8F%E8%AF%B4/" target="_blank" rel="noopener"
 >《编程通解》&lt;/a>。（咕咕咕）&lt;/p>
 &lt;h2 id="备份">备份&lt;/h2>
-&lt;p>前往&lt;a class="link" href="https://xqm32.github.io/backup" >备份&lt;/a>页面以查看。&lt;/p>
+&lt;p>前往&lt;a class="link" href="https://xqm32.org/backup" >备份&lt;/a>页面以查看。&lt;/p>
 &lt;!--
 # 记录
 2022.1.5 今天水了一个 commit，开心。
@@ -4905,7 +4905,7 @@ nowWords += 1
 2022.2.27 隔离第二天😅
 2022.2.28 被隔离第三天😅
 2022.3.3 今天怕是要露宿街头了😅
---></description></item><item><title>代码</title><link>https://xqm32.github.io/zcst/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/zcst/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+--></description></item><item><title>代码</title><link>https://xqm32.org/zcst/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/zcst/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
@@ -4982,7 +4982,7 @@ protocol
 function clearResult() {
 document.getElementById("result").innerHTML = "";
 }
-&lt;/script></description></item><item><title>归档</title><link>https://xqm32.github.io/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/archives/</guid><description/></item><item><title>搜索</title><link>https://xqm32.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/search/</guid><description/></item><item><title>我的收藏夹</title><link>https://xqm32.github.io/collections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/collections/</guid><description>&lt;h1 id="软件">软件&lt;/h1>
+&lt;/script></description></item><item><title>归档</title><link>https://xqm32.org/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/archives/</guid><description/></item><item><title>搜索</title><link>https://xqm32.org/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/search/</guid><description/></item><item><title>我的收藏夹</title><link>https://xqm32.org/collections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/collections/</guid><description>&lt;h1 id="软件">软件&lt;/h1>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;a class="link" href="https://www.7-zip.org/" target="_blank" rel="noopener"
@@ -5051,7 +5051,7 @@ document.getElementById("result").innerHTML = "";
 &lt;p>&lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank" rel="noopener"
 >JavaScript | MDN&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ol></description></item><item><title>友链</title><link>https://xqm32.github.io/%E5%8F%8B%E9%93%BE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.github.io/%E5%8F%8B%E9%93%BE/</guid><description>&lt;h1 id="朋友们">朋友们&lt;/h1>
+&lt;/ol></description></item><item><title>友链</title><link>https://xqm32.org/%E5%8F%8B%E9%93%BE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/%E5%8F%8B%E9%93%BE/</guid><description>&lt;h1 id="朋友们">朋友们&lt;/h1>
 &lt;p>👦 可爱的 &lt;a class="link" href="https://redcontritio.github.io/" target="_blank" rel="noopener"
 >&lt;font color=pink>RedContritio&lt;/font>&lt;/a> 酱&lt;/p>
 &lt;p>🐂 神犇 &lt;a class="link" href="http://ykgsmudq.com/" target="_blank" rel="noopener"
