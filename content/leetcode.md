@@ -5,6 +5,33 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.16
+
+```python3
+#
+# @lc app=leetcode.cn id=13 lang=python3
+#
+# [13] 罗马数字转整数
+#
+
+import fire
+
+# @lc code=start
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        ans =0
+        roman = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+        s=s.replace("IV", "IIII").replace("IX", "VIIII").replace("XL", "XXXX").replace("XC", "LXXXX").replace("CD", "CCCC").replace("CM", "DCCCC")
+        for i in s:
+            ans += roman[i]
+        return ans
+    # @lc code=end
+    func = romanToInt
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.15
 
 ```python3
