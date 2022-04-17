@@ -5,6 +5,36 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.17
+
+```python3
+#
+# @lc app=leetcode.cn id=819 lang=python3
+#
+# [819] 最常见的单词
+#
+
+from typing import List
+
+import fire
+
+# @lc code=start
+import re
+
+
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        words = re.findall(r"\w+", paragraph.lower())
+        words = {i: words.count(i) for i in words if i not in set(banned)}
+        return max(words, key=lambda x: words[x])
+
+    # @lc code=end
+    func = mostCommonWord
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.16
 
 ```python3
