@@ -41,4 +41,4 @@ sudo apt upgrade
 
 # 其他
 
-余下的步骤可以参考笔者[之前的文章](/p/使用-wsl-和-vs-code-配置-c/c-开发环境/#在-wsl-上安装-cc-的编译器)。
+余下的步骤可以参考笔者[之前的文章](/p/wsl-vscode-for-c-cpp/#在-wsl-上安装-cc-的编译器)。

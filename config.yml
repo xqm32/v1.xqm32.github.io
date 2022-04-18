@@ -15,8 +15,11 @@ DefaultContentLanguage: zh-cn
 # This will make .Summary and .WordCount behave correctly for CJK languages.
 hasCJKLanguage: true
 
+# See https://gohugo.io/content-management/urls/#permalink-configuration-values
 permalinks:
-  post: /p/:slug/
+  # See https://github.com/CaiJimmy/hugo-theme-stack/discussions/355
+  # post: /p/:slug/
+  post: /p/:filename/
   page: /:slug/
 
 params:
