@@ -5,6 +5,33 @@ draft: false
 
 **力扣每日一水**
 
+参考题解的奇怪解法，后续还得自己在琢磨琢磨。
+
+## 2022.4.18
+
+```python3
+#
+# @lc app=leetcode.cn id=386 lang=python3
+#
+# [386] 字典序排数
+#
+
+from typing import List
+
+import fire
+
+# @lc code=start
+class Solution:
+    def lexicalOrder(self, n: int) -> List[int]:
+        return sorted(range(1, n + 1), key=str)
+        # @lc code=end
+
+    func = lexicalOrder
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.17
 
 ```python3
