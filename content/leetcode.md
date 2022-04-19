@@ -5,9 +5,44 @@ draft: false
 
 **力扣每日一水**
 
-参考题解的奇怪解法，后续还得自己在琢磨琢磨。
+## 2022.4.19
+
+```python3
+#
+# @lc app=leetcode.cn id=821 lang=python3
+#
+# [821] 字符的最短距离
+#
+
+from typing import List
+
+import fire
+
+# @lc code=start
+class Solution:
+    def shortestToChar(self, s: str, c: str) -> List[int]:
+        ans = []
+        for i in range(len(s)):
+            l = "".join(reversed(s[:i+1])).find(c)
+            r = s[i:].find(c)
+            if l == -1:
+                ans.append(r)
+            elif r == -1:
+                ans.append(l)
+            else:
+                ans.append(min(l, r))
+        return ans
+        # @lc code=end
+
+    func = shortestToChar
+
+
+fire.Fire(Solution)
+```
 
 ## 2022.4.18
+
+参考题解的奇怪解法，后续还得自己在琢磨琢磨。
 
 ```python3
 #
