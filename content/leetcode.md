@@ -5,6 +5,58 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.20
+
+```python3
+#
+# @lc app=leetcode.cn id=388 lang=python3
+#
+# [388] 文件的最长绝对路径
+#
+
+# @lc code=start
+# class Solution:
+#     def lengthLongestPath(self, input: str) -> int:
+#         depth = []
+#         input = input.split("\n")
+#         for i in input:
+#             d = i.count("\t")
+#             if d < len(depth):
+#                 depth = depth[:d]
+#             depth.append(i.strip())
+#             print(d, depth)
+class Solution:
+    def lengthLongestPath(self, input: str) -> int:
+        ans = 0
+        depth = []
+        ld = 0
+        input = input.split("\n")
+        for i in input:
+            d = 0
+            for j in i:
+                if j == "\t":
+                    d += 1
+                else:
+                    break
+            l = len(i) - d
+            if "." in i:
+                ld = d
+                ans = max(ans, sum(depth[:ld]) + ld + l)
+            elif d == len(depth):
+                depth.append(l)
+                ld += 1
+            else:
+                depth[d] = l
+                ld = d + 1
+        return ans
+
+
+# @lc code=end
+with open("in", "r") as f:
+    i = f.read()
+    print(Solution().lengthLongestPath(i))
+```
+
 ## 2022.4.19
 
 ```python3
