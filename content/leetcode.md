@@ -5,6 +5,39 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.22
+
+一次 AC！
+
+```python3
+#
+# @lc app=leetcode.cn id=396 lang=python3
+#
+# [396] 旋转函数
+#
+
+from typing import List
+
+import fire
+
+# @lc code=start
+class Solution:
+    def maxRotateFunction(self, nums: List[int]) -> int:
+        f = [0] * len(nums)
+        total = sum(nums)
+        for i, j in enumerate(nums):
+            f[0] += i * j
+        for k in range(1, len(nums)):
+            f[k] = f[k - 1] + total - len(nums) * nums[-k]
+        return max(f)
+
+    # @lc code=end
+    func = maxRotateFunction
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.21
 
 Happy hacking!
