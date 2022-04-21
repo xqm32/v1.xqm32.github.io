@@ -1,5 +1,1 @@
-The repository of [xqm32.github.io](https://xqm32.github.io)
-
-# TODO
-
-[ ] Remove `PaperMod` Theme
+The repository of [xqm32.org](https://xqm32.org)
