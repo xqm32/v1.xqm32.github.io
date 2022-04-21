@@ -5,6 +5,40 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.21
+
+注意大小写。
+
+```python3
+#
+# @lc app=leetcode.cn id=824 lang=python3
+#
+# [824] 山羊拉丁文
+#
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def toGoatLatin(self, sentence: str) -> str:
+        aeiou = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
+        s = sentence.split()
+        for i in range(len(s)):
+            if s[i][0] in aeiou:
+                s[i] += "ma"
+            else:
+                s[i] = s[i][1:] + s[i][0] + "ma"
+            s[i] += "a" * (i + 1)
+        return " ".join(s)
+
+    # @lc code=end
+    func = toGoatLatin
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.20
 
 ```python3
