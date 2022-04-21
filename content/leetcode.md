@@ -7,6 +7,35 @@ draft: false
 
 ## 2022.4.21
 
+Happy hacking!
+
+```python3
+#
+# @lc app=leetcode.cn id=824 lang=python3
+#
+# [824] 山羊拉丁文
+#
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def toGoatLatin(self, sentence: str) -> str:
+        return " ".join(
+            i + "ma" + "a" * (n + 1)
+            if i[0] in {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
+            else i[1:] + i[0] + "ma" + "a" * (n + 1)
+            for n, i in enumerate(sentence.split())
+        )
+
+    # @lc code=end
+    func = toGoatLatin
+
+
+fire.Fire(Solution)
+```
+
 注意大小写。
 
 ```python3
