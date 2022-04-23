@@ -5,6 +5,40 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.23
+
+```python3
+#
+# @lc app=leetcode.cn id=997 lang=python3
+#
+# [997] 找到小镇的法官
+#
+
+from typing import List
+
+import fire
+
+
+# @lc code=start
+class Solution:
+    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+        s = [0] * n
+        t = [0] * n
+        for i in trust:
+            t[i[0] - 1] = 1
+            s[i[1] - 1] += 1
+        for i in range(n):
+            if t[i] == 0 and s[i] == n - 1:
+                return i + 1
+        return -1
+
+    # @lc code=end
+    func = findJudge
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.22
 
 一次 AC！
