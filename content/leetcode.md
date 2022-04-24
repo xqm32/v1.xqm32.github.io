@@ -5,6 +5,74 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.24
+
+Happy hacking!
+
+```python3
+#
+# @lc app=leetcode.cn id=868 lang=python3
+#
+# [868] 二进制间距
+#
+
+from itertools import pairwise
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        return (
+            0
+            if n.bit_count() < 2
+            else max(
+                (
+                    j - i
+                    for i, j in pairwise(i for i in range(n.bit_length()) if n >> i & 1)
+                )
+            )
+        )
+
+    # @lc code=end
+    func = binaryGap
+
+
+fire.Fire(Solution)
+```
+
+```python3
+#
+# @lc app=leetcode.cn id=868 lang=python3
+#
+# [868] 二进制间距
+#
+
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        ans = 0
+        a, b = 10**9, 0
+        while n != 0:
+            if n & 1 == 1:
+                ans = max(ans, b - a)
+                a = b
+            n >>= 1
+            b += 1
+        return ans
+
+    # @lc code=end
+    func = binaryGap
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.23
 
 ```python3
