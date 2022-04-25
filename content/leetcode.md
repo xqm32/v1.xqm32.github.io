@@ -5,6 +5,47 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.25
+
+这是什么怪题？
+
+```python3
+#
+# @lc app=leetcode.cn id=398 lang=python3
+#
+# [398] 随机数索引
+#
+
+
+# @lc code=start
+import random
+from typing import List
+
+
+class Solution:
+    def __init__(self, nums: List[int]):
+        self.nums = dict()
+        for i, j in enumerate(nums):
+            if j in self.nums:
+                if isinstance(self.nums[j], list):
+                    self.nums[j].append(i)
+                else:
+                    self.nums[j] = [self.nums[j], j]
+            else:
+                self.nums[j] = i
+
+    def pick(self, target: int) -> int:
+        if isinstance(self.nums[target], list):
+            return random.choice(self.nums[target])
+        return self.nums[target]
+
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(nums)
+# param_1 = obj.pick(target)
+# @lc code=end
+```
+
 ## 2022.4.24
 
 Happy hacking!
