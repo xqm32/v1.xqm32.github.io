@@ -5,6 +5,36 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.27
+
+今天要写作业，挑个简单题，有时间把今天的补回来。
+
+[417. 太平洋大西洋水流问题](https://leetcode.cn/problems/pacific-atlantic-water-flow/)
+
+```python3
+#
+# @lc app=leetcode.cn id=191 lang=python3
+#
+# [191] 位1的个数
+#
+
+import fire
+
+
+# @lc code=start
+
+
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        return n.bit_count()
+
+    # @lc code=end
+    func = hammingWeight
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.26
 
 一次 AC!
