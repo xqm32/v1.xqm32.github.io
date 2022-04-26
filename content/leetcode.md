@@ -5,6 +5,42 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.26
+
+一次 AC!
+
+```python3
+#
+# @lc app=leetcode.cn id=883 lang=python3
+#
+# [883] 三维形体投影面积
+#
+
+from typing import List
+import fire
+
+
+# @lc code=start
+class Solution:
+    def projectionArea(self, grid: List[List[int]]) -> int:
+        xy = 0
+        xz = [0] * len(grid[0])
+        yz = [0] * len(grid[0])
+        for x, i in enumerate(grid):
+            for y, j in enumerate(i):
+                if j > 0:
+                    xy += 1
+                    xz[x] = max(xz[x], j)
+                    yz[y] = max(yz[y], j)
+        return xy + sum(xz) + sum(yz)
+
+    # @lc code=end
+    func = projectionArea
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.25
 
 这是什么怪题？
