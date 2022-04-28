@@ -5,6 +5,33 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.28
+
+一次 AC!
+
+```python3
+#
+# @lc app=leetcode.cn id=905 lang=python3
+#
+# [905] 按奇偶排序数组
+#
+
+from typing import List
+
+import fire
+
+# @lc code=start
+class Solution:
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        return sorted(nums, key=lambda x: x % 2)
+
+    # @lc code=end
+    func = sortArrayByParity
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.27
 
 今天要写作业，挑个简单题，有时间把今天的补回来。
