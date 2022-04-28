@@ -5,6 +5,35 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.29
+
+今天有作业，就写道简单题吧，正则解思路会好很多。
+
+```python3
+#
+# @lc app=leetcode.cn id=1309 lang=python3
+#
+# [1309] 解码字母到整数映射
+#
+import fire
+
+# @lc code=start
+import re
+
+
+class Solution:
+    def freqAlphabets(self, s: str) -> str:
+        return "".join(
+            chr(96 + int(i.strip("#"))) for i in re.findall(r"(\d\d#|\d)", s)
+        )
+        # @lc code=end
+
+    func = freqAlphabets
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.28
 
 一次 AC!
