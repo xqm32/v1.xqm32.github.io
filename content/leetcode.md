@@ -5,6 +5,33 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.4.30
+
+一次 AC，把题读懂就行。
+
+```python3
+#
+# @lc app=leetcode.cn id=908 lang=python3
+#
+# [908] 最小差值 I
+#
+
+from typing import List
+
+import fire
+
+# @lc code=start
+class Solution:
+    def smallestRangeI(self, nums: List[int], k: int) -> int:
+        return max(0, max(nums) - min(nums) - 2 * k)
+        # @lc code=end
+
+    func = smallestRangeI
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.4.29
 
 今天有作业，就写道简单题吧，正则解思路会好很多。
