@@ -5,6 +5,49 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.5.1
+
+这里直接暴力解了，实际上有更好的解法.
+
+```python3
+#
+# @lc app=leetcode.cn id=1305 lang=python3
+#
+# [1305] 两棵二叉搜索树中的所有元素
+#
+
+from typing import List
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+# @lc code=start
+class Solution:
+    def getAllElements(self, root1: TreeNode, root2: TreeNode) -> List[int]:
+        def dfs(root):
+            if root.left:
+                yield from dfs(root.left)
+            yield root.val
+            if root.right:
+                yield from dfs(root.right)
+
+        if root1 is None and root2 is None:
+            return []
+        elif root1 is None:
+            return sorted(dfs(root2))
+        elif root2 is None:
+            return sorted(dfs(root1))
+        return sorted(list(dfs(root1)) + list(dfs(root2)))
+
+
+# @lc code=end
+```
+
 ## 2022.4.30
 
 一次 AC，把题读懂就行。
