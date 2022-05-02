@@ -5,6 +5,39 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.5.2
+
+巧用 reduce，今天又欠了一道困难题。
+
+[591. 标签验证器](https://leetcode.cn/problems/tag-validator/)
+
+```python3
+#
+# @lc app=leetcode.cn id=171 lang=python3
+#
+# [171] Excel 表列序号
+#
+
+
+from functools import reduce
+import fire
+
+# @lc code=start
+
+
+class Solution:
+    def titleToNumber(self, columnTitle: str) -> int:
+        return reduce(
+            lambda x, y: x * 26 + y, [ord(i) - ord("A") + 1 for i in columnTitle]
+        )
+
+    # @lc code=end
+    func = titleToNumber
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.5.1
 
 这里直接暴力解了，实际上有更好的解法.
