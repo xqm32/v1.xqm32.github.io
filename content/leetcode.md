@@ -5,6 +5,40 @@ draft: false
 
 **力扣每日一水**
 
+## 2022.5.3
+
+今天欠道简单题：https://leetcode.cn/problems/reorder-data-in-log-files/
+
+```python3
+#
+# @lc app=leetcode.cn id=500 lang=python3
+#
+# [500] 键盘行
+#
+
+from typing import List
+
+import fire
+
+# @lc code=start
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        return list(
+            filter(
+                lambda i: sum(j in "qwertyuiop" for j in i.lower()) == len(i)
+                or sum(j in "asdfghjkl" for j in i.lower()) == len(i)
+                or sum(j in "zxcvbnm" for j in i.lower()) == len(i),
+                words,
+            )
+        )
+
+    # @lc code=end
+    func = findWords
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.5.2
 
 巧用 reduce，今天又欠了一道困难题。
