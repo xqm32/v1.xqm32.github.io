@@ -1,5 +1,5 @@
 ---
-title: "我的收藏夹"
+title: "收藏夹"
 draft: false
 ---
 
@@ -19,13 +19,7 @@ draft: false
 
 7. [Visual Studio Code](https://code.visualstudio.com/)
 
-8. [Mark Text](https://marktext.app/)
-
-9. [QQ](https://im.qq.com/pcqq)
-
-10. [Wechat](https://pc.weixin.qq.com/)
-
-11. [Minecraft](https://www.minecraft.net/zh-hans)
+8. [Minecraft](https://www.minecraft.net/zh-hans)
 
 # 开发
 

@@ -156,7 +156,9 @@ sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
 
 ## Markdown 编辑器
 
-由于 [Typora](https://typora.io) 收费且收费较贵，不得不寻找其替代品，目前感觉 [MarkText](https://marktext.app/) 比较不错。
+<del>由于 [Typora](https://typora.io) 收费且收费较贵，不得不寻找其替代品，目前感觉 [MarkText](https://marktext.app/) 比较不错。</del>
+
+[Typora](https://typora.io) 真香🤣。
 
 ## Windows 工具
 
@@ -167,6 +169,14 @@ sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
 ## 流程图、UML 画图工具
 
 [Draw.io](https://draw.io)。
+
+## Windows 拼音输入法错误修复
+
+参考 [微软拼音输入法](https://answers.microsoft.com/zh-hans/windows/forum/all/微软拼音输/a462b2f3-9db2-4313-9369-f1ff8ec07975)，关闭输入法的 `智能模糊拼音` 和 `模糊拼音` 可以暂时修复。
+
+## iOS15 拼音输入法错误修复
+
+关闭 `滑行输入` **似乎**可以暂时修复。
 
 # 开发
 
@@ -207,51 +217,3 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 <!-- ## 教育网 IPv6 加速 Steam 下载的方法
 
 将下载地区设置为 US - Los Angeles。 -->
-
-# 其他
-
-## 《编程通解》
-
-可爱的<font color=pink>莱子酱</font>写的[《编程通解》](https://redcontritio.github.io/tags/%E7%BC%96%E7%A8%8B%E9%80%9A%E8%A7%A3-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3-%E5%B0%8F%E8%AF%B4/)。（咕咕咕）
-
-## 备份
-
-前往[备份](/backup)页面以查看。
-
-<!--
-# 记录
-2022.1.5 今天水了一个 commit，开心。
-2022.1.6 今天又水了一个 commit，但是作业很多，不开心。
-2022.1.7 今天只能水 commit, Sad.
-2022.1.8 今天作业太多，只能水 commit.
-2022.1.11 Water.
-2022.1.12 Water + 寄。
-2022.1.13 Water + 寄 + 感恩 String 老师。
-2022.1.14 今天没有水，但是 GitHub 上没有 commit 记录，很奇怪。
-2022.1.15 还是很奇怪，CellDetection 这个 repo 没有记录。
-2022.1.16 复习！复习！复习！
-2022.1.17 复习！复习！复习！
-2022.1.18 考完大物啦~
-2022.1.19 复习概率。
-2022.1.21 到家了。
-2022.1.22 Water.
-2022.1.24 Water.
-2022.1.26 Water.
-2022.1.27 Water.
-2022.1.28 Water, 好累.
-2022.1.30 Water.
-2022.2.1 今天只能手机上更新了@.@
-2022.2.3 今日水💧。
-2022.2.5 两天没水，今天要水！
-2022.2.9 四天没水！
-2022.2.14 五天没水！
-2022.2.15 水！
-2022.2.16 水！
-2022.2.19 差点忘水～
-3022.2.20 水咯～
-2022.2.21 昨天写错了，多了 1000 年😅
-2022.2.26 被隔离了😅
-2022.2.27 隔离第二天😅
-2022.2.28 被隔离第三天😅
-2022.3.3 今天怕是要露宿街头了😅
--->
