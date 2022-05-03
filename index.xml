@@ -6010,9 +6010,11 @@ nowWords += 1
 &lt;/div>
 &lt;/div>&lt;h1 id="软件">软件&lt;/h1>
 &lt;h2 id="markdown-编辑器">Markdown 编辑器&lt;/h2>
-&lt;p>由于 &lt;a class="link" href="https://typora.io" target="_blank" rel="noopener"
+&lt;p>&lt;del>由于 &lt;a class="link" href="https://typora.io" target="_blank" rel="noopener"
 >Typora&lt;/a> 收费且收费较贵，不得不寻找其替代品，目前感觉 &lt;a class="link" href="https://marktext.app/" target="_blank" rel="noopener"
->MarkText&lt;/a> 比较不错。&lt;/p>
+>MarkText&lt;/a> 比较不错。&lt;/del>&lt;/p>
+&lt;p>&lt;a class="link" href="https://typora.io" target="_blank" rel="noopener"
+>Typora&lt;/a> 真香🤣。&lt;/p>
 &lt;h2 id="windows-工具">Windows 工具&lt;/h2>
 &lt;p>由于我的键盘的 &lt;code>ctrl&lt;/code> 键坏了，需要将 &lt;code>CapsLock&lt;/code> 键映射到 &lt;code>ctrl&lt;/code> 上，于是发现了这个好用的小工具：&lt;a class="link" href="https://github.com/microsoft/PowerToys" target="_blank" rel="noopener"
 >Microsoft PowerToys&lt;/a>。&lt;/p>
@@ -6020,6 +6022,11 @@ nowWords += 1
 &lt;h2 id="流程图uml-画图工具">流程图、UML 画图工具&lt;/h2>
 &lt;p>&lt;a class="link" href="https://draw.io" target="_blank" rel="noopener"
 >Draw.io&lt;/a>。&lt;/p>
+&lt;h2 id="windows-拼音输入法错误修复">Windows 拼音输入法错误修复&lt;/h2>
+&lt;p>参考 &lt;a class="link" href="https://answers.microsoft.com/zh-hans/windows/forum/all/%e5%be%ae%e8%bd%af%e6%8b%bc%e9%9f%b3%e8%be%93/a462b2f3-9db2-4313-9369-f1ff8ec07975" target="_blank" rel="noopener"
+>微软拼音输入法&lt;/a>，关闭输入法的 &lt;code>智能模糊拼音&lt;/code> 和 &lt;code>模糊拼音&lt;/code> 可以暂时修复。&lt;/p>
+&lt;h2 id="ios15-拼音输入法错误修复">iOS15 拼音输入法错误修复&lt;/h2>
+&lt;p>关闭 &lt;code>滑行输入&lt;/code> &lt;strong>似乎&lt;/strong>可以暂时修复。&lt;/p>
 &lt;h1 id="开发">开发&lt;/h1>
 &lt;h2 id="github-贡献">GitHub 贡献&lt;/h2>
 &lt;p>添加功能或者修复错误时，应创建新的分支而非从 main/master 直接推送。&lt;/p>
@@ -6049,127 +6056,7 @@ nowWords += 1
 >「在线更新」拓展&lt;/a>并在游戏中导入，进行更新即可。&lt;/li>
 &lt;/ol>
 &lt;!-- ## 教育网 IPv6 加速 Steam 下载的方法
-将下载地区设置为 US - Los Angeles。 -->
-&lt;h1 id="其他">其他&lt;/h1>
-&lt;h2 id="编程通解">《编程通解》&lt;/h2>
-&lt;p>可爱的&lt;font color=pink>莱子酱&lt;/font>写的&lt;a class="link" href="https://redcontritio.github.io/tags/%E7%BC%96%E7%A8%8B%E9%80%9A%E8%A7%A3-%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3-%E5%B0%8F%E8%AF%B4/" target="_blank" rel="noopener"
->《编程通解》&lt;/a>。（咕咕咕）&lt;/p>
-&lt;h2 id="备份">备份&lt;/h2>
-&lt;p>前往&lt;a class="link" href="https://xqm32.org/backup" >备份&lt;/a>页面以查看。&lt;/p>
-&lt;!--
-# 记录
-2022.1.5 今天水了一个 commit，开心。
-2022.1.6 今天又水了一个 commit，但是作业很多，不开心。
-2022.1.7 今天只能水 commit, Sad.
-2022.1.8 今天作业太多，只能水 commit.
-2022.1.11 Water.
-2022.1.12 Water + 寄。
-2022.1.13 Water + 寄 + 感恩 String 老师。
-2022.1.14 今天没有水，但是 GitHub 上没有 commit 记录，很奇怪。
-2022.1.15 还是很奇怪，CellDetection 这个 repo 没有记录。
-2022.1.16 复习！复习！复习！
-2022.1.17 复习！复习！复习！
-2022.1.18 考完大物啦~
-2022.1.19 复习概率。
-2022.1.21 到家了。
-2022.1.22 Water.
-2022.1.24 Water.
-2022.1.26 Water.
-2022.1.27 Water.
-2022.1.28 Water, 好累.
-2022.1.30 Water.
-2022.2.1 今天只能手机上更新了@.@
-2022.2.3 今日水💧。
-2022.2.5 两天没水，今天要水！
-2022.2.9 四天没水！
-2022.2.14 五天没水！
-2022.2.15 水！
-2022.2.16 水！
-2022.2.19 差点忘水～
-3022.2.20 水咯～
-2022.2.21 昨天写错了，多了 1000 年😅
-2022.2.26 被隔离了😅
-2022.2.27 隔离第二天😅
-2022.2.28 被隔离第三天😅
-2022.3.3 今天怕是要露宿街头了😅
---></description></item><item><title>代码</title><link>https://xqm32.org/zcst/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/zcst/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">base64&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">a&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;6508b291b7172cadc9987137f8683f67&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">ord&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">e&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">ord&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">f&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">)):&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">f&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="mi">255&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">e&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">255&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">d&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">32&lt;/span>&lt;span class="p">]))&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">g&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">f&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">base64&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">b64encode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">g&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;UTF-8&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">decode&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.2/base64.min.js">&lt;/script>
-&lt;script type="module"src="https://cdn.jsdelivr.net/npm/url-js@2.0.0-u/dist/url.min.js">
-import URLJS from 'url-js';
-&lt;/script>
-&lt;p>&lt;button onClick="getURL()">加密：&lt;/button> &lt;input id="url"/>
-&lt;br/>
-&lt;button onClick="clearResult()">结果：&lt;/button> &lt;span id="result">&lt;/span>&lt;/p>
-&lt;script>
-// 加密
-function ent(content) {
-md5 = "6508b291b7172cadc9987137f8683f67";
-R = [];
-for (i = 0; i &lt; content.length; ++i) {
-C = content.charCodeAt(i);
-M = md5.charCodeAt(i % 32);
-R.push(C + M);
-}
-R = "." + R.join(".");
-return Base64.encode(R);
-}
-function getURL() {
-url = document.getElementById("url").value;
-switch (url) {
-case "bing":
-url = "https://www.bing.com";
-break;
-case "baidu":
-url = "https://www.baidu.com";
-break;
-case "cnki":
-url = "https://www.cnki.net";
-}
-protocol = URLJS.parseUrl(url, "protocol");
-protocol = protocol ? protocol.substring(0, protocol.length - 1) : "https";
-hostname = URLJS.parseUrl(url, "hostname");
-hostname = hostname ? hostname : "www.bing.com";
-pathname = URLJS.parseUrl(url, "pathname");
-pathname = pathname ? pathname : "/";
-search = URLJS.parseUrl(url, "search");
-search = search ? search : "";
-document.getElementById(
-"result"
-).innerHTML = `&lt;a href='https://vpn.zcst.edu.cn/webvpn/${ent(
-protocol
-)}/${ent(hostname)}${pathname}${search}'>${url ? url : "Search"}&lt;/a>`;
-}
-function clearResult() {
-document.getElementById("result").innerHTML = "";
-}
-&lt;/script></description></item><item><title>归档</title><link>https://xqm32.org/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/archives/</guid><description/></item><item><title>搜索</title><link>https://xqm32.org/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/search/</guid><description/></item><item><title>我的收藏夹</title><link>https://xqm32.org/collections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/collections/</guid><description>&lt;h1 id="软件">软件&lt;/h1>
+将下载地区设置为 US - Los Angeles。 --></description></item><item><title>归档</title><link>https://xqm32.org/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/archives/</guid><description/></item><item><title>收藏夹</title><link>https://xqm32.org/collections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/collections/</guid><description>&lt;h1 id="软件">软件&lt;/h1>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;a class="link" href="https://www.7-zip.org/" target="_blank" rel="noopener"
@@ -6200,18 +6087,6 @@ document.getElementById("result").innerHTML = "";
 >Visual Studio Code&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;a class="link" href="https://marktext.app/" target="_blank" rel="noopener"
->Mark Text&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://im.qq.com/pcqq" target="_blank" rel="noopener"
->QQ&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://pc.weixin.qq.com/" target="_blank" rel="noopener"
->Wechat&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
 &lt;p>&lt;a class="link" href="https://www.minecraft.net/zh-hans" target="_blank" rel="noopener"
 >Minecraft&lt;/a>&lt;/p>
 &lt;/li>
@@ -6238,7 +6113,7 @@ document.getElementById("result").innerHTML = "";
 &lt;p>&lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank" rel="noopener"
 >JavaScript | MDN&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ol></description></item><item><title>友链</title><link>https://xqm32.org/%E5%8F%8B%E9%93%BE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/%E5%8F%8B%E9%93%BE/</guid><description>&lt;h1 id="朋友们">朋友们&lt;/h1>
+&lt;/ol></description></item><item><title>搜索</title><link>https://xqm32.org/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/search/</guid><description/></item><item><title>友链</title><link>https://xqm32.org/%E5%8F%8B%E9%93%BE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/%E5%8F%8B%E9%93%BE/</guid><description>&lt;h1 id="朋友们">朋友们&lt;/h1>
 &lt;p>👦 可爱的 &lt;a class="link" href="https://redcontritio.github.io/" target="_blank" rel="noopener"
 >&lt;font color=pink>RedContritio&lt;/font>&lt;/a> 酱&lt;/p>
 &lt;p>🐂 神犇 &lt;a class="link" href="http://ykgsmudq.com/" target="_blank" rel="noopener"
