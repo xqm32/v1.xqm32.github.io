@@ -1108,9 +1108,9 @@ data-flex-basis="341px"
 &lt;button onClick="go()">加密：&lt;/button> &lt;input id="url"/>
 &lt;br/>
 &lt;span>结果：&lt;/span> &lt;a id="aHref">&lt;/a>&lt;/p>
-&lt;script src="https://webvpn.hfut.edu.cn/wengine-vpn/js/js/jquery.min.js">&lt;/script>
-&lt;script src="https://webvpn.hfut.edu.cn/wengine-vpn/js/aes-js.js">&lt;/script>
-&lt;script src="https://webvpn.hfut.edu.cn/wengine-vpn/js/js/portal.js">&lt;/script>
+&lt;script src="./jquery.min.js">&lt;/script>
+&lt;script src="./aes-js.js">&lt;/script>
+&lt;script src="./portal.js">&lt;/script>
 &lt;script>
 var wrdvpnKey = 'wrdvpnisthebest!'
 var wrdvpnIV = 'wrdvpnisthebest!'
@@ -1136,8 +1136,7 @@ url = encrypUrl(protocol, url)
 $("#aHref").attr("href", "https://webvpn.hfut.edu.cn" + url);
 $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 }
-&lt;/script>&lt;blockquote>
-&lt;/blockquote></description></item><item><title>LeetCode</title><link>https://xqm32.org/leetcode/leetcode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/leetcode/leetcode/</guid><description>&lt;p>&lt;strong>力扣每日一水&lt;/strong>&lt;/p>
+&lt;/script></description></item><item><title>LeetCode</title><link>https://xqm32.org/leetcode/leetcode/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/leetcode/leetcode/</guid><description>&lt;p>&lt;strong>力扣每日一水&lt;/strong>&lt;/p>
 &lt;h2 id="202253">2022.5.3&lt;/h2>
 &lt;p>今天欠道简单题：https://leetcode.cn/problems/reorder-data-in-log-files/&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
