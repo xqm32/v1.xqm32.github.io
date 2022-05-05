@@ -3,6 +3,30 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.5
+
+```
+#
+# @lc app=leetcode.cn id=1512 lang=python3
+#
+# [1512] 好数对的数目
+#
+import math
+from collections import Counter
+from typing import List
+import fire
+# @lc code=start
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        return sum(
+            math.comb(i, 2) for i in filter(lambda i: i > 1, Counter(nums).values())
+        )
+
+    # @lc code=end
+    func = numIdenticalPairs
+fire.Fire(Solution)
+```
+
 ## 2022.5.4
 
 ```python3
