@@ -11,9 +11,9 @@ draft: false
 <br/>
 <span>结果：</span> <a id="aHref"></a>
 
-<script src="https://webvpn.hfut.edu.cn/wengine-vpn/js/js/jquery.min.js"></script>
-<script src="https://webvpn.hfut.edu.cn/wengine-vpn/js/aes-js.js"></script>
-<script src="https://webvpn.hfut.edu.cn/wengine-vpn/js/js/portal.js"></script>
+<script src="./jquery.min.js"></script>
+<script src="./aes-js.js"></script>
+<script src="./portal.js"></script>
 <script>
 var wrdvpnKey = 'wrdvpnisthebest!'
 var wrdvpnIV = 'wrdvpnisthebest!'
