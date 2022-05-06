@@ -3,9 +3,36 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.6
+
+```python3
+#
+# @lc app=leetcode.cn id=933 lang=python3
+#
+# [933] 最近的请求次数
+#
+# @lc code=start
+class RecentCounter:
+    def __init__(self):
+        self.t = []
+        self.l = 0
+
+    def ping(self, t: int) -> int:
+        self.t.append(t)
+        for i in range(self.l, len(self.t)):
+            if self.t[i] >= t - 3000:
+                self.l = i
+                break
+        return len(self.t) - self.l
+# Your RecentCounter object will be instantiated and called as such:
+# obj = RecentCounter()
+# param_1 = obj.ping(t)
+# @lc code=end
+```
+
 ## 2022.5.5
 
-```
+```python3
 #
 # @lc app=leetcode.cn id=1512 lang=python3
 #
