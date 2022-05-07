@@ -3,6 +3,38 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.7
+
+这绝对不是简单题......😭
+
+```python3
+#
+# @lc app=leetcode.cn id=925 lang=python3
+#
+# [925] 长按键入
+#
+from collections import Counter
+from functools import reduce
+import fire
+# @lc code=start
+class Solution:
+    def isLongPressedName(self, name: str, typed: str) -> bool:
+        return (
+            False
+            if len(name) > len(typed)
+            else False
+            if len(set(name)) != len(set(typed))
+            else False
+            if not Counter(typed) >= Counter(name)
+            else reduce(lambda x, y: x.lstrip(y), [typed] + list(name)) == ""
+            and reduce(lambda x, y: x.removeprefix(y), [name] + list(typed)) == ""
+        )
+
+    # @lc code=end
+    func = isLongPressedName
+fire.Fire(Solution)
+```
+
 ## 2022.5.6
 
 ```python3
