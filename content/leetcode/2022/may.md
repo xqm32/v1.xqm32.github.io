@@ -3,6 +3,26 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.8
+
+```python3
+#
+# @lc app=leetcode.cn id=442 lang=python3
+#
+# [442] 数组中重复的数据
+#
+from collections import Counter
+from typing import List
+import fire
+# @lc code=start
+class Solution:
+    def findDuplicates(self, nums: List[int]) -> List[int]:
+        return [i for i, j in Counter(nums).items() if j == 2]
+    # @lc code=end
+    func = findDuplicates
+fire.Fire(Solution)
+```
+
 ## 2022.5.7
 
 这绝对不是简单题......😭
