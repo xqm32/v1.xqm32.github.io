@@ -3,6 +3,32 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.9
+
+Python `or` 运算的妙用！
+
+参见 [布尔运算](https://docs.python.org/zh-cn/3/library/stdtypes.html#boolean-operations-and-or-not)！
+
+```python3
+#
+# @lc app=leetcode.cn id=387 lang=python3
+#
+# [387] 字符串中的第一个唯一字符
+#
+from collections import Counter
+from functools import reduce
+import fire
+# @lc code=start
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        return reduce(
+            min, [s.index(i) for i, j in Counter(s).items() if j == 1] or [-1]
+        )
+    # @lc code=end
+    func = firstUniqChar
+fire.Fire(Solution)
+```
+
 ## 2022.5.8
 
 ```python3
