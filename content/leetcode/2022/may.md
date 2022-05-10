@@ -3,6 +3,37 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.10
+
+```python3
+#
+# @lc app=leetcode.cn id=937 lang=python3
+#
+# [937] 重新排列日志文件
+#
+from typing import List
+# @lc code=start
+class Solution:
+    def reorderLogFiles(self, logs: List[str]) -> List[str]:
+        return sorted(
+            [i for i in logs if i[-1].isalpha()],
+            key=lambda i: list(reversed(i.partition(" "))),
+        ) + [i for i in logs if i[-1].isdigit()]
+    # @lc code=end
+    func = reorderLogFiles
+print(
+    Solution().func(
+        [
+            "dig1 8 1 5 1",
+            "let1 art zero can",
+            "dig2 3 6",
+            "let2 own kit dig",
+            "let3 art zero",
+        ]
+    )
+)
+```
+
 ## 2022.5.9
 
 Python `or` 运算的妙用！
