@@ -3,6 +3,26 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.11
+
+```python3
+#
+# @lc app=leetcode.cn id=1431 lang=python3
+#
+# [1431] 拥有最多糖果的孩子
+#
+from functools import partial
+from typing import List
+import fire
+# @lc code=start
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        return partial(lambda m: [c + extraCandies >= m for c in candies], max(candies))()
+    # @lc code=end
+    func = kidsWithCandies
+fire.Fire(Solution)
+```
+
 ## 2022.5.10
 
 ```python3
