@@ -3,6 +3,29 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.12
+
+```python3
+#
+# @lc app=leetcode.cn id=944 lang=python3
+#
+# [944] 删列造序
+#
+from functools import reduce
+from typing import List
+import fire
+# @lc code=start
+class Solution:
+    def minDeletionSize(self, strs: List[str]) -> int:
+        return reduce(
+            lambda x, y: "".join(y[i] if x[i] <= y[i] else "{" for i in range(len(x))),
+            strs,
+        ).count("{")
+    # @lc code=end
+    func = minDeletionSize
+fire.Fire(Solution)
+```
+
 ## 2022.5.11
 
 ```python3
