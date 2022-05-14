@@ -3,6 +3,28 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.14
+
+```python3
+#
+# @lc app=leetcode.cn id=1556 lang=python3
+#
+# [1556] 千位分隔数
+#
+import fire
+
+# @lc code=start
+class Solution:
+    def thousandSeparator(self, n: int) -> str:
+        return f"{n:,}".replace(",", ".")
+
+    # @lc code=end
+    func = thousandSeparator
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.5.13
 
 今日咕咕咕。
