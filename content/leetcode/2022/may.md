@@ -3,6 +3,34 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.15
+
+```python3
+#
+# @lc app=leetcode.cn id=645 lang=python3
+#
+# [645] 错误的集合
+#
+
+from collections import Counter
+from typing import List
+import fire
+
+# @lc code=start
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        return [
+            Counter(nums).most_common(1)[0][0],
+            list(set(range(1, len(nums) + 1)) - set(nums))[0],
+        ]
+
+    # @lc code=end
+    func = findErrorNums
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.5.14
 
 ```python3
