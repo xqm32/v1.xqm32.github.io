@@ -3,6 +3,32 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.16
+
+```python3
+#
+# @lc app=leetcode.cn id=1207 lang=python3
+#
+# [1207] 独一无二的出现次数
+#
+
+from collections import Counter
+from functools import partial
+from typing import List
+import fire
+
+# @lc code=start
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        return partial(lambda a: len(set(a)) == len(a), Counter(arr).values())()
+
+    # @lc code=end
+    func = uniqueOccurrences
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.5.15
 
 ```python3
