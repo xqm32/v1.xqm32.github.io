@@ -3,6 +3,57 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.17
+
+```python3
+#
+# @lc app=leetcode.cn id=953 lang=python3
+#
+# [953] 验证外星语词典
+#
+
+from functools import partial
+from typing import List
+
+# @lc code=start
+class Solution:
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        return all(
+            partial(
+                lambda o: partial(
+                    lambda a, b: list(map(lambda i: o[i], a))
+                    <= list(map(lambda i: o[i], b))
+                ),
+                {c: i for i, c in enumerate(order)},
+            )()(i, j)
+            for i, j in zip(words, words[1:])
+        )
+
+    # @lc code=end
+    func = isAlienSorted
+
+
+"""
+o = {c: i for i, c in enumerate(order)}
+m = partial(map, lambda i: o[i])
+l = lambda w: list(m(w))
+for i, j in zip(words, words[1:]):
+    if l(j) < l(i):
+        return False
+return True
+"""
+
+s = Solution()
+_ = s.isAlienSorted(words=["hello", "leetcode"], order="hlabcdefgijkmnopqrstuvwxyz")
+print(_)
+
+_ = s.isAlienSorted(words=["worod", "world", "row"], order="worldabcefghijkmnpqstuvxyz")
+print(_)
+
+_ = s.isAlienSorted(words=["apple", "app"], order="abcdefghijklmnopqrstuvwxyz")
+print(_)
+```
+
 ## 2022.5.16
 
 ```python3
