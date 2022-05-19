@@ -3,6 +3,44 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.19
+
+```python3
+#
+# @lc app=leetcode.cn id=228 lang=python3
+#
+# [228] 汇总区间
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        if len(nums) == 0:
+            return []
+        r, a, b = [], 0, 0
+        for b in range(1, len(nums)):
+            if b - a != nums[b] - nums[a]:
+                if nums[b - 1] == nums[a]:
+                    r.append(f"{nums[a]}")
+                else:
+                    r.append(f"{nums[a]}->{nums[b-1]}")
+                a = b
+        if nums[b] == nums[a]:
+            r.append(f"{nums[a]}")
+        else:
+            r.append(f"{nums[a]}->{nums[b]}")
+        return r
+
+    # @lc code=end
+    func = summaryRanges
+
+
+fire.Fire(Solution)
+```
+
 ## 2022.5.18
 
 ```python3
