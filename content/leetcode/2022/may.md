@@ -3,6 +3,45 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.20
+
+```python3
+#
+# @lc app=leetcode.cn id=436 lang=python3
+#
+# [436] 寻找右区间
+#
+
+from typing import List
+import fire
+
+# @lc code=start
+class Solution:
+    def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
+        intervals = [i+[j] for j, i in enumerate(intervals)]
+        intervals.sort(key=lambda x: x[0])
+        res = [-1]*len(intervals)
+        for i in range(len(intervals)):
+            for j in range(i, len(intervals)):
+                if intervals[j][0] >= intervals[i][1]:
+                    res[intervals[i][2]] = intervals[j][2]
+                    break
+        return res
+        
+# @lc code=end
+    func = findRightInterval
+
+sol = Solution()
+res = sol.func([[1,1],[3,4]])
+print(res)
+res = sol.func([[3,4],[2,3],[1,2]])
+print(res)
+res = sol.func([[1,4],[2,3],[3,4]])
+print(res)
+res = sol.func([[1,4],[20,31],[3,4]])
+print(res)
+```
+
 ## 2022.5.19
 
 ```python3
