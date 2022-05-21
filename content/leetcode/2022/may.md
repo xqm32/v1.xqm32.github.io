@@ -3,6 +3,31 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.21
+```python3
+#
+# @lc app=leetcode.cn id=961 lang=python3
+#
+# [961] 在长度 2N 的数组中找出重复 N 次的元素
+#
+
+from collections import Counter
+from typing import List
+
+# @lc code=start
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        return Counter(nums).most_common(1)[0][0]
+# @lc code=end
+
+sol = Solution()
+ret = sol.repeatedNTimes([1,2,3,3])
+print(ret)
+ret = sol.repeatedNTimes([2,1,2,5,3,2])
+print(ret)
+ret = sol.repeatedNTimes([5,1,5,2,5,3,5,4])
+print(ret)
+```
 ## 2022.5.20
 
 ```python3
