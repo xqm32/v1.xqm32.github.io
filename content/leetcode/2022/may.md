@@ -3,7 +3,32 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.22
+
+```python3
+#
+# @lc app=leetcode.cn id=258 lang=python3
+#
+# [258] 各位相加
+#
+
+# @lc code=start
+class Solution:
+    def addDigits(self, num: int) -> int:
+        return num if num // 10 == 0 else self.addDigits(sum(int(i) for i in str(num)))
+# @lc code=end
+
+sol = Solution()
+ret = sol.addDigits(38)
+print(ret)
+ret = sol.addDigits(0)
+print(ret)
+ret = sol.addDigits(100)
+print(ret)
+```
+
 ## 2022.5.21
+
 ```python3
 #
 # @lc app=leetcode.cn id=961 lang=python3
