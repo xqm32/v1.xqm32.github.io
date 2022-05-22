@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="tinyexpr.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="mt-4" style="width:300px;">
+            <div style="width:100%;">
+                <input id="expr" type="text" class="form-control rounded-0 border-1" value="">
+                <div id="ans"></div>
+            </div>
+            <div class="btn-group mt-2" role="group" style="width:100%;">
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="ac()">AC</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('(')">(</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append(')')">)</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('/')">÷</button>
+            </div>
+            <div class="btn-group" role="group" style="width:100%;">
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('1')">1</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('2')">2</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('3')">3</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('*')">×</button>
+            </div>
+            <div class="btn-group" role="group" style="width:100%;">
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('4')">4</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('5')">5</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('6')">6</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('-')">-</button>
+            </div>
+            <div class="btn-group" role="group" style="width:100%;">
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('7')">7</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('8')">8</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('9')">9</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('+')">+</button>
+            </div>
+            <div class="btn-group" role="group" style="width:100%;">
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append(',')">,</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('0')">0</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="append('.')">.</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+                    onclick="calc()">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function append(c) {
+            let expr = document.getElementById("expr");
+            expr.value += c;
+        }
+
+        function ac() {
+            document.getElementById("expr").value = "";
+            document.getElementById("ans").innerHTML = "";
+            document.getElementById("expr").classList.remove("is-invalid");
+            document.getElementById("expr").classList.remove("is-valid");
+            document.getElementById("ans").classList.remove('invalid-feedback');
+            document.getElementById("ans").classList.remove('valid-feedback');
+        }
+
+        function calc() {
+            document.getElementById("expr").classList.remove("is-invalid");
+            document.getElementById("expr").classList.remove("is-valid");
+            document.getElementById("ans").classList.remove('invalid-feedback');
+            document.getElementById("ans").classList.remove('valid-feedback');
+            let expr = document.getElementById("expr").value;
+            if (expr == '')
+                return
+            let ans = Module.calculate(expr);
+            if (ans.startsWith("!")) {
+                ans = Number(ans.slice(1)) - 1;
+                ans = `<span class="opacity-25">${expr.slice(0, ans)}</span>${expr[ans]}<span class="opacity-25">${expr.slice(ans + 1)}</span>`;
+                // ans = `! ${ans}`;
+                document.getElementById("expr").classList.add('is-invalid');
+                document.getElementById("ans").classList.add('invalid-feedback');
+            }
+            else {
+                document.getElementById("expr").classList.add('is-valid');
+                document.getElementById("ans").classList.add('valid-feedback');
+                ans = String(Number(ans))
+                // ans = `= ${ans}`;
+            }
+            document.getElementById("ans").innerHTML = ans;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
