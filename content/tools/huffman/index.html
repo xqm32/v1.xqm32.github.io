@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Qiming's Huffman</title>
+    <title>Bootstrap demo</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -55,7 +55,7 @@
             type="button"
             class="btn btn-outline-secondary rounded-0 border-0"
             style="width: 100px"
-            onclick=""
+            onclick="verify()"
           >
             <i class="bi bi-file-check"></i>
           </button>
@@ -87,47 +87,81 @@
       }
 
       async function zip() {
-        if (lastFile) {
-          let size = FS.stat(lastFile).size;
-          let zippedFile = lastFile + ".huf";
-          res = Module.hm_zip(lastFile, size, zippedFile);
-          if (res) {
-            let huf = FS.readFile(zippedFile);
-            // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
-            let file = new File([huf], zippedFile, {
-              type: "application/octet-stream",
-            });
-            saveAs(file);
-            FS.unlink(zippedFile);
-            msg("valid", "压缩成功");
-          } else {
-            msg("invalid", "压缩失败");
-          }
-        }
+        if (!lastFile) return;
+
+        let size = FS.stat(lastFile).size;
+        let zippedFile = lastFile + ".huf";
+        let res = Module.hm_zip(lastFile, size, zippedFile);
+
+        if (!res) msg("invalid", "压缩失败");
+        let zippedSize = FS.stat(zippedFile).size;
+        let huf = FS.readFile(zippedFile);
+        // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
+        let file = new File([huf], zippedFile, {
+          type: "application/octet-stream",
+        });
+
+        saveAs(file);
+        FS.unlink(zippedFile);
+        msg("valid", `压缩成功，压缩率为 ${(zippedSize / size * 100).toFixed(2)}%`);
       }
 
       async function unzip() {
-        if (lastFile) {
-          let size = FS.stat(lastFile).size;
-          if (!lastFile.endsWith(".huf")) {
-            msg("invalid", "文件类型应为 huf");
+        if (!lastFile) return;
+        if (!lastFile.endsWith(".huf")) {
+          msg("invalid", "文件类型应为 huf");
+          return;
+        }
+
+        let size = FS.stat(lastFile).size;
+        let unzippedFile = lastFile.slice(0, -4);
+        let res = Module.hm_unzip(lastFile, size, unzippedFile);
+
+        if (!res) msg("invalid", "解压失败");
+        let huf = FS.readFile(unzippedFile);
+        // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
+        let file = new File([huf], unzippedFile, {
+          type: "application/octet-stream",
+        });
+
+        saveAs(file);
+        FS.unlink(unzippedFile);
+        msg("valid", "解压成功");
+      }
+
+      async function verify() {
+        if (!lastFile) return;
+
+        let size = FS.stat(lastFile).size;
+        let zippedFile = lastFile + ".huf";
+        let zipRes = Module.hm_zip(lastFile, size, zippedFile);
+        let zippedSize = FS.stat(zippedFile).size;
+        let unzipRes = Module.hm_unzip(zippedFile, zippedSize, zippedFile + ".tmp");
+
+        if (!(zipRes && unzipRes)) {
+          msg("invalid", "验证失败，压缩或解压失败");
+          return;
+        }
+
+        let content = FS.readFile(lastFile);
+        let unzipContent = FS.readFile(zippedFile + ".tmp");
+
+        if (content.length != unzipContent.length) {
+          msg("invalid", "验证失败，文件长度不一致");
+          return;
+        }
+
+        for (let i = 0; i < content.length; i++) {
+          if (content[i] != unzipContent[i]) {
+            msg("invalid", "验证失败，文件内容不一致");
             return;
           }
-          let unzippedFile = lastFile.slice(0, -4);
-          res = Module.hm_unzip(lastFile, size, unzippedFile);
-          if (res) {
-            let huf = FS.readFile(unzippedFile);
-            // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
-            let file = new File([huf], unzippedFile, {
-              type: "application/octet-stream",
-            });
-            saveAs(file);
-            FS.unlink(unzippedFile);
-            msg("valid", "解压成功");
-          } else {
-            msg("invalid", "解压失败");
-          }
         }
+
+        msg("valid", `验证成功，压缩率为 ${(zippedSize / size * 100).toFixed(2)}%`);
+
+        FS.unlink(zippedFile);
+        FS.unlink(unzippedFile);
       }
     </script>
 
