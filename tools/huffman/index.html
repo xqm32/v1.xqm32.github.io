@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Qiming's Huffman</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"
+      integrity="sha256-xoh0y6ov0WULfXcLMoaA6nZfszdgI8w2CEJ/3k8NBIE="
+      crossorigin="anonymous"
+    ></script>
+    <script src="huffman.js"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid d-flex justify-content-center">
+      <div class="mt-4" style="width: 300px">
+        <div style="width: 100%">
+          <input
+            id="file"
+            type="file"
+            class="form-control rounded-0 border-1"
+            onchange="upload(this)"
+          />
+          <div id="res"></div>
+        </div>
+        <div class="btn-group mt-2" role="group" style="width: 300px">
+          <button
+            type="button"
+            class="btn btn-outline-secondary rounded-0 border-0"
+            style="width: 100px"
+            onclick="zip()"
+          >
+            <i class="bi bi-file-zip"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-secondary rounded-0 border-0"
+            style="width: 100px"
+            onclick="unzip()"
+          >
+            <i class="bi bi-file-break"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-secondary rounded-0 border-0"
+            style="width: 100px"
+            onclick=""
+          >
+            <i class="bi bi-file-check"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let lastFile = null;
+
+      function msg(isinvalid, message) {
+        document.getElementById("file").classList.remove("is-invalid");
+        document.getElementById("file").classList.remove("is-valid");
+        document.getElementById("res").classList.remove("invalid-feedback");
+        document.getElementById("res").classList.remove("valid-feedback");
+        document.getElementById("file").classList.add(`is-${isinvalid}`);
+        document.getElementById("res").classList.add(`${isinvalid}-feedback`);
+        document.getElementById("res").innerHTML = message;
+      }
+
+      function upload(e) {
+        // See https://emscripten.org/docs/api_reference/Filesystem-API.html#FS.unlink
+        if (lastFile) FS.unlink(lastFile);
+        let file = e.files[0];
+        file.arrayBuffer().then((data) => {
+          FS.writeFile(file.name, new Uint8Array(data));
+        });
+        lastFile = file.name;
+      }
+
+      async function zip() {
+        if (lastFile) {
+          let size = FS.stat(lastFile).size;
+          let zippedFile = lastFile + ".huf";
+          res = Module.hm_zip(lastFile, size, zippedFile);
+          if (res) {
+            let huf = FS.readFile(zippedFile);
+            // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
+            let file = new File([huf], zippedFile, {
+              type: "application/octet-stream",
+            });
+            saveAs(file);
+            FS.unlink(zippedFile);
+            msg("valid", "压缩成功");
+          } else {
+            msg("invalid", "压缩失败");
+          }
+        }
+      }
+
+      async function unzip() {
+        if (lastFile) {
+          let size = FS.stat(lastFile).size;
+          if (!lastFile.endsWith(".huf")) {
+            msg("invalid", "文件类型应为 huf");
+            return;
+          }
+          let unzippedFile = lastFile.slice(0, -4);
+          res = Module.hm_unzip(lastFile, size, unzippedFile);
+          if (res) {
+            let huf = FS.readFile(unzippedFile);
+            // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
+            let file = new File([huf], unzippedFile, {
+              type: "application/octet-stream",
+            });
+            saveAs(file);
+            FS.unlink(unzippedFile);
+            msg("valid", "解压成功");
+          } else {
+            msg("invalid", "解压失败");
+          }
+        }
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
