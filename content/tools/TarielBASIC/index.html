@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TarielBASIC</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <div class="container-fluid d-flex justify-content-center">
+      <div class="mt-4" style="width: 500px">
+        <div style="width: 100%">
+          <textarea
+            id="src"
+            class="form-control rounded-0 border-1"
+            style="height: 300px"
+          ></textarea>
+          <div id="res"></div>
+        </div>
+        <div style="width: 100%">
+          <textarea
+            id="stdin"
+            class="form-control rounded-0 border-1"
+            style="height: 100px"
+          ></textarea>
+        </div>
+        <div class="btn-group mt-2" role="group" style="width: 100%">
+          <button
+            type="button"
+            class="btn btn-outline-secondary rounded-0 border-0"
+            style="width: 100%"
+            onclick="tb()"
+          >
+            <i class="bi bi-play"></i>
+          </button>
+        </div>
+        <div class="mt-2" style="width: 100%">
+          <textarea
+            id="stdout"
+            class="form-control rounded-0 border-1"
+            style="height: 150px"
+          ></textarea>
+          <div id="res"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function feedback(isInvalid, message) {
+        document.getElementById("src").classList.remove("is-invalid");
+        document.getElementById("src").classList.remove("is-valid");
+        document.getElementById("res").classList.remove("invalid-feedback");
+        document.getElementById("res").classList.remove("valid-feedback");
+        document.getElementById("src").classList.add(`is-${isInvalid}`);
+        document.getElementById("res").classList.add(`${isInvalid}-feedback`);
+        document.getElementById("res").innerHTML = message;
+      }
+
+      function tb() {
+        let src = document.getElementById("src").value;
+        FS.writeFile("main.bas", src);
+        let stdin = document.getElementById("stdin").value;
+        FS.writeFile("stdin", stdin);
+        let exitCode = Module.tb("main.bas");
+        let stdout = FS.readFile("stdout", { encoding: "utf8" });
+        if (exitCode == -1) {
+          feedback("invalid", "Error at line " + stdout);
+        } else {
+          feedback("valid", `<i class="bi bi-arrow-right"></i> ${exitCode}`);
+          document.getElementById("stdout").value = stdout;
+        }
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="tb.js"></script>
+  </body>
+</html>
