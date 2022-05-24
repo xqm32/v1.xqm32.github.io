@@ -3,6 +3,30 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.24
+
+```python3
+#
+# @lc app=leetcode.cn id=1323 lang=python3
+#
+# [1323] 6 和 9 组成的最大数字
+#
+
+# @lc code=start
+class Solution:
+    def maximum69Number (self, num: int) -> int:
+        return int(str(num).replace('6', '9', 1))
+# @lc code=end
+
+sol = Solution()
+ret = sol.maximum69Number(9669)
+print(ret)
+ret = sol.maximum69Number(9996)
+print(ret)
+ret = sol.maximum69Number(9999)
+print(ret)
+```
+
 ## 2022.5.23
 
 ```python3
