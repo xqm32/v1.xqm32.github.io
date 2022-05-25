@@ -7141,6 +7141,9 @@ nowWords += 1
 >微软拼音输入法&lt;/a>，关闭输入法的 &lt;code>智能模糊拼音&lt;/code> 和 &lt;code>模糊拼音&lt;/code> 可以暂时修复。&lt;/p>
 &lt;h2 id="ios15-拼音输入法错误修复">iOS15 拼音输入法错误修复&lt;/h2>
 &lt;p>关闭 &lt;code>滑行输入&lt;/code> &lt;strong>似乎&lt;/strong>可以暂时修复。&lt;/p>
+&lt;h2 id="aria2c-仅下载种子不下载文件">Aria2c 仅下载种子，不下载文件&lt;/h2>
+&lt;p>运行时加入 &lt;code>--follow-torrent=false&lt;/code>，参见 &lt;a class="link" href="https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-follow-torrent" target="_blank" rel="noopener"
+>&amp;ndash;follow-torrent&lt;/a> 参数。&lt;/p>
 &lt;h1 id="开发">开发&lt;/h1>
 &lt;h2 id="github-贡献">GitHub 贡献&lt;/h2>
 &lt;p>添加功能或者修复错误时，应创建新的分支而非从 main/master 直接推送。&lt;/p>
