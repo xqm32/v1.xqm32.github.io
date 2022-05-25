@@ -3,6 +3,38 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.25
+
+```python3
+#
+# @lc app=leetcode.cn id=338 lang=python3
+#
+# [338] 比特位计数
+#
+
+from typing import List
+
+# @lc code=start
+class Solution:
+    def countBits(self, n: int) -> List[int]:
+        return [i.bit_count() for i in range(n+1)]
+
+    # @lc code=end
+    func = countBits
+
+
+sol = Solution()
+
+
+def test(*i):
+    ret = sol.func(*i)
+    print(ret)
+
+
+test(2)
+test(5)
+```
+
 ## 2022.5.24
 
 ```python3
