@@ -178,6 +178,10 @@ sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
 
 关闭 `滑行输入` **似乎**可以暂时修复。
 
+## Aria2c 仅下载种子，不下载文件
+
+运行时加入 `--follow-torrent=false`，参见 [--follow-torrent](https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-follow-torrent) 参数。
+
 # 开发
 
 ## GitHub 贡献
