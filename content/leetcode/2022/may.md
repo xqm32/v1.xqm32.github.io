@@ -3,6 +3,31 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.26
+
+```python3
+#
+# @lc app=leetcode.cn id=717 lang=python3
+#
+# [717] 1 比特与 2 比特字符
+#
+
+from typing import List
+
+# @lc code=start
+class Solution:
+    def isOneBitCharacter(self, bits: List[int]) -> bool:
+        return "".join(str(i) for i in bits[:-1]).replace("11", "").replace("10", "").count("1") == 0
+
+# @lc code=end
+
+sol = Solution()
+print(sol.isOneBitCharacter([1, 0, 0]))
+print(sol.isOneBitCharacter([0, 1, 0]))
+print(sol.isOneBitCharacter([1, 1, 1, 0]))
+print(sol.isOneBitCharacter([1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0]))
+```
+
 ## 2022.5.25
 
 ```python3
