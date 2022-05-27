@@ -3,6 +3,32 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.27
+
+```python3
+#
+# @lc app=leetcode.cn id=476 lang=python3
+#
+# [476] 数字的补数
+#
+
+# @lc code=start
+class Solution:
+    def findComplement(self, num: int) -> int:
+        return int(str(bin(num).removeprefix("0b")).replace("1", ".").replace("0", "1").replace(".", "0"), 2)
+
+    # @lc code=end
+    func = findComplement
+
+
+def test(*i):
+    ret = Solution().func(*i)
+    print(ret)
+
+test(5)
+test(1)
+```
+
 ## 2022.5.26
 
 ```python3
