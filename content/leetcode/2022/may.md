@@ -3,6 +3,39 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.28
+
+```python3
+#
+# @lc app=leetcode.cn id=1021 lang=python3
+#
+# [1021] 删除最外层的括号
+#
+
+# @lc code=start
+class Solution:
+    def removeOuterParentheses(self, s: str) -> str:
+        ret = ""
+        count = 0
+        for i in s:
+            if i == "(":
+                count += 1
+            if count > 1:
+                ret += i
+            if i == ")":
+                count -= 1
+        return ret
+# @lc code=end
+
+sol = Solution()
+print(sol.removeOuterParentheses("(()())(())"))
+print(sol.removeOuterParentheses("(()())(())(()(()))"))
+print(sol.removeOuterParentheses("()()"))
+print(sol.removeOuterParentheses("(()())"))
+print(sol.removeOuterParentheses("()(())"))
+print(sol.removeOuterParentheses("()()()"))
+```
+
 ## 2022.5.27
 
 ```python3
