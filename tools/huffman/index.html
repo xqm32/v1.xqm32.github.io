@@ -103,7 +103,10 @@
 
         saveAs(file);
         FS.unlink(zippedFile);
-        msg("valid", `压缩成功，压缩率为 ${(zippedSize / size * 100).toFixed(2)}%`);
+        msg(
+          "valid",
+          `压缩成功，压缩率为 ${((zippedSize / size) * 100).toFixed(2)}%`
+        );
       }
 
       async function unzip() {
@@ -136,7 +139,11 @@
         let zippedFile = lastFile + ".huf";
         let zipRes = Module.hm_zip(lastFile, size, zippedFile);
         let zippedSize = FS.stat(zippedFile).size;
-        let unzipRes = Module.hm_unzip(zippedFile, zippedSize, zippedFile + ".tmp");
+        let unzipRes = Module.hm_unzip(
+          zippedFile,
+          zippedSize,
+          zippedFile + ".tmp"
+        );
 
         if (!(zipRes && unzipRes)) {
           msg("invalid", "验证失败，压缩或解压失败");
@@ -158,10 +165,13 @@
           }
         }
 
-        msg("valid", `验证成功，压缩率为 ${(zippedSize / size * 100).toFixed(2)}%`);
+        msg(
+          "valid",
+          `验证成功，压缩率为 ${((zippedSize / size) * 100).toFixed(2)}%`
+        );
 
         FS.unlink(zippedFile);
-        FS.unlink(unzippedFile);
+        FS.unlink(zippedFile + ".tmp");
       }
     </script>
 
