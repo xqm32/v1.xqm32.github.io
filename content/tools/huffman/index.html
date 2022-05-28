@@ -105,7 +105,10 @@
         FS.unlink(zippedFile);
         msg(
           "valid",
-          `压缩成功，压缩率为 ${((zippedSize / size) * 100).toFixed(2)}%`
+          `${size} 字节 <i class="bi bi-arrow-right"></i> ${zippedSize} 字节 ${(
+            (zippedSize / size) *
+            100
+          ).toFixed(2)}%`
         );
       }
 
@@ -121,6 +124,7 @@
         let res = Module.hm_unzip(lastFile, size, unzippedFile);
 
         if (!res) msg("invalid", "解压失败");
+        let unzippedSize = FS.stat(unzippedFile).size;
         let huf = FS.readFile(unzippedFile);
         // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
         let file = new File([huf], unzippedFile, {
@@ -129,7 +133,13 @@
 
         saveAs(file);
         FS.unlink(unzippedFile);
-        msg("valid", "解压成功");
+        msg(
+          "valid",
+          `${size} 字节 <i class="bi bi-arrow-right"></i> ${unzippedSize} 字节 ${(
+            (size / unzippedSize) *
+            100
+          ).toFixed(2)}%`
+        );
       }
 
       async function verify() {
@@ -167,7 +177,10 @@
 
         msg(
           "valid",
-          `验证成功，压缩率为 ${((zippedSize / size) * 100).toFixed(2)}%`
+          `${size} 字节 <i class="bi bi-arrow-right"></i> ${zippedSize} 字节 ${(
+            (zippedSize / size) *
+            100
+          ).toFixed(2)}%`
         );
 
         FS.unlink(zippedFile);
