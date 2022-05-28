@@ -3,6 +3,40 @@ title: "May"
 draft: false
 ---
 
+## 2022.5.29
+
+```python3
+#
+# @lc app=leetcode.cn id=205 lang=python3
+#
+# [205] 同构字符串
+#
+
+
+# @lc code=start
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        d = dict()
+        for i, j in zip(s, t):
+            if i not in d and j not in d.values():
+                d[i] = j
+            else:
+                if i in d and d[i] == j:
+                    continue
+                return False
+        return True
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.isIsomorphic("egg", "add"))
+print(sol.isIsomorphic("foo", "bar"))
+print(sol.isIsomorphic("paper", "title"))
+print(sol.isIsomorphic("ab", "aa"))
+print(sol.isIsomorphic("ab", "ba"))
+```
+
 ## 2022.5.28
 
 ```python3
