@@ -93,7 +93,10 @@
         let zippedFile = lastFile + ".huf";
         let res = Module.hm_zip(lastFile, size, zippedFile);
 
-        if (!res) msg("invalid", "压缩失败");
+        if (!res) {
+          msg("invalid", "压缩失败");
+          return;
+        }
         let zippedSize = FS.stat(zippedFile).size;
         let huf = FS.readFile(zippedFile);
         // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
@@ -123,7 +126,10 @@
         let unzippedFile = lastFile.slice(0, -4);
         let res = Module.hm_unzip(lastFile, size, unzippedFile);
 
-        if (!res) msg("invalid", "解压失败");
+        if (!res) {
+          msg("invalid", "解压失败");
+          return;
+        }
         let unzippedSize = FS.stat(unzippedFile).size;
         let huf = FS.readFile(unzippedFile);
         // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
