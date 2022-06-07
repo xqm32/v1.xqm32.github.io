@@ -176,7 +176,9 @@ sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
 
 ## iOS15 拼音输入法错误修复
 
-关闭 `滑行输入` **似乎**可以暂时修复。
+<del>关闭 `滑行输入` **似乎**可以暂时修复。</del>
+
+参考 [这个帖子](https://www.v2ex.com/t/820760)，**似乎**可以暂时修复。
 
 ## Aria2c 仅下载种子，不下载文件
 
