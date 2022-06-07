@@ -7496,7 +7496,9 @@ nowWords += 1
 &lt;p>参考 &lt;a class="link" href="https://answers.microsoft.com/zh-hans/windows/forum/all/%e5%be%ae%e8%bd%af%e6%8b%bc%e9%9f%b3%e8%be%93/a462b2f3-9db2-4313-9369-f1ff8ec07975" target="_blank" rel="noopener"
 >微软拼音输入法&lt;/a>，关闭输入法的 &lt;code>智能模糊拼音&lt;/code> 和 &lt;code>模糊拼音&lt;/code> 可以暂时修复。&lt;/p>
 &lt;h2 id="ios15-拼音输入法错误修复">iOS15 拼音输入法错误修复&lt;/h2>
-&lt;p>关闭 &lt;code>滑行输入&lt;/code> &lt;strong>似乎&lt;/strong>可以暂时修复。&lt;/p>
+&lt;p>&lt;del>关闭 &lt;code>滑行输入&lt;/code> &lt;strong>似乎&lt;/strong>可以暂时修复。&lt;/del>&lt;/p>
+&lt;p>参考 &lt;a class="link" href="https://www.v2ex.com/t/820760" target="_blank" rel="noopener"
+>这个帖子&lt;/a>，&lt;strong>似乎&lt;/strong>可以暂时修复。&lt;/p>
 &lt;h2 id="aria2c-仅下载种子不下载文件">Aria2c 仅下载种子，不下载文件&lt;/h2>
 &lt;p>运行时加入 &lt;code>--follow-torrent=false&lt;/code>，参见 &lt;a class="link" href="https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-follow-torrent" target="_blank" rel="noopener"
 >&amp;ndash;follow-torrent&lt;/a> 参数。&lt;/p>
