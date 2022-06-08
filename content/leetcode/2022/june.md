@@ -3,6 +3,27 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.9
+
+```python3
+#
+# @lc app=leetcode.cn id=1935 lang=python3
+#
+# [1935] 可以输入的最大单词数
+#
+
+# @lc code=start
+class Solution:
+    def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
+        return sum(1 for i in text.split() if not set(brokenLetters) & set(i))
+# @lc code=end
+
+sol = Solution()
+print(sol.canBeTypedWords("hello world", "ad"))
+print(sol.canBeTypedWords("leet code", "lt"))
+print(sol.canBeTypedWords("leet code", "e"))
+```
+
 ## 2022.6.8
 
 ```python3
