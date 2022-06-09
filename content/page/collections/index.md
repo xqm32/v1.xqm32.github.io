@@ -1,6 +1,7 @@
 ---
 title: "收藏夹"
 draft: false
+slug: "collections"
 ---
 
 # 软件
