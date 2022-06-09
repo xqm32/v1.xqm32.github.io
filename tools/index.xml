@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on Qiming's Blog</title><link>https://xqm32.org/tools/</link><description>Recent content in Tools on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xqm32.org/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Wordle</title><link>https://xqm32.org/tools/wordle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/tools/wordle/</guid><description>&lt;h1 id="使用说明">使用说明&lt;/h1>
+&lt;p>点击拉取：拉取所有单词&lt;/p>
+&lt;p>点击剩余：计算剩余单词&lt;/p>
+&lt;p>状态按照颜色 w(white), y(yellow), g(green) 进行填写&lt;/p>
+&lt;hr/>
+&lt;span>提示：&lt;/span> &lt;span id="tips">&lt;/span>
+&lt;br/>
+&lt;button onClick="fetchIt()">拉取&lt;/button> | &lt;button onClick="undo()">撤销&lt;/button> | &lt;button onClick="redo()">重做&lt;/button> @ &lt;span id="nowWords">&lt;/span>
+&lt;br/>
+&lt;span>单词：&lt;/span> &lt;input id="word"/>
+&lt;br/>
+&lt;span>状态：&lt;/span> &lt;input id="state"/>
+&lt;br/>
+&lt;button onClick="wordle()">剩余：&lt;/button> &lt;span id="rest">&lt;/span>
+&lt;script>
+// Wordle
+// Fix Bug: apple | yygwy | double 'p'
+historyWords = [];
+nowWords = -1;
+words = [];
+len = 0;
+fetchIt();
+setInterval(()=>{
+document.getElementById("nowWords").innerHTML = nowWords
+}, 1000)
+async function fetchIt() {
+await fetch("/des.txt").then((r) =>
+r.text().then((t) => {
+words = t.split("\n");
+})
+);
+len = words[0].length;
+historyWords.push(words);
+nowWords = 0
+document.getElementById("word").value = ""
+document.getElementById("state").value = ""
+document.getElementById("rest").innerHTML = ""
+document.getElementById("tips").innerHTML = "拉取单词中";
+setTimeout(
+'document.getElementById("tips").innerHTML = "单词拉取完毕"',
+1000
+);
+}
+function undo() {
+words = historyWords[--nowWords];
+document.getElementById("rest").innerHTML = words
+}
+function redo() {
+words = historyWords[++nowWords];
+document.getElementById("rest").innerHTML = words
+}
+function wordle() {
+word = document.getElementById("word").value;
+state = document.getElementById("state").value;
+YandG = [];
+for (i = 0; i &lt; len; ++i) {
+switch (state[i]) {
+case "y":
+// 存在且不匹配
+words = words.filter(
+(w) => w[i] != word[i] &amp;&amp; w.search(word[i]) != -1
+);
+YandG.push(word[i]);
+break;
+case "g":
+// 存在且匹配
+words = words.filter((w) => w[i] == word[i]);
+YandG.push(word[i]);
+break;
+}
+}
+for (i = 0; i &lt; len; ++i) {
+if (state[i] == "w") {
+words = words.filter((w) => {
+wordCount = 0;
+YandGCount = 0;
+wordArray = Array.from(w);
+wordArray.forEach((alpha) => (wordCount += alpha == word[i] ? 1 : 0));
+YandG.forEach((alpha) => (YandGCount += alpha == word[i] ? 1 : 0));
+return (
+w.search(word[i]) == -1 ||
+(wordCount != 0 &amp;&amp; wordCount &lt;= YandGCount)
+);
+});
+}
+}
+if (words.length == 0)
+document.getElementById("rest").innerHTML = "There's nothing";
+else if (words.length == 1)
+document.getElementById("rest").innerHTML = `The answer is ${words[0]}`;
+else {
+document.getElementById("word").value = words[0];
+document.getElementById("rest").innerHTML = words;
+}
+historyWords.push(words);
+nowWords += 1
+}
+&lt;/script></description></item></channel></rss>
