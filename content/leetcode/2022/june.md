@@ -3,6 +3,32 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.10
+
+```python3
+#
+# @lc app=leetcode.cn id=1816 lang=python3
+#
+# [1816] 截断句子
+#
+
+# @lc code=start
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        for i in range(len(s)):
+            if s[i] == ' ':
+                k = k-1
+            if k == 0:
+                return s[:i]
+        return s
+# @lc code=end
+
+sol = Solution()
+print(sol.truncateSentence(""Hello how are you Contestant", 4))   
+print(sol.truncateSentence("What is the solution to this problem", 4))
+print(sol.truncateSentence("chopper is not a tanuki", 5))
+```
+
 ## 2022.6.9
 
 ```python3
