@@ -3,6 +3,36 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.11
+
+力扣似乎抽风了（）
+
+```python3
+#
+# @lc app=leetcode.cn id=414 lang=python3
+#
+# [414] 第三大的数
+#
+
+from typing import List
+
+# @lc code=start
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        nums=list(set(nums))
+        nums.sort()
+        if len(nums)<3:
+            return nums[-1]
+        else:
+            return nums[-3]
+# @lc code=end
+
+sol = Solution()
+print(sol.thirdMax([3,2,1]))
+print(sol.thirdMax([1,2]))
+print(sol.thirdMax([2,2,3,1]))
+```
+
 ## 2022.6.10
 
 ```python3
