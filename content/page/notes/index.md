@@ -159,7 +159,7 @@ sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
 
 <del>由于 [Typora](https://typora.io) 收费且收费较贵，不得不寻找其替代品，目前感觉 [MarkText](https://marktext.app/) 比较不错。</del>
 
-[Typora](https://typora.io) 真香🤣。
+[Typora](https://typora.io) 真香 🤣。
 
 ## Windows 工具
 
@@ -224,3 +224,15 @@ Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/t
 <!-- ## 教育网 IPv6 加速 Steam 下载的方法
 
 将下载地区设置为 US - Los Angeles。 -->
+
+# 站点
+
+## 豆瓣强制跳转解决方案
+
+在 [uBlock Origin](https://github.com/gorhill/uBlock) 中加入静态规则如下：
+
+```
+https://www.douban.com/j/check_clean_content
+```
+
+即可解决。此链接可由调试时发现。
