@@ -7669,7 +7669,7 @@ nowWords += 1
 >Typora&lt;/a> 收费且收费较贵，不得不寻找其替代品，目前感觉 &lt;a class="link" href="https://marktext.app/" target="_blank" rel="noopener"
 >MarkText&lt;/a> 比较不错。&lt;/del>&lt;/p>
 &lt;p>&lt;a class="link" href="https://typora.io" target="_blank" rel="noopener"
->Typora&lt;/a> 真香🤣。&lt;/p>
+>Typora&lt;/a> 真香 🤣。&lt;/p>
 &lt;h2 id="windows-工具">Windows 工具&lt;/h2>
 &lt;p>由于我的键盘的 &lt;code>ctrl&lt;/code> 键坏了，需要将 &lt;code>CapsLock&lt;/code> 键映射到 &lt;code>ctrl&lt;/code> 上，于是发现了这个好用的小工具：&lt;a class="link" href="https://github.com/microsoft/PowerToys" target="_blank" rel="noopener"
 >Microsoft PowerToys&lt;/a>。&lt;/p>
@@ -7716,7 +7716,20 @@ nowWords += 1
 >「在线更新」拓展&lt;/a>并在游戏中导入，进行更新即可。&lt;/li>
 &lt;/ol>
 &lt;!-- ## 教育网 IPv6 加速 Steam 下载的方法
-将下载地区设置为 US - Los Angeles。 --></description></item><item><title>待办事项</title><link>https://xqm32.org/todo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/todo/</guid><description>&lt;h1 id="github">GitHub&lt;/h1>
+将下载地区设置为 US - Los Angeles。 -->
+&lt;h1 id="站点">站点&lt;/h1>
+&lt;h2 id="豆瓣强制跳转解决方案">豆瓣强制跳转解决方案&lt;/h2>
+&lt;p>在 &lt;a class="link" href="https://github.com/gorhill/uBlock" target="_blank" rel="noopener"
+>uBlock Origin&lt;/a> 中加入静态规则如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">https://www.douban.com/j/check_clean_content
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>即可解决。此链接可由调试时发现。&lt;/p></description></item><item><title>待办事项</title><link>https://xqm32.org/todo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/todo/</guid><description>&lt;h1 id="github">GitHub&lt;/h1>
 &lt;ol>
 &lt;li>为 &lt;a class="link" href="https://github.com/LaoshuBaby/china-university-thesis-index" target="_blank" rel="noopener"
 >china-university-thesis-index&lt;/a> 加入 GitHub Action&lt;/li>
