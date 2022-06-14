@@ -1102,7 +1102,27 @@ data-flex-basis="341px"
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>之后推送至 Github，并将仓库中 &lt;code>Settings - Pages - Source - Branch&lt;/code> 的设置从 &lt;code>main&lt;/code> 修改至 &lt;code>gh-pages&lt;/code> 并点击 &lt;code>Save&lt;/code> 按钮，即可完成 Github Actions 部署工作。&lt;/p></description></item><item><title>HFUT</title><link>https://xqm32.org/hfut/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/hfut/</guid><description>&lt;p>&lt;strong>HFUT Webvpn 跳转&lt;/strong>&lt;/p>
+&lt;/div>&lt;p>之后推送至 Github，并将仓库中 &lt;code>Settings - Pages - Source - Branch&lt;/code> 的设置从 &lt;code>main&lt;/code> 修改至 &lt;code>gh-pages&lt;/code> 并点击 &lt;code>Save&lt;/code> 按钮，即可完成 Github Actions 部署工作。&lt;/p></description></item><item><title>GitHub</title><link>https://xqm32.org/github/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/github/</guid><description>&lt;p>收集一些有意思的 GitHub 项目&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/nushell/nushell" target="_blank" rel="noopener"
+>nushell&lt;/a>: A new type of shell.&lt;/p>
+&lt;p>Website: &lt;a class="link" href="https://www.nushell.sh/" target="_blank" rel="noopener"
+>https://www.nushell.sh/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/tauri-apps/tauri" target="_blank" rel="noopener"
+>tarui&lt;/a>: Build smaller, faster, and more secure desktop applications with a web frontend.&lt;/p>
+&lt;p>Website: &lt;a class="link" href="https://tauri.studio/" target="_blank" rel="noopener"
+>https://tauri.studio/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/yewstack/yew" target="_blank" rel="noopener"
+>yew&lt;/a>: Rust / Wasm framework for building client web apps&lt;/p>
+&lt;p>Website: &lt;a class="link" href="https://yew.rs/" target="_blank" rel="noopener"
+>https://yew.rs/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>HFUT</title><link>https://xqm32.org/hfut/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/hfut/</guid><description>&lt;p>&lt;strong>HFUT Webvpn 跳转&lt;/strong>&lt;/p>
 &lt;p>&lt;span>提示：&lt;/span> &lt;span id="tips">点击「加密」二字进行加密&lt;/span>
 &lt;br/>
 &lt;button onClick="go()">加密：&lt;/button> &lt;input id="url"/>
@@ -1136,7 +1156,60 @@ url = encrypUrl(protocol, url)
 $("#aHref").attr("href", "https://webvpn.hfut.edu.cn" + url);
 $("#aHref").text("https://webvpn.hfut.edu.cn" + url);
 }
-&lt;/script></description></item><item><title>June</title><link>https://xqm32.org/leetcode/2022/june/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/leetcode/2022/june/</guid><description>&lt;h2 id="2022611">2022.6.11&lt;/h2>
+&lt;/script></description></item><item><title>June</title><link>https://xqm32.org/leetcode/2022/june/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/leetcode/2022/june/</guid><description>&lt;h2 id="2022614">2022.6.14&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># @lc app=leetcode.cn id=14 lang=python3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># [14] 最长公共前缀&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">typing&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">List&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># @lc code=start&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Solution&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">longestCommonPrefix&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">strs&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">List&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">min&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">strs&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">strs&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">)):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">[:&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># @lc code=end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sol&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Solution&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sol&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">longestCommonPrefix&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s2">&amp;#34;flower&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;flow&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;flight&amp;#34;&lt;/span>&lt;span class="p">]))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sol&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">longestCommonPrefix&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s2">&amp;#34;dog&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;racecar&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;car&amp;#34;&lt;/span>&lt;span class="p">]))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sol&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">longestCommonPrefix&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="s2">&amp;#34;a&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;ab&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;ac&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;ad&amp;#34;&lt;/span>&lt;span class="p">]))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="2022611">2022.6.11&lt;/h2>
 &lt;p>力扣似乎抽风了（）&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">

@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on Qiming's Blog</title><link>https://xqm32.org/page/</link><description>Recent content in Pages on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xqm32.org/page/index.xml" rel="self" type="application/rss+xml"/><item><title>笔记</title><link>https://xqm32.org/notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/notes/</guid><description>&lt;p>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on Qiming's Blog</title><link>https://xqm32.org/page/</link><description>Recent content in Pages on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xqm32.org/page/index.xml" rel="self" type="application/rss+xml"/><item><title>GitHub</title><link>https://xqm32.org/github/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/github/</guid><description>&lt;p>收集一些有意思的 GitHub 项目&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/nushell/nushell" target="_blank" rel="noopener"
+>nushell&lt;/a>: A new type of shell.&lt;/p>
+&lt;p>Website: &lt;a class="link" href="https://www.nushell.sh/" target="_blank" rel="noopener"
+>https://www.nushell.sh/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/tauri-apps/tauri" target="_blank" rel="noopener"
+>tarui&lt;/a>: Build smaller, faster, and more secure desktop applications with a web frontend.&lt;/p>
+&lt;p>Website: &lt;a class="link" href="https://tauri.studio/" target="_blank" rel="noopener"
+>https://tauri.studio/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/yewstack/yew" target="_blank" rel="noopener"
+>yew&lt;/a>: Rust / Wasm framework for building client web apps&lt;/p>
+&lt;p>Website: &lt;a class="link" href="https://yew.rs/" target="_blank" rel="noopener"
+>https://yew.rs/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>笔记</title><link>https://xqm32.org/notes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/notes/</guid><description>&lt;p>此处存放着笔者想要留存，但内容较少，不适合新建一篇博客的内容。&lt;/p>
 &lt;h1 id="配置">配置&lt;/h1>
 &lt;h2 id="npm-镜像设置">&lt;code>npm&lt;/code> 镜像设置&lt;/h2>
 &lt;p>&lt;a class="link" href="https://mirrors.tencent.com/help/npm.html" target="_blank" rel="noopener"
