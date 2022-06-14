@@ -3,6 +3,34 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.14
+
+```python
+#
+# @lc app=leetcode.cn id=14 lang=python3
+#
+# [14] 最长公共前缀
+#
+
+from typing import List
+
+# @lc code=start
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        a = min(strs)
+        b = max(strs)
+        for i in range(len(a)):
+            if a[i] != b[i]:
+                return a[:i]
+        return a
+# @lc code=end
+
+sol = Solution()
+print(sol.longestCommonPrefix(["flower","flow","flight"]))
+print(sol.longestCommonPrefix(["dog","racecar","car"]))
+print(sol.longestCommonPrefix(["a","ab", "ac", "ad"]))
+```
+
 ## 2022.6.11
 
 力扣似乎抽风了（）
