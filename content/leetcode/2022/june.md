@@ -3,6 +3,29 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.16
+
+```python
+#
+# @lc app=leetcode.cn id=268 lang=python3
+#
+# [268] 丢失的数字
+#
+
+from typing import List
+
+# @lc code=start
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        return list(set(range(len(nums)+1))-set(nums))[0]
+# @lc code=end
+
+sol = Solution()
+print(sol.missingNumber([3,0,1]))
+print(sol.missingNumber([9,6,4,2,3,5,7,0,1]))
+print(sol.missingNumber([0]))
+```
+
 ## 2022.6.15
 
 ```python
