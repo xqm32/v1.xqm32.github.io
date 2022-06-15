@@ -3,6 +3,42 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.15
+
+```python
+#
+# @lc app=leetcode.cn id=20 lang=python3
+#
+# [20] 有效的括号
+#
+
+# @lc code=start
+class Solution:
+    def isValid(self, s: str) -> bool:
+        d = {")": "(", "]": "[", "}": "{"}
+        stack = []
+        for i in s:
+            if i in d.values():
+                stack.append(i)
+            else:
+                if not stack or stack[-1] != d[i]:
+                    return False
+                else:
+                    stack.pop()
+        if stack:
+            return False
+        return True
+            
+# @lc code=end
+
+sol = Solution()
+print(sol.isValid("()"))
+print(sol.isValid("()[]{}"))
+print(sol.isValid("(]"))
+print(sol.isValid("([)]"))
+print(sol.isValid("["))
+```
+
 ## 2022.6.14
 
 ```python
