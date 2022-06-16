@@ -3,6 +3,31 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.17
+
+```python
+#
+# @lc app=leetcode.cn id=1331 lang=python3
+#
+# [1331] 数组序号转换
+#
+
+from typing import List
+
+# @lc code=start
+class Solution:
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        return (lambda d: [d[i]+1 for i in arr])({v: i for i, v in enumerate(sorted(set(arr)))})
+
+# @lc code=end
+
+sol = Solution()
+print(sol.arrayRankTransform([40,10,20,30]))
+print(sol.arrayRankTransform([100,100,100]))
+print(sol.arrayRankTransform([37,12,28,9,100,56,80,5,12]))
+print(sol.arrayRankTransform([1,1,1]))
+```
+
 ## 2022.6.16
 
 ```python
