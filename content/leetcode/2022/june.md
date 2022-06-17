@@ -3,6 +3,32 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.18
+
+```python
+#
+# @lc app=leetcode.cn id=1518 lang=python3
+#
+# [1518] 换酒问题
+#
+
+# @lc code=start
+class Solution:
+    def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
+        ret = numBottles
+        while numBottles >= numExchange:
+            ret += numBottles // numExchange
+            numBottles = numBottles % numExchange + numBottles // numExchange
+        return ret
+
+
+# @lc code=end
+sol=Solution()
+print(sol.numWaterBottles(15,4))
+print(sol.numWaterBottles(5,5))
+print(sol.numWaterBottles(2,3))
+```
+
 ## 2022.6.17
 
 ```python
@@ -76,7 +102,7 @@ class Solution:
         if stack:
             return False
         return True
-            
+
 # @lc code=end
 
 sol = Solution()
@@ -166,7 +192,7 @@ class Solution:
 # @lc code=end
 
 sol = Solution()
-print(sol.truncateSentence(""Hello how are you Contestant", 4))   
+print(sol.truncateSentence(""Hello how are you Contestant", 4))
 print(sol.truncateSentence("What is the solution to this problem", 4))
 print(sol.truncateSentence("chopper is not a tanuki", 5))
 ```
