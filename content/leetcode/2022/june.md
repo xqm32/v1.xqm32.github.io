@@ -3,6 +3,31 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.19
+
+```python
+#
+# @lc app=leetcode.cn id=485 lang=python3
+#
+# [485] 最大连续 1 的个数
+#
+
+from collections import Counter
+from typing import List
+
+# @lc code=start
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        return max(len(i) for i in "".join(str(i) for i in nums).split("0"))
+# @lc code=end
+
+sol = Solution()
+print(sol.findMaxConsecutiveOnes([1,1,0,1,1,1]))
+print(sol.findMaxConsecutiveOnes([1,0,1,1,0,1]))
+print(sol.findMaxConsecutiveOnes([1,1,1]))
+print(sol.findMaxConsecutiveOnes([0,0,0]))
+```
+
 ## 2022.6.18
 
 ```python
