@@ -3,6 +3,36 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.20
+
+```python
+#
+# @lc app=leetcode.cn id=844 lang=python3
+#
+# [844] 比较含退格的字符串
+#
+
+import re
+
+# @lc code=start
+class Solution:
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        reg = re.compile(r"([a-z]#)|^#")
+        while reg.findall(s):
+            s = reg.sub("", s)
+        while reg.findall(t):
+            t = reg.sub("", t)
+        return s == t
+        # @lc code=end
+
+
+sol = Solution()
+print(sol.backspaceCompare("ab#c", "ad#c"))
+print(sol.backspaceCompare("ab##", "c#d#"))
+print(sol.backspaceCompare("a#c", "b"))
+print(sol.backspaceCompare("y#fo##f", "y#f#o##f"))
+```
+
 ## 2022.6.19
 
 ```python
