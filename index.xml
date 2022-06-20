@@ -7989,6 +7989,9 @@ nowWords += 1
 >一文让你了解如何为 Git 设置代理&lt;/a>。&lt;/p>
 &lt;p>&lt;a class="link" href="https://docs.github.com/en/get-started/quickstart/set-up-git" target="_blank" rel="noopener"
 >Set Up Git&lt;/a>.&lt;/p>
+&lt;h2 id="git-配置凭证管理">Git 配置凭证管理&lt;/h2>
+&lt;p>在 Windows 上似乎是由自动的 Git 凭证管理器完成，在 Linux/macOS 可以参考 &lt;a class="link" href="https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage" target="_blank" rel="noopener"
+>Git Tools Credential Storage&lt;/a>&lt;/p>
 &lt;h2 id="我的-git-配置">我的 Git 配置&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
