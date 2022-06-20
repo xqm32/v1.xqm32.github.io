@@ -73,6 +73,10 @@ markup:
 
 [Set Up Git](https://docs.github.com/en/get-started/quickstart/set-up-git).
 
+## Git 配置凭证管理
+
+在 Windows 上似乎是由自动的 Git 凭证管理器完成，在 Linux/macOS 可以参考 [Git Tools Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage)
+
 ## 我的 Git 配置
 
 ```bash
