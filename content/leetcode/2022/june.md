@@ -3,6 +3,30 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.21
+
+```python
+#
+# @lc app=leetcode.cn id=1295 lang=python3
+#
+# [1295] 统计位数为偶数的数字
+#
+
+from typing import List
+
+# @lc code=start
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+        return sum(1 for i in nums if len(str(i)) % 2 == 0)
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.findNumbers([12, 345, 2, 6, 7896]))
+print(sol.findNumbers([555, 901, 482, 1771]))
+```
+
 ## 2022.6.20
 
 ```python
