@@ -3,6 +3,29 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.22
+
+```python
+#
+# @lc app=leetcode.cn id=1748 lang=python3
+#
+# [1748] 唯一元素的和
+#
+
+from collections import Counter
+from typing import List
+
+# @lc code=start
+class Solution:
+    def sumOfUnique(self, nums: List[int]) -> int:
+        return sum(i[0] for i in filter(lambda x: x[1] == 1, Counter(nums).items()))
+# @lc code=end
+
+sol = Solution()
+print(sol.sumOfUnique([1,2,3,2]))
+print(sol.sumOfUnique([1,1,1,1,1]))
+```
+
 ## 2022.6.21
 
 ```python
