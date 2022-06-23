@@ -3,6 +3,34 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.23
+
+```python
+#
+# @lc app=leetcode.cn id=389 lang=python3
+#
+# [389] 找不同
+#
+
+# @lc code=start
+from collections import Counter
+
+
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        sc = Counter(s)
+        tc = Counter(t)
+        for i in tc:
+            if i not in sc or sc[i] != tc[i]:
+                return i
+
+# @lc code=end
+
+sol = Solution()
+print(sol.findTheDifference("abcd", "abcde"))
+print(sol.findTheDifference("", "y"))
+```
+
 ## 2022.6.22
 
 ```python
