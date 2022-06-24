@@ -8264,6 +8264,9 @@ nowWords += 1
 &lt;h2 id="wsl-安装-rust">WSL 安装 Rust&lt;/h2>
 &lt;p>Rust 官方给出了安装工具 &lt;a class="link" href="https://www.rust-lang.org/zh-CN/tools/install" target="_blank" rel="noopener"
 >安装 Rust&lt;/a>。&lt;/p>
+&lt;h2 id="windows-下测量命令执行时间">Windows 下测量命令执行时间&lt;/h2>
+&lt;p>使用 &lt;code>Measure-Command&lt;/code>，参见 &lt;a class="link" href="https://stackoverflow.com/questions/673523/how-do-i-measure-execution-time-of-a-command-on-the-windows-command-line" target="_blank" rel="noopener"
+>How do I measure execution time of a command on the Windows command line?&lt;/a>。&lt;/p>
 &lt;h1 id="游戏">游戏&lt;/h1>
 &lt;h2 id="无名杀">无名杀&lt;/h2>
 &lt;p>&lt;a class="link" href="https://github.com/libccy/noname" target="_blank" rel="noopener"
