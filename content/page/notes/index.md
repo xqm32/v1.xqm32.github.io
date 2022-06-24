@@ -213,6 +213,10 @@ sudo tar xf glibc-X.XX.tar.gz --directory=/build/glibc-XXXXXX/
 
 Rust 官方给出了安装工具 [安装 Rust](https://www.rust-lang.org/zh-CN/tools/install)。
 
+## Windows 下测量命令执行时间
+
+使用 `Measure-Command`，参见 [How do I measure execution time of a command on the Windows command line?](https://stackoverflow.com/questions/673523/how-do-i-measure-execution-time-of-a-command-on-the-windows-command-line)。
+
 # 游戏
 
 ## 无名杀
