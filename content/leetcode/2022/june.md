@@ -3,6 +3,36 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.25
+
+```python
+#
+# @lc app=leetcode.cn id=1437 lang=python3
+#
+# [1437] 是否所有 1 都至少相隔 k 个元素
+#
+
+from typing import List
+
+# @lc code=start
+class Solution:
+    def kLengthApart(self, nums: List[int], k: int) -> bool:
+        s = "".join(str(i) for i in nums)
+        one = s.count("1")
+        zero = s.count("1"+"0"*k)
+        if zero < one-1:
+            return False
+        return True
+# @lc code=end
+
+sol = Solution()
+print(sol.kLengthApart(nums = [1,0,0,0,1,0,0,1], k = 2))
+print(sol.kLengthApart(nums = [1,0,0,1,0,1], k = 2))
+print(sol.kLengthApart(nums = [1,0,0,0,1,0,0,1], k = 2))
+print(sol.kLengthApart(nums = [0,1,0,1], k = 1))
+print(sol.kLengthApart(nums = [1,0,0,0,1,0,0,0,0,0,0,0,1,0,1], k = 2))
+```
+
 ## 2022.6.24
 
 ```python
