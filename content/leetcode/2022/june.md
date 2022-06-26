@@ -3,6 +3,29 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.26
+
+```python
+#
+# @lc app=leetcode.cn id=242 lang=python3
+#
+# [242] 有效的字母异位词
+#
+
+# @lc code=start
+from collections import Counter
+
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+# @lc code=end
+
+sol = Solution()
+print(sol.isAnagram(s = "anagram", t = "nagaram"))
+print(sol.isAnagram(s = "rat", t = "car"))
+```
+
 ## 2022.6.25
 
 ```python
