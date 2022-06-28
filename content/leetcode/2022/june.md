@@ -3,6 +3,39 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.28
+
+```python
+#
+# @lc app=leetcode.cn id=1790 lang=python3
+#
+# [1790] 仅执行一次字符串交换能否使两个字符串相等
+#
+
+# @lc code=start
+from collections import Counter
+
+
+class Solution:
+    def areAlmostEqual(self, s1: str, s2: str) -> bool:
+        if Counter(s1) != Counter(s2):
+            return False
+        ne = 0
+        for i in range(len(s1)):
+            if s1[i] != s2[i]:
+                ne += 1
+            if ne > 2:
+                return False
+        return True
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.areAlmostEqual(s1="bank", s2="kanb"))
+print(sol.areAlmostEqual(s1="attack", s2="defend"))
+```
+
 ## 2022.6.27
 
 ```python
