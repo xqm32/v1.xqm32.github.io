@@ -3,6 +3,40 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.27
+
+```python
+#
+# @lc app=leetcode.cn id=392 lang=python3
+#
+# [392] 判断子序列
+#
+
+# @lc code=start
+
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        if t.find(s) != -1:
+            return True
+        if not t:
+            return False
+        pos = -1
+        for i in s:
+            pos = t.find(i, pos + 1)
+            if pos == -1:
+                return False
+        return True
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.isSubsequence(s="abc", t="ahbgdc"))
+print(sol.isSubsequence(s="axc", t="ahbgdc"))
+print(sol.isSubsequence(s="aaaaaa", t="bbaaaa"))
+```
+
 ## 2022.6.26
 
 ```python
