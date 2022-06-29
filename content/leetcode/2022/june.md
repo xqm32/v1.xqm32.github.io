@@ -3,6 +3,28 @@ title: "June"
 draft: false
 ---
 
+## 2022.6.29
+
+```python
+#
+# @lc app=leetcode.cn id=520 lang=python3
+#
+# [520] 检测大写字母
+#
+
+# @lc code=start
+class Solution:
+    def detectCapitalUse(self, word: str) -> bool:
+        return word.isupper() or word.islower() or word == word.title()
+# @lc code=end
+
+sol = Solution()
+print(sol.detectCapitalUse("USA"))
+print(sol.detectCapitalUse("FlaG"))
+print(sol.detectCapitalUse("Google"))
+print(sol.detectCapitalUse("g"))
+```
+
 ## 2022.6.28
 
 ```python
