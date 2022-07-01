@@ -3,6 +3,22 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.2
+
+```python
+#
+# @lc app=leetcode.cn id=1342 lang=python3
+#
+# [1342] 将数字变成 0 的操作次数
+#
+
+# @lc code=start
+class Solution:
+    def numberOfSteps(self, num: int) -> int:
+        return num.bit_count()+num.bit_length()-1 if num else 0
+# @lc code=end
+```
+
 ## 2022.7.1
 
 ```python
