@@ -3,6 +3,37 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.3
+
+```python
+#
+# @lc app=leetcode.cn id=507 lang=python3
+#
+# [507] 完美数
+#
+
+# @lc code=start
+from math import ceil, sqrt
+
+
+class Solution:
+    def checkPerfectNumber(self, num: int) -> bool:
+        return (
+            sum(i + num / i for i in range(2, ceil(sqrt(num))) if num % i == 0) + 1
+            == num
+        ) if num != 1 else False
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.checkPerfectNumber(28))
+print(sol.checkPerfectNumber(7))
+print(sol.checkPerfectNumber(1))
+print(sol.checkPerfectNumber(99999994))
+
+```
+
 ## 2022.7.2
 
 ```python
