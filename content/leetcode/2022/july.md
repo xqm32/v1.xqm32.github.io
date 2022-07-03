@@ -3,6 +3,43 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.4
+
+```python
+#
+# @lc app=leetcode.cn id=263 lang=python3
+#
+# [263] 丑数
+#
+
+# @lc code=start
+class Solution:
+    def isUgly(self, n: int) -> bool:
+        if n <= 0:
+            return False
+        while n > 1:
+            canDivde = False
+
+            for i in [2, 3, 5]:
+                if n % i == 0:
+                    n //= i
+                    canDivde = True
+
+            if not canDivde:
+                return False
+        return True
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.isUgly(6))
+print(sol.isUgly(1))
+print(sol.isUgly(14))
+print(sol.isUgly(-2147483648))
+
+```
+
 ## 2022.7.3
 
 ```python
