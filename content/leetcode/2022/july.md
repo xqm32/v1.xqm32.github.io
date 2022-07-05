@@ -3,6 +3,29 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.5
+
+```python
+#
+# @lc app=leetcode.cn id=1051 lang=python3
+#
+# [1051] 高度检查器
+#
+from typing import List
+
+# @lc code=start
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        return sum(i != j for i, j in zip(heights, sorted(heights)))
+
+
+# @lc code=end
+sol = Solution()
+print(sol.heightChecker([1,1,4,2,1,3]))
+print(sol.heightChecker([5,1,2,3,4]))
+print(sol.heightChecker([1,2,3,4,5]))
+```
+
 ## 2022.7.4
 
 ```python
