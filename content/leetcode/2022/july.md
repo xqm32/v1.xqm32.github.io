@@ -3,6 +3,34 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.6
+
+```python
+#
+# @lc app=leetcode.cn id=884 lang=python3
+#
+# [884] 两句话中的不常见单词
+#
+
+# @lc code=start
+from collections import Counter
+from typing import List
+
+
+class Solution:
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        no = [i for i, j in Counter(s1.split() + s2.split()).items() if j > 1]
+        return list(set(s1.split()).symmetric_difference(set(s2.split())) - set(no))
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.uncommonFromSentences(s1="this apple is sweet", s2="this apple is sour"))
+print(sol.uncommonFromSentences(s1="apple apple", s2="banana"))
+print(sol.uncommonFromSentences(s1="s z z z s", s2="s z ejt"))
+```
+
 ## 2022.7.5
 
 ```python
