@@ -3,6 +3,33 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.7
+
+```python
+#
+# @lc app=leetcode.cn id=2283 lang=python3
+#
+# [2283] 判断一个数的数字计数是否等于数位的值
+#
+
+# @lc code=start
+
+
+class Solution:
+    def digitCount(self, num: str) -> bool:
+        for i in range(min(len(num), 10)):
+            if num.count(str(i)) != int(num[i]):
+                return False
+        return True
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.digitCount("1210"))
+print(sol.digitCount("030"))
+```
+
 ## 2022.7.6
 
 ```python
