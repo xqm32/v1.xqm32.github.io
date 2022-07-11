@@ -3,6 +3,30 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.12
+
+```python
+#
+# @lc app=leetcode.cn id=169 lang=python3
+#
+# [169] 多数元素
+#
+
+# @lc code=start
+from collections import Counter
+from typing import List
+
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        return Counter(nums).most_common(1)[0][0]
+# @lc code=end
+
+sol = Solution()
+print(sol.majorityElement(nums = [3,2,3]))
+print(sol.majorityElement(nums = [2,2,1,1,1,2,2]))
+```
+
 ## 2022.7.11
 
 ```python
