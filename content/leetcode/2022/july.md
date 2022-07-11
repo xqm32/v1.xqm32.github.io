@@ -3,6 +3,36 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.11
+
+```python
+#
+# @lc app=leetcode.cn id=1550 lang=python3
+#
+# [1550] 存在连续三个奇数的数组
+#
+
+# @lc code=start
+from typing import List
+
+
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        even = [0]
+        for i in arr:
+            if i % 2 == 0:
+                even.append(0)
+            else:
+                even.append(even[-1] + 1)
+        return any(filter(lambda i: i > 2, even))
+
+
+# @lc code=end
+sol = Solution()
+print(sol.threeConsecutiveOdds(arr=[2, 6, 4, 1]))
+print(sol.threeConsecutiveOdds(arr=[1, 2, 34, 3, 4, 5, 7, 23, 12]))
+```
+
 ## 2022.7.10
 
 ```python
