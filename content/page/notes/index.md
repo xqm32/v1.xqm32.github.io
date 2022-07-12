@@ -123,12 +123,13 @@ sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 ```bash
 export windowsHostIP=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+export windowsHostPort="7890"
 
 proxy() {
-    export ALL_PROXY="http://$windowsHostIP:10809"
-    export all_proxy="http://$windowsHostIP:10809"
-    export http_proxy="http://$windowsHostIP:10809"
-    export https_proxy="http://$windowsHostIP:10809"
+    export ALL_PROXY="http://$windowsHostIP:$windowsHostPort"
+    export all_proxy="http://$windowsHostIP:$windowsHostPort"
+    export http_proxy="http://$windowsHostIP:$windowsHostPort"
+    export https_proxy="http://$windowsHostIP:$windowsHostPort"
 }
 
 unproxy() {
