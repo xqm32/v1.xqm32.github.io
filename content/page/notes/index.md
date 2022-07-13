@@ -82,7 +82,7 @@ markup:
 ```bash
 git config --global user.name "xqm32"
 git config --global user.email "458173774@qq.com"
-git config --global http.https://github.com.proxy http://127.0.0.1:10809
+git config --global http.https://github.com.proxy http://127.0.0.1:7890
 ```
 
 ## Git-MediaWiki
