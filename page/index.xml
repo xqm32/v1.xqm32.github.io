@@ -113,7 +113,7 @@
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --global user.name &lt;span class="s2">&amp;#34;xqm32&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.email &lt;span class="s2">&amp;#34;458173774@qq.com&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global http.https://github.com.proxy http://127.0.0.1:10809
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global http.https://github.com.proxy http://127.0.0.1:7890
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="git-mediawiki">Git-MediaWiki&lt;/h2>
