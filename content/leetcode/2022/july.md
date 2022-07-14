@@ -3,6 +3,34 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.14
+
+```python
+#
+# @lc app=leetcode.cn id=628 lang=python3
+#
+# [628] 三个数的最大乘积
+#
+
+# @lc code=start
+from functools import reduce
+from typing import List
+
+
+class Solution:
+    def maximumProduct(self, nums: List[int]) -> int:
+        mul = lambda n: reduce(lambda a, b: a*b, n)
+        nums.sort()
+        return max(mul(nums[-3:]), mul(nums[:2]+nums[-1:]))
+# @lc code=end
+
+sol = Solution()
+print(sol.maximumProduct([1,2,3]))
+print(sol.maximumProduct([1,2,3,4]))
+print(sol.maximumProduct([-1,-2,-3,-4]))
+print(sol.maximumProduct([-100,-98,-1,2,3,4]))
+```
+
 ## 2022.7.12
 
 ```python
