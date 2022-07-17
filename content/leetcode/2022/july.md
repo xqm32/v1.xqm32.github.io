@@ -3,6 +3,37 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.17
+
+```python
+#
+# @lc app=leetcode.cn id=1002 lang=python3
+#
+# [1002] 查找共用字符
+#
+
+# @lc code=start
+from collections import Counter
+from functools import reduce
+from typing import List
+
+
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        return list(
+            "".join(
+                i * c
+                for i, c in reduce(lambda x, y: Counter(x) & Counter(y), words).items()
+            )
+        )
+
+
+# @lc code=end
+sol = Solution()
+print(sol.commonChars(["bella", "label", "roller"]))
+print(sol.commonChars(["cool", "lock", "cook"]))
+```
+
 ## 2022.7.16
 
 ```python
