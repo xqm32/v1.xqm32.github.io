@@ -3,6 +3,43 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.19
+
+```python
+#
+# @lc app=leetcode.cn id=929 lang=python3
+#
+# [929] 独特的电子邮件地址
+#
+
+# @lc code=start
+from typing import List
+
+
+class Solution:
+    def numUniqueEmails(self, emails: List[str]) -> int:
+        after = set()
+        for i in emails:
+            local, domain = i.split("@")
+            local = local.replace(".", "").split("+")[0]
+            after.add(f"{local}@{domain}")
+        return len(after)
+
+
+# @lc code=end
+sol = Solution()
+print(
+    sol.numUniqueEmails(
+        [
+            "test.email+alex@leetcode.com",
+            "test.e.mail+bob.cathy@leetcode.com",
+            "testemail+david@lee.tcode.com",
+        ]
+    )
+)
+print(sol.numUniqueEmails(["a@leetcode.com", "b@leetcode.com", "c@leetcode.com"]))
+```
+
 ## 2022.7.18
 
 ```python
