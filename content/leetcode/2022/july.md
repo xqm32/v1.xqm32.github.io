@@ -3,6 +3,33 @@ title: "July"
 draft: false
 ---
 
+## 2922.7.21
+
+```python
+#
+# @lc app=leetcode.cn id=1446 lang=python3
+#
+# [1446] 连续字符
+#
+
+# @lc code=start
+class Solution:
+    def maxPower(self, s: str) -> int:
+        r = [1]
+        for i in range(1, len(s)):
+            if s[i] == s[i-1]:
+                r.append(r[-1]+1)
+            else:
+                r.append(1)
+        return max(r)
+# @lc code=end
+
+sol = Solution()
+print(sol.maxPower("l"))
+print(sol.maxPower("leetcode"))
+print(sol.maxPower("abbcccddddeeeeedcba"))
+```
+
 ## 2022.7.20
 
 ```python
