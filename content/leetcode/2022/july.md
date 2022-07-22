@@ -3,6 +3,47 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.23
+
+```python
+#
+# @lc app=leetcode.cn id=168 lang=python3
+#
+# [168] Excel表列名称
+#
+
+# @lc code=start
+import math
+
+
+class Solution:
+    def convertToTitle(self, columnNumber: int) -> str:
+        a = []
+        d = {i: chr(64 + i) for i in range(1, 27)}
+        while columnNumber > 26:
+            r = columnNumber % 26
+            if r == 0:
+                a.append(26)
+                columnNumber = columnNumber - 26
+                columnNumber = columnNumber // 26
+            else:
+                a.append(r)
+                columnNumber = columnNumber // 26
+        a.append(columnNumber)
+        return "".join(d[i] for i in reversed(a))
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.convertToTitle(1))
+print(sol.convertToTitle(28))
+print(sol.convertToTitle(701))
+print(sol.convertToTitle(702))
+print(sol.convertToTitle(18278))
+print(sol.convertToTitle(2147483647))
+```
+
 ## 2022.7.22
 
 ```python
