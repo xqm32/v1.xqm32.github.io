@@ -3,6 +3,27 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.22
+
+```python
+#
+# @lc app=leetcode.cn id=58 lang=python3
+#
+# [58] 最后一个单词的长度
+#
+
+# @lc code=start
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        return len(s.split()[-1].strip())
+# @lc code=end
+
+sol = Solution()
+print(sol.lengthOfLastWord("Hello world"))
+print(sol.lengthOfLastWord("   fly me   to   the moon  "))
+print(sol.lengthOfLastWord("luffy is still joyboy"))
+```
+
 ## 2922.7.21
 
 ```python
