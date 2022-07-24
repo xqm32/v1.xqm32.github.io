@@ -3,6 +3,24 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.25
+
+```python
+#
+# @lc app=leetcode.cn id=342 lang=python3
+#
+# [342] 4的幂
+#
+
+# @lc code=start
+class Solution:
+    def isPowerOfFour(self, n: int) -> bool:
+        return n > 0 and n.bit_count() == 1 and n.bit_length() % 2 == 1
+
+
+# @lc code=end
+```
+
 ## 2022.7.24
 
 ```python
