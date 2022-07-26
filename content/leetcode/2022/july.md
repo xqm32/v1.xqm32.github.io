@@ -3,6 +3,37 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.26
+
+```python
+#
+# @lc app=leetcode.cn id=482 lang=python3
+#
+# [482] 密钥格式化
+#
+
+# @lc code=start
+class Solution:
+    def licenseKeyFormatting(self, s: str, k: int) -> str:
+        s = "".join(s.split("-")).upper()
+        r = []
+        if len(s) % k != 0:
+            r.append(s[: len(s) % k])
+        for i in range(len(s) % k, len(s), k):
+            r.append(s[i : i + k])
+        return "-".join(r)
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.licenseKeyFormatting(s="5-5", k=3))
+print(sol.licenseKeyFormatting(s="5F3Z-2e-9-w", k=4))
+print(sol.licenseKeyFormatting(s="2-5g-3-J", k=2))
+print(sol.licenseKeyFormatting(s="2-5g-3-J", k=3))
+print(sol.licenseKeyFormatting(s="2-5g-3-J", k=4))
+```
+
 ## 2022.7.25
 
 ```python
