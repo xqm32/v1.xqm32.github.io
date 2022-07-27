@@ -3,6 +3,41 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.27
+
+```python
+#
+# @lc app=leetcode.cn id=917 lang=python3
+#
+# [917] 仅仅反转字母
+#
+
+# @lc code=start
+
+
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        t = []
+        for i in s:
+            if i.isalpha():
+                t.append(i)
+        s = list(s)
+        for i in range(len(s) - 1, -1, -1):
+            if s[i].isalpha():
+                s[i] = t[0]
+                t.pop(0)
+        return "".join(s)
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.reverseOnlyLetters("a"))
+print(sol.reverseOnlyLetters("ab-cd"))
+print(sol.reverseOnlyLetters("a-bC-dEf-ghIj"))
+print(sol.reverseOnlyLetters("Test1ng-Leet=code-Q!"))
+```
+
 ## 2022.7.26
 
 ```python
