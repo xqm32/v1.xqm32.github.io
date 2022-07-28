@@ -3,6 +3,45 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.28
+
+```python
+#
+# @lc app=leetcode.cn id=724 lang=python3
+#
+# [724] 寻找数组的中心下标
+#
+
+# @lc code=start
+from typing import List
+
+
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        ret = -1
+        if sum(nums[1:]) == 0:
+            return 0
+        if sum(nums[:-1]) == 0:
+            ret = len(nums) - 1
+        for i in range(1, len(nums)):
+            nums[i] = nums[i] + nums[i - 1]
+        for i in range(1, len(nums) - 1):
+            if nums[-1] - nums[i] == nums[i - 1]:
+                return i
+        return ret
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.pivotIndex([1, 7, 3, 6, 5, 6]))
+print(sol.pivotIndex([1, 2, 3]))
+print(sol.pivotIndex([2, 1, -1]))
+print(sol.pivotIndex([2, 1, 2]))
+print(sol.pivotIndex([-1, -1, 0, 1, 1, 0]))
+print(sol.pivotIndex([-1, -1, 1, 1, 0, 0]))
+```
+
 ## 2022.7.27
 
 ```python
