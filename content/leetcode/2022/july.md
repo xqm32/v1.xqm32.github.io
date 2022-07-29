@@ -3,6 +3,39 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.29
+
+```python
+#
+# @lc app=leetcode.cn id=119 lang=python3
+#
+# [119] 杨辉三角 II
+#
+
+# @lc code=start
+from typing import List
+
+
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        c = [1]
+        for i in range(rowIndex):
+            for j in range(i):
+                c.append(c[0] + c[1])
+                c.pop(0)
+            c.append(1)
+        return c
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.getRow(0))
+print(sol.getRow(1))
+print(sol.getRow(2))
+print(sol.getRow(3))
+```
+
 ## 2022.7.28
 
 ```python
