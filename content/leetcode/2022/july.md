@@ -3,6 +3,32 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.30
+
+```python
+#
+# @lc app=leetcode.cn id=383 lang=python3
+#
+# [383] 赎金信
+#
+
+# @lc code=start
+from collections import Counter
+
+
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        return Counter(ransomNote) <= Counter(magazine)
+
+
+# @lc code=end
+
+sol = Solution()
+print(sol.canConstruct(ransomNote="a", magazine="b"))
+print(sol.canConstruct(ransomNote="aa", magazine="ab"))
+print(sol.canConstruct(ransomNote="aa", magazine="aab"))
+```
+
 ## 2022.7.29
 
 ```python
