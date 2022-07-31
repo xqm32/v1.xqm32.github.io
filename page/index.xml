@@ -23,6 +23,13 @@
 &lt;h2 id="npm-镜像设置">&lt;code>npm&lt;/code> 镜像设置&lt;/h2>
 &lt;p>&lt;a class="link" href="https://mirrors.tencent.com/help/npm.html" target="_blank" rel="noopener"
 >腾讯解君愁&lt;/a>。&lt;/p>
+&lt;h2 id="yarn-安装">&lt;code>yarn&lt;/code> 安装&lt;/h2>
+&lt;p>&lt;a class="link" href="https://yarnpkg.com/getting-started/install#install-corepack" target="_blank" rel="noopener"
+>yarn 安装 corepack&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://nodejs.org/api/corepack.html#enabling-the-feature" target="_blank" rel="noopener"
+>启动 corepack&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.2#example-1-set-an-execution-policy" target="_blank" rel="noopener"
+>设置 execution policy&lt;/a>&lt;/p>
 &lt;h2 id="hugo-设置自定义域名">Hugo 设置自定义域名&lt;/h2>
 &lt;p>参见 &lt;a class="link" href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#use-a-custom-domain" target="_blank" rel="noopener"
 >Use a Custom Domain&lt;/a>。&lt;/p>
