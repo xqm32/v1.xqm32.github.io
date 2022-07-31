@@ -3,6 +3,28 @@ title: "July"
 draft: false
 ---
 
+## 2022.7.31
+
+```python
+#
+# @lc app=leetcode.cn id=1523 lang=python3
+#
+# [1523] 在区间范围内统计奇数数目
+#
+
+# @lc code=start
+class Solution:
+    def countOdds(self, low: int, high: int) -> int:
+        return ((high + high % 2) - (low - low % 2)) // 2
+
+
+# @lc code=end
+sol = Solution()
+print(sol.countOdds(1, 4))
+print(sol.countOdds(3, 7))
+print(sol.countOdds(0, 10))
+```
+
 ## 2022.7.30
 
 ```python
