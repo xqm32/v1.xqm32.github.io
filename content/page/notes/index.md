@@ -12,6 +12,14 @@ slug: "notes"
 
 [腾讯解君愁](https://mirrors.tencent.com/help/npm.html)。
 
+## `yarn` 安装
+
+[yarn 安装 corepack](https://yarnpkg.com/getting-started/install#install-corepack)
+
+[启动 corepack](https://nodejs.org/api/corepack.html#enabling-the-feature)
+
+[设置 execution policy](https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.2#example-1-set-an-execution-policy)
+
 ## Hugo 设置自定义域名
 
 参见 [Use a Custom Domain](https://gohugo.io/hosting-and-deployment/hosting-on-github/#use-a-custom-domain)。
