@@ -13,6 +13,10 @@ links:
   - title: Inko
     description: 串串儿
     website: https://blog.inko.lv/
+  - title: WhiteTraveller
+    description: 很白
+    website: https://whitetraveller.github.io/
+    image: https://www.gravatar.com/avatar/962673702555ba76d8bd57700bc32d98
 menu:
     main: 
         weight: 200
@@ -28,3 +32,5 @@ comments: true
 🐂 神犇 [YKgsmUDq](http://ykgsmudq.com/)
 
 ⚓ 串串儿 [<font color=lightblue>Inko</font>](https://blog.inko.lv/)
+
+🧢 白色旅人 [WhiteTraveller](https://whitetraveller.github.io/)
