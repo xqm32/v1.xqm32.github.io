@@ -17,6 +17,10 @@ links:
     description: 很白
     website: https://whitetraveller.github.io/
     image: https://www.gravatar.com/avatar/962673702555ba76d8bd57700bc32d98
+  - title: CenShell
+    description: CenShell
+    website: https://hfut-xyc.github.io/
+    image: https://avatars.githubusercontent.com/u/46814231?v=4
 menu:
     main: 
         weight: 200
@@ -34,3 +38,5 @@ comments: true
 ⚓ 串串儿 [<font color=lightblue>Inko</font>](https://blog.inko.lv/)
 
 🧢 白色旅人 [WhiteTraveller](https://whitetraveller.github.io/)
+
+🔬 CenShell [CenShell](https://hfut-xyc.github.io/)
