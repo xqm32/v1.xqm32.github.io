@@ -97,6 +97,18 @@ git config --global http.https://github.com.proxy http://127.0.0.1:7890
 
 参见[Installing and configuring Git-Mediawiki](http://members.wolfram.com/meng/pages/computing/installing_and_configuring/installing_and_configuring_git-mediawiki/)。
 
+## Git 修改时间
+
+Powershell 下：
+
+```
+$TIME="YYYY-mm-ddTHH:MM:SS"
+$env:GIT_COMMITTER_DATE=$TIME
+git commit --amend --no-edit --date=$TIME
+```
+
+参见[如何通过 Git 钩子实现 commit 自动修改提交的时间？](https://www.zhihu.com/question/517856692/answer/2362990102)
+
 ## WinGet
 
 可以使用 WinGet 进行软件包的安装，如：
