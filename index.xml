@@ -18413,6 +18413,70 @@ data-flex-basis="341px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># @lc code=end&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
+&lt;/div></description></item><item><title>2023.3</title><link>https://xqm32.org/leetcode/2023/4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/leetcode/2023/4/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">#
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># @lc app=leetcode.cn id=965 lang=python3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># [965] 单值二叉树
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># @lc code=start
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Definition for a binary tree node.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># class TreeNode:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># def __init__(self, val=0, left=None, right=None):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># self.val = val
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># self.left = left
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># self.right = right
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">from typing import Optional
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">class Solution:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> def isUnivalTree(self, root: Optional[TreeNode]) -&amp;gt; bool:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> def dfs(node: TreeNode, val: int) -&amp;gt; bool:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if not node:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return True
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if node.val != val:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return False
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return dfs(node.left, val) and dfs(node.right, val)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return dfs(root, root.val)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># @lc code=end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
 &lt;/div></description></item><item><title>GitHub</title><link>https://xqm32.org/github/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/github/</guid><description>&lt;p>收集一些有意思的 GitHub 项目&lt;/p>
 &lt;ol>
 &lt;li>
