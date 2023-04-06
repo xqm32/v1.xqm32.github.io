@@ -12,3 +12,7 @@ draft: false
 # Console Color Output
 
 参考 (此条目)[https://wiki.archlinux.org/title/Color_output_in_console]。
+
+# macOS 和 Linux 下 grep 参数?
+
+macOS 下 `grep -E` 和 Linux 下 `grep -E` 似乎有所不同, 参见力扣 #193.
