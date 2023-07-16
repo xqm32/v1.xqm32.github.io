@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qiming's Blog</title><link>https://xqm32.org/</link><description>Recent content on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Jan 2022 20:36:22 +0800</lastBuildDate><atom:link href="https://xqm32.org/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.org/p/add-gitalk-to-hugo/</link><pubDate>Sun, 09 Jan 2022 20:36:22 +0800</pubDate><guid>https://xqm32.org/p/add-gitalk-to-hugo/</guid><description>&lt;p>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 &lt;code>Gitalk&lt;/code> 搭建博客评论区显然是一个不错的选择。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qiming's Blog</title><link>https://xqm32.org/</link><description>Recent content on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 16 Jul 2023 17:58:40 +0800</lastBuildDate><atom:link href="https://xqm32.org/index.xml" rel="self" type="application/rss+xml"/><item><title>macOS 配置</title><link>https://xqm32.org/p/macos-setup/</link><pubDate>Sun, 16 Jul 2023 17:58:40 +0800</pubDate><guid>https://xqm32.org/p/macos-setup/</guid><description>&lt;h1 id="macos-配置">macOS 配置&lt;/h1>
+&lt;h2 id="安装方式优先级">安装方式优先级&lt;/h2>
+&lt;p>图形界面软件：App Store &amp;gt; 官网 &amp;gt; 其他方式&lt;/p>
+&lt;p>命令行软件：官网推荐的安装方式 &amp;gt; Homebrew &amp;gt; 其他方式（如果需要额外配置环境变量，应当优先考虑 Homebrew）&lt;/p>
+&lt;h2 id="图形界面软件列表">图形界面软件列表&lt;/h2>
+&lt;h3 id="通过-app-store-安装">通过 App Store 安装&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://apps.apple.com/cn/app/qq/id451108668?mt=12" target="_blank" rel="noopener"
+>QQ&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id836500024?mt=12" target="_blank" rel="noopener"
+>微信&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://apps.apple.com/cn/app/wps-office/id1443749478?mt=12" target="_blank" rel="noopener"
+>WPS Office&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://apps.apple.com/cn/app/marginnote-3/id1423522373?mt=12" target="_blank" rel="noopener"
+>MarginNote 3&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="通过官网安装">通过官网安装&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://typora.io" target="_blank" rel="noopener"
+>Typora&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://code.visualstudio.com" target="_blank" rel="noopener"
+>Visual Studio Code&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://start.qq.com" target="_blank" rel="noopener"
+>START&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://iina.io" target="_blank" rel="noopener"
+>IINA&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.logitech.com/zh-cn/software/logi-options-plus.html" target="_blank" rel="noopener"
+>Logi Options+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="通过-github-安装">通过 GitHub 安装&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public" target="_blank" rel="noopener"
+>ClashX Pro&lt;/a>（优先）&lt;/li>
+&lt;/ul>
+&lt;h2 id="命令行界面软件列表">命令行界面软件列表&lt;/h2>
+&lt;h3 id="通过-homebrew-安装">通过 Homebrew 安装&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://git-scm.com/download/mac" target="_blank" rel="noopener"
+>Git&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/pyenv/pyenv" target="_blank" rel="noopener"
+>Pyenv&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/tj/n" target="_blank" rel="noopener"
+>n&lt;/a>（使用 n 主要是因为 nvm 不再支持 Homebrew 安装，&lt;a class="link" href="https://www.sobyte.net/post/2022-04/node-mvn-n/" target="_blank" rel="noopener"
+>不过似乎 nvm 更稳定一些&lt;/a>）&lt;/p>
+&lt;p>&lt;a class="link" href="https://nodejs.org/en/download/package-manager#nvs" target="_blank" rel="noopener"
+>各种 node 的安装方法&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://gohugo.io/installation/macos/#package-managers" target="_blank" rel="noopener"
+>Hugo&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/dylanaraps/neofetch" target="_blank" rel="noopener"
+>Neofetch&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://go.dev" target="_blank" rel="noopener"
+>Go&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/ziglang/zig/wiki/Install-Zig-from-a-Package-Manager" target="_blank" rel="noopener"
+>Zig&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="通过官网安装-1">通过官网安装&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://brew.sh" target="_blank" rel="noopener"
+>Homebrew&lt;/a>（优先）&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.rust-lang.org" target="_blank" rel="noopener"
+>Rust&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://sdkman.io" target="_blank" rel="noopener"
+>sdkman&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="通过其他方式安装">通过其他方式安装&lt;/h3>
+&lt;h2 id="其他软件列表">其他软件列表&lt;/h2>
+&lt;h3 id="命令行软件列表">命令行软件列表&lt;/h3>
+&lt;p>出于稳定性考虑，暂时不考虑使用以下两个软件版本管理器&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/jdxcode/rtx" target="_blank" rel="noopener"
+>rtx&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/asdf-vm/asdf" target="_blank" rel="noopener"
+>asdf&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>为 Hugo 博客加入 Gitalk</title><link>https://xqm32.org/p/add-gitalk-to-hugo/</link><pubDate>Sun, 09 Jan 2022 20:36:22 +0800</pubDate><guid>https://xqm32.org/p/add-gitalk-to-hugo/</guid><description>&lt;p>一个好的博客往往需要评论区的支撑，但使用自建服务器做评论区显然有点略显奢侈了，而使用 &lt;code>Gitalk&lt;/code> 搭建博客评论区显然是一个不错的选择。&lt;/p>
 &lt;h1 id="加入-gitalk-的方法">加入 Gitalk 的方法&lt;/h1>
 &lt;p>这里以 &lt;code>PaperMod&lt;/code> 主题为例子，理论上也适用于其他主题，具体还请查阅所用主题的相关文档。&lt;/p>
 &lt;p>&lt;a class="link" href="https://github.com/adityatelange/hugo-PaperMod/wiki/Features#comments" target="_blank" rel="noopener"
