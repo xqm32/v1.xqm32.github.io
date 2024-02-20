@@ -1,305 +1,42 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-
-    <!-- Bootstrap icons-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
-    />
-
-    <!-- seasons.css -->
-    <link href="./seasons.css" rel="stylesheet" />
-
-    <!-- vue.js -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.prod.js"></script>
-
-    <!-- chart.js -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"
-      integrity="sha256-ErZ09KkZnzjpqcane4SCyyHsKAXMvID9/xwbl/Aq1pc="
-      crossorigin="anonymous"
-    ></script>
-
-    <title>Seasons Helper</title>
-  </head>
-  <body>
-    <div class="container-fluid" id="Seasons">
-      <!-- Navbar start -->
-      <nav class="navbar">
-        <div class="container-fluid">
-          <span class="navbar-brand">{{message.Brand}}</span>
-          <div class="d-flex d-none d-sm-block">
-            <button
-              class="btn me-2"
-              :class="'btn-outline-'+tab.type"
-              :disabled="!gaming||tab.disabled"
-              @click="tab.click"
-              v-for="tab in tabs"
-            >
-              <i class="bi" :class="'bi-'+tab.icon"></i>
-              {{tab?.button}}
-            </button>
-            <input
-              type="checkbox"
-              class="btn-check"
-              id="showHelp"
-              v-model="showHelp"
-            />
-            <label class="btn btn-outline-primary" for="showHelp">
-              <i class="bi bi-question-lg"></i>
-            </label>
-          </div>
-        </div>
-      </nav>
-      <!-- Navbar end -->
-      <!-- Modal start -->
-      <!-- See https://getbootstrap.com/docs/5.1/components/modal/#static-backdrop -->
-      <div
-        class="modal fade"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        :id="'modal-'+id"
-        :key="id"
-        v-for="(modal, id) in modals"
-      >
-        <div class="modal-dialog" :class="modal?.class">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">{{modal.title}}</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body" v-html="modal.message"></div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-                v-if="modal.hasOwnProperty('cancel')"
-              >
-                {{modal.cancel}}
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="()=>{modal.method();closeModal(id);}"
-                v-if="modal.hasOwnProperty('confirm')"
-              >
-                {{modal.confirm}}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Modal end -->
-      <!-- Alerts start -->
-      <div
-        class="alert alert-dismissible fade show"
-        role="alert"
-        :id="'alert-'+id"
-        :class="'alert-'+alert.what.type"
-        :key="id"
-        v-for="(alert, id) in alerts"
-      >
-        {{alert.what.message}}
-        <button
-          type="button"
-          class="btn-close"
-          aria-label="Close"
-          @click="closeAlert(id)"
-        ></button>
-      </div>
-      <!-- Alerts end -->
-      <!-- Main section start -->
-      <!-- Choose colors start-->
-      <table class="table table-borderless text-center" v-if="!gaming">
-        <thead>
-          <tr>
-            <th
-              :style="{'background-color':color}"
-              v-for="color in ['orange','purple','yellow','gray']"
-            ></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td
-              class="table-active"
-              v-for="color in ['orange','purple','yellow','gray']"
-            >
-              <!-- form-check-inline 是为了使得 checkbox 可以水平居中 -->
-              <div class="form-check form-switch form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  :id="color"
-                  :value="color"
-                  v-model="colors"
-                />
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- Choose colors end-->
-      <!-- Start button start -->
-      <div class="row text-center">
-        <div class="col-12">
-          <button
-            type="button"
-            class="btn btn-outline-primary"
-            :disabled="colors.length<2"
-            @click="start"
-            v-if="!gaming"
-          >
-            {{message.Start}}
-          </button>
-        </div>
-      </div>
-      <!-- Start button end -->
-      <!-- Game start-->
-      <table class="table table-borderless table-sm text-center" v-if="gaming">
-        <tbody>
-          <tr
-            :class="{'table-success': color==colors[currentColor]}"
-            v-for="color in colors"
-          >
-            <th scope="row" :style="{'background-color':color}"></th>
-            <!-- Subtract crystals start -->
-            <td class="text-end">
-              <div class="btn-group" role="group">
-                <button
-                  type="button"
-                  class="btn btn-outline-success"
-                  @click="stageds[color]-=i"
-                  v-for="i in [5,4,3,2,1]"
-                >
-                  {{i}}
-                </button>
-              </div>
-            </td>
-            <!-- Subtract crystals end -->
-            <!-- Crystals start -->
-            <td>
-              <div class="btn-group" role="group">
-                <button
-                  type="button"
-                  class="btn"
-                  :class="'btn-outline-'+btnColor(color)"
-                  :disabled="stageds[color]==0"
-                  @click="commit(color)"
-                >
-                  {{this.crystals[color]}}
-                  <!-- Badge start -->
-                  <!-- z-index 必须大于 1，否则将被按钮遮盖 -->
-                  <span
-                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-                    :class="'bg-'+bgColor(color)"
-                    style="z-index: 2"
-                  >
-                    {{signedStage(color)}}
-                  </span>
-                  <!-- Badge end -->
-                </button>
-              </div>
-            </td>
-            <!-- Crystals end -->
-            <!-- Add crystals start -->
-            <td class="text-start">
-              <div class="btn-group" role="group">
-                <button
-                  type="button"
-                  class="btn btn-outline-danger"
-                  @click="stageds[color]+=i"
-                  v-for="i in [1,2,3,4,5]"
-                >
-                  {{i}}
-                </button>
-              </div>
-            </td>
-            <!-- Add crystals end -->
-            <!-- Familiars start-->
-            <td class="text-start" v-for="(familiar, name) in familiars">
-              <div class="btn-group" role="group">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  @click="effect(color, name)"
-                >
-                  {{familiar.message}}
-                  <span
-                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
-                    style="z-index: 2"
-                  >
-                    {{effecteds[color][name]}}
-                  </span>
-                </button>
-              </div>
-            </td>
-            <!-- Familiars end-->
-            <!-- Operations start-->
-            <td class="text-start">
-              <div class="btn-group" role="group">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  @click="operate.method(color)"
-                  v-for="operate in operations"
-                >
-                  <i class="bi" :class="'bi-'+operate.icon"></i>
-                </button>
-              </div>
-            </td>
-            <!-- Operations end-->
-            <th scope="row" :style="{'background-color':color}"></th>
-          </tr>
-        </tbody>
-      </table>
-      <!-- Game end-->
-      <!-- Guide start -->
-      <ul class="list-group list-group-flush" v-if="showHelp">
-        <li class="list-group-item" v-for="guide in guides">
-          <button
-            type="button"
-            class="btn"
-            :class="'btn-outline-'+guide.type"
-            disabled
-          >
-            <i class="bi" :class="'bi-'+guide.icon"></i>
-          </button>
-          {{guide.message}}
-        </li>
-      </ul>
-      <!-- Guide end -->
-      <!-- Main section end -->
-    </div>
-
-    <!-- seasons.js -->
-    <script src="./seasons.js"></script>
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content='<!DOCTYPE html> Seasons Helper {{message.Brand}} {{tab?.button}} {{modal.title}} {{modal.cancel}} {{modal.confirm}} {{alert.what.message}} {{message.Start}} {{i}} {{this.crystals[color]}} {{signedStage(color)}} {{i}} {{familiar.message}} {{effecteds[color][name]}} {{guide.message}}'><title></title>
+<link rel=canonical href=https://xqm32.org/games/seasons/><link rel=stylesheet href=/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css><meta property='og:title' content><meta property='og:description' content='<!DOCTYPE html> Seasons Helper {{message.Brand}} {{tab?.button}} {{modal.title}} {{modal.cancel}} {{modal.confirm}} {{alert.what.message}} {{message.Start}} {{i}} {{this.crystals[color]}} {{signedStage(color)}} {{i}} {{familiar.message}} {{effecteds[color][name]}} {{guide.message}}'><meta property='og:url' content='https://xqm32.org/games/seasons/'><meta property='og:site_name' content="Qiming's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Games'><meta property='article:modified_time' content='2022-04-14T20:50:40+08:00'><meta name=twitter:title content><meta name=twitter:description content="<!DOCTYPE html> Seasons Helper {{message.Brand}} {{tab?.button}} {{modal.title}} {{modal.cancel}} {{modal.confirm}} {{alert.what.message}} {{message.Start}} {{i}} {{this.crystals[color]}} {{signedStage(color)}} {{i}} {{familiar.message}} {{effecteds[color][name]}} {{guide.message}}"></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hud3f1d7d8fc59217abba44cbd8c386bca_15539_300x0_resize_box_3.png width=300 height=249 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>Qiming's Blog</a></h1><h2 class=site-description>Had I not seen the Sun, I could have borne the shade</h2></div></header><ol class=social-menu><li><a href=https://github.com/xqm32 target=_blank title=GitHub><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://stackoverflow.com/users/16325470 target=_blank title=Stackoverflow><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-stackoverflow" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 17v1a2 2 0 002 2h12a2 2 0 002-2v-1"/><path d="M8 16h8"/><path d="M8.322 12.582l7.956.836"/><path d="M8.787 9.168l7.826 1.664"/><path d="M10.096 5.764l7.608 2.472"/></svg></a></li><li><a href=https://steamcommunity.com/id/xqm32 target=_blank title=Steam><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-steam" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.5 5a4.5 4.5.0 11-.653 8.953L11.5 16.962V17a3 3 0 01-2.824 2.995L8.5 20a3 3 0 01-2.94-2.402L3 16.5V13l3.51 1.755a2.989 2.989.0 012.834-.635l2.727-3.818A4.5 4.5.0 0116.5 5z"/><circle fill="currentcolor" cx="16.5" cy="9.5" r="1"/></svg></a></li><li><a href=https://t.me/xqm32 target=_blank title=Telegram><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/categories/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+<span>分类</span></a></li><li><a href=/tags/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tags" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7.859 6H5.025A2.025 2.025.0 003 8.025v2.834c0 .537.213 1.052.593 1.432l6.116 6.116a2.025 2.025.0 002.864.0l2.834-2.834a2.025 2.025.0 000-2.864L9.29 6.593A2.025 2.025.0 007.859 6z"/><path d="M17.573 18.407l2.834-2.834a2.025 2.025.0 000-2.864L13.29 5.593"/><path d="M6 9h-.01"/></svg>
+<span>标签</span></a></li><li><a href=/%E5%8F%8B%E9%93%BE/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>友链</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><div class=menu-bottom-section><li id=i18n-switch><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://xqm32.org/ selected></option></select></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></div></ol></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/games/seasons/></a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 1 分钟</time></div></footer></div></header><section class=article-content><!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css rel=stylesheet integrity=sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3 crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css><link href=./seasons.css rel=stylesheet><script src=https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.prod.js></script><script src=https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js integrity="sha256-ErZ09KkZnzjpqcane4SCyyHsKAXMvID9/xwbl/Aq1pc=" crossorigin=anonymous></script><title>Seasons Helper</title></head><body><div class=container-fluid id=Seasons><nav class=navbar><div class=container-fluid><span class=navbar-brand>{{message.Brand}}</span><div class="d-flex d-none d-sm-block"><button class="btn me-2" :class="'btn-outline-'+tab.type" :disabled=!gaming||tab.disabled @click=tab.click v-for="tab in tabs">
+<i class=bi :class="'bi-'+tab.icon"></i>
+{{tab?.button}}
+</button>
+<input type=checkbox class=btn-check id=showHelp v-model=showHelp>
+<label class="btn btn-outline-primary" for=showHelp><i class="bi bi-question-lg"></i></label></div></div></nav><div class="modal fade" data-bs-backdrop=static data-bs-keyboard=false tabindex=-1 :id="'modal-'+id" :key=id v-for="(modal, id) in modals"><div class=modal-dialog :class=modal?.class><div class=modal-content><div class=modal-header><h5 class=modal-title>{{modal.title}}</h5><button type=button class=btn-close data-bs-dismiss=modal aria-label=Close></button></div><div class=modal-body v-html=modal.message></div><div class=modal-footer><button type=button class="btn btn-secondary" data-bs-dismiss=modal v-if="modal.hasOwnProperty('cancel')">
+{{modal.cancel}}
+</button>
+<button type=button class="btn btn-primary" @click="()=>{modal.method();closeModal(id);}" v-if="modal.hasOwnProperty('confirm')">
+{{modal.confirm}}</button></div></div></div></div><div class="alert alert-dismissible fade show" role=alert :id="'alert-'+id" :class="'alert-'+alert.what.type" :key=id v-for="(alert, id) in alerts">{{alert.what.message}}
+<button type=button class=btn-close aria-label=Close @click=closeAlert(id)></button></div><table class="table table-borderless text-center" v-if=!gaming><thead><tr><th :style="{'background-color':color}" v-for="color in ['orange','purple','yellow','gray']"></th></tr></thead><tbody><tr><td class=table-active v-for="color in ['orange','purple','yellow','gray']"><div class="form-check form-switch form-check-inline"><input class=form-check-input type=checkbox role=switch :id=color :value=color v-model=colors></div></td></tr></tbody></table><div class="row text-center"><div class=col-12><button type=button class="btn btn-outline-primary" :disabled="colors.length<2" @click=start v-if=!gaming>
+{{message.Start}}</button></div></div><table class="table table-borderless table-sm text-center" v-if=gaming><tbody><tr :class="{'table-success': color==colors[currentColor]}" v-for="color in colors"><th scope=row :style="{'background-color':color}"></th><td class=text-end><div class=btn-group role=group><button type=button class="btn btn-outline-success" @click="stageds[color]-=i" v-for="i in [5,4,3,2,1]">
+{{i}}</button></div></td><td><div class=btn-group role=group><button type=button class=btn :class="'btn-outline-'+btnColor(color)" :disabled="stageds[color]==0" @click=commit(color)>
+{{this.crystals[color]}}
+<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" :class="'bg-'+bgColor(color)" style=z-index:2>{{signedStage(color)}}</span></button></div></td><td class=text-start><div class=btn-group role=group><button type=button class="btn btn-outline-danger" @click="stageds[color]+=i" v-for="i in [1,2,3,4,5]">
+{{i}}</button></div></td><td class=text-start v-for="(familiar, name) in familiars"><div class=btn-group role=group><button type=button class="btn btn-outline-primary" @click="effect(color, name)">
+{{familiar.message}}
+<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary" style=z-index:2>{{effecteds[color][name]}}</span></button></div></td><td class=text-start><div class=btn-group role=group><button type=button class="btn btn-outline-primary" @click=operate.method(color) v-for="operate in operations">
+<i class=bi :class="'bi-'+operate.icon"></i></button></div></td><th scope=row :style="{'background-color':color}"></th></tr></tbody></table><ul class="list-group list-group-flush" v-if=showHelp><li class=list-group-item v-for="guide in guides"><button type=button class=btn :class="'btn-outline-'+guide.type" disabled>
+<i class=bi :class="'bi-'+guide.icon"></i>
+</button>
+{{guide.message}}</li></ul></div><script src=./seasons.js></script><script src=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p crossorigin=anonymous></script></body></html></section><footer class=article-footer><section class=article-lastmod><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>最后更新于 Apr 14, 2022 20:50 +0800</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><div id=gitalk-container></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css><script src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script><script src=https://cdn.jsdelivr.net/npm/blueimp-md5@2.18.0/js/md5.min.js></script><script>const gitalk=new Gitalk({clientID:"effe960551db601801d0",clientSecret:"273d97946210e4a1e06df08497f5085dc1c32a5d",repo:"xqm32.github.io",owner:"xqm32",admin:["[xqm32]"],id:location.pathname,distractionFreeMode:!1});(function(){gitalk.render("gitalk-container")})()</script><footer class=site-footer><section class=copyright>&copy;
+2021 -
+2024 Qiming's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.11.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

@@ -1,4 +1,461 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on Qiming's Blog</title><link>https://xqm32.org/tools/</link><description>Recent content in Tools on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xqm32.org/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Wordle</title><link>https://xqm32.org/tools/wordle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/tools/wordle/</guid><description>&lt;h1 id="使用说明">使用说明&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on Qiming's Blog</title><link>https://xqm32.org/tools/</link><description>Recent content in Tools on Qiming's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xqm32.org/tools/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://xqm32.org/tools/c4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/tools/c4/</guid><description>&lt;!DOCTYPE html>
+&lt;html lang="zh-cn">
+&lt;head>
+&lt;meta charset="utf-8" />
+&lt;meta name="viewport" content="width=device-width, initial-scale=1" />
+&lt;title>Qiming's C in four functions&lt;/title>
+&lt;link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"
+/>
+&lt;link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
+/>
+&lt;/head>
+&lt;body>
+&lt;div class="container-fluid d-flex justify-content-center">
+&lt;div class="mt-4" style="width: 500px">
+&lt;div style="width: 100%">
+&lt;textarea
+id="src"
+class="form-control rounded-0 border-1"
+style="height: 300px"
+>&lt;/textarea>
+&lt;div id="res">&lt;/div>
+&lt;/div>
+&lt;div class="btn-group mt-2" role="group" style="width: 100%">
+&lt;button
+type="button"
+class="btn btn-outline-secondary rounded-0 border-0"
+style="width: 100%"
+onclick="c4wasm()"
+>
+&lt;i class="bi bi-play">&lt;/i>
+&lt;/button>
+&lt;/div>
+&lt;div class="mt-2" style="width: 100%">
+&lt;textarea
+id="stdout"
+class="form-control rounded-0 border-1"
+style="height: 150px"
+>&lt;/textarea>
+&lt;div id="res">&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;script>
+function feedback(isInvalid, message) {
+document.getElementById("src").classList.remove("is-invalid");
+document.getElementById("src").classList.remove("is-valid");
+document.getElementById("res").classList.remove("invalid-feedback");
+document.getElementById("res").classList.remove("valid-feedback");
+document.getElementById("src").classList.add(`is-${isInvalid}`);
+document.getElementById("res").classList.add(`${isInvalid}-feedback`);
+document.getElementById("res").innerHTML = message;
+}
+function c4wasm() {
+let src = document.getElementById("src").value;
+FS.writeFile("main.c", src);
+let exitCode = Module.c4("main.c");
+let stdout = FS.readFile("stdout", { encoding: "utf8" });
+if (exitCode == -1) {
+feedback("invalid", "Error at line " + stdout);
+} else {
+feedback("valid", `&lt;i class="bi bi-arrow-right">&lt;/i> ${exitCode}`);
+document.getElementById("stdout").value = stdout;
+}
+}
+&lt;/script>
+&lt;script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+crossorigin="anonymous"
+>&lt;/script>
+&lt;script src="c4.js">&lt;/script>
+&lt;/body>
+&lt;/html></description></item><item><title/><link>https://xqm32.org/tools/calculator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/tools/calculator/</guid><description>&lt;!doctype html>
+&lt;html lang="zh-cn">
+&lt;head>
+&lt;meta charset="utf-8">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1">
+&lt;title>Qiming's Calculator&lt;/title>
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+&lt;script src="tinyexpr.js">&lt;/script>
+&lt;/head>
+&lt;body>
+&lt;div class="container-fluid d-flex justify-content-center">
+&lt;div class="mt-4" style="width:300px;">
+&lt;div style="width:100%;">
+&lt;input id="expr" type="text" class="form-control rounded-0 border-1" value="">
+&lt;div id="ans">&lt;/div>
+&lt;/div>
+&lt;div class="btn-group mt-2" role="group" style="width:100%;">
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="ac()">AC&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('(')">(&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append(')')">)&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('/')">÷&lt;/button>
+&lt;/div>
+&lt;div class="btn-group" role="group" style="width:100%;">
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('1')">1&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('2')">2&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('3')">3&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('*')">×&lt;/button>
+&lt;/div>
+&lt;div class="btn-group" role="group" style="width:100%;">
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('4')">4&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('5')">5&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('6')">6&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('-')">-&lt;/button>
+&lt;/div>
+&lt;div class="btn-group" role="group" style="width:100%;">
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('7')">7&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('8')">8&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('9')">9&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('+')">+&lt;/button>
+&lt;/div>
+&lt;div class="btn-group" role="group" style="width:100%;">
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append(',')">,&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('0')">0&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="append('.')">.&lt;/button>
+&lt;button type="button" class="btn btn-outline-secondary rounded-0 border-0" style="width:25%;"
+onclick="calc()">=&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;script>
+function append(c) {
+let expr = document.getElementById("expr");
+expr.value += c;
+}
+function ac() {
+document.getElementById("expr").value = "";
+document.getElementById("ans").innerHTML = "";
+document.getElementById("expr").classList.remove("is-invalid");
+document.getElementById("expr").classList.remove("is-valid");
+document.getElementById("ans").classList.remove('invalid-feedback');
+document.getElementById("ans").classList.remove('valid-feedback');
+}
+function calc() {
+document.getElementById("expr").classList.remove("is-invalid");
+document.getElementById("expr").classList.remove("is-valid");
+document.getElementById("ans").classList.remove('invalid-feedback');
+document.getElementById("ans").classList.remove('valid-feedback');
+let expr = document.getElementById("expr").value;
+if (expr == '')
+return
+let ans = Module.calculate(expr);
+if (ans.startsWith("!")) {
+ans = Number(ans.slice(1)) - 1;
+ans = `&lt;span class="opacity-25">${expr.slice(0, ans)}&lt;/span>${expr[ans]}&lt;span class="opacity-25">${expr.slice(ans + 1)}&lt;/span>`;
+// ans = `! ${ans}`;
+document.getElementById("expr").classList.add('is-invalid');
+document.getElementById("ans").classList.add('invalid-feedback');
+}
+else {
+document.getElementById("expr").classList.add('is-valid');
+document.getElementById("ans").classList.add('valid-feedback');
+ans = String(Number(ans))
+// ans = `= ${ans}`;
+}
+document.getElementById("ans").innerHTML = ans;
+}
+&lt;/script>
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+crossorigin="anonymous">&lt;/script>
+&lt;/body>
+&lt;/html></description></item><item><title/><link>https://xqm32.org/tools/huffman/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/tools/huffman/</guid><description>&lt;!DOCTYPE html>
+&lt;html lang="zh-cn">
+&lt;head>
+&lt;meta charset="utf-8" />
+&lt;meta name="viewport" content="width=device-width, initial-scale=1" />
+&lt;title>Qiming's Huffman&lt;/title>
+&lt;link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"
+/>
+&lt;link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
+/>
+&lt;script
+src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"
+integrity="sha256-xoh0y6ov0WULfXcLMoaA6nZfszdgI8w2CEJ/3k8NBIE="
+crossorigin="anonymous"
+>&lt;/script>
+&lt;script src="huffman.js">&lt;/script>
+&lt;/head>
+&lt;body>
+&lt;div class="container-fluid d-flex justify-content-center">
+&lt;div class="mt-4" style="width: 300px">
+&lt;div style="width: 100%">
+&lt;input
+id="file"
+type="file"
+class="form-control rounded-0 border-1"
+onchange="upload(this)"
+/>
+&lt;div id="res">&lt;/div>
+&lt;/div>
+&lt;div class="btn-group mt-2" role="group" style="width: 300px">
+&lt;button
+type="button"
+class="btn btn-outline-secondary rounded-0 border-0"
+style="width: 100px"
+onclick="zip()"
+>
+&lt;i class="bi bi-file-zip">&lt;/i>
+&lt;/button>
+&lt;button
+type="button"
+class="btn btn-outline-secondary rounded-0 border-0"
+style="width: 100px"
+onclick="unzip()"
+>
+&lt;i class="bi bi-file-break">&lt;/i>
+&lt;/button>
+&lt;button
+type="button"
+class="btn btn-outline-secondary rounded-0 border-0"
+style="width: 100px"
+onclick="verify()"
+>
+&lt;i class="bi bi-file-check">&lt;/i>
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;script>
+let lastFile = null;
+function msg(isinvalid, message) {
+document.getElementById("file").classList.remove("is-invalid");
+document.getElementById("file").classList.remove("is-valid");
+document.getElementById("res").classList.remove("invalid-feedback");
+document.getElementById("res").classList.remove("valid-feedback");
+document.getElementById("file").classList.add(`is-${isinvalid}`);
+document.getElementById("res").classList.add(`${isinvalid}-feedback`);
+document.getElementById("res").innerHTML = message;
+}
+function upload(e) {
+// See https://emscripten.org/docs/api_reference/Filesystem-API.html#FS.unlink
+if (lastFile) FS.unlink(lastFile);
+let file = e.files[0];
+file.arrayBuffer().then((data) => {
+FS.writeFile(file.name, new Uint8Array(data));
+});
+lastFile = file.name;
+}
+async function zip() {
+if (!lastFile) return;
+let size = FS.stat(lastFile).size;
+let zippedFile = lastFile + ".huf";
+let res = Module.hm_zip(lastFile, size, zippedFile);
+if (!res) {
+msg("invalid", "压缩失败");
+return;
+}
+let zippedSize = FS.stat(zippedFile).size;
+let huf = FS.readFile(zippedFile);
+// See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
+let file = new File([huf], zippedFile, {
+type: "application/octet-stream",
+});
+saveAs(file);
+FS.unlink(zippedFile);
+msg(
+"valid",
+`${size} 字节 &lt;i class="bi bi-arrow-right">&lt;/i> ${zippedSize} 字节 ${(
+(zippedSize / size) *
+100
+).toFixed(2)}%`
+);
+}
+async function unzip() {
+if (!lastFile) return;
+if (!lastFile.endsWith(".huf")) {
+msg("invalid", "文件类型应为 huf");
+return;
+}
+let size = FS.stat(lastFile).size;
+let unzippedFile = lastFile.slice(0, -4);
+let res = Module.hm_unzip(lastFile, size, unzippedFile);
+if (!res) {
+msg("invalid", "解压失败");
+return;
+}
+let unzippedSize = FS.stat(unzippedFile).size;
+let huf = FS.readFile(unzippedFile);
+// See https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#structure_of_a_mime_type
+let file = new File([huf], unzippedFile, {
+type: "application/octet-stream",
+});
+saveAs(file);
+FS.unlink(unzippedFile);
+msg(
+"valid",
+`${size} 字节 &lt;i class="bi bi-arrow-right">&lt;/i> ${unzippedSize} 字节 ${(
+(size / unzippedSize) *
+100
+).toFixed(2)}%`
+);
+}
+async function verify() {
+if (!lastFile) return;
+let size = FS.stat(lastFile).size;
+let zippedFile = lastFile + ".huf";
+let zipRes = Module.hm_zip(lastFile, size, zippedFile);
+let zippedSize = FS.stat(zippedFile).size;
+let unzipRes = Module.hm_unzip(
+zippedFile,
+zippedSize,
+zippedFile + ".tmp"
+);
+if (!(zipRes &amp;&amp; unzipRes)) {
+msg("invalid", "验证失败，压缩或解压失败");
+return;
+}
+let content = FS.readFile(lastFile);
+let unzipContent = FS.readFile(zippedFile + ".tmp");
+if (content.length != unzipContent.length) {
+msg("invalid", "验证失败，文件长度不一致");
+return;
+}
+for (let i = 0; i &lt; content.length; i++) {
+if (content[i] != unzipContent[i]) {
+msg("invalid", "验证失败，文件内容不一致");
+return;
+}
+}
+msg(
+"valid",
+`${size} 字节 &lt;i class="bi bi-arrow-right">&lt;/i> ${zippedSize} 字节 ${(
+(zippedSize / size) *
+100
+).toFixed(2)}%`
+);
+FS.unlink(zippedFile);
+FS.unlink(zippedFile + ".tmp");
+}
+&lt;/script>
+&lt;script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+crossorigin="anonymous"
+>&lt;/script>
+&lt;/body>
+&lt;/html></description></item><item><title/><link>https://xqm32.org/tools/tarielbasic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/tools/tarielbasic/</guid><description>&lt;!DOCTYPE html>
+&lt;html lang="zh-cn">
+&lt;head>
+&lt;meta charset="utf-8" />
+&lt;meta name="viewport" content="width=device-width, initial-scale=1" />
+&lt;title>TarielBASIC&lt;/title>
+&lt;link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"
+/>
+&lt;link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
+/>
+&lt;/head>
+&lt;body>
+&lt;div class="container-fluid d-flex justify-content-center">
+&lt;div class="mt-4" style="width: 500px">
+&lt;div style="width: 100%">
+&lt;textarea
+id="src"
+class="form-control rounded-0 border-1"
+style="height: 300px"
+>&lt;/textarea>
+&lt;div id="res">&lt;/div>
+&lt;/div>
+&lt;div style="width: 100%">
+&lt;textarea
+id="stdin"
+class="form-control rounded-0 border-1"
+style="height: 100px"
+>&lt;/textarea>
+&lt;/div>
+&lt;div class="btn-group mt-2" role="group" style="width: 100%">
+&lt;button
+type="button"
+class="btn btn-outline-secondary rounded-0 border-0"
+style="width: 100%"
+onclick="tb()"
+>
+&lt;i class="bi bi-play">&lt;/i>
+&lt;/button>
+&lt;/div>
+&lt;div class="mt-2" style="width: 100%">
+&lt;textarea
+id="stdout"
+class="form-control rounded-0 border-1"
+style="height: 150px"
+>&lt;/textarea>
+&lt;div id="res">&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;script>
+function feedback(isInvalid, message) {
+document.getElementById("src").classList.remove("is-invalid");
+document.getElementById("src").classList.remove("is-valid");
+document.getElementById("res").classList.remove("invalid-feedback");
+document.getElementById("res").classList.remove("valid-feedback");
+document.getElementById("src").classList.add(`is-${isInvalid}`);
+document.getElementById("res").classList.add(`${isInvalid}-feedback`);
+document.getElementById("res").innerHTML = message;
+}
+function tb() {
+let src = document.getElementById("src").value;
+FS.writeFile("main.bas", src);
+let stdin = document.getElementById("stdin").value;
+FS.writeFile("stdin", stdin);
+let exitCode = Module.tb("main.bas");
+let stdout = FS.readFile("stdout", { encoding: "utf8" });
+if (exitCode == -1) {
+feedback("invalid", "Error at line " + stdout);
+} else {
+feedback("valid", `&lt;i class="bi bi-arrow-right">&lt;/i> ${exitCode}`);
+document.getElementById("stdout").value = stdout;
+}
+}
+&lt;/script>
+&lt;script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+crossorigin="anonymous"
+>&lt;/script>
+&lt;script src="tb.js">&lt;/script>
+&lt;/body>
+&lt;/html></description></item><item><title>Wordle</title><link>https://xqm32.org/tools/wordle/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xqm32.org/tools/wordle/</guid><description>&lt;h1 id="使用说明">使用说明&lt;/h1>
 &lt;p>点击拉取：拉取所有单词&lt;/p>
 &lt;p>点击剩余：计算剩余单词&lt;/p>
 &lt;p>状态按照颜色 w(white), y(yellow), g(green) 进行填写&lt;/p>
